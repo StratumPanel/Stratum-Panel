@@ -8,7 +8,7 @@
     import { Component, Vue } from 'vue-property-decorator'
 
     @Component
-    export default class test extends Vue {
+    export default class Home extends Vue {
     }
 </script>
 

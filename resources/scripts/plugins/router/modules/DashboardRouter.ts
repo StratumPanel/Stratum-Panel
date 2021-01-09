@@ -2,7 +2,7 @@
 import DashboardBase from '@/layouts/dashboard/DashboardBase.vue'
 
 /* Views */
-import test from '@/pages/home/test.vue'
+import Index from '@/pages/home/Index.vue'
 
 /* Middlewares */
 import authMiddleware from '@/plugins/router/middleware/authMiddleware'
@@ -14,7 +14,7 @@ export default {
         {
             path: '',
             name: 'Dashboard',
-            component: test,
+            component: Index,
             beforeEnter: authMiddleware
         },
     ],
