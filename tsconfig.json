@@ -1,0 +1,56 @@
+{
+    "compilerOptions": {
+      // this aligns with Vue's browser support
+      "target": "es5",
+      // this enables stricter inference for data properties on `this`
+      "strict": true,
+      // if using webpack 2+ or rollup, to leverage tree shaking:
+      "module": "es2015",
+      "moduleResolution": "node",
+      
+      "jsx": "preserve",
+
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "sourceMap": true,
+
+      "baseUrl": ".",
+      "rootDir": "./resources/scripts/",
+      "paths": {
+        "@/*": [
+          "./resources/scripts/*"
+        ]
+      },
+
+      "typeRoots": [
+        "./node_modules/@types",
+        "./node_modules/vuetify/types"
+      ],
+
+      "types": [
+        "vuetify",
+        "node"
+      ],
+
+      "lib": [
+        "esnext",
+        "dom",
+        "dom.iterable",
+        "scripthost"
+      ]
+    },
+    "include": [
+        "./resources/scripts/**/*",
+        "./resources/scripts/**/*.ts",
+        "./resources/scripts/**/*.vue",
+        "./resources/scripts/**/*.tsx",
+    ],
+
+    "exclude": [
+      "/node_modules/"
+    ]
+}
