@@ -33,5 +33,5 @@ jobs:
 
     - name: Compile assets for production
 
-      run: npm run build
+      run: npm run production
       
