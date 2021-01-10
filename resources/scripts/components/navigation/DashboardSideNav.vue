@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer :clipped="$vuetify.breakpoint.lgAndUp" fixed v-bind="$attrs" v-on="$listeners" app>
         <v-list dense nav>
-            <v-list-item v-for="link in links" :key="link.title" :to="{ name: link.route }" link>
+            <v-list-item v-for="link in links" :key="link.title" :to="{ name: link.route }" exact>
                 <v-list-item-icon>
                     <v-icon>{{ link.icon }}</v-icon>
                 </v-list-item-icon>
