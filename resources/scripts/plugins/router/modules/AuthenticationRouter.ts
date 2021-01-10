@@ -1,9 +1,6 @@
 /* Layouts */
 import LoginBase from '@/layouts/auth/LoginBase.vue'
 
-/* Views */
-import LoginForm from '@/pages/auth/LoginForm.vue'
-
 /* Middlewares */
 import loginMiddleware from '@/plugins/router/middleware/loginMiddleware'
 
@@ -14,7 +11,7 @@ export default {
         {
             path: '',
             name: 'Login',
-            component: LoginForm,
+            component: () => import('@/pages/auth/LoginForm.vue'),
             beforeEnter: loginMiddleware
         },
     ],

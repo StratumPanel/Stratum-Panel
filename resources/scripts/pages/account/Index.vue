@@ -1,13 +1,20 @@
 <template>
     <div>
-        <h1>Account Test</h1>
+        <h1>wowzone</h1>
+        <account-header />
     </div>
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue } from 'vue-property-decorator'
 
-    @Component
+    import AccountHeader from '@/components/account/Header.vue'
+
+    @Component({
+        components: {
+            AccountHeader
+        }
+    })
     export default class Account extends Vue {
         
     }

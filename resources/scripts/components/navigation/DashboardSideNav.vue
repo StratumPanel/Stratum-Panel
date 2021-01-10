@@ -28,7 +28,8 @@
     @Component
     export default class DashboardSideNav extends Vue {
         private links: links = [
-            { title: 'Instances', icon: 'mdi-layers', route: 'Dashboard'}
+            { title: 'Instances', icon: 'mdi-layers', route: 'Dashboard'},
+            { title: 'My Account', icon: 'mdi-account-circle', route: 'My Account'},
         ]
     }
 </script>

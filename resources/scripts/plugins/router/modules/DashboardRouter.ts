@@ -1,9 +1,6 @@
 /* Layouts */
 import DashboardBase from '@/layouts/dashboard/DashboardBase.vue'
 
-/* Views */
-import Index from '@/pages/home/Index.vue'
-
 /* Middlewares */
 import authMiddleware from '@/plugins/router/middleware/authMiddleware'
 
@@ -14,7 +11,13 @@ export default {
         {
             path: '',
             name: 'Dashboard',
-            component: Index,
+            component: () => import('@/pages/home/Index.vue'),
+            beforeEnter: authMiddleware
+        },
+        {
+            path: 'account',
+            name: 'My Account',
+            component: () => import('@/pages/account/Index.vue'),
             beforeEnter: authMiddleware
         },
     ],
