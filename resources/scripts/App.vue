@@ -12,6 +12,12 @@
     }
 </script>
 
-<style scoped>
+<style>
+  body {
+    overflow-y: hidden;
+  }
 
+  .row {
+    margin: 0 !important;
+  }
 </style>

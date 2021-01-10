@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>wowzone</h1>
         <account-header />
     </div>
 </template>
