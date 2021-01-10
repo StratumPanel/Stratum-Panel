@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue } from 'vue-property-decorator'
     import { mapState } from 'vuex'
 
     import { AccountData } from '@/api/account/getAccountData'
