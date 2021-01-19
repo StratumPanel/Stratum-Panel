@@ -13,6 +13,6 @@ class Nodes extends Model
 
     public function ipaddresses()
     {
-        return $this->hasMany(VMIPAddresses::class);
+        return $this->hasMany(IPAllocations::class);
     }
 }
