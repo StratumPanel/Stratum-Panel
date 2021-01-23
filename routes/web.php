@@ -20,4 +20,4 @@ Route::get('/{any}', function () {
     return view('test');
 })->where('any', '(.*)');
 
-/* Hello Syntax, I'm back doing work I swear */
+/* Hello Syntax, I'm back doing work I swear x2 (updated Jan 23 2021 lol) */

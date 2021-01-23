@@ -2,17 +2,18 @@
 
 namespace Stratum\Repositories;
 
-use Stratum\Models\IpAllocations;
-use Stratum\Contracts\IpAllocationsRepositoryInterface;
+use Stratum\Contracts\IPAllocationRepositoryInterface;
+use Stratum\Models\IPAllocation;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Stratum\Validators\IPAllocationValidator;
 
 /**
- * Class IpAllocationsRepositoryEloquent.
+ * Class IPAllocationRepository.
  *
  * @package namespace Stratum\Repositories;
  */
-class IPAllocationsRepository extends BaseRepository implements IPAllocationsRepositoryInterface
+class IPAllocationRepository extends BaseRepository implements IPAllocationRepositoryInterface
 {
     /**
      * Specify Model class name
@@ -21,7 +22,7 @@ class IPAllocationsRepository extends BaseRepository implements IPAllocationsRep
      */
     public function model()
     {
-        return IPAllocations::class;
+        return IPAllocation::class;
     }
 
     

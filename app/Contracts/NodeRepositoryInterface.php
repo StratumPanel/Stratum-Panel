@@ -5,11 +5,11 @@ namespace Stratum\Contracts;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ServerRepositoryRepository.
+ * Interface NodeRepository.
  *
  * @package namespace Stratum\Contracts;
  */
-interface ServerRepositoryRepositoryInterface extends RepositoryInterface
+interface NodeRepositoryInterface extends RepositoryInterface
 {
     //
 }

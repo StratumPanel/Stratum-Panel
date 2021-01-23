@@ -5,11 +5,11 @@ namespace Stratum\Contracts;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface IpAllocationsRepository.
+ * Interface IPAllocationRepository.
  *
  * @package namespace Stratum\Contracts;
  */
-interface IpAllocationsRepositoryInterface extends RepositoryInterface
+interface IPAllocationRepositoryInterface extends RepositoryInterface
 {
     //
 }

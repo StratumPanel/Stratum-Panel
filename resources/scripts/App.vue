@@ -17,6 +17,10 @@
     overflow-y: hidden;
   }
 
+  button::-moz-focus-inner {
+    border: 0;
+  }
+
   .row {
     margin: 0 !important;
   }

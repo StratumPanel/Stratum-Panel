@@ -2,18 +2,18 @@
 
 namespace Stratum\Repositories;
 
-use Stratum\Contracts\ServerRepositoryInterface;
-use Stratum\Models\Server;
+use Stratum\Contracts\NodeRepositoryInterface;
+use Stratum\Models\Node;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Stratum\Validators\ServerValidator;
+use Stratum\Validators\NodeValidator;
 
 /**
  * Class NodeRepository.
  *
  * @package namespace Stratum\Repositories;
  */
-class NodeRepository extends BaseRepository implements ServerRepositoryInterface
+class NodeRepository extends BaseRepository implements NodeRepositoryInterface
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class NodeRepository extends BaseRepository implements ServerRepositoryInterface
      */
     public function model()
     {
-        return Nodes::class;
+        return Node::class;
     }
 
     

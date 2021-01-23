@@ -20,11 +20,15 @@ class Servers extends Migration
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+            $table->unsignedBigInteger('node_id');
+            $table->foreign('node_id')
+            ->references('id')
+            ->on('nodes')
+            ->onDelete('cascade');
             $table->unsignedBigInteger('vm_id');
             $table->integer('memory');
             $table->integer('storage');
             $table->integer('cores');
-            $table->string('node');
             $table->string('ip');
             $table->timestamps();
         });

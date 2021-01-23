@@ -16,10 +16,10 @@ class Nodes extends Migration
         Schema::create('nodes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('maxmemory');
-            $table->integer('maxstorage');
             $table->integer('currentmemory');
             $table->integer('currentstorage');
+            $table->string('daemon_apikey');
+            $table->string('proxmox_ip');
             $table->string('proxmox_username');
             $table->string('proxmox_password');
             $table->integer('proxmox_port');
@@ -35,6 +35,6 @@ class Nodes extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('nodes');
     }
 }
