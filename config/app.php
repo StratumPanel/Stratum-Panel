@@ -178,8 +178,6 @@ return [
         Stratum\Providers\FortifyServiceProvider::class,
 
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-
-        Stratum\Providers\ProxmoxServiceProvider::class,
     ],
 
     /*

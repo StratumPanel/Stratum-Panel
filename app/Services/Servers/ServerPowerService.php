@@ -13,7 +13,14 @@ class ServerPowerService
 
     public function __construct(Servers $server, pve $pve)
     {
-        $this->proxmox = $pve;
+        $credentials = [
+            'hostname' => '127.0.0.1',
+            'username' => 'root',
+            'password' => 'example',
+            'authType' => 'pam',
+            'port' => '8006',
+        ];
+        $this->proxmox = new pve($credentials);
         $this->server = $server;
     }
     
