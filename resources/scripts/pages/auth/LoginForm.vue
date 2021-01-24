@@ -10,32 +10,33 @@
             <h2>Stratum</h2>
         </v-card-title>
         <v-card-subtitle>
-            <p>Sign in to continue to Stratum</p>
+            <p>Sign in to continue</p>
         </v-card-subtitle>
 
         
         <v-card-text>
             <v-text-field
-                v-model="email"
-                label="Email"
+                v-model="email.model"
+                :rules="email.rules"
+                :error-messages="errors.email"
                 autocomplete="email"
                 type="email"
-
-                :error-messages="emailErrors"
-
+                label="Email"
                 autofocus
+                required
             ></v-text-field>
 
             <v-text-field
-                v-model="password"
+                v-model="password.model"
+                :rules="password.rules"
+                :error-messages="errors.password"
                 label="Password"
                 autocomplete="password"
 
-                :type="hidePassword ? 'password' : 'text'"
-                @click:append="() => (hidePassword = !hidePassword)"
-                :append-icon="hidePassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-
-                :error-messages="passwordErrors"
+                :type="password.hidden ? 'password' : 'text'"
+                @click:append="() => (password.hidden = !password.hidden)"
+                :append-icon="password.hidden ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+                required
             ></v-text-field>
         </v-card-text>
 
@@ -58,26 +59,38 @@
 
     import login from '@/api/auth/login'
     import getAccountData from '@/api/account/getAccountData'
+    import { httpErrorToHuman } from '@/api/http'
+
+    interface ErrorMessages {
+        [key: string]: Array<string>;
+    }
 
     @Component
     export default class LoginForm extends Vue {
 
         loading = false
 
-        email = ''
-        password = ''
-        hidePassword = true
+        email = {
+            model: '',
+            rules: [(v: any) => !!v || 'The email field is required.'],
+        }
 
-        emailErrors = ''
-        passwordErrors = ''
+        password = {
+            model: '',
+            rules: [(v: any) => !!v || 'The password field is required.'],
+            hidden: true,
+        }
+
+        errors: ErrorMessages = {
+            email: [],
+            password: [],
+        }
 
         login(): void 
         {
             this.loading = true
 
-            this.validateForm()
-
-            login({email: this.email, password: this.password})
+            login({email: this.email.model, password: this.password.model})
                 .then(response => {
                     // Fetch account information (email, name, etc)
                     getAccountData().then(response => {
@@ -89,35 +102,21 @@
                             .then(() => {
                                 // Send the user to the dashboard
                                 this.$router.push({ name: 'Dashboard' })
-                                this.loading = false;
+                                this.loading = false
                             })
                     })
                 })
 
-                .catch(err => {
-                    this.loading = false;
+                .catch(error => {
+                    this.loading = false
 
-                    this.emailErrors = 'Check your email'
-                    this.passwordErrors = 'Check your password'
+                    const err = httpErrorToHuman(error)
+                    for (const message in err)
+                    {
+                        this.errors[message] = err[message][0]
+                    }
+
                 });
-        }
-
-        validateForm(): void
-        {
-            this.emailErrors = ''
-            this.passwordErrors = ''
-            
-            if (!/.+@.+/.test(this.email))
-            {
-                this.emailErrors = 'Malformed Email'
-                return
-            }
-
-            if (this.password.length === 0)
-            {
-                this.passwordErrors = 'Password is required'
-                return
-            }
         }
     }
 </script>
