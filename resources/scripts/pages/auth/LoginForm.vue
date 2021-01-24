@@ -92,14 +92,17 @@
 
             login({email: this.email.model, password: this.password.model})
                 .then(response => {
+                    
                     // Fetch account information (email, name, etc)
                     getAccountData().then(response => {
+
                         // Dispatch it to store
                         this.$store.dispatch('user/setUserData', response)
                         
                         // Change the Authenticated state
                         this.$store.dispatch('auth/setAuthenticated', true)
                             .then(() => {
+
                                 // Send the user to the dashboard
                                 this.$router.push({ name: 'Dashboard' })
                                 this.loading = false
