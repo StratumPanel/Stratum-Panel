@@ -46,5 +46,4 @@ export default class flashes extends VuexModule {
     return this.items = [ { type: 'error', title: 'Error', key, message: httpErrorToHuman(error, true) } ]
   }
   
-  
 }
