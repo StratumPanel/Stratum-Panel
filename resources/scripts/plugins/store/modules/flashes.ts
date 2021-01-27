@@ -43,7 +43,7 @@ export default class flashes extends VuexModule {
 
   @Action({ commit: 'SET_ITEMS' })
   clearAndAddHttpError({key, error}: HttpErrorParameters) {
-    return this.items = [ { type: 'error', title: 'Error', key, message: httpErrorToHuman(error, true) } ]
+    return [ { type: 'error', title: 'Error', key, message: httpErrorToHuman(error, true) } ]
   }
   
 }
