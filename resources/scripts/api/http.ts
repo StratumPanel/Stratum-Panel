@@ -19,8 +19,8 @@ export default http;
  * Converts an error into a human readable response. Mostly just a generic helper to
  * make sure we display the message from the server back to the user if we can.
  */
-export function httpErrorToHuman (error: any): any {
-    if (error.response && error.response.data) {
+export function httpErrorToHuman (error: any, messageOnly = false): any {
+    if (error.response && error.response.data && !messageOnly) {
         let { data } = error.response;
 
         // Some non-JSON requests can still return the error as a JSON block. In those cases, attempt

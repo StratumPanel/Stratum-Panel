@@ -3,13 +3,15 @@ import Vuex from 'vuex'
 
 import auth from '@/plugins/store/modules/auth'
 import user from '@/plugins/store/modules/user'
+import flashes from '@/plugins/store/modules/flashes'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
     auth,
-    user
+    user,
+    flashes
   },
   // Making sure that we're doing
   // everything correctly by enabling

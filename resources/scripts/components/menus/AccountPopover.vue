@@ -72,9 +72,9 @@
     export default class AccountPopover extends Vue {
         private userData!: AccountData
 
-        private isVisible: boolean = false
+        private isVisible = false
         private darkMode: boolean = this.$vuetify.theme.dark
-        private loading: boolean = false
+        private loading = false
 
         @Watch('darkMode')
         themeChanged(payload: boolean): void

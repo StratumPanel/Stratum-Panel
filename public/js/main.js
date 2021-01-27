@@ -3916,7 +3916,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.login-container[data-v-2ee9f610] {\n    height: 100%;\n    width: 100%;\n    display: grid;\n    place-items: center;\n}\n.login-card[data-v-2ee9f610] {\n    padding: 16px;\n}\n.no-padding[data-v-2ee9f610] {\n    padding: 0;\n}\n", ""]);
+exports.push([module.i, "\n.login-container[data-v-2ee9f610] {\n    height: 100%;\n    width: 100%;\n    display: grid;\n    place-items: center;\n}\n.login-card[data-v-2ee9f610] {\n    padding: 16px;\n}\n.no-padding[data-v-2ee9f610] {\n    padding: 0;\n}\n.responsive[data-v-2ee9f610] {\n    max-width: 500px;\n}\n", ""]);
 
 // exports
 
@@ -5985,7 +5985,10 @@ var render = function() {
       [
         _c(
           "v-col",
-          { staticClass: "no-padding", attrs: { sm: "8", md: "5", lg: "4" } },
+          {
+            staticClass: "no-padding responsive",
+            attrs: { sm: "8", md: "5", lg: "4" }
+          },
           [
             _c(
               "v-card",
@@ -67700,8 +67703,8 @@ const http = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
  * Converts an error into a human readable response. Mostly just a generic helper to
  * make sure we display the message from the server back to the user if we can.
  */
-function httpErrorToHuman(error) {
-    if (error.response && error.response.data) {
+function httpErrorToHuman(error, messageOnly = false) {
+    if (error.response && error.response.data && !messageOnly) {
         let { data } = error.response;
         // Some non-JSON requests can still return the error as a JSON block. In those cases, attempt
         // to parse it into JSON so we can display an actual error.

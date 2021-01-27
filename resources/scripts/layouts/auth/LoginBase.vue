@@ -1,7 +1,7 @@
 <template>
   <v-app>
       <div class="login-container">
-          <v-col class="no-padding" sm="8" md="5" lg="4">
+          <v-col class="no-padding responsive" sm="8" md="5" lg="4">
             <v-card
                 class="login-card"
                 :outlined="isMobile"
@@ -49,5 +49,9 @@
 
     .no-padding {
         padding: 0;
+    }
+
+    .responsive {
+        max-width: 500px;
     }
 </style>
