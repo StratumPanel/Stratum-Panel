@@ -1,12 +1,11 @@
 <template>
     <v-app>
         <DashboardSideNav v-model="drawer" />
-        <v-app-bar color="primary" 
-        :clipped-left="$vuetify.breakpoint.lgAndUp" dark app>
+        <v-app-bar dark app>
             <template v-if="!focused">
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title class="pr-5">Stratum</v-toolbar-title>
+            <!-- <v-toolbar-title class="pr-5">Stratum</v-toolbar-title> -->
 
             <v-text-field 
                 prepend-inner-icon="mdi-magnify" 

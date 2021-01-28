@@ -5913,13 +5913,7 @@ var render = function() {
     "v-navigation-drawer",
     _vm._g(
       _vm._b(
-        {
-          attrs: {
-            clipped: _vm.$vuetify.breakpoint.lgAndUp,
-            fixed: "",
-            app: ""
-          }
-        },
+        { attrs: { color: "grey darken-4", fixed: "", dark: "", app: "" } },
         "v-navigation-drawer",
         _vm.$attrs,
         false
@@ -5927,6 +5921,38 @@ var render = function() {
       _vm.$listeners
     ),
     [
+      _c(
+        "v-list",
+        [
+          _c(
+            "v-list-item",
+            [
+              _c(
+                "v-list-item-content",
+                [
+                  _c(
+                    "v-list-item-title",
+                    { staticClass: "title" },
+                    [
+                      _c("v-icon", { attrs: { left: "" } }, [
+                        _vm._v("mdi-alpha-s-box")
+                      ]),
+                      _vm._v(" Stratum\n          ")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-divider"),
+      _vm._v(" "),
       _c(
         "v-list",
         { attrs: { dense: "", nav: "" } },
@@ -6051,14 +6077,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-app-bar",
-        {
-          attrs: {
-            color: "primary",
-            "clipped-left": _vm.$vuetify.breakpoint.lgAndUp,
-            dark: "",
-            app: ""
-          }
-        },
+        { attrs: { dark: "", app: "" } },
         [
           !_vm.focused
             ? [
@@ -6069,10 +6088,6 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v(" "),
-                _c("v-toolbar-title", { staticClass: "pr-5" }, [
-                  _vm._v("Stratum")
-                ]),
                 _vm._v(" "),
                 _c("v-text-field", {
                   staticClass: "hidden-sm-and-down search-bar",
@@ -67865,9 +67880,10 @@ __webpack_require__.r(__webpack_exports__);
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/index.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/index.js");
-/* harmony import */ var vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VNavigationDrawer */ "./node_modules/vuetify/lib/components/VNavigationDrawer/index.js");
+/* harmony import */ var vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VDivider */ "./node_modules/vuetify/lib/components/VDivider/index.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/index.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/index.js");
+/* harmony import */ var vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VNavigationDrawer */ "./node_modules/vuetify/lib/components/VNavigationDrawer/index.js");
 
 
 
@@ -67895,7 +67911,8 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_4__["VIcon"],VList: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_5__["VList"],VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_5__["VListItem"],VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_5__["VListItemContent"],VListItemIcon: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_5__["VListItemIcon"],VListItemTitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_5__["VListItemTitle"],VNavigationDrawer: vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_6__["VNavigationDrawer"]})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VDivider: vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_4__["VDivider"],VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_5__["VIcon"],VList: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__["VList"],VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__["VListItem"],VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__["VListItemContent"],VListItemIcon: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__["VListItemIcon"],VListItemTitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__["VListItemTitle"],VNavigationDrawer: vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_7__["VNavigationDrawer"]})
 
 
 /* hot reload */
@@ -68060,7 +68077,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VMain__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VMain */ "./node_modules/vuetify/lib/components/VMain/index.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/index.js");
 /* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/index.js");
-/* harmony import */ var vuetify_lib_components_VToolbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VToolbar */ "./node_modules/vuetify/lib/components/VToolbar/index.js");
 
 
 
@@ -68089,8 +68105,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 
 
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_4___default()(component, {VApp: vuetify_lib_components_VApp__WEBPACK_IMPORTED_MODULE_5__["VApp"],VAppBar: vuetify_lib_components_VAppBar__WEBPACK_IMPORTED_MODULE_6__["VAppBar"],VAppBarNavIcon: vuetify_lib_components_VAppBar__WEBPACK_IMPORTED_MODULE_6__["VAppBarNavIcon"],VFadeTransition: vuetify_lib_components_transitions__WEBPACK_IMPORTED_MODULE_7__["VFadeTransition"],VMain: vuetify_lib_components_VMain__WEBPACK_IMPORTED_MODULE_8__["VMain"],VSpacer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__["VSpacer"],VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_10__["VTextField"],VToolbarTitle: vuetify_lib_components_VToolbar__WEBPACK_IMPORTED_MODULE_11__["VToolbarTitle"]})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_4___default()(component, {VApp: vuetify_lib_components_VApp__WEBPACK_IMPORTED_MODULE_5__["VApp"],VAppBar: vuetify_lib_components_VAppBar__WEBPACK_IMPORTED_MODULE_6__["VAppBar"],VAppBarNavIcon: vuetify_lib_components_VAppBar__WEBPACK_IMPORTED_MODULE_6__["VAppBarNavIcon"],VFadeTransition: vuetify_lib_components_transitions__WEBPACK_IMPORTED_MODULE_7__["VFadeTransition"],VMain: vuetify_lib_components_VMain__WEBPACK_IMPORTED_MODULE_8__["VMain"],VSpacer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__["VSpacer"],VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_10__["VTextField"]})
 
 
 /* hot reload */
@@ -68375,6 +68390,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _plugins_store_modules_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/plugins/store/modules/auth */ "./resources/scripts/plugins/store/modules/auth.ts");
 /* harmony import */ var _plugins_store_modules_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/plugins/store/modules/user */ "./resources/scripts/plugins/store/modules/user.ts");
+/* harmony import */ var _plugins_store_modules_flashes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/plugins/store/modules/flashes */ "./resources/scripts/plugins/store/modules/flashes.ts");
+
 
 
 
@@ -68383,7 +68400,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     modules: {
         auth: _plugins_store_modules_auth__WEBPACK_IMPORTED_MODULE_2__["default"],
-        user: _plugins_store_modules_user__WEBPACK_IMPORTED_MODULE_3__["default"]
+        user: _plugins_store_modules_user__WEBPACK_IMPORTED_MODULE_3__["default"],
+        flashes: _plugins_store_modules_flashes__WEBPACK_IMPORTED_MODULE_4__["default"]
     },
     // Making sure that we're doing
     // everything correctly by enabling
@@ -68447,6 +68465,78 @@ auth = __decorate([
     Object(vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["Module"])({ namespaced: true })
 ], auth);
 /* harmony default export */ __webpack_exports__["default"] = (auth);
+
+
+/***/ }),
+
+/***/ "./resources/scripts/plugins/store/modules/flashes.ts":
+/*!************************************************************!*\
+  !*** ./resources/scripts/plugins/store/modules/flashes.ts ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex-module-decorators */ "./node_modules/vuex-module-decorators/dist/esm/index.js");
+/* harmony import */ var _api_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/api/http */ "./resources/scripts/api/http.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+let flashes = class flashes extends vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["VuexModule"] {
+    constructor() {
+        super(...arguments);
+        this.items = [];
+    }
+    SET_ITEMS(payload) {
+        this.items = payload;
+    }
+    addFlash(payload) {
+        this.items.push(payload);
+    }
+    addError(payload) {
+        this.items.push({ type: 'error', title: 'Error', ...payload });
+    }
+    clearAndAddHttpError({ key, error }) {
+        return [{ type: 'error', title: 'Error', key, message: Object(_api_http__WEBPACK_IMPORTED_MODULE_1__["httpErrorToHuman"])(error, true) }];
+    }
+};
+__decorate([
+    vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["Mutation"],
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", void 0)
+], flashes.prototype, "SET_ITEMS", null);
+__decorate([
+    Object(vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["Action"])({ commit: 'SET_ITEMS' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], flashes.prototype, "addFlash", null);
+__decorate([
+    Object(vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["Action"])({ commit: 'SET_ITEMS' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], flashes.prototype, "addError", null);
+__decorate([
+    Object(vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["Action"])({ commit: 'SET_ITEMS' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], flashes.prototype, "clearAndAddHttpError", null);
+flashes = __decorate([
+    Object(vuex_module_decorators__WEBPACK_IMPORTED_MODULE_0__["Module"])({ namespaced: true })
+], flashes);
+/* harmony default export */ __webpack_exports__["default"] = (flashes);
 
 
 /***/ }),

@@ -1,5 +1,17 @@
 <template>
-    <v-navigation-drawer :clipped="$vuetify.breakpoint.lgAndUp" fixed v-bind="$attrs" v-on="$listeners" app>
+    <v-navigation-drawer color="grey darken-4" fixed v-bind="$attrs" v-on="$listeners" dark app>
+        <v-list>
+        <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title class="title">
+                <v-icon left>mdi-alpha-s-box</v-icon> Stratum
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+
+        <v-divider></v-divider>
+
         <v-list dense nav>
             <v-list-item v-for="link in links" :key="link.title" :to="{ name: link.route }" exact>
                 <v-list-item-icon>

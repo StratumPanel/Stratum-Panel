@@ -1,7 +1,8 @@
 <template>
-    <div>
-
-    </div>
+    <v-alert
+        dense
+        type="success"
+    ></v-alert>
 </template>
 
 <script lang="ts">
