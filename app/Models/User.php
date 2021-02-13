@@ -3,10 +3,12 @@
 namespace Stratum\Models;
 
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Collection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Stratum\Transformers\Api\Client\AccountTransformer;
 
 class User extends Authenticatable
 {
@@ -41,4 +43,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Return the user model in a format that can be passed over to Vue templates.
+     */
+    public function toVueObject(): array
+    {
+        return (new AccountTransformer)->transform($this);
+    }
 }

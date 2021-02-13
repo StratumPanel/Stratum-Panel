@@ -13,6 +13,13 @@
     <body>
         <noscript>Please enable JavaScript</noscript>
         <div id="app"></div>
-        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/client/main.js') }}"></script>
+
+        
+        @if(!is_null(Auth::user()))
+            <script>
+                window.StratumUser = {!! json_encode(Auth::user()->toVueObject()) !!};
+            </script>
+        @endif
     </body>
 </html>

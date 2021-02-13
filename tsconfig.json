@@ -1,57 +1,49 @@
 {
-    "compilerOptions": {
-      // this aligns with Vue's browser support
-      "target": "esnext",
-      // this enables stricter inference for data properties on `this`
-      "strict": true,
-      // if using webpack 2+ or rollup, to leverage tree shaking:
-      "module": "esnext",
-      "moduleResolution": "node",
-      
-      "jsx": "preserve",
-      "forceConsistentCasingInFileNames": false,
-
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "sourceMap": true,
-
-      "baseUrl": ".",
-      "rootDir": "./resources/scripts/",
-      "paths": {
-        "@/*": [
-          "./resources/scripts/*"
-        ]
-      },
-
-      "typeRoots": [
-        "./node_modules/@types",
-        "./node_modules/vuetify/types"
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@/*": [
+        "resources/old_scripts/*"
       ],
-
-      "types": [
-        "vuetify",
-        "node"
+      "@client/*": [
+        "./resources/client/*"
       ],
-
-      "lib": [
-        "esnext",
-        "dom",
-        "dom.iterable",
-        "scripthost"
+      "@admin/*": [
+        "./resources/admin/*"
       ]
     },
-    "include": [
-        "./resources/scripts/**/*",
-        "./resources/scripts/**/*.ts",
-        "./resources/scripts/**/*.vue",
-        "./resources/scripts/**/*.tsx",
-    ],
-
-    "exclude": [
-      "/node_modules/"
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ]
+  },
+  "include": [
+    "./resources/**/*.ts",
+    "./resources/**/*.tsx",
+    "./resources/**/*.vue",
+    "./resources/**/*.ts",
+    "./resources/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "./resources/old_scripts/",
+    "./resources/old_scripts/**/*.*",
+  ]
 }
