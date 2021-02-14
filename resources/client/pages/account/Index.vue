@@ -1,43 +1,12 @@
 <template>
-    <div>
-        <account-header />
-
-        <v-row>
-            <update-profile />
-
-            <update-password />
-
-            <account-security />
-
-            <update-two-factor-auth />
-        </v-row>
-    </div>
+  <h1>redesign in progress</h1>
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator'
-
-    import { AccountHeader, 
-             UpdateProfile, 
-             UpdatePassword, 
-             AccountSecurity, 
-             UpdateTwoFactorAuth,
-    } from '@/components/account'
-
-    @Component({
-        components: {
-            AccountHeader,
-            UpdateProfile,
-            UpdatePassword,
-            AccountSecurity,
-            UpdateTwoFactorAuth,
-        }
-    })
-    export default class Account extends Vue {
-        
-    }
+export default {
+  name: "Account",
+};
 </script>
 
 <style scoped>
-
 </style>

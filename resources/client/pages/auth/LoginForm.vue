@@ -1,145 +1,84 @@
 <template>
-    <v-form @submit.prevent="login">
-        <v-overlay absolute :value="loading" class="overlay">
-            <v-progress-linear
-                indeterminate
-            ></v-progress-linear>
-        </v-overlay>
+  <form @submit.prevent="submit">
+    <input type="hidden" name="remember" value="true" />
+    <div class="space-y-6">
+      <v-text-field
+        v-model="state.email"
+        name="email"
+        type="email"
+        label="Email"
+        autocomplete="email"
+        placeholder="mikerowesoft@outlook.com"
+        required
+      />
 
-        <v-card-title>
-            <h2>Stratum</h2>
-        </v-card-title>
-        <v-card-subtitle>
-            <p>Sign in to continue</p>
-        </v-card-subtitle>
+      <v-text-field
+        v-model="state.password"
+        name="password"
+        type="password"
+        label="Password"
+        autocomplete="password"
+        required
+      />
 
-        
-        <v-card-text>
-            <v-text-field
-                v-model="email.model"
-                :rules="email.rules"
-                :error-messages="errors.email"
-                autocomplete="email"
-                type="email"
-                label="Email"
-                autofocus
-                required
-            ></v-text-field>
+      <div class="flex items-center justify-between">
+        <v-checkbox 
+          v-model="rememberMe"
+          name="remember_me"
+          label="Remember me"
+        />
 
-            <v-text-field
-                v-model="password.model"
-                :rules="password.rules"
-                :error-messages="errors.password"
-                label="Password"
-                autocomplete="password"
+        <div class="text-sm">
+          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+            Forgot your password?
+          </a>
+        </div>
+      </div>
 
-                :type="password.hidden ? 'password' : 'text'"
-                @click:append="() => (password.hidden = !password.hidden)"
-                :append-icon="password.hidden ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-                required
-            ></v-text-field>
-        </v-card-text>
-
-        <v-card-actions class="login-actions">
-            <v-btn type="submit" large block depressed color="primary">
-                Sign In
-            </v-btn>
-
-            <v-divider class="pm-6"></v-divider>
-
-            <v-btn large block text class="mt-5">
-                Reset Password
-            </v-btn>
-        </v-card-actions>
-    </v-form>
+      <div>
+        <button
+          type="submit"
+          class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Sign in
+        </button>
+      </div>
+    </div>
+  </form>
 </template>
 
-<script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator'
+<script>
+import { defineComponent, watch, ref, reactive } from "vue";
+import VTextField from "@client/components/elements/VTextField";
+import VCheckbox from "@client/components/elements/VCheckbox";
 
-    import login from '@/api/auth/login'
-    import getAccountData from '@/api/account/getAccountData'
-    import { httpErrorToHuman } from '@/api/http'
 
-    interface ErrorMessages {
-        [key: string]: Array<string>;
-    }
+export default defineComponent({
+  name: "LoginForm",
+  components: {
+    VTextField,
+    VCheckbox,
+  },
+  setup() {
+    const state = reactive({
+      email: "",
+      password: "",
+    });
+    const rememberMe = ref(false);
 
-    @Component
-    export default class LoginForm extends Vue {
+    const submit = () => {
+      console.log(state.email);
+    };
 
-        loading = false
+    watch(rememberMe, (old, mod) => {
+      console.log("hello!", { old, mod });
+    })
 
-        email = {
-            model: '',
-            rules: [(v: any) => !!v || 'The email field is required.'],
-        }
-
-        password = {
-            model: '',
-            rules: [(v: any) => !!v || 'The password field is required.'],
-            hidden: true,
-        }
-
-        errors: ErrorMessages = {
-            email: [],
-            password: [],
-        }
-
-        login(): void 
-        {
-            this.loading = true
-            this.errors = {
-                email: [],
-                password: []
-            }
-
-            login({email: this.email.model, password: this.password.model})
-                .then(response => {
-                    
-                    // Fetch account information (email, name, etc)
-                    getAccountData().then(response => {
-
-                        // Dispatch it to store
-                        this.$store.dispatch('user/setUserData', response)
-                        
-                        // Change the Authenticated state
-                        this.$store.dispatch('auth/setAuthenticated', true)
-                            .then(() => {
-
-                                // Send the user to the dashboard
-                                this.$router.push({ name: 'Dashboard' })
-                                this.loading = false
-                            })
-                    })
-                })
-
-                .catch(error => {
-                    this.loading = false
-
-                    const err = httpErrorToHuman(error)
-                    for (const message in err)
-                    {
-                        this.errors[message] = err[message][0]
-                    }
-
-                });
-        }
-    }
+    return {
+      state,
+      rememberMe,
+      submit,
+    };
+  },
+});
 </script>
-
-<style scoped>
-    .login-actions {
-        display: block;
-        padding: 0 16px 0 16px;
-    }
-
-    .reset-btn {
-        margin-left: 0 !important;
-    }
-
-    .overlay {
-        display: block;
-        overflow: hidden;
-    }
-</style>

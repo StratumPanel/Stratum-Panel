@@ -7,13 +7,15 @@
 
         <title>Test</title>
 
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+        <link type="stylesheet" href="{{ asset('css/client/app.css') }}">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
     </head>
     <body>
         <noscript>Please enable JavaScript</noscript>
         <div id="app"></div>
-        <script src="{{ asset('js/client/main.js') }}"></script>
+        <script src="{{ mix('js/client/main.js') }}"></script>
 
         
         @if(!is_null(Auth::user()))

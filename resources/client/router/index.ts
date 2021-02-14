@@ -14,8 +14,8 @@ import AuthenticationRouter from "@client/router/modules/AuthenticationRouter"
 import DashboardRouter from "@client/router/modules/DashboardRouter"
 
 const routes: Array<RouteRecordRaw> = [
-/*     AuthenticationRouter,
-    DashboardRouter, */
+    AuthenticationRouter,
+    DashboardRouter,
 ]
 
 const router = createRouter({

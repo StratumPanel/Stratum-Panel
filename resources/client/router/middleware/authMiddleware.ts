@@ -11,8 +11,8 @@
 
 import store from '@client/store'
 
-export default function authMiddleware(this: any, to: any, from: any, next: Function) {
-    if (store.getters['auth/AuthState']) next()
-    else next({ name: 'Login' })
+export default function authMiddleware() {
+    if (store.getters['auth/AuthState']) return true
+    else return "/auth/login"
 }
 

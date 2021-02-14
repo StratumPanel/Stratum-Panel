@@ -11,7 +11,7 @@ export default {
         {
             path: '',
             name: 'Login',
-            component: () => import('@/pages/auth/LoginForm.vue'),
+            component: () => import('@client/pages/auth/LoginForm.vue'),
             beforeEnter: loginMiddleware
         },
     ],

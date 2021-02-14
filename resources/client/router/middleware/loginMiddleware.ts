@@ -9,18 +9,21 @@
 |
 */
 
-import store from '@client/store'
+import store from "@client/store";
 
-import getAccountData from '@client/api/account/getAccountData'
+import getAccountData from "@client/api/account/getAccountData";
 
-export default function loginMiddleware(this: any, to: any, from: any, next: Function) {
-    getAccountData()
+export default async function loginMiddleware() {
+    /* const canAccess = await getAccountData();
+    if(canAccess) return '/';
+    else if (!canAccess) return true; */
+    /*     getAccountData()
         .then(() => {
             store.dispatch('auth/setAuthenticated', '1')
 
-            next({ name: 'Dashboard' })
+            return "/"
         })
         .catch(err => {
-            next()
-        })
+            return true
+        }) */
 }
