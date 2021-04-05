@@ -1,4 +1,9 @@
 <template>
+  <span
+    v-if="error.length > 0"
+    class="block text-center text-white p-2 bg-red-600 rounded-md mb-3"
+    >{{ error }}</span
+  >
   <form @submit.prevent="submit">
     <input type="hidden" name="remember" value="true" />
     <div class="space-y-6">
@@ -9,6 +14,7 @@
         label="Email"
         autocomplete="email"
         placeholder="mikerowesoft@outlook.com"
+        :autofocus="'autofocus'"
         required
       />
 
@@ -22,60 +28,98 @@
       />
 
       <div class="flex items-center justify-between">
-        <v-checkbox 
+        <v-checkbox
           v-model="rememberMe"
           name="remember_me"
           label="Remember me"
         />
 
         <div class="text-sm">
-          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+          <a
+            href="#"
+            class="font-medium text-primary-600 hover:text-primary-500"
+          >
             Forgot your password?
           </a>
         </div>
       </div>
 
       <div>
-        <button
-          type="submit"
-          class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          Sign in
-        </button>
+        <v-btn type="submit" :disabled="loading" block>
+          <v-spinner v-if="loading" class="w-5 h-5 mr-2" />
+          <template v-if="!loading">Sign in</template>
+        </v-btn>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import { defineComponent, watch, ref, reactive } from "vue";
-import VTextField from "@client/components/elements/VTextField";
-import VCheckbox from "@client/components/elements/VCheckbox";
-
+import { defineComponent, ref, reactive } from "vue";
+import router from "@client/router";
+import { useStore } from "vuex";
+import VSpinner from "@client/components/elements/VSpinner.vue";
+import VTextField from "@client/components/elements/VTextField.vue";
+import VCheckbox from "@client/components/elements/VCheckbox.vue";
+import VBtn from "@client/components/elements/VButton.vue";
+import login from "@client/api/auth/login";
+import getAccountData from "@client/api/account/getAccountData";
+import { httpErrorToHuman } from "@client/api/http";
 
 export default defineComponent({
   name: "LoginForm",
   components: {
+    VSpinner,
     VTextField,
     VCheckbox,
+    VBtn,
   },
   setup() {
+    const store = useStore();
+    const loading = ref(false);
     const state = reactive({
       email: "",
       password: "",
     });
+    const error = ref("");
     const rememberMe = ref(false);
 
     const submit = () => {
-      console.log(state.email);
+      loading.value = true;
+      error.value = "";
+
+      login(state)
+        .then(() => {
+          // Fetch account information (email, name, etc)
+          getAccountData().then((response) => {
+            // Dispatch it to store
+            store.dispatch("user/setUserData", response);
+
+            // Change the Authenticated state
+            store.dispatch("auth/setAuthenticated", true).then(() => {
+              // Send the user to the dashboard
+
+              router.push({ name: "Dashboard" });
+            });
+          });
+        })
+        .catch((err) => {
+          const errors = httpErrorToHuman(err);
+
+          for (const message in errors) {
+            error.value = errors[message][0];
+            
+            break;
+          }
+
+          loading.value = false;
+        });
     };
 
-    watch(rememberMe, (old, mod) => {
-      console.log("hello!", { old, mod });
-    })
-
     return {
+      loading,
       state,
+      error,
       rememberMe,
       submit,
     };

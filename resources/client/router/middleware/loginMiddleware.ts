@@ -3,27 +3,16 @@
 | Login Middleware
 |--------------------------------------------------------------------------
 |
-| The login middleware is designed specifically for the authentication
-| routes. Instead of checking Vuex store to see if the user is authenticated,
-| this will actually make a request to the server to check.
-|
+| The auth middleware checks with Vuex to see if the user is authenticated.
+| Since we will be using it on most of the routes, it's better to
+| store the auth state on the client WHILE making periodic checks
+| with the server that the user is authenticated.
 */
 
-import store from "@client/store";
+import store from '@client/store'
 
-import getAccountData from "@client/api/account/getAccountData";
-
-export default async function loginMiddleware() {
-    /* const canAccess = await getAccountData();
-    if(canAccess) return '/';
-    else if (!canAccess) return true; */
-    /*     getAccountData()
-        .then(() => {
-            store.dispatch('auth/setAuthenticated', '1')
-
-            return "/"
-        })
-        .catch(err => {
-            return true
-        }) */
+export default function authMiddleware() {
+    if (store.getters['auth/AuthState']) return "/"
+    else return true
 }
+

@@ -13,10 +13,8 @@
           Sign in to Stratum
         </h2>
       </div>
-      <div class="md:bg-white md:rounded-xl md:p-8 md:shadow-md">
-        <main>
-          <router-view />
-        </main>
+      <div class="relative md:bg-white md:rounded-xl md:p-8 md:shadow-md">
+        <router-view />
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@ export default defineComponent({
       :id="name"
       :name="name"
       type="checkbox"
-      class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+      class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
       :checked="checked"
     />
     <label :for="name" class="ml-2 block text-sm text-gray-900">

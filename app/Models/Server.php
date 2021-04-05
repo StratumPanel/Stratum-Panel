@@ -20,6 +20,12 @@ class Server extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'user_id', 'vm_id', 'memory', 'storage', 'cores', 'node', 'ip'
+    ];
 
+    public function node()
+    {
+        return $this->belongsTo(Nodes::class, 'node_id');
+    }
 }
