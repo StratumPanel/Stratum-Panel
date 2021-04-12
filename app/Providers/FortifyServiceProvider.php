@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Stratum\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;

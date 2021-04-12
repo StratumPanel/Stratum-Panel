@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": "^8.0",
         "doctrine/dbal": "^2.12",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
@@ -24,7 +24,7 @@
         "php-curl-class/php-curl-class": "^8.9",
         "prettus/l5-repository": "^2.7",
         "spatie/laravel-fractal": "^5.8",
-        "spatie/laravel-settings": "^0.0.2"
+        "spatie/laravel-settings": "^2.1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
