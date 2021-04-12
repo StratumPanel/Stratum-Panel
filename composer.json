@@ -20,6 +20,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "league/fractal": "^0.19.2",
+        "livewire/livewire": "^2.4",
         "mrkampf/proxmox-ve": "^0.2.8",
         "php-curl-class/php-curl-class": "^8.9",
         "prettus/l5-repository": "^2.7",
