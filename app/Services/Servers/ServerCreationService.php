@@ -21,7 +21,7 @@ class ServerCreationService
         $memory = 1024;
         $storage = 100;
 
-        $Nodes = Node::get();
+        $Nodes = Nodes::get();
 
         $Node = null;
         $IPAddress = null;

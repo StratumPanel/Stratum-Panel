@@ -15,6 +15,7 @@
     <body>
         <noscript>Please enable JavaScript</noscript>
         <div id="app"></div>
+        <script src="{{ mix('js/client/main.js') }}"></script>
 
         
         @if(!is_null(Auth::user()))
@@ -22,6 +23,5 @@
                 window.StratumUser = {!! json_encode(Auth::user()->toVueObject()) !!};
             </script>
         @endif
-        <script src="{{ mix('js/client/main.js') }}"></script>
     </body>
 </html>

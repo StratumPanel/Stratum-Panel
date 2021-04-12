@@ -8,16 +8,16 @@ use Stratum\Services\Servers\ServerManagement;
 use Stratum\Services\Servers\ServerVNCService;
 use Stratum\Services\Servers\ServerStatus;
 use Stratum\Services\Servers\ServerCreationService;
-use Stratum\Models\Server;
+use Stratum\Models\Servers;
 use Stratum\Services\Servers\ServerStatusService;
 
 class PowerController extends Controller
 {
     
-    public function __construct(Server $server, ServerCreationService $creationService, ServerVNCService $vncservice)
+    public function __construct(Servers $server, ServerCreationService $creationService, ServerVNCService $vncservice)
     {
-        //$this->creationService = $creationService;
-        //$this->vncservice = $vncservice;
+        $this->creationService = $creationService;
+        $this->vncservice = $vncservice;
         $this->server = $server;
     }
 

@@ -4,21 +4,23 @@ namespace Stratum\Services\Servers;
 
 use proxmox\Api\nodes\node;
 use proxmox\pve;
-use Stratum\Models\Server;
+use Stratum\Models\Servers;
 use Stratum\Models\Nodes;
 
 class ServerPowerService
 {
-    public function __construct(Server $server, pve $pve)
+    private $proxmox;
+
+    public function __construct(Servers $server, pve $pve)
     {
         $credentials = [
-            'hostname' => $server->node->hostname,
-            'username' => $server->node->username,
-            'password' => $server->node->password,
-            'authType' => $server->node->authtype,
-            'port' => strval($server->node->port),
+            'hostname' => '127.0.0.1',
+            'username' => 'root',
+            'password' => 'example',
+            'authType' => 'pam',
+            'port' => '8006',
         ];
-        $this->proxmox = new $pve($credentials);
+        $this->proxmox = new pve($credentials);
         $this->server = $server;
     }
     
@@ -27,17 +29,17 @@ class ServerPowerService
         return $this->proxmox->nodes()->node($this->server->node)->qemu()->vmid($this->server->vm_id)->status()->postStop([]);
     }
 
-    public function shutdown(Server $server) 
+    public function shutdown(Servers $server) 
     {
         return $this->proxmox->nodes()->node($server->node)->qemu()->vmid($server->vm_id)->status()->postShutdown([]);
     }
 
-    public function start(Server $server) 
+    public function start(Servers $server) 
     {
         return $this->proxmox->nodes()->node($server->node)->qemu()->vmid($server->vm_id)->status()->postStart([]);
     }
 
-    public function reboot(Server $server) 
+    public function reboot(Servers $server) 
     {
         return $this->proxmox->nodes()->node($server->node)->qemu()->vmid($server->vm_id)->status()->postReboot([]);
     }
