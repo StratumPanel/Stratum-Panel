@@ -16,7 +16,8 @@ use Stratum\Http\Controllers\Api\Client\Servers\ServerPowerController;
 |
 */
 
-Route::get('/', function () {
-   return "test";
-});
 /* Hello Syntax, I'm back doing work I swear x2 (updated Jan 23 2021 lol) */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
