@@ -1,42 +1,18 @@
 {
     "private": true,
     "scripts": {
+        "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
+        "prod": "npm run production",
         "production": "mix --production"
     },
     "devDependencies": {
-        "@inertiajs/inertia": "^0.8.4",
-        "@inertiajs/inertia-vue3": "^0.3.5",
-        "@inertiajs/progress": "^0.2.4",
-        "@tailwindcss/forms": "^0.2.1",
-        "@tailwindcss/typography": "^0.3.0",
-        "@vue/compiler-sfc": "^3.0.5",
-        "alpinejs": "^2.7.3",
-        "axios": ">=0.21.1",
-        "bootstrap": "^4.0.0",
-        "cross-env": "^7.0",
-        "deepmerge": "^4.2.2",
-        "jquery": "^3.2",
-        "laravel-mix": "^6.0.11",
-        "laravel-mix-purgecss": "^6.0.0",
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "popper.js": "^1.12",
-        "postcss-import": "^12.0.1",
-        "resolve-url-loader": "^3.1.2",
-        "sass": "^1.28.0",
-        "sass-loader": "^7.1.0",
-        "tailwindcss": "^2.0.1"
-    },
-    "dependencies": {
-        "@tailwindcss/forms": "^0.2.1",
-        "autoprefixer": "^10.2.4",
-        "case-sensitive-paths-webpack-plugin": "^2.3.0",
-        "postcss": "^8.2.6",
-        "tailwindcss": "^2.0.3",
-        "ts-loader": "^8.0.7",
-        "typescript": "^4.0.5"
+        "postcss": "^8.1.14"
     }
 }

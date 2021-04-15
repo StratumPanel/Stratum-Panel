@@ -1,8 +1,8 @@
 <?php
 
-namespace Stratum\Http\Middleware;
+namespace App\Http\Middleware;
 
-use Stratum\Providers\RouteServiceProvider;
+use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
