@@ -24,4 +24,13 @@ createApp({
   .mount(el)
 
 Inertia.on('start', () => NProgress.start())
-Inertia.on('finish', () => NProgress.done())
+Inertia.on('finish', (event) => {
+  if (event.detail.visit.completed) {
+    NProgress.done()
+  } else if (event.detail.visit.interrupted) {
+    NProgress.set(0)
+  } else if (event.detail.visit.cancelled) {
+    NProgress.done()
+    NProgress.remove()
+  }
+})

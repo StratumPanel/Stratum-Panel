@@ -366,7 +366,7 @@ ul {
  */
 
 html {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -551,23 +551,7 @@ video {
   height: auto;
 }
 
-
-      [type='text'],
-      [type='email'],
-      [type='url'],
-      [type='password'],
-      [type='number'],
-      [type='date'],
-      [type='datetime-local'],
-      [type='month'],
-      [type='search'],
-      [type='tel'],
-      [type='time'],
-      [type='week'],
-      [multiple],
-      textarea,
-      select
-     {
+[type='text'],[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -606,7 +590,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   opacity: 1;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,textarea::placeholder {
   color: #6b7280;
   opacity: 1;
 }
@@ -639,10 +623,7 @@ select {
           color-adjust: unset;
 }
 
-
-      [type='checkbox'],
-      [type='radio']
-     {
+[type='checkbox'],[type='radio'] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -673,10 +654,7 @@ select {
   border-radius: 100%;
 }
 
-
-      [type='checkbox']:focus,
-      [type='radio']:focus
-     {
+[type='checkbox']:focus,[type='radio']:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
@@ -688,10 +666,7 @@ select {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-
-      [type='checkbox']:checked,
-      [type='radio']:checked
-     {
+[type='checkbox']:checked,[type='radio']:checked {
   border-color: transparent;
   background-color: currentColor;
   background-size: 100% 100%;
@@ -707,12 +682,7 @@ select {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
 }
 
-
-      [type='checkbox']:checked:hover,
-      [type='checkbox']:checked:focus,
-      [type='radio']:checked:hover,
-      [type='radio']:checked:focus
-     {
+[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus {
   border-color: transparent;
   background-color: currentColor;
 }
@@ -726,10 +696,7 @@ select {
   background-repeat: no-repeat;
 }
 
-
-      [type='checkbox']:indeterminate:hover,
-      [type='checkbox']:indeterminate:focus
-     {
+[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus {
   border-color: transparent;
   background-color: currentColor;
 }
@@ -806,20 +773,49 @@ select {
   font-weight: 600;
 }
 
-.prose ol {
-  counter-reset: list-counter;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
+.prose ol[type="A"] {
+  --list-counter-style: upper-alpha;
+}
+
+.prose ol[type="a"] {
+  --list-counter-style: lower-alpha;
+}
+
+.prose ol[type="A" s] {
+  --list-counter-style: upper-alpha;
+}
+
+.prose ol[type="a" s] {
+  --list-counter-style: lower-alpha;
+}
+
+.prose ol[type="I"] {
+  --list-counter-style: upper-roman;
+}
+
+.prose ol[type="i"] {
+  --list-counter-style: lower-roman;
+}
+
+.prose ol[type="I" s] {
+  --list-counter-style: upper-roman;
+}
+
+.prose ol[type="i" s] {
+  --list-counter-style: lower-roman;
+}
+
+.prose ol[type="1"] {
+  --list-counter-style: decimal;
 }
 
 .prose ol > li {
   position: relative;
-  counter-increment: list-counter;
   padding-left: 1.75em;
 }
 
 .prose ol > li::before {
-  content: counter(list-counter) ".";
+  content: counter(list-item, var(--list-counter-style, decimal)) ".";
   position: absolute;
   font-weight: 400;
   color: #6b7280;
@@ -957,11 +953,11 @@ select {
 }
 
 .prose pre code::before {
-  content: "";
+  content: none;
 }
 
 .prose pre code::after {
-  content: "";
+  content: none;
 }
 
 .prose table {
@@ -1041,6 +1037,11 @@ select {
 
 .prose h3 code {
   font-size: 0.9em;
+}
+
+.prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
 }
 
 .prose ul {
@@ -12708,7 +12709,7 @@ select {
 }
 
 .font-sans {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-serif {
@@ -33513,20 +33514,49 @@ select {
     font-weight: 600;
   }
 
-  .sm\:prose ol {
-    counter-reset: list-counter;
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+  .sm\:prose ol[type="A"] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .sm\:prose ol[type="a"] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .sm\:prose ol[type="A" s] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .sm\:prose ol[type="a" s] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .sm\:prose ol[type="I"] {
+    --list-counter-style: upper-roman;
+  }
+
+  .sm\:prose ol[type="i"] {
+    --list-counter-style: lower-roman;
+  }
+
+  .sm\:prose ol[type="I" s] {
+    --list-counter-style: upper-roman;
+  }
+
+  .sm\:prose ol[type="i" s] {
+    --list-counter-style: lower-roman;
+  }
+
+  .sm\:prose ol[type="1"] {
+    --list-counter-style: decimal;
   }
 
   .sm\:prose ol > li {
     position: relative;
-    counter-increment: list-counter;
     padding-left: 1.75em;
   }
 
   .sm\:prose ol > li::before {
-    content: counter(list-counter) ".";
+    content: counter(list-item, var(--list-counter-style, decimal)) ".";
     position: absolute;
     font-weight: 400;
     color: #6b7280;
@@ -33664,11 +33694,11 @@ select {
   }
 
   .sm\:prose pre code::before {
-    content: "";
+    content: none;
   }
 
   .sm\:prose pre code::after {
-    content: "";
+    content: none;
   }
 
   .sm\:prose table {
@@ -33748,6 +33778,11 @@ select {
 
   .sm\:prose h3 code {
     font-size: 0.9em;
+  }
+
+  .sm\:prose ol {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
   }
 
   .sm\:prose ul {
@@ -45415,7 +45450,7 @@ select {
   }
 
   .sm\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .sm\:font-serif {
@@ -65969,20 +66004,49 @@ select {
     font-weight: 600;
   }
 
-  .md\:prose ol {
-    counter-reset: list-counter;
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+  .md\:prose ol[type="A"] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .md\:prose ol[type="a"] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .md\:prose ol[type="A" s] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .md\:prose ol[type="a" s] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .md\:prose ol[type="I"] {
+    --list-counter-style: upper-roman;
+  }
+
+  .md\:prose ol[type="i"] {
+    --list-counter-style: lower-roman;
+  }
+
+  .md\:prose ol[type="I" s] {
+    --list-counter-style: upper-roman;
+  }
+
+  .md\:prose ol[type="i" s] {
+    --list-counter-style: lower-roman;
+  }
+
+  .md\:prose ol[type="1"] {
+    --list-counter-style: decimal;
   }
 
   .md\:prose ol > li {
     position: relative;
-    counter-increment: list-counter;
     padding-left: 1.75em;
   }
 
   .md\:prose ol > li::before {
-    content: counter(list-counter) ".";
+    content: counter(list-item, var(--list-counter-style, decimal)) ".";
     position: absolute;
     font-weight: 400;
     color: #6b7280;
@@ -66120,11 +66184,11 @@ select {
   }
 
   .md\:prose pre code::before {
-    content: "";
+    content: none;
   }
 
   .md\:prose pre code::after {
-    content: "";
+    content: none;
   }
 
   .md\:prose table {
@@ -66204,6 +66268,11 @@ select {
 
   .md\:prose h3 code {
     font-size: 0.9em;
+  }
+
+  .md\:prose ol {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
   }
 
   .md\:prose ul {
@@ -77871,7 +77940,7 @@ select {
   }
 
   .md\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .md\:font-serif {
@@ -98425,20 +98494,49 @@ select {
     font-weight: 600;
   }
 
-  .lg\:prose ol {
-    counter-reset: list-counter;
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+  .lg\:prose ol[type="A"] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .lg\:prose ol[type="a"] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .lg\:prose ol[type="A" s] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .lg\:prose ol[type="a" s] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .lg\:prose ol[type="I"] {
+    --list-counter-style: upper-roman;
+  }
+
+  .lg\:prose ol[type="i"] {
+    --list-counter-style: lower-roman;
+  }
+
+  .lg\:prose ol[type="I" s] {
+    --list-counter-style: upper-roman;
+  }
+
+  .lg\:prose ol[type="i" s] {
+    --list-counter-style: lower-roman;
+  }
+
+  .lg\:prose ol[type="1"] {
+    --list-counter-style: decimal;
   }
 
   .lg\:prose ol > li {
     position: relative;
-    counter-increment: list-counter;
     padding-left: 1.75em;
   }
 
   .lg\:prose ol > li::before {
-    content: counter(list-counter) ".";
+    content: counter(list-item, var(--list-counter-style, decimal)) ".";
     position: absolute;
     font-weight: 400;
     color: #6b7280;
@@ -98576,11 +98674,11 @@ select {
   }
 
   .lg\:prose pre code::before {
-    content: "";
+    content: none;
   }
 
   .lg\:prose pre code::after {
-    content: "";
+    content: none;
   }
 
   .lg\:prose table {
@@ -98660,6 +98758,11 @@ select {
 
   .lg\:prose h3 code {
     font-size: 0.9em;
+  }
+
+  .lg\:prose ol {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
   }
 
   .lg\:prose ul {
@@ -110327,7 +110430,7 @@ select {
   }
 
   .lg\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .lg\:font-serif {
@@ -130881,20 +130984,49 @@ select {
     font-weight: 600;
   }
 
-  .xl\:prose ol {
-    counter-reset: list-counter;
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+  .xl\:prose ol[type="A"] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .xl\:prose ol[type="a"] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .xl\:prose ol[type="A" s] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .xl\:prose ol[type="a" s] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .xl\:prose ol[type="I"] {
+    --list-counter-style: upper-roman;
+  }
+
+  .xl\:prose ol[type="i"] {
+    --list-counter-style: lower-roman;
+  }
+
+  .xl\:prose ol[type="I" s] {
+    --list-counter-style: upper-roman;
+  }
+
+  .xl\:prose ol[type="i" s] {
+    --list-counter-style: lower-roman;
+  }
+
+  .xl\:prose ol[type="1"] {
+    --list-counter-style: decimal;
   }
 
   .xl\:prose ol > li {
     position: relative;
-    counter-increment: list-counter;
     padding-left: 1.75em;
   }
 
   .xl\:prose ol > li::before {
-    content: counter(list-counter) ".";
+    content: counter(list-item, var(--list-counter-style, decimal)) ".";
     position: absolute;
     font-weight: 400;
     color: #6b7280;
@@ -131032,11 +131164,11 @@ select {
   }
 
   .xl\:prose pre code::before {
-    content: "";
+    content: none;
   }
 
   .xl\:prose pre code::after {
-    content: "";
+    content: none;
   }
 
   .xl\:prose table {
@@ -131116,6 +131248,11 @@ select {
 
   .xl\:prose h3 code {
     font-size: 0.9em;
+  }
+
+  .xl\:prose ol {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
   }
 
   .xl\:prose ul {
@@ -142783,7 +142920,7 @@ select {
   }
 
   .xl\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .xl\:font-serif {
@@ -163337,20 +163474,49 @@ select {
     font-weight: 600;
   }
 
-  .\32xl\:prose ol {
-    counter-reset: list-counter;
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+  .\32xl\:prose ol[type="A"] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .\32xl\:prose ol[type="a"] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .\32xl\:prose ol[type="A" s] {
+    --list-counter-style: upper-alpha;
+  }
+
+  .\32xl\:prose ol[type="a" s] {
+    --list-counter-style: lower-alpha;
+  }
+
+  .\32xl\:prose ol[type="I"] {
+    --list-counter-style: upper-roman;
+  }
+
+  .\32xl\:prose ol[type="i"] {
+    --list-counter-style: lower-roman;
+  }
+
+  .\32xl\:prose ol[type="I" s] {
+    --list-counter-style: upper-roman;
+  }
+
+  .\32xl\:prose ol[type="i" s] {
+    --list-counter-style: lower-roman;
+  }
+
+  .\32xl\:prose ol[type="1"] {
+    --list-counter-style: decimal;
   }
 
   .\32xl\:prose ol > li {
     position: relative;
-    counter-increment: list-counter;
     padding-left: 1.75em;
   }
 
   .\32xl\:prose ol > li::before {
-    content: counter(list-counter) ".";
+    content: counter(list-item, var(--list-counter-style, decimal)) ".";
     position: absolute;
     font-weight: 400;
     color: #6b7280;
@@ -163488,11 +163654,11 @@ select {
   }
 
   .\32xl\:prose pre code::before {
-    content: "";
+    content: none;
   }
 
   .\32xl\:prose pre code::after {
-    content: "";
+    content: none;
   }
 
   .\32xl\:prose table {
@@ -163572,6 +163738,11 @@ select {
 
   .\32xl\:prose h3 code {
     font-size: 0.9em;
+  }
+
+  .\32xl\:prose ol {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
   }
 
   .\32xl\:prose ul {
@@ -175239,7 +175410,7 @@ select {
   }
 
   .\32xl\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .\32xl\:font-serif {
