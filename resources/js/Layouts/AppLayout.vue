@@ -79,9 +79,7 @@
                       focus:outline-none
                     "
                   >
-                    <MenuItem
-                      v-slot="{ active }"
-                    >
+                    <MenuItem v-slot="{ active }">
                       <nav-link
                         :href="route('profile.show')"
                         :class="[
@@ -91,6 +89,22 @@
                         >Profile</nav-link
                       >
                     </MenuItem>
+
+                    <div class="border-t border-gray-100"></div>
+
+                    <form @submit.prevent="logout">
+                      <MenuItem v-slot="{ active }">
+                        <button
+                          type="submit"
+                          :class="[
+                            active ? 'bg-gray-100' : '',
+                            'block px-4 py-2 text-sm text-gray-700',
+                          ]"
+                          class="block w-full text-left focus:ring-0 focus:outline-none"
+                          >Log Out</button
+                        >
+                      </MenuItem>
+                    </form>
                   </MenuItems>
                 </transition>
               </Menu>
@@ -163,11 +177,11 @@ import {
 } from '@headlessui/vue'
 import NavLink from '@components/NavLink.vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { Inertia } from '@inertiajs/inertia'
+
 
 const navigation = [{ name: 'Dashboard', route: 'dashboard' }]
-const profile = [
-  { name: 'Profile', route: 'profile.show' }
-]
+const profile = [{ name: 'Profile', route: 'profile.show' }]
 
 export default {
   components: {
@@ -186,10 +200,15 @@ export default {
   setup() {
     const open = ref(false)
 
+    const logout = () => {
+      Inertia.post(route('logout'));
+    }
+
     return {
       navigation,
       profile,
       open,
+      logout,
     }
   },
 }
