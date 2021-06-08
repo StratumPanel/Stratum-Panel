@@ -35818,7 +35818,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\n      bg-gray-100\n      p-4\n      rounded-md\n      w-full\n      hover:border-gray-300\n      border-2 border-gray-100\n    "
+  "class": "\n      bg-gray-100\n      p-4\n      rounded-md\n      w-full\n      hover:border-gray-300\n      border border-gray-100\n    "
 };
 var _hoisted_2 = {
   "class": "flex items-center"

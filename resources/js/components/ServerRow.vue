@@ -6,7 +6,7 @@
       rounded-md
       w-full
       hover:border-gray-300
-      border-2 border-gray-100
+      border border-gray-100
     "
   >
     <div class="flex items-center">
