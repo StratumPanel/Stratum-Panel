@@ -8,8 +8,7 @@ use App\Services\Servers\PowerService;
 
 class PowerController extends Controller
 {
-    public function __construct(Server $server, PowerService $powerService) {
-        $this->powerService = $powerService;
-        $this->server = $server;
+    public function __construct(private Server $server, private PowerService $powerService)
+    {
     }
 }
