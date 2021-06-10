@@ -16,17 +16,9 @@ class CreateServersTable extends Migration
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('node_id');
-            $table->foreign('node_id')
-                ->references('id')
-                ->on('nodes')
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('vm_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('node_id')->constrained();
+            $table->unsignedBigInteger('vm_id'); // if this is not a belongsTo relationship, then rename this
             $table->timestamps();
         });
     }

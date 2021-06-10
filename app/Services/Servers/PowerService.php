@@ -2,14 +2,11 @@
 
 namespace App\Services\Servers;
 
-use proxmox\pve;
+use App\Models\Server;
+use proxmox\pve as Proxmox;
 
 class PowerService
 {
-    private $proxmox;
-
-    public function __construct(Servers $server, pve $pve) {
-        $this->proxmox = $pve;
-        $this->server = $server;
-    }
+    public function __construct(private Server $server, private Proxmox $pve) 
+    {}
 }
