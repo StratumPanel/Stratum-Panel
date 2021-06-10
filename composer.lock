@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eec8fff70b34480a5fa2072b817352c3",
+    "content-hash": "9ef514e74ed962a01edd7b88759ef9ee",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2046,6 +2046,61 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "mrkampf/proxmox-ve",
+            "version": "0.2.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MrKampf/proxmoxVE.git",
+                "reference": "46ed77280e48ae0349cd2a91163603a78da7462a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MrKampf/proxmoxVE/zipball/46ed77280e48ae0349cd2a91163603a78da7462a",
+                "reference": "46ed77280e48ae0349cd2a91163603a78da7462a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "*",
+                "lib-curl": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "*",
+                "lib-curl": "*",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "proxmox": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "MrKampf",
+                    "email": "hello@mrkampf.com",
+                    "homepage": "https://mrkampf.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Proxmox VE API",
+            "keywords": [
+                "KVM",
+                "OpenVZ",
+                "Proxmox",
+                "Virtualization",
+                "api",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/MrKampf/proxmoxVE/issues",
+                "source": "https://github.com/MrKampf/proxmoxVE"
+            },
+            "time": "2021-01-31T00:36:16+00:00"
         },
         {
             "name": "nesbot/carbon",
