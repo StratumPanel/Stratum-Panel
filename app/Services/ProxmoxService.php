@@ -7,7 +7,7 @@ use proxmox\pve as proxmox;
 
 abstract class ProxmoxService
 {
-    public function __construct(protected proxmox $pve)
+    public function __construct(private proxmox $pve)
     {
     }
 
