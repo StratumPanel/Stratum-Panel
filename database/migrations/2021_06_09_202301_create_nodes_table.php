@@ -16,11 +16,11 @@ class CreateNodesTable extends Migration
         Schema::create('nodes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('ip');
+            $table->string('hostname');
             $table->string('username');
             $table->string('password');
             $table->integer('port');
-            $table->string('authtype');
+            $table->string('auth_type');
             $table->timestamps();
         });
     }
