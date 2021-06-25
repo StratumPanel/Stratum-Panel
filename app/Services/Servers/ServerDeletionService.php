@@ -2,7 +2,9 @@
 
 namespace App\Services\Servers;
 
-class ServerDeletionService
+use App\Services\ProxmoxService;
+
+class ServerDeletionService extends ProxmoxService
 {
     public function delete(string $cluster, string $vmid, array $params)
     {
