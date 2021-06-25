@@ -10,5 +10,6 @@ class PowerController extends Controller
 {
     public function __construct(private Server $server, private PowerService $powerService)
     {
+
     }
 }

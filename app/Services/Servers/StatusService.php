@@ -6,7 +6,7 @@ use App\Models\Server;
 use App\Services\ProxmoxService;
 use proxmox\pve as Proxmox;
 
-class PowerService extends ProxmoxService
+class StatusService extends ProxmoxService
 {
     public function __construct(private Server $server, private Proxmox $pve)
     {

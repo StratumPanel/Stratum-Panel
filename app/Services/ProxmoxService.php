@@ -15,7 +15,7 @@ abstract class ProxmoxService
     {
         if ($vmid instanceof Server)
         {
-            $vmid = $vmid->vm_id;
+            $vmid = $vmid->proxmoxvmid;
         }
 
         $cluster = $this->pve($cluster);
