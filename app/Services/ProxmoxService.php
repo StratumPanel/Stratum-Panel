@@ -3,15 +3,15 @@
 namespace App\Services;
 
 use App\Models\Server;
-use proxmox\pve as proxmox;
+use proxmox\pve;
 
 abstract class ProxmoxService
 {
-    public function __construct(private proxmox $pve)
+    public function __construct(private pve $pve)
     {
     }
 
-    public function base($cluster, $vmid)
+    public function proxmox($cluster, $vmid)
     {
         if ($vmid instanceof Server)
         {

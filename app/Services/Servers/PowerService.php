@@ -8,23 +8,30 @@ use App\Services\ProxmoxService;
 
 class PowerService extends ProxmoxService
 {
+    private $instance;
+
+    public function __construct(private string $cluster, private string $vmid)
+    {
+        $this->instance = $this->proxmox($cluster, $vmid);
+    }
+
     public function start(string $cluster, string $vmid, array $params)
     {
-        return $this->base($cluster, $vmid)->postStart($params);
+        return $this->instance->postStart($params);
     }
 
     public function stop(string $cluster, string $vmid, array $params)
     {
-        return $this->base($cluster, $vmid)->postShutdown($params);
+        return $this->instance->postShutdown($params);
     }
 
     public function end(string $cluster, string $vmid, array $params)
     {
-        return $this->base($cluster, $vmid)->postStop($params); // Forcefully kills the server
+        return $this->instance->postStop($params); // Forcefully kills the server
     }
 
     public function reboot(string $cluster, string $vmid, array $params)
     {
-        return $this->base($cluster, $vmid)->postReboot($params);
+        return $this->instance->postReboot($params);
     }
 }
