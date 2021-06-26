@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Client\Servers\ServerListController;
+use App\Http\Controllers\Client\Servers\ServerStatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', [ServerListController::class, 'index'])->name('dashboard');
+    Route::get('/api/status/{proxmoxvmid}', [ServerStatusController::class, 'index'])->name('status');
+});
+

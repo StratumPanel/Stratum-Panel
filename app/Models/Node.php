@@ -12,4 +12,9 @@ class Node extends Model
     protected $fillable = [
         'name', 'ip', 'username', 'password', 'port', 'authtype'
     ];
+
+    public function servers()
+    {
+        return $this->hasMany(Server::class);
+    }
 }
