@@ -9,9 +9,9 @@ use App\Models\Server;
 
 class ServerListController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         return inertia('Dashboard', [
-            'servers' =>  Auth::user()->servers()->get(),
+            'servers' =>  $request->user()->servers,
         ]);
 
         // Data is passed through
