@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Server;
+use App\Models\Node;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ServerFactory extends Factory
+class NodeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Server::class;
+    protected $model = Node::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,11 @@ class ServerFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstName(),
-            'user_id' => UserFactory::class,
-            'node_id' => NodeFactory::class,
-            'proxmoxvmid' => rand(1,5000)
+            'name' => $this->faker->firstName,
+            'hostname' => $this->faker->lastName,
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'port' => 69,
+            'auth_type' => 'PAM'
         ];
     }
 }
