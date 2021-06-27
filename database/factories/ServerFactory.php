@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Server;
+use App\Models\User;
+use App\Models\Node;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ServerFactory extends Factory
@@ -23,8 +25,8 @@ class ServerFactory extends Factory
     {
         return [
             'name' => $this->faker->firstName(),
-            'user_id' => UserFactory::class,
-            'node_id' => NodeFactory::class,
+            'user_id' => User::factory(),
+            'node_id' => Node::factory(),
             'proxmoxvmid' => rand(1,5000)
         ];
     }
