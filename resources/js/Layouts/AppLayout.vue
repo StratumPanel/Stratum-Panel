@@ -140,7 +140,7 @@
 
       <DisclosurePanel class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <template v-for="item in navigation" :key="item">
+          <template v-for="item in navigation" :key="item.name">
             <nav-link
               :href="route(item.route)"
               :class="{
@@ -157,6 +157,7 @@
       </DisclosurePanel>
     </Disclosure>
     <main>
+      <slot name="header"></slot>
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <slot></slot>
       </div>
