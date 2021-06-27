@@ -92,19 +92,22 @@
 
                     <div class="border-t border-gray-100"></div>
 
-                    <form @submit.prevent="logout">
-                      <MenuItem v-slot="{ active }">
-                        <button
-                          type="submit"
-                          :class="[
-                            active ? 'bg-gray-100' : '',
-                            'block px-4 py-2 text-sm text-gray-700',
-                          ]"
-                          class="block w-full text-left focus:ring-0 focus:outline-none"
-                          >Log Out</button
-                        >
-                      </MenuItem>
-                    </form>
+                    <button
+                      @click="logout"
+                      class="
+                        block
+                        w-full
+                        text-left
+                        focus:ring-0 focus:outline-none
+                        block
+                        px-4
+                        py-2
+                        text-sm text-gray-700
+                        hover:bg-gray-100
+                      "
+                    >
+                      Log Out
+                    </button>
                   </MenuItems>
                 </transition>
               </Menu>
@@ -121,8 +124,7 @@
                 p-2
                 rounded-md
                 text-gray-400
-                hover:text-white
-                hover:bg-gray-700
+                hover:text-white hover:bg-gray-700
                 focus:outline-none
                 focus:ring-2
                 focus:ring-offset-2
@@ -152,8 +154,39 @@
               >{{ item.name }}</nav-link
             >
           </template>
+
+          <template v-for="item in profile" :key="item.name">
+            <nav-link
+              :href="route(item.route)"
+              :class="{
+                'bg-gray-900 text-white': route().current(item.route),
+                'text-gray-300 hover:bg-gray-700 hover:text-white':
+                  !route().current(item.route),
+              }"
+              class="block px-3 py-2 rounded-md text-base font-medium"
+              >{{ item.name }}</nav-link
+            >
+          </template>
         </div>
-        <div class="pt-4 pb-3 border-t border-gray-700"></div>
+
+        <div class="pt-4 border-t border-gray-700"></div>
+
+        <div class="px-2 pb-3 space-y-1 sm:px-3">
+          <nav-link
+            @click="logout"
+            class="
+              block
+              px-3
+              py-2
+              rounded-md
+              text-base
+              font-medium
+              text-gray-300
+              hover:bg-gray-700 hover:text-white
+            "
+            >Log Out</nav-link
+          >
+        </div>
       </DisclosurePanel>
     </Disclosure>
     <main>
@@ -180,7 +213,6 @@ import NavLink from '@components/NavLink.vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 import { Inertia } from '@inertiajs/inertia'
 
-
 const navigation = [{ name: 'Dashboard', route: 'dashboard' }]
 const profile = [{ name: 'Profile', route: 'profile.show' }]
 
@@ -202,7 +234,7 @@ export default {
     const open = ref(false)
 
     const logout = () => {
-      Inertia.post(route('logout'));
+      Inertia.post(route('logout'))
     }
 
     return {
