@@ -19,11 +19,7 @@ class CreatePlansTable extends Migration
             $table->unsignedBigInteger('memory');
             $table->unsignedBigInteger('storage');
             $table->unsignedBigInteger('vcores');
-            $table->unsignedBigInteger('node_id');
-            $table->foreign('node_id')
-                ->references('id')
-                ->on('nodes')
-                ->onDelete('cascade');
+            $table->foreignId('node_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

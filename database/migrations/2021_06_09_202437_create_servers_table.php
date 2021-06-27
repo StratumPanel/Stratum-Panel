@@ -16,8 +16,8 @@ class CreateServersTable extends Migration
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('node_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('node_id')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('proxmoxvmid');
             $table->timestamps();
         });
