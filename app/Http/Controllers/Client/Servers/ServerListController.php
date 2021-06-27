@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Client\Servers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Server;
 
 class ServerListController extends Controller
 {
@@ -13,7 +11,5 @@ class ServerListController extends Controller
         return inertia('Dashboard', [
             'servers' =>  $request->user()->servers,
         ]);
-
-        // Data is passed through
     }
 }
