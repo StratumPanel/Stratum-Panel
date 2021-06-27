@@ -9,6 +9,13 @@ class Server extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'user_id',
+        'node_id',
+        'proxmoxvmid'
+    ];
+
     public function node()
     {
         return $this->belongsTo(Node::class);
@@ -16,6 +23,6 @@ class Server extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
