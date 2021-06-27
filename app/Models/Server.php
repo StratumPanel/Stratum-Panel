@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Server extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name', 'user_id', 'node_id', 'proxmoxvmid'
+    ];
 
     public function node()
     {
@@ -16,6 +19,6 @@ class Server extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 }

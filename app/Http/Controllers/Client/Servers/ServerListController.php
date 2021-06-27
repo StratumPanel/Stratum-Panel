@@ -10,11 +10,9 @@ use App\Models\Server;
 class ServerListController extends Controller
 {
     public function index() {
-        // Debugging
-        return print_r(Auth::user()->servers()->get()->first()->owner());
-        //return inertia('Dashboard', [
-        //    'servers' =>  Auth::user()->servers()->get(),
-        //]);
+        return inertia('Dashboard', [
+            'servers' =>  Auth::user()->servers()->get(),
+        ]);
 
         // Data is passed through
     }
