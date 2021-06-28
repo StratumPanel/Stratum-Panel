@@ -23,18 +23,7 @@
             mr-4
           "
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8 text-green-700"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-              clip-rule="evenodd"
-            />
-          </svg>
+          <font-awesome-icon class="text-green-700" :icon="faPlay" size="lg" />
         </div>
         <div>
           <h2 class="text-gray-700 font-bold text-lg break-words">
@@ -52,12 +41,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+
 import { Link } from '@inertiajs/inertia-vue3'
 
 export default defineComponent({
   name: 'ServerRow',
   components: {
     Link,
+    FontAwesomeIcon,
   },
   props: {
     id: {
@@ -74,7 +67,7 @@ export default defineComponent({
     },
   },
   setup() {
-    return {}
+    return { faPlay }
   },
 })
 </script>

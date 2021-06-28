@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-xs text-gray-600">{{ name }}</h1>
+    <h1 class="text-xs text-gray-600"><font-awesome-icon v-if="icon" :icon="icon" size="sm" /> {{ name }}</h1>
     <h2 class="inline-block text-2xl font-bold text-gray-700">{{ data ? data : 'N/A' }}</h2>
     <h3 v-if="unit" class="ml-1 inline-block font-medium text-sm text-gray-700">{{ unit }}</h3>
   </div>
@@ -9,8 +9,11 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 export default defineComponent({
   name: 'UsageBox',
+  components: { FontAwesomeIcon },
   props: {
     name: {
       type: String,
@@ -27,6 +30,10 @@ export default defineComponent({
     unit: {
       type: String,
       required: false,
+    },
+    icon: {
+      type: Object,
+      required: false
     }
   },
   setup(props) {

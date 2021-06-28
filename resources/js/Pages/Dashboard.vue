@@ -4,7 +4,7 @@
       <user-header />
     </template>
 
-    <div class="flex flex-col justify-center mt-10 w-full space-y-3">
+    <div class="flex flex-col justify-center py-6 w-full space-y-3">
       <server-row
         v-for="server in servers"
         :key="server.id"
