@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="flex flex-col sm:flex-row sm:space-x-6">
-          <usage-box name="CPU Usage" :data="79" percent/>
-          <usage-box name="Memory" :data="576" unit="/ 1024 MB" />
+          <usage-box name="CPU Usage" :data="79" :icon="faMicrochip" percent/>
+          <usage-box name="Memory" :data="576" unit="/ 1024 MB" :icon="faMemory" />
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faMicrochip, faMemory } from '@fortawesome/free-solid-svg-icons'
 import UsageBox from './UsageBox.vue'
 
 export default defineComponent({
@@ -49,7 +49,7 @@ export default defineComponent({
     },
   },
   setup() {
-    return { faPlay }
+    return { faPlay, faMicrochip, faMemory }
   },
 })
 </script>
