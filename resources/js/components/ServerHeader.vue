@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-50">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center space-x-8">
+      <div class="flex justify-between sm:justify-start items-center space-x-8">
         <div class="flex items-center">
           <div
             class="
@@ -24,7 +24,7 @@
             </p>
           </div>
         </div>
-        <div class="hidden sm:flex space-x-6">
+        <div class="flex flex-col sm:flex-row sm:space-x-6">
           <usage-box name="CPU Usage" :data="79" percent/>
           <usage-box name="Memory" :data="576" unit="/ 1024 MB" />
         </div>
