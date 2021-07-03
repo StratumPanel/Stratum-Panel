@@ -2,14 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\Server;
 use proxmox\pve;
+use App\Models\Server;
 
 abstract class ProxmoxService
 {
-    public function __construct(private pve $pve)
-    {
-    }
 
     public function proxmox($cluster, $vmid)
     {
@@ -18,8 +15,8 @@ abstract class ProxmoxService
             $vmid = $vmid->proxmoxvmid;
         }
 
-        $cluster = $this->pve($cluster);
+        $proxmox = new pve($cluster);
 
-        return $cluster->nodes()->node($cluster->name)->qemu->vmid($vmid)->status();
+        return $proxmox;
     }
 }
