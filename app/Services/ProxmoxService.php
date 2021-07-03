@@ -17,6 +17,6 @@ abstract class ProxmoxService
 
         $proxmox = new pve($cluster);
 
-        return $proxmox;
+        return $proxmox->nodes()->node($cluster->name)->qemu->vmid($vmid)->status();
     }
 }
