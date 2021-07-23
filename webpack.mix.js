@@ -18,6 +18,9 @@ mix.js('resources/js/main.ts', 'public/js').vue()
     ])
     .webpackConfig(require('./webpack.config'));
 
+mix.browserSync('stratum.test');
+
+
 if (mix.inProduction()) {
     mix.version();
 }

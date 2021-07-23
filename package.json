@@ -16,13 +16,16 @@
         "@tailwindcss/typography": "^0.4.1",
         "@vue/compiler-sfc": "^3.0.11",
         "axios": "^0.21",
+        "browser-sync": "^2.27.4",
+        "browser-sync-webpack-plugin": "^2.3.0",
         "laravel-mix": "^6.0.25",
         "lodash": "^4.17.21",
         "postcss": "^8.3.0",
         "postcss-import": "^14.0.2",
-        "tailwindcss": "^2.0.4",
+        "tailwindcss": "^2.2.7",
         "vue": "^3.0.5",
-        "vue-loader": "^16.1.2"
+        "vue-loader": "^16.1.2",
+        "webpack-livereload-plugin": "^1.2.0"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",

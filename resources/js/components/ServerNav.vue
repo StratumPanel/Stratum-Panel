@@ -4,17 +4,8 @@
       <p class="font-medium">Server Settings</p>
     </div>
     <div class="flex flex-col">
-      <a class="border-l-2 bg-gray-50 border-gray-800 px-5 py-2"
-        ><font-awesome-icon :icon="faCog" class="mr-2"></font-awesome-icon> General
-      </a>
-      
-      <a class="border-l-2 border-transparent px-5 py-2 text-gray-500">
-        <font-awesome-icon :icon="faCog" class="mr-2"></font-awesome-icon> Backups
-      </a>
-      
-      
-      <a class="border-l-2 border-transparent px-5 py-2 text-gray-500">
-        <font-awesome-icon :icon="faCog" class="mr-2"></font-awesome-icon> Subscription
+      <a class="flex items-center border-l-2 bg-gray-50 border-gray-800 px-5 py-2"
+        ><font-awesome-icon :icon="faCog" class="mr-2 text-lg"></font-awesome-icon> <span class="text-navlabel">General</span>
       </a>
     </div>
   </div>
@@ -36,3 +27,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.text-navlabel {
+  font-size: 0.9375rem;
+}
+</style>
