@@ -2,7 +2,7 @@
 
 namespace App\Services\Servers;
 
-class ServerCreationService
+class CreationService
 {
     
 }

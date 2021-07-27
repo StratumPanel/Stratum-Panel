@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Client\Servers\ServerStatusController;
+use App\Http\Controllers\Client\Servers\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +20,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return $request->user();
     });
 
-    Route::get('/api/status/{proxmoxvmid}', [ServerStatusController::class, 'index'])->name('status');
+    Route::get('/api/status/{proxmoxvmid}', [StatusController::class, 'index'])->name('status');
 });

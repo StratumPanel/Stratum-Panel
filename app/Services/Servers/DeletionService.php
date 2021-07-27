@@ -8,7 +8,7 @@ use App\Services\ProxmoxService;
  * Class ServerDeletionService
  * @package App\Services\Servers
  */
-class ServerDeletionService extends ProxmoxService
+class DeletionService extends ProxmoxService
 {
     /**
      * @param string $cluster

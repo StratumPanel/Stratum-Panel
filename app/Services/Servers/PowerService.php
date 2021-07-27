@@ -24,7 +24,7 @@ class PowerService extends ProxmoxService
      */
     public function __construct(private string $cluster, private string $vmid)
     {
-        $this->instance = $this->proxmox($cluster, $vmid);
+        $this->instance = $this->proxmox($cluster, $vmid)->status();
     }
 
     /**

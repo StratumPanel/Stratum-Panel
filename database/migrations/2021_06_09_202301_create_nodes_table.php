@@ -16,6 +16,7 @@ class CreateNodesTable extends Migration
         Schema::create('nodes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('cluster')->default("proxmox");
             $table->string('hostname');
             $table->string('username');
             $table->string('password');
