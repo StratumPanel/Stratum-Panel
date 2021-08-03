@@ -23,10 +23,6 @@ class StatusController extends Controller
 
     }
     public function index() {
-        if ($this->server->user_id !== Auth::user()->id) {
-            abort(401);
-        }
-
         $this->proxmoxService->fetchStatus($this->server->node->cluster, $this->server);
 
     }

@@ -16,7 +16,7 @@ class DeletionService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function delete(string $cluster, string $vmid, array $params)
+    public function destroy(string $cluster, string $vmid, array $params)
     {
         return $this->proxmox($cluster, $vmid)->delete($params); // WIP
     }

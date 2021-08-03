@@ -28,34 +28,28 @@ class PowerService extends ProxmoxService
     }
 
     /**
-     * @param string $cluster
-     * @param string $vmid
      * @param array $params
      * @return mixed
      */
-    public function start(string $cluster, string $vmid, array $params)
+    public function start(array $params)
     {
         return $this->instance->postStart($params);
     }
 
     /**
-     * @param string $cluster
-     * @param string $vmid
      * @param array $params
      * @return mixed
      */
-    public function stop(string $cluster, string $vmid, array $params)
+    public function stop(array $params)
     {
         return $this->instance->postShutdown($params);
     }
 
     /**
-     * @param string $cluster
-     * @param string $vmid
      * @param array $params
      * @return mixed
      */
-    public function end(string $cluster, string $vmid, array $params)
+    public function end(array $params)
     {
         return $this->instance->postStop($params); // Forcefully kills the server
     }
@@ -66,7 +60,7 @@ class PowerService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function reboot(string $cluster, string $vmid, array $params)
+    public function reboot(array $params)
     {
         return $this->instance->postReboot($params);
     }

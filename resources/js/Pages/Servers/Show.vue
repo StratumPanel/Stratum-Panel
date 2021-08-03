@@ -7,7 +7,7 @@
     <div class="server-container h-72">
       <server-nav />
 
-      <div class="inset-0 border border-gray-200 rounded-md"></div>
+      <server-content />
     </div>
 
   </app-layout>
@@ -18,10 +18,11 @@ import { defineComponent } from 'vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import ServerHeader from '@components/ServerHeader.vue'
 import ServerNav from '@components/ServerNav.vue'
+import ServerContent from '@components/ServerContent.vue'
 
 export default defineComponent({
   name: 'Index',
-  components: { AppLayout, ServerHeader, ServerNav },
+  components: { AppLayout, ServerHeader, ServerNav, ServerContent },
   props: {
     server: {
       type: Object,

@@ -14,30 +14,18 @@ class PowerController extends Controller
     }
 
     public function stop() {
-        if ($this->server->user_id !== Auth::user()->id) {
-            abort(401);
-        }
         $this->powerService->stop($this->server);
     }
 
     public function start() {
-        if ($this->server->user_id !== Auth::user()->id) {
-            abort(401);
-        }
         $this->powerService->start($this->server);
     }
 
     public function end() {
-        if ($this->server->user_id !== Auth::user()->id) {
-            abort(401);
-        }
         $this->powerService->end($this->server);
     }
 
     public function reboot() {
-        if ($this->server->user_id !== Auth::user()->id) {
-            abort(401);
-        }
         $this->powerService->reboot($this->server);
     }
 }
