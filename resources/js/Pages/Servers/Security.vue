@@ -1,10 +1,10 @@
 <template>
   <server-layout>
     <template #title>
-      General
+      Security
     </template>
 
-    Something is supposed to be here in general
+    Beep boop your password is bad
   </server-layout>
 </template>
 
@@ -13,7 +13,7 @@ import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 
 export default defineComponent({
-  name: 'General',
+  name: 'Security',
   components: {
     ServerLayout,
   },

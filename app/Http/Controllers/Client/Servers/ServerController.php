@@ -15,7 +15,7 @@ class ServerController extends Controller
     }
 
     public function show(Server $server) {
-        return inertia('Servers/Show', [
+        return inertia('Servers/General', [
             'server' => $server,
         ]);
     }
