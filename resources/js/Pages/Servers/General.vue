@@ -4,7 +4,7 @@
       General
     </template>
 
-    Something is supposed to be here in general
+    Something is supposed to be here in general...
   </server-layout>
 </template>
 
