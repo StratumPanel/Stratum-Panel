@@ -12,11 +12,11 @@
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 
-export default defineComponent({
+export default {
   name: 'General',
   components: {
     ServerLayout,
   },
   setup() {},
-})
+}
 </script>
