@@ -79,6 +79,7 @@
                       focus:outline-none
                     "
                   >
+
                     <MenuItem v-slot="{ active }">
                       <nav-link
                         :href="route('profile.show')"
@@ -87,6 +88,16 @@
                           'block px-4 py-2 text-sm text-gray-700',
                         ]"
                         >Profile</nav-link
+                      >
+                    </MenuItem>
+
+                    <MenuItem v-if="$page.props.user.root_admin" v-slot="{ active }">
+                      <nav-link
+                          :class="[
+                          active ? 'bg-gray-100' : '',
+                          'block px-4 py-2 text-sm text-gray-700',
+                        ]"
+                      >Admin Panel</nav-link
                       >
                     </MenuItem>
 
