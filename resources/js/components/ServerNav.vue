@@ -5,9 +5,28 @@
       <p class="font-medium">Server Settings</p>
     </div>
     <div class="flex flex-col">
-      <nav-link v-for="link in links" :key="link.name" :href="route(link.route, server.id)" class="flex items-center border-l-2 bg-transparent border-transparent px-5 py-2" :class="{ 'bg-gray-50 border-gray-800': route().current(link.route) }"
+      <nav-link
+        v-for="link in links"
+        :key="link.name"
+        :href="route(link.route, server.id)"
+        class="
+          flex
+          items-center
+          border-l-2
+          bg-transparent
+          border-transparent
+          px-5
+          py-2
+          hover:bg-gray-50
+          hover:border-gray-300
+          transition-colors
+        "
+        :class="{ '!bg-gray-100 !border-gray-800': route().current(link.route) }"
       >
-        <font-awesome-icon :icon="link.icon" class="mr-2 text-lg"></font-awesome-icon>
+        <font-awesome-icon
+          :icon="link.icon"
+          class="mr-2 text-lg"
+        ></font-awesome-icon>
         <span class="text-navlabel">{{ link.name }}</span>
       </nav-link>
     </div>
@@ -15,10 +34,10 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 import NavLink from '@components/NavLink.vue'
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import {faCog, faShieldAlt} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faCog, faShieldAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   name: 'ServerNav',
@@ -34,11 +53,11 @@ export default defineComponent({
   },
   setup() {
     const links = [
-      {name: 'General', icon: faCog, route: 'servers.show'},
-      {name: 'Security', icon: faShieldAlt, route: 'servers.show.security'}
+      { name: 'General', icon: faCog, route: 'servers.show' },
+      { name: 'Security', icon: faShieldAlt, route: 'servers.show.security' },
     ]
 
-    return {links}
+    return { links }
   },
 })
 </script>

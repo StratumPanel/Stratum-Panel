@@ -13,7 +13,7 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <template v-for="(item, itemIdx) in navigation" :key="item">
+                <template v-for="(item, itemIdx) in (route().current('admin.*') ? adminlinks : clientlinks)" :key="item">
                   <nav-link
                     :href="route(item.route)"
                     :class="{
@@ -93,11 +93,12 @@
 
                     <MenuItem v-if="$page.props.user.root_admin" v-slot="{ active }">
                       <nav-link
+                          :href="route().current('admin.*') ? route('dashboard') : route('admin.index')"
                           :class="[
                           active ? 'bg-gray-100' : '',
                           'block px-4 py-2 text-sm text-gray-700',
                         ]"
-                      >Admin Panel</nav-link
+                      >{{ route().current('admin.*') ? 'Client Panel' : 'Admin Panel' }}</nav-link
                       >
                     </MenuItem>
 
@@ -224,7 +225,11 @@ import NavLink from '@components/NavLink.vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 import { Inertia } from '@inertiajs/inertia'
 
-const navigation = [{ name: 'Dashboard', route: 'dashboard' }]
+const clientlinks = [{ name: 'Dashboard', route: 'dashboard' }]
+const adminlinks = [{
+  name: 'Dashboard', route: 'admin.index'
+}]
+
 const profile = [{ name: 'Profile', route: 'profile.show' }]
 
 export default {
@@ -249,7 +254,8 @@ export default {
     }
 
     return {
-      navigation,
+      clientlinks,
+      adminlinks,
       profile,
       open,
       logout,
