@@ -169,20 +169,7 @@
 
       <DisclosurePanel class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <template v-for="item in navigation" :key="item.name">
-            <nav-link
-              :href="route(item.route)"
-              :class="{
-                'bg-gray-900 text-white': route().current(item.route),
-                'text-gray-300 hover:bg-gray-700 hover:text-white':
-                  !route().current(item.route),
-              }"
-              class="block px-3 py-2 rounded-md text-base font-medium"
-              >{{ item.name }}</nav-link
-            >
-          </template>
-
-          <template v-for="item in profile" :key="item.name">
+          <template v-for="item in clientlinks" :key="item.name">
             <nav-link
               :href="route(item.route)"
               :class="{
@@ -199,6 +186,19 @@
         <div class="pt-4 border-t border-gray-700"></div>
 
         <div class="px-2 pb-3 space-y-1 sm:px-3">
+          <nav-link
+            v-for="link in userlinks"
+            :key="link.name"
+            :href="route(link.route)"
+            :class="{
+              'bg-gray-900 text-white': route().current(link.route),
+              'text-gray-300 hover:bg-gray-700 hover:text-white':
+                !route().current(link.route),
+            }"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            >{{ link.name }}</nav-link
+          >
+
           <nav-link
             @click="logout"
             class="
@@ -248,7 +248,7 @@ const adminlinks = [
   },
 ]
 
-const profile = [{ name: 'Profile', route: 'profile.show' }]
+const userlinks = [{ name: 'Profile', route: 'profile.show' }]
 
 export default {
   components: {
@@ -274,7 +274,7 @@ export default {
     return {
       clientlinks,
       adminlinks,
-      profile,
+      userlinks,
       open,
       logout,
     }

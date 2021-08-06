@@ -40801,7 +40801,7 @@ var adminlinks = [{
   name: 'Dashboard',
   route: 'admin.index'
 }];
-var profile = [{
+var userlinks = [{
   name: 'Profile',
   route: 'profile.show'
 }];
@@ -40829,7 +40829,7 @@ var profile = [{
     return {
       clientlinks: clientlinks,
       adminlinks: adminlinks,
-      profile: profile,
+      userlinks: userlinks,
       open: open,
       logout: logout
     };
@@ -43347,7 +43347,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "md:hidden"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.navigation, function (item) {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.clientlinks, function (item) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_nav_link, {
               key: item.name,
               href: _ctx.route(item.route),
@@ -43369,17 +43369,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             , ["href", "class"]);
           }), 128
           /* KEYED_FRAGMENT */
-          )), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.profile, function (item) {
+          ))]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.userlinks, function (link) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_nav_link, {
-              key: item.name,
-              href: _ctx.route(item.route),
+              key: link.name,
+              href: _ctx.route(link.route),
               "class": [{
-                'bg-gray-900 text-white': _ctx.route().current(item.route),
-                'text-gray-300 hover:bg-gray-700 hover:text-white': !_ctx.route().current(item.route)
+                'bg-gray-900 text-white': _ctx.route().current(link.route),
+                'text-gray-300 hover:bg-gray-700 hover:text-white': !_ctx.route().current(link.route)
               }, "block px-3 py-2 rounded-md text-base font-medium"]
             }, {
               "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.name), 1
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(link.name), 1
                 /* TEXT */
                 )];
               }),
@@ -43391,7 +43391,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             , ["href", "class"]);
           }), 128
           /* KEYED_FRAGMENT */
-          ))]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_nav_link, {
+          )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_nav_link, {
             onClick: $setup.logout,
             "class": "\r\n              block\r\n              px-3\r\n              py-2\r\n              rounded-md\r\n              text-base\r\n              font-medium\r\n              text-gray-300\r\n              hover:bg-gray-700 hover:text-white\r\n            "
           }, {
@@ -46547,13 +46547,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\r\n        bg-gray-100\r\n        p-4\r\n        rounded-md\r\n        w-full\r\n        hover:border-gray-300\r\n        border border-gray-100\r\n      "
+  "class": "\r\n        bg-gray-100\r\n        p-2\r\n        md:p-3\r\n        rounded-md\r\n        w-full\r\n        hover:border-gray-300\r\n        border border-gray-100\r\n      "
 };
 var _hoisted_2 = {
   "class": "flex items-center"
 };
 var _hoisted_3 = {
-  "class": "\r\n            flex\r\n            justify-center\r\n            items-center\r\n            h-12\r\n            w-12\r\n            bg-green-200\r\n            rounded-full\r\n            mr-4\r\n          "
+  "class": "\r\n            flex\r\n            justify-center\r\n            items-center\r\n            h-10\r\n            w-10\r\n            bg-green-200\r\n            rounded-full\r\n            mr-4\r\n          "
 };
 var _hoisted_4 = {
   "class": "text-gray-700 font-bold text-lg break-words"
@@ -46574,9 +46574,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
-        "class": "text-green-700",
-        icon: _ctx.faPlay,
-        size: "lg"
+        "class": "ml-1 text-green-700 !w-4 !h-4",
+        icon: _ctx.faPlay
       }, null, 8
       /* PROPS */
       , ["icon"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.name), 1

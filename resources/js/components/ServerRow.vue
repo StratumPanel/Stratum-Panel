@@ -3,7 +3,8 @@
     <div
       class="
         bg-gray-100
-        p-4
+        p-2
+        md:p-3
         rounded-md
         w-full
         hover:border-gray-300
@@ -16,14 +17,14 @@
             flex
             justify-center
             items-center
-            h-12
-            w-12
+            h-10
+            w-10
             bg-green-200
             rounded-full
             mr-4
           "
         >
-          <font-awesome-icon class="text-green-700" :icon="faPlay" size="lg" />
+          <font-awesome-icon class="ml-1 text-green-700 !w-4 !h-4" :icon="faPlay" />
         </div>
         <div>
           <h2 class="text-gray-700 font-bold text-lg break-words">
