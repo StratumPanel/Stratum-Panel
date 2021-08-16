@@ -1,15 +1,7 @@
 <?php
 
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | Application Version
-    |--------------------------------------------------------------------------
-    | This value is set when creating a Stratum release. You should not
-    | change this value if you are not maintaining your own internal versions.
-    */
 
-    'version' => '0.1.0',
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -21,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Stratum'),
+    'name' => env('APP_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------

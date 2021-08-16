@@ -2,7 +2,7 @@
   <div class="border border-gray-200 rounded-md py-3">
     <div class="border-b border-gray-200 pb-3 px-5 mb-3">
       <!-- after:block after:h-[0.5px] after:bottom-0 after:relative after:w-full after:bg-gray-200 -->
-      <h1 class="font-medium">Server Settings</h1>
+      <p class="font-medium">Server Settings</p>
     </div>
     <div class="flex flex-col">
       <nav-link
