@@ -1252,9 +1252,13 @@ select {
 =======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 }
+.h-72 {
+	height: 18rem;
+}
 .\!h-5 {
 	height: 1.25rem !important;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 .h-72 {
@@ -1271,6 +1275,10 @@ select {
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 =======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
+=======
+.\!h-6 {
+	height: 1.5rem !important;
+>>>>>>> parent of 20d4b78 (Added button to setting containers)
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1331,11 +1339,14 @@ select {
 	width: 0.75rem;
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 }
+.w-3 {
+	width: 0.75rem;
+}
 .\!w-5 {
 	width: 1.25rem !important;
 }
-.w-3 {
-	width: 0.75rem;
+.\!w-6 {
+	width: 1.5rem !important;
 }
 .\!w-10 {
 	width: 2.5rem !important;
@@ -1429,6 +1440,12 @@ select {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+.grid-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+>>>>>>> parent of 20d4b78 (Added button to setting containers)
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1466,6 +1483,9 @@ select {
 .gap-1 {
 	gap: 0.25rem;
 }
+.gap-2 {
+	gap: 0.5rem;
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1490,6 +1510,11 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -1674,6 +1699,9 @@ select {
 }
 .p-6 {
 	padding: 1.5rem;
+}
+.p-5 {
+	padding: 1.25rem;
 }
 .p-4 {
 	padding: 1rem;
@@ -2366,6 +2394,10 @@ select {
 		display: flex;
 	}
 
+	.sm\:grid {
+		display: grid;
+	}
+
 	.sm\:hidden {
 		display: none;
 	}
@@ -2427,6 +2459,10 @@ select {
 		transform: var(--tw-transform);
 	}
 
+	.sm\:grid-cols-4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
 	.sm\:flex-row {
 		flex-direction: row;
 	}
@@ -2449,6 +2485,10 @@ select {
 
 	.sm\:justify-between {
 		justify-content: space-between;
+	}
+
+	.sm\:gap-6 {
+		gap: 1.5rem;
 	}
 
 	.sm\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
