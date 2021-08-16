@@ -48,4 +48,7 @@ export default {
   grid-template-columns: 1fr 3fr;
 }
 </style>
+<<<<<<< HEAD
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
+=======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
