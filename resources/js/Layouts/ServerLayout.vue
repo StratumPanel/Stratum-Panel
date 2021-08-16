@@ -24,7 +24,6 @@
 import AppLayout from '@/Layouts/AppLayout.vue'
 import ServerHeader from '@components/ServerHeader.vue'
 import ServerNav from '@components/ServerNav.vue'
-
 export default {
   name: 'ServerLayout',
   components: { AppLayout, ServerHeader, ServerNav },
