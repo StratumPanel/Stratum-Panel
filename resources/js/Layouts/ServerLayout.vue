@@ -36,9 +36,6 @@ export default {
   },
   setup() {},
 }
-<<<<<<< HEAD
-</script>
-=======
 </script>
 
 <style scoped>
@@ -48,10 +45,3 @@ export default {
   grid-template-columns: 1fr 3fr;
 }
 </style>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 975a61e (Added SettingContainer on frontend)
-=======
->>>>>>> parent of 975a61e (Added SettingContainer on frontend)
-=======
->>>>>>> parent of 975a61e (Added SettingContainer on frontend)
