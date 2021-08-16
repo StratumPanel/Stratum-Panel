@@ -6,7 +6,9 @@
     <h2 class="pt-4 font-bold">{{ title }}</h2>
     <p class="text-sm text-gray-600">{{ description }}</p>
 
-    <slot></slot>
+    <div class="pt-4">
+      <slot name="actions"></slot>
+    </div>
   </div>
 </template>
 

@@ -1244,14 +1244,8 @@ select {
 .\!h-4 {
 	height: 1rem !important;
 }
-.h-72 {
-	height: 18rem;
-}
 .\!h-5 {
 	height: 1.25rem !important;
-}
-.\!h-6 {
-	height: 1.5rem !important;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1304,14 +1298,11 @@ select {
 .\!w-4 {
 	width: 1rem !important;
 }
-.w-3 {
-	width: 0.75rem;
-}
 .\!w-5 {
 	width: 1.25rem !important;
 }
-.\!w-6 {
-	width: 1.5rem !important;
+.w-3 {
+	width: 0.75rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -1385,9 +1376,6 @@ select {
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-4 {
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1424,9 +1412,6 @@ select {
 .gap-1 {
 	gap: 0.25rem;
 }
-.gap-2 {
-	gap: 0.5rem;
-}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1451,11 +1436,6 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-.space-x-3 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-x-reverse: 0;
-	margin-right: calc(0.75rem * var(--tw-space-x-reverse));
-	margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -1632,9 +1612,6 @@ select {
 }
 .p-6 {
 	padding: 1.5rem;
-}
-.p-5 {
-	padding: 1.25rem;
 }
 .p-4 {
 	padding: 1rem;
@@ -2320,10 +2297,6 @@ select {
 		display: flex;
 	}
 
-	.sm\:grid {
-		display: grid;
-	}
-
 	.sm\:hidden {
 		display: none;
 	}
@@ -2385,10 +2358,6 @@ select {
 		transform: var(--tw-transform);
 	}
 
-	.sm\:grid-cols-4 {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
-
 	.sm\:flex-row {
 		flex-direction: row;
 	}
@@ -2411,10 +2380,6 @@ select {
 
 	.sm\:justify-between {
 		justify-content: space-between;
-	}
-
-	.sm\:gap-6 {
-		gap: 1.5rem;
 	}
 
 	.sm\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
