@@ -49,6 +49,9 @@ export default {
 }
 </style>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
+=======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 =======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)

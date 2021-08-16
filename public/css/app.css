@@ -1236,28 +1236,40 @@ select {
 	height: 3.5rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .\!h-4 {
 	height: 1rem !important;
 =======
+=======
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 .h-72 {
 	height: 18rem;
 }
 .\!h-10 {
 	height: 2.5rem !important;
+<<<<<<< HEAD
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
+=======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 }
 .\!h-5 {
 	height: 1.25rem !important;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .h-72 {
 	height: 18rem;
 =======
+=======
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 .\!h-3 {
 	height: 0.75rem !important;
 }
 .\!h-4 {
 	height: 1rem !important;
+<<<<<<< HEAD
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
+=======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 }
 .min-h-screen {
@@ -1309,9 +1321,12 @@ select {
 	width: 3.5rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .\!w-4 {
 	width: 1rem !important;
 =======
+=======
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 .w-3 {
 	width: 0.75rem;
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
@@ -1321,6 +1336,15 @@ select {
 }
 .w-3 {
 	width: 0.75rem;
+}
+.\!w-10 {
+	width: 2.5rem !important;
+}
+.\!w-3 {
+	width: 0.75rem !important;
+}
+.\!w-4 {
+	width: 1rem !important;
 }
 .\!w-10 {
 	width: 2.5rem !important;
@@ -1404,9 +1428,12 @@ select {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+=======
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 =======
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 .flex-col {

@@ -12,7 +12,10 @@
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 
 >>>>>>> parent of 975a61e (Added SettingContainer on frontend)
 export default defineComponent({
