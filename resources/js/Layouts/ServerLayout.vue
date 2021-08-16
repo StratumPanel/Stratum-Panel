@@ -13,7 +13,7 @@
         </div>
 
         <div class="px-5">
-          <slot></slot>
+          <slot name="settings" :server="server"></slot>
         </div>
       </div>
     </div>

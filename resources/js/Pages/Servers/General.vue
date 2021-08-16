@@ -2,19 +2,21 @@
   <server-layout>
     <template #title> General </template>
 
-    <div class="grid gap-4 grid-cols-3">
-      <setting-container
-        v-for="index in 3"
-        :key="index"
-        :icon="faBolt"
-        title="Power Options"
-        description="Send commands to manage the state of your instance."
-      >
-        <template #actions>
-          <setting-link>Shutdown</setting-link>
-        </template>
-      </setting-container>
-    </div>
+    <template #settings="{ server }">
+      <div class="grid gap-4 grid-cols-3">
+        <setting-container
+          v-for="index in 3"
+          :key="index"
+          :icon="faBolt"
+          title="Power Options"
+          description="Send commands to manage the state of your instance."
+        >
+          <template #actions>
+            <setting-link :href="route('servers.show', server.id)">Shutdown</setting-link>
+          </template>
+        </setting-container>
+      </div>
+    </template>
   </server-layout>
 </template>
 
