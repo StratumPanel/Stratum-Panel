@@ -20,5 +20,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return $request->user();
     });
 
-    Route::get('/api/status/{proxmoxvmid}', [StatusController::class, 'index'])->name('status');
+    Route::get('/api/status/{vmid}', [StatusController::class, 'index'])->name('status');
 });

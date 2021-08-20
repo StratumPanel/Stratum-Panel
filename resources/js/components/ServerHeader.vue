@@ -20,7 +20,7 @@
           <div>
             <h2 class="text-lg font-bold text-gray-700">{{ server.name }}</h2>
             <p class="font-normal text-sm text-gray-600">
-              VM_ID: {{ server.proxmoxvmid }}
+              VM_ID: {{ server.vmid }}
             </p>
           </div>
         </div>

@@ -13,7 +13,7 @@ class Server extends Model
         'name',
         'user_id',
         'node_id',
-        'proxmoxvmid'
+        'vmid'
     ];
 
     public function node()

@@ -7,22 +7,40 @@ use App\Models\Server;
 
 abstract class ProxmoxService
 {
-
-    public function proxmox($cluster, $server)
+    /**
+     * Proxmox initializer
+     *
+     * @param Server|int $server
+     * @param Object $ckyster
+     * @return void
+     */
+    public function proxmox(Server|int $server, $cluster)
     {
         if ($server instanceof Server)
         {
-            $vmid = $server->proxmoxvmid;
-            $cluster = [
-                'hostname' => $server->node->hostname,
-                'username' => $server->node->username,
-                'password' => $server->node->password,
-                'authType' => $server->node->auth_type,
-                'port' => $server->node->port,
+            $vmid = $server->vmid;
+            $cluster = $server->node;
+
+            $node = [
+                'hostname' => $cluster->hostname,
+                'username' => $cluster->username,
+                'password' => $cluster->password,
+                'authType' => $cluster->auth_type,
+                'port' => $cluster->port,
+            ];
+        } else if (!$server instanceof Server) {
+            $vmid = $server;
+
+            $node = [
+                'hostname' => $cluster->hostname,
+                'username' => $cluster->username,
+                'password' => $cluster->password,
+                'authType' => $cluster->auth_type,
+                'port' => $cluster->port,
             ];
         }
 
-        $proxmox = new pve($cluster);
+        $proxmox = new pve($node);
 
         return $proxmox->nodes()->node($cluster->name)->qemu->vmid($vmid);
     }
