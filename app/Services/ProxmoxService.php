@@ -20,25 +20,17 @@ abstract class ProxmoxService
         {
             $vmid = $server->vmid;
             $cluster = $server->node;
-
-            $node = [
-                'hostname' => $cluster->hostname,
-                'username' => $cluster->username,
-                'password' => $cluster->password,
-                'authType' => $cluster->auth_type,
-                'port' => $cluster->port,
-            ];
         } else if (!$server instanceof Server) {
             $vmid = $server;
-
-            $node = [
-                'hostname' => $cluster->hostname,
-                'username' => $cluster->username,
-                'password' => $cluster->password,
-                'authType' => $cluster->auth_type,
-                'port' => $cluster->port,
-            ];
         }
+
+        $node = [
+            'hostname' => $cluster->hostname,
+            'username' => $cluster->username,
+            'password' => $cluster->password,
+            'authType' => $cluster->auth_type,
+            'port' => $cluster->port,
+        ];
 
         $proxmox = new pve($node);
 
