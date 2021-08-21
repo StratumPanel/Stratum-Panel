@@ -5,7 +5,10 @@ namespace App\Services;
 use proxmox\pve;
 use App\Models\Server;
 
-abstract class ProxmoxService
+/**
+ * ProxmoxService class
+ */
+class ProxmoxService
 {
     /**
      * Proxmox initializer
