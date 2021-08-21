@@ -11,7 +11,7 @@ abstract class ProxmoxService
      * Proxmox initializer
      *
      * @param Server|int $server
-     * @param Object $ckyster
+     * @param Object $cluster
      * @return void
      */
     public function proxmox(Server|int $server, $cluster)
