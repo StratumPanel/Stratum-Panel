@@ -4,15 +4,15 @@
       <server-header :server="server" />
     </template>
 
-    <div class="server-container h-72">
-      <server-nav :server="server" />
+    <div class="flex flex-col space-y-6 md:grid md:!space-y-0 md:gap-6 md:grid-cols-4">
+      <server-nav class="col-span-1" :server="server" />
 
-      <div class="inset-0 border border-gray-200 rounded-md py-3">
-        <div class="border-b border-gray-200 pb-3 px-5 mb-3">
+      <div class="col-span-3 inset-0 border border-gray-200 rounded-md py-3">
+        <div :class="[ !keeptitle ? 'hidden md:block' : '']" class="border-b border-gray-200 pb-3 px-3 md:px-5 mb-3">
           <p class="font-medium"><slot name="title"></slot></p>
         </div>
 
-        <div class="px-5">
+        <div class="px-3 md:px-5">
           <slot :server="server" name="settings"></slot>
         </div>
       </div>
@@ -33,6 +33,10 @@ export default {
       type: Object,
       required: true,
     },
+    keeptitle: {
+      type: Boolean,
+      required: false,
+    }
   },
   setup() {},
 }

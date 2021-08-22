@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between sm:justify-start items-center space-x-8">
+      <div class="flex justify-between sm:justify-start items-center sm:space-x-8">
         <div class="flex items-center">
           <div
             class="
@@ -18,7 +18,7 @@
             <font-awesome-icon class="text-green-700" :icon="faPlay" size="lg" />
           </div>
           <div>
-            <h2 class="text-lg font-bold text-gray-700">{{ server.name }}</h2>
+            <h2 class="text-md overflow-ellipsis font-bold text-gray-700">{{ server.name }}</h2>
             <p class="font-normal text-sm text-gray-600">
               VM_ID: {{ server.vmid }}
             </p>

@@ -1,10 +1,10 @@
 <template>
-  <div class="inset-0 border border-gray-200 rounded-md py-3">
-    <div class="border-b border-gray-200 pb-3 px-5 mb-3">
+  <div class="inset-0 -mt-4 md:mt-0 border-b md:border border-gray-200 md:rounded-md md:py-3">
+    <div class="hidden md:block border-b border-gray-200 pb-3 px-3 md:px-5 mb-3">
       <!-- after:block after:h-[0.5px] after:bottom-0 after:relative after:w-full after:bg-gray-200 -->
       <p class="font-medium">Server Settings</p>
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-row md:flex-col">
       <nav-link
         v-for="link in links"
         :key="link.name"
@@ -12,20 +12,23 @@
         class="
           flex
           items-center
-          border-l-2
+          border-b-2
+          md:border-b-0
+          md:border-l-2
           bg-transparent
           border-transparent
-          px-5
+          px-3
+          md:px-5
           py-2
-          hover:bg-gray-50
-          hover:border-gray-300
+          md:hover:bg-gray-50
+          md:hover:border-gray-300
           transition-colors
         "
-        :class="{ '!bg-gray-100 !border-gray-800': route().current(link.route) }"
+        :class="{ 'md:!bg-gray-100 !border-gray-800': route().current(link.route) }"
       >
         <font-awesome-icon
           :icon="link.icon"
-          class="mr-2 text-lg"
+          class="hidden md:block mr-2 text-lg"
         ></font-awesome-icon>
         <span class="text-navlabel">{{ link.name }}</span>
       </nav-link>

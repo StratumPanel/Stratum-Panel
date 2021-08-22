@@ -3,26 +3,33 @@
     <template #title> General </template>
 
     <template #settings="{ server }">
-      <div class="grid gap-4 grid-cols-3">
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         <setting-container
-          v-for="index in 3"
+          :icon="faBolt"
+          title="Power Options"
+          description="Send commands to manage the state of your instance."
+        >
+          <template #actions>
+            <setting-link
+              :href="route('servers.show', server.id)"
+              :items="powerOptions"
+              dropdown
+              >Shutdown</setting-link
+            >
+          </template>
+        </setting-container>
+
+        <setting-container
+          v-for="index in 2"
           :key="index"
           :icon="faBolt"
           title="Power Options"
           description="Send commands to manage the state of your instance."
         >
           <template #actions>
-            <setting-link :href="route('servers.show', server.id)">Shutdown</setting-link>
-          </template>
-        </setting-container>
-
-        <setting-container
-          :icon="faBolt"
-          title="Power Options"
-          description="Send commands to manage the state of your instance."
-        >
-          <template #actions>
-            <setting-link :href="route('servers.show', server.id)" :items="powerOptions" dropdown>Shutdown</setting-link>
+            <setting-link :href="route('servers.show', server.id)"
+              >Shutdown</setting-link
+            >
           </template>
         </setting-container>
       </div>
@@ -34,7 +41,13 @@
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import SettingContainer from '@components/SettingContainer.vue'
-import { faBolt, faBan, faStop, faUndo, faPlay } from '@fortawesome/free-solid-svg-icons'
+import {
+  faBolt,
+  faBan,
+  faStop,
+  faUndo,
+  faPlay,
+} from '@fortawesome/free-solid-svg-icons'
 import SettingLink from '@components/SettingLink.vue'
 import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-vue3'
@@ -48,14 +61,28 @@ export default defineComponent({
   },
   setup() {
     const changePowerState = (state: string) => {
-      Inertia.post(route(`servers.show.power.${state}`, usePage().props.value.server.id))
+      Inertia.post(
+        route(`servers.show.power.${state}`, usePage().props.value.server.id)
+      )
     }
 
     const powerOptions = [
-      { name: "Start", icon: faPlay, callback: () => changePowerState('start')},
-      { name: "Shutdown", icon: faStop, callback: () => changePowerState('shutdown')},
-      { name: "Kill", icon: faBan, callback: () => changePowerState('kill')},
-      { name: "Restart", icon: faUndo, callback: () => changePowerState('restart')},
+      {
+        name: 'Start',
+        icon: faPlay,
+        callback: () => changePowerState('start'),
+      },
+      {
+        name: 'Shutdown',
+        icon: faStop,
+        callback: () => changePowerState('shutdown'),
+      },
+      { name: 'Kill', icon: faBan, callback: () => changePowerState('kill') },
+      {
+        name: 'Restart',
+        icon: faUndo,
+        callback: () => changePowerState('restart'),
+      },
     ]
 
     return { faBolt, powerOptions }

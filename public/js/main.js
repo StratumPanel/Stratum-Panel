@@ -40868,6 +40868,10 @@ __webpack_require__.r(__webpack_exports__);
     server: {
       type: Object,
       required: true
+    },
+    keeptitle: {
+      type: Boolean,
+      required: false
     }
   },
   setup: function setup() {}
@@ -42009,25 +42013,25 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var powerOptions = [{
-      name: "Start",
+      name: 'Start',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faPlay,
       callback: function callback() {
         return changePowerState('start');
       }
     }, {
-      name: "Shutdown",
+      name: 'Shutdown',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faStop,
       callback: function callback() {
         return changePowerState('shutdown');
       }
     }, {
-      name: "Kill",
+      name: 'Kill',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faBan,
       callback: function callback() {
         return changePowerState('kill');
       }
     }, {
-      name: "Restart",
+      name: 'Restart',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faUndo,
       callback: function callback() {
         return changePowerState('restart');
@@ -43366,7 +43370,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuButton, {
-            "class": "\r\n                      max-w-xs\r\n                      bg-gray-800\r\n                      rounded-full\r\n                      flex\r\n                      items-center\r\n                      text-sm\r\n                      focus:outline-none\r\n                      focus:ring-2\r\n                      focus:ring-offset-2\r\n                      focus:ring-offset-gray-800\r\n                      focus:ring-white\r\n                    "
+            "class": "\n                      max-w-xs\n                      bg-gray-800\n                      rounded-full\n                      flex\n                      items-center\n                      text-sm\n                      focus:outline-none\n                      focus:ring-2\n                      focus:ring-offset-2\n                      focus:ring-offset-gray-800\n                      focus:ring-white\n                    "
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
@@ -43390,7 +43394,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuItems, {
-                "class": "\r\n                      origin-top-right\r\n                      absolute\r\n                      right-0\r\n                      mt-2\r\n                      w-48\r\n                      rounded-md\r\n                      shadow-lg\r\n                      py-1\r\n                      bg-white\r\n                      ring-1 ring-black ring-opacity-5\r\n                      focus:outline-none\r\n                    "
+                "class": "\n                      origin-top-right\n                      absolute\n                      right-0\n                      mt-2\n                      w-48\n                      rounded-md\n                      shadow-lg\n                      py-1\n                      bg-white\n                      ring-1 ring-black ring-opacity-5\n                      focus:outline-none\n                    "
               }, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuItem, null, {
@@ -43441,7 +43445,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     onClick: _cache[1] || (_cache[1] = function () {
                       return $setup.logout && $setup.logout.apply($setup, arguments);
                     }),
-                    "class": "\r\n                        block\r\n                        w-full\r\n                        text-left\r\n                        focus:ring-0 focus:outline-none\r\n                        block\r\n                        px-4\r\n                        py-2\r\n                        text-sm text-gray-700\r\n                        hover:bg-gray-100\r\n                      "
+                    "class": "\n                        block\n                        w-full\n                        text-left\n                        focus:ring-0 focus:outline-none\n                        block\n                        px-4\n                        py-2\n                        text-sm text-gray-700\n                        hover:bg-gray-100\n                      "
                   }, " Log Out ")];
                 }),
                 _: 1
@@ -43458,7 +43462,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Mobile menu button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DisclosureButton, {
-        "class": "\r\n                bg-gray-800\r\n                inline-flex\r\n                items-center\r\n                justify-center\r\n                p-2\r\n                rounded-md\r\n                text-gray-400\r\n                hover:text-white hover:bg-gray-700\r\n                focus:outline-none\r\n                focus:ring-2\r\n                focus:ring-offset-2\r\n                focus:ring-offset-gray-800\r\n                focus:ring-white\r\n              "
+        "class": "\n                bg-gray-800\n                inline-flex\n                items-center\n                justify-center\n                p-2\n                rounded-md\n                text-gray-400\n                hover:text-white hover:bg-gray-700\n                focus:outline-none\n                focus:ring-2\n                focus:ring-offset-2\n                focus:ring-offset-gray-800\n                focus:ring-white\n              "
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_13, !open ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_MenuIcon, {
@@ -43526,7 +43530,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           /* KEYED_FRAGMENT */
           )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_nav_link, {
             onClick: $setup.logout,
-            "class": "\r\n              block\r\n              px-3\r\n              py-2\r\n              rounded-md\r\n              text-base\r\n              font-medium\r\n              text-gray-300\r\n              hover:bg-gray-700 hover:text-white\r\n            "
+            "class": "\n              block\n              px-3\n              py-2\n              rounded-md\n              text-base\n              font-medium\n              text-gray-300\n              hover:bg-gray-700 hover:text-white\n            "
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [_hoisted_17];
@@ -43570,19 +43574,16 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-b6b9035e");
 
 var _hoisted_1 = {
-  "class": "server-container h-72"
+  "class": "flex flex-col space-y-6 md:grid md:!space-y-0 md:gap-6 md:grid-cols-4"
 };
 var _hoisted_2 = {
-  "class": "inset-0 border border-gray-200 rounded-md py-3"
+  "class": "col-span-3 inset-0 border border-gray-200 rounded-md py-3"
 };
 var _hoisted_3 = {
-  "class": "border-b border-gray-200 pb-3 px-5 mb-3"
-};
-var _hoisted_4 = {
   "class": "font-medium"
 };
-var _hoisted_5 = {
-  "class": "px-5"
+var _hoisted_4 = {
+  "class": "px-3 md:px-5"
 };
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
@@ -43604,10 +43605,15 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }),
     "default": _withId(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_server_nav, {
+        "class": "col-span-1",
         server: $props.server
       }, null, 8
       /* PROPS */
-      , ["server"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "title", {}, undefined, true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "settings", {
+      , ["server"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+        "class": [[!$props.keeptitle ? 'hidden md:block' : ''], "border-b border-gray-200 pb-3 px-3 md:px-5 mb-3"]
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "title", {}, undefined, true)])], 2
+      /* CLASS */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "settings", {
         server: $props.server
       }, undefined, true)])])])];
     }),
@@ -46124,7 +46130,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" General ");
 
 var _hoisted_2 = {
-  "class": "grid gap-4 grid-cols-3"
+  "class": "grid gap-4 sm:grid-cols-2 md:grid-cols-3"
 };
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Shutdown");
@@ -46144,7 +46150,33 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     settings: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
       var server = _ref.server;
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(3, function (index) {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_setting_container, {
+        icon: _ctx.faBolt,
+        title: "Power Options",
+        description: "Send commands to manage the state of your instance."
+      }, {
+        actions: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_setting_link, {
+            href: _ctx.route('servers.show', server.id),
+            items: _ctx.powerOptions,
+            dropdown: ""
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_3];
+            }),
+            _: 2
+            /* DYNAMIC */
+
+          }, 1032
+          /* PROPS, DYNAMIC_SLOTS */
+          , ["href", "items"])];
+        }),
+        _: 2
+        /* DYNAMIC */
+
+      }, 1032
+      /* PROPS, DYNAMIC_SLOTS */
+      , ["icon"]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(2, function (index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_setting_container, {
           key: index,
           icon: _ctx.faBolt,
@@ -46156,7 +46188,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               href: _ctx.route('servers.show', server.id)
             }, {
               "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                return [_hoisted_3];
+                return [_hoisted_4];
               }),
               _: 2
               /* DYNAMIC */
@@ -46173,33 +46205,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["icon"]);
       }), 64
       /* STABLE_FRAGMENT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_setting_container, {
-        icon: _ctx.faBolt,
-        title: "Power Options",
-        description: "Send commands to manage the state of your instance."
-      }, {
-        actions: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_setting_link, {
-            href: _ctx.route('servers.show', server.id),
-            items: _ctx.powerOptions,
-            dropdown: ""
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_4];
-            }),
-            _: 2
-            /* DYNAMIC */
-
-          }, 1032
-          /* PROPS, DYNAMIC_SLOTS */
-          , ["href", "items"])];
-        }),
-        _: 2
-        /* DYNAMIC */
-
-      }, 1032
-      /* PROPS, DYNAMIC_SLOTS */
-      , ["icon"])])];
+      ))])];
     }),
     _: 1
     /* STABLE */
@@ -46608,16 +46614,16 @@ var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
-  "class": "flex justify-between sm:justify-start items-center space-x-8"
+  "class": "flex justify-between sm:justify-start items-center sm:space-x-8"
 };
 var _hoisted_4 = {
   "class": "flex items-center"
 };
 var _hoisted_5 = {
-  "class": "\r\n              h-14\r\n              w-14\r\n              flex\r\n              justify-center\r\n              items-center\r\n              rounded-full\r\n              bg-green-200\r\n              mr-4\r\n            "
+  "class": "\n              h-14\n              w-14\n              flex\n              justify-center\n              items-center\n              rounded-full\n              bg-green-200\n              mr-4\n            "
 };
 var _hoisted_6 = {
-  "class": "text-lg font-bold text-gray-700"
+  "class": "text-md overflow-ellipsis font-bold text-gray-700"
 };
 var _hoisted_7 = {
   "class": "font-normal text-sm text-gray-600"
@@ -46678,11 +46684,11 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-62115df6");
 
 var _hoisted_1 = {
-  "class": "inset-0 border border-gray-200 rounded-md py-3"
+  "class": "inset-0 -mt-4 md:mt-0 border-b md:border border-gray-200 md:rounded-md md:py-3"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "border-b border-gray-200 pb-3 px-5 mb-3"
+  "class": "hidden md:block border-b border-gray-200 pb-3 px-3 md:px-5 mb-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" after:block after:h-[0.5px] after:bottom-0 after:relative after:w-full after:bg-gray-200 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
   "class": "font-medium"
 }, "Server Settings")], -1
@@ -46690,7 +46696,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 var _hoisted_3 = {
-  "class": "flex flex-col"
+  "class": "flex flex-row md:flex-col"
 };
 var _hoisted_4 = {
   "class": "text-navlabel"
@@ -46707,14 +46713,14 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_nav_link, {
       key: link.name,
       href: _ctx.route(link.route, _ctx.server.id),
-      "class": ["\r\n          flex\r\n          items-center\r\n          border-l-2\r\n          bg-transparent\r\n          border-transparent\r\n          px-5\r\n          py-2\r\n          hover:bg-gray-50\r\n          hover:border-gray-300\r\n          transition-colors\r\n        ", {
-        '!bg-gray-100 !border-gray-800': _ctx.route().current(link.route)
+      "class": ["\n          flex\n          items-center\n          border-b-2\n          md:border-b-0\n          md:border-l-2\n          bg-transparent\n          border-transparent\n          px-3\n          md:px-5\n          py-2\n          md:hover:bg-gray-50\n          md:hover:border-gray-300\n          transition-colors\n        ", {
+        'md:!bg-gray-100 !border-gray-800': _ctx.route().current(link.route)
       }]
     }, {
       "default": _withId(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
           icon: link.icon,
-          "class": "mr-2 text-lg"
+          "class": "hidden md:block mr-2 text-lg"
         }, null, 8
         /* PROPS */
         , ["icon"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(link.name), 1
@@ -46748,13 +46754,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\r\n        bg-gray-100\r\n        p-2\r\n        md:p-3\r\n        rounded-md\r\n        w-full\r\n        hover:border-gray-300\r\n        border border-gray-100\r\n      "
+  "class": "\n        bg-gray-100\n        p-2\n        md:p-3\n        rounded-md\n        w-full\n        hover:border-gray-300\n        border border-gray-100\n      "
 };
 var _hoisted_2 = {
   "class": "flex items-center"
 };
 var _hoisted_3 = {
-  "class": "\r\n            flex\r\n            justify-center\r\n            items-center\r\n            h-10\r\n            w-10\r\n            bg-green-200\r\n            rounded-full\r\n            mr-4\r\n          "
+  "class": "\n            flex\n            justify-center\n            items-center\n            h-10\n            w-10\n            bg-green-200\n            rounded-full\n            mr-4\n          "
 };
 var _hoisted_4 = {
   "class": "text-gray-700 font-bold text-lg break-words"
@@ -46878,7 +46884,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return _ctx.dropdown ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.href,
-    "class": "\r\n        block\r\n        flex-grow\r\n        text-center\r\n        px-4\r\n        py-2\r\n        bg-gray-800\r\n        border border-transparent\r\n        rounded-l-md\r\n        font-semibold\r\n        text-xs text-white\r\n        uppercase\r\n        tracking-widest\r\n        hover:bg-gray-700\r\n        active:bg-gray-900\r\n        focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300\r\n        disabled:opacity-25\r\n        transition\r\n      "
+    "class": "\n        block\n        flex-grow\n        text-center\n        px-4\n        py-2\n        bg-gray-800\n        border border-transparent\n        rounded-l-md\n        font-semibold\n        text-xs text-white\n        uppercase\n        tracking-widest\n        hover:bg-gray-700\n        active:bg-gray-900\n        focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300\n        disabled:opacity-25\n        transition\n      "
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")];
@@ -46894,7 +46900,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuButton, {
-        "class": "\r\n          flex\r\n          items-center\r\n          inset-y\r\n          h-full\r\n          px-2\r\n          rounded-r-md\r\n          bg-gray-800\r\n          hover:bg-gray-700\r\n          active:bg-gray-900\r\n          focus:outline-none\r\n          focus:border-gray-900\r\n          focus:ring\r\n          focus:ring-gray-300\r\n        ",
+        "class": "\n          flex\n          items-center\n          inset-y\n          h-full\n          px-2\n          rounded-r-md\n          bg-gray-800\n          hover:bg-gray-700\n          active:bg-gray-900\n          focus:outline-none\n          focus:border-gray-900\n          focus:ring\n          focus:ring-gray-300\n        ",
         "aria-label": "Show all power options"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -46918,7 +46924,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuItems, {
-            "class": "\r\n            absolute\r\n            w-56\r\n            mt-2\r\n            right-0\r\n            origin-top-right\r\n            bg-white\r\n            divide-y divide-gray-100\r\n            rounded-md\r\n            shadow-lg\r\n            ring-1 ring-black ring-opacity-5\r\n            focus:outline-none\r\n          "
+            "class": "\n            absolute\n            w-56\n            mt-2\n            right-0\n            origin-top-right\n            bg-white\n            divide-y divide-gray-100\n            rounded-md\n            shadow-lg\n            ring-1 ring-black ring-opacity-5\n            focus:outline-none\n          "
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.items, function (item) {
@@ -46966,7 +46972,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   })])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
     key: 1,
     href: _ctx.href,
-    "class": "\r\n      block\r\n      text-center\r\n      px-4\r\n      py-2\r\n      bg-gray-800\r\n      border border-transparent\r\n      rounded-md\r\n      font-semibold\r\n      text-xs text-white\r\n      uppercase\r\n      tracking-widest\r\n      hover:bg-gray-700\r\n      active:bg-gray-900\r\n      focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300\r\n      disabled:opacity-25\r\n      transition\r\n    "
+    "class": "\n      block\n      text-center\n      px-4\n      py-2\n      bg-gray-800\n      border border-transparent\n      rounded-md\n      font-semibold\n      text-xs text-white\n      uppercase\n      tracking-widest\n      hover:bg-gray-700\n      active:bg-gray-900\n      focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300\n      disabled:opacity-25\n      transition\n    "
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")];
@@ -47009,7 +47015,7 @@ var _hoisted_4 = {
 };
 var _hoisted_5 = {
   key: 1,
-  "class": "ml-1 inline-block font-medium text-sm text-gray-600 sm:text-gray-700"
+  "class": "hidden sm:inline-block ml-1 font-medium text-sm text-gray-600 sm:text-gray-700"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_font_awesome_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("font-awesome-icon");
@@ -47272,7 +47278,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.server-container[data-v-b6b9035e] {\r\n  display: grid;\r\n  gap: 1.5rem;\r\n  grid-template-columns: 1fr 3fr;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.server-container[data-v-b6b9035e] {\n  display: grid;\n  gap: 1.5rem;\n  grid-template-columns: 1fr 3fr;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47296,7 +47302,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-gray-100[data-v-317d1a6e] {\r\n        background-color: #f7fafc;\r\n        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));\n}\n.border-gray-200[data-v-317d1a6e] {\r\n        border-color: #edf2f7;\r\n        border-color: rgba(237, 242, 247, var(--tw-border-opacity));\n}\n.text-gray-400[data-v-317d1a6e] {\r\n        color: #cbd5e0;\r\n        color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n.text-gray-500[data-v-317d1a6e] {\r\n        color: #a0aec0;\r\n        color: rgba(160, 174, 192, var(--tw-text-opacity));\n}\n.text-gray-600[data-v-317d1a6e] {\r\n        color: #718096;\r\n        color: rgba(113, 128, 150, var(--tw-text-opacity));\n}\n.text-gray-700[data-v-317d1a6e] {\r\n        color: #4a5568;\r\n        color: rgba(74, 85, 104, var(--tw-text-opacity));\n}\n.text-gray-900[data-v-317d1a6e] {\r\n        color: #1a202c;\r\n        color: rgba(26, 32, 44, var(--tw-text-opacity));\n}\n@media (prefers-color-scheme: dark) {\n.dark\\:bg-gray-800[data-v-317d1a6e] {\r\n            background-color: #2d3748;\r\n            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));\n}\n.dark\\:bg-gray-900[data-v-317d1a6e] {\r\n            background-color: #1a202c;\r\n            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));\n}\n.dark\\:border-gray-700[data-v-317d1a6e] {\r\n            border-color: #4a5568;\r\n            border-color: rgba(74, 85, 104, var(--tw-border-opacity));\n}\n.dark\\:text-white[data-v-317d1a6e] {\r\n            color: #fff;\r\n            color: rgba(255, 255, 255, var(--tw-text-opacity));\n}\n.dark\\:text-gray-400[data-v-317d1a6e] {\r\n            color: #cbd5e0;\r\n            color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-gray-100[data-v-317d1a6e] {\n        background-color: #f7fafc;\n        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));\n}\n.border-gray-200[data-v-317d1a6e] {\n        border-color: #edf2f7;\n        border-color: rgba(237, 242, 247, var(--tw-border-opacity));\n}\n.text-gray-400[data-v-317d1a6e] {\n        color: #cbd5e0;\n        color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n.text-gray-500[data-v-317d1a6e] {\n        color: #a0aec0;\n        color: rgba(160, 174, 192, var(--tw-text-opacity));\n}\n.text-gray-600[data-v-317d1a6e] {\n        color: #718096;\n        color: rgba(113, 128, 150, var(--tw-text-opacity));\n}\n.text-gray-700[data-v-317d1a6e] {\n        color: #4a5568;\n        color: rgba(74, 85, 104, var(--tw-text-opacity));\n}\n.text-gray-900[data-v-317d1a6e] {\n        color: #1a202c;\n        color: rgba(26, 32, 44, var(--tw-text-opacity));\n}\n@media (prefers-color-scheme: dark) {\n.dark\\:bg-gray-800[data-v-317d1a6e] {\n            background-color: #2d3748;\n            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));\n}\n.dark\\:bg-gray-900[data-v-317d1a6e] {\n            background-color: #1a202c;\n            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));\n}\n.dark\\:border-gray-700[data-v-317d1a6e] {\n            border-color: #4a5568;\n            border-color: rgba(74, 85, 104, var(--tw-border-opacity));\n}\n.dark\\:text-white[data-v-317d1a6e] {\n            color: #fff;\n            color: rgba(255, 255, 255, var(--tw-text-opacity));\n}\n.dark\\:text-gray-400[data-v-317d1a6e] {\n            color: #cbd5e0;\n            color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47320,7 +47326,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-navlabel[data-v-62115df6] {\r\n  font-size: 0.9375rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-navlabel[data-v-62115df6] {\n  font-size: 0.9375rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
