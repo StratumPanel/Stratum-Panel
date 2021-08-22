@@ -5,27 +5,33 @@ namespace App\Http\Controllers\Client\Servers;
 use App\Models\Server;
 use App\Http\Controllers\Controller;
 use App\Services\Servers\PowerService;
+use ReflectionClass;
 
 class PowerController extends Controller
 {
-    public function __construct(private Server $server, private PowerService $powerService)
+    private $powerService;
+
+    public function __construct(PowerService $powerService)
     {
-
+        $this->powerService = function ($server) use ($powerService) {
+            $class = new ReflectionClass($powerService);
+            return $class->newInstanceArgs($server);
+        };
     }
 
-    public function stop() {
-        $this->powerService->stop($this->server);
+    public function shutdown(Server $server) {
+        $this->powerService($server)->stop();
     }
 
-    public function start() {
-        $this->powerService->start($this->server);
+    public function start(Server $server) {
+        $this->powerService($server)->start();
     }
 
-    public function end() {
-        $this->powerService->end($this->server);
+    public function kill(Server $server) {
+        $this->powerService($server)->end();
     }
 
-    public function reboot() {
-        $this->powerService->reboot($this->server);
+    public function restart(Server $server) {
+        $this->powerService($server)->reboot();
     }
 }

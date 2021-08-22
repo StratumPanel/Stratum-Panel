@@ -12,15 +12,10 @@ class ProxmoxService
 {
     /**
      * Proxmox initializer
-     *
-     * @param Server|int $server
-     * @param Object $cluster
-     * @return void
      */
     public function proxmox(Server|int $server, $cluster)
     {
-        if ($server instanceof Server)
-        {
+        if ($server instanceof Server) {
             $vmid = $server->vmid;
             $cluster = $server->node;
         } else if (!$server instanceof Server) {

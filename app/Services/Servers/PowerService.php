@@ -2,7 +2,6 @@
 
 namespace App\Services\Servers;
 
-use App\Models\Node;
 use App\Models\Server;
 use App\Services\ProxmoxService;
 
@@ -17,14 +16,9 @@ class PowerService extends ProxmoxService
      */
     private $instance;
 
-    /**
-     * PowerService constructor.
-     * @param string $cluster
-     * @param string $vmid
-     */
-    public function __construct(private string $cluster, private string $vmid)
+    public function __construct($vmid, $cluster)
     {
-        $this->instance = $this->proxmox($cluster, $vmid)->status();
+        $this->instance = $this->proxmox($vmid, $cluster)->status();
     }
 
     /**
