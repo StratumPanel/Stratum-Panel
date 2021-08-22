@@ -22,7 +22,7 @@
           description="Send commands to manage the state of your instance."
         >
           <template #actions>
-            <setting-link :href="route('servers.show', server.id)" dropdown>Shutdown</setting-link>
+            <setting-link :href="route('servers.show', server.id)" :items="powerOptions" dropdown>Shutdown</setting-link>
           </template>
         </setting-container>
       </div>
@@ -34,7 +34,7 @@
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import SettingContainer from '@components/SettingContainer.vue'
-import { faBolt } from '@fortawesome/free-solid-svg-icons'
+import { faBolt, faPowerOff, faUndo } from '@fortawesome/free-solid-svg-icons'
 import SettingLink from '@components/SettingLink.vue'
 export default defineComponent({
   name: 'General',
@@ -44,7 +44,13 @@ export default defineComponent({
     SettingLink,
   },
   setup() {
-    return { faBolt }
+    const powerOptions = [
+      { name: "Shutdown", icon: faPowerOff, callback: () => alert('shutdown')},
+      { name: "Kill", icon: faBolt, callback: () => alert('kill')},
+      { name: "Restart", icon: faUndo, callback: () => alert('restart')},
+    ]
+
+    return { faBolt, powerOptions }
   },
 })
 </script>

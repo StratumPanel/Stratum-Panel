@@ -24,66 +24,75 @@
     >
       <slot></slot>
     </inertia-link>
-    <div>
-      <Menu>
-        <MenuButton
+    <Menu as="div" class="relative">
+      <MenuButton
+        class="
+          flex
+          items-center
+          inset-y
+          h-full
+          px-2
+          rounded-r-md
+          bg-gray-800
+          hover:bg-gray-700
+          active:bg-gray-900
+          focus:outline-none
+          focus:border-gray-900
+          focus:ring
+          focus:ring-gray-300
+        "
+      >
+        <font-awesome-icon
+          class="!w-3 !h-3 text-white"
+          :icon="faChevronDown"
+        />
+      </MenuButton>
+      <transition
+        enter-active-class="transition duration-100 ease-out"
+        enter-from-class="transform scale-95 opacity-0"
+        enter-to-class="transform scale-100 opacity-100"
+        leave-active-class="transition duration-75 ease-in"
+        leave-from-class="transform scale-100 opacity-100"
+        leave-to-class="transform scale-95 opacity-0"
+      >
+        <MenuItems
           class="
-            inset-y
-            h-full
-            px-2
-            rounded-r-md
-            bg-gray-800
-            hover:bg-gray-700
-            active:bg-gray-900
+            absolute
+            w-56
+            mt-2
+            right-0
+            origin-top-right
+            bg-white
+            divide-y divide-gray-100
+            rounded-md
+            shadow-lg
+            ring-1 ring-black ring-opacity-5
             focus:outline-none
-            focus:border-gray-900
-            focus:ring
-            focus:ring-gray-300
           "
         >
-          <font-awesome-icon
-            class="!w-4 !h-4 text-white"
-            :icon="faChevronDown"
-          ></font-awesome-icon>
-        </MenuButton>
-        <transition
-          enter-active-class="transition duration-100 ease-out"
-          enter-from-class="transform scale-95 opacity-0"
-          enter-to-class="transform scale-100 opacity-100"
-          leave-active-class="transition duration-75 ease-in"
-          leave-from-class="transform scale-100 opacity-100"
-          leave-to-class="transform scale-95 opacity-0"
-        >
-          <MenuItems
-            class="
-              absolute
-              w-56
-              mt-2
-              origin-top-right
-              bg-white
-              divide-y divide-gray-100
-              rounded-md
-              shadow-lg
-              ring-1 ring-black ring-opacity-5
-              focus:outline-none
-            "
-          >
-            <div class="px-1 py-1">
-              <MenuItem v-slot="{ active }">
-                <button
-                  :class="[
-                    active ? 'bg-gray-800 text-white' : 'text-gray-900',
-                    'group flex rounded-md items-center w-full px-2 py-2 text-sm',
-                  ]"
-                >
-                  Edit
-                </button>
-              </MenuItem>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-    </div>
+          <div class="px-1 py-1">
+            <MenuItem
+              v-for="item in items"
+              :key="item.name"
+              v-slot="{ active }"
+            >
+              <button
+                :class="[
+                  active ? 'bg-gray-800 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                ]"
+                @click="item.callback"
+              >
+              <div class="grid place-items-center w-5 h-5 mr-2">
+                <font-awesome-icon :icon="item.icon" />
+              </div>
+                {{ item.name }}
+              </button>
+            </MenuItem>
+          </div>
+        </MenuItems>
+      </transition>
+    </Menu>
   </div>
   <inertia-link
     v-else
@@ -112,10 +121,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+
+interface Items {
+    name: string;
+    icon: any;
+    callback: Function;
+}
 
 export default defineComponent({
   name: 'SettingLink',
@@ -134,9 +149,12 @@ export default defineComponent({
     dropdown: {
       type: Boolean,
     },
+    items: {
+      type: Object,
+    },
   },
   setup() {
-    return { faChevronDown }
+      return { faChevronDown }
   },
 })
 </script>
