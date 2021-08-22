@@ -35,6 +35,6 @@ class ProxmoxService
 
         $proxmox = new pve($node);
 
-        return $proxmox->nodes()->node($cluster->name)->qemu->vmid($vmid);
+        return $proxmox->nodes()->node($cluster->name)->qemu()->vmid($vmid);
     }
 }
