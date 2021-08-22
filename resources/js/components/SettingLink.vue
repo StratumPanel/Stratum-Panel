@@ -41,6 +41,7 @@
           focus:ring
           focus:ring-gray-300
         "
+        aria-label="Show all power options"
       >
         <font-awesome-icon
           class="!w-3 !h-3 text-white"
