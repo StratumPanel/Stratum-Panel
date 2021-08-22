@@ -15,6 +15,16 @@
             <setting-link :href="route('servers.show', server.id)">Shutdown</setting-link>
           </template>
         </setting-container>
+
+        <setting-container
+          :icon="faBolt"
+          title="Power Options"
+          description="Send commands to manage the state of your instance."
+        >
+          <template #actions>
+            <setting-link :href="route('servers.show', server.id)" dropdown>Shutdown</setting-link>
+          </template>
+        </setting-container>
       </div>
     </template>
   </server-layout>
