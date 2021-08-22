@@ -11,41 +11,36 @@ use App\Services\ProxmoxService;
  */
 class PowerService extends ProxmoxService
 {
-    /**
-     * @var
-     */
-    private $instance;
-
-    public function __construct($vmid, $cluster)
+    private function instance(Server|int $server, $cluster)
     {
-        $this->instance = $this->proxmox($vmid, $cluster)->status();
+        return $this->proxmox($server, $cluster)->status();
     }
 
     /**
      * @param array $params
      * @return mixed
      */
-    public function start(array $params)
+    public function start($server, $cluster = [], array $params = [])
     {
-        return $this->instance->postStart($params);
+        return $this->instance($server, $cluster)->postStart($params);
     }
 
     /**
      * @param array $params
      * @return mixed
      */
-    public function stop(array $params)
+    public function shutdown($server, $cluster = [], array $params = [])
     {
-        return $this->instance->postShutdown($params);
+        return $this->instance($server, $cluster)->postShutdown($params);
     }
 
     /**
      * @param array $params
      * @return mixed
      */
-    public function end(array $params)
+    public function kill($server, $cluster = [], array $params = [])
     {
-        return $this->instance->postStop($params); // Forcefully kills the server
+        return $this->instance($server, $cluster)->postStop($params); // Forcefully kills the server
     }
 
     /**
@@ -54,8 +49,8 @@ class PowerService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function reboot(array $params)
+    public function reboot($server, $cluster = [], array $params = [])
     {
-        return $this->instance->postReboot($params);
+        return $this->instance($server, $cluster)->postStop($params);
     }
 }

@@ -14,18 +14,18 @@ class PowerController extends Controller
     }
 
     public function shutdown(Server $server) {
-        $this->powerService($server)->stop();
+        $this->powerService->shutdown($server);
     }
 
     public function start(Server $server) {
-        $this->powerService($server)->start();
+        $this->powerService->start($server);
     }
 
     public function kill(Server $server) {
-        $this->powerService($server)->end();
+        $this->powerService->kill($server);
     }
 
     public function restart(Server $server) {
-        $this->powerService($server)->reboot();
+        $this->powerService->reboot($server);
     }
 }

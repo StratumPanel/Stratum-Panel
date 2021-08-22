@@ -42022,7 +42022,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }, {
       name: "Kill",
-      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faBolt,
+      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faBan,
       callback: function callback() {
         return changePowerState('kill');
       }

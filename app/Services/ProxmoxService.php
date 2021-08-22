@@ -12,6 +12,9 @@ class ProxmoxService
 {
     /**
      * Proxmox initializer
+     *
+     * @param Server|int $server
+     * @param mixed $cluster
      */
     public function proxmox(Server|int $server, $cluster)
     {
