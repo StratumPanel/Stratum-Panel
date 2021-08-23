@@ -18,12 +18,11 @@ class StatusController extends Controller
      * @param Server $server
      * @param StatusService $proxmoxService
      */
-    public function __construct(private Server $server, private StatusService $proxmoxService)
+    public function __construct(private StatusService $proxmoxService)
     {
 
     }
-    public function index() {
-        $this->proxmoxService->fetchStatus($this->server->node->cluster, $this->server);
-
+    public function index(Server $server) {
+        return $this->proxmoxService->fetchStatus($server, $server->node());
     }
 }
