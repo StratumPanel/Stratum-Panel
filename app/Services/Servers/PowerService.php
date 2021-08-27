@@ -13,7 +13,7 @@ class PowerService extends ProxmoxService
 {
     private function instance(Server|int $server, $cluster)
     {
-        return $this->proxmox($server, $cluster)->status();
+        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->status();
     }
 
     /**

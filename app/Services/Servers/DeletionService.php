@@ -2,6 +2,7 @@
 
 namespace App\Services\Servers;
 
+use App\Models\Server;
 use App\Services\ProxmoxService;
 
 /**
@@ -10,6 +11,11 @@ use App\Services\ProxmoxService;
  */
 class DeletionService extends ProxmoxService
 {
+    private function instance(Server|int $server, $cluster)
+    {
+        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid);
+    }
+
     /**
      * @param string $cluster
      * @param string $vmid
