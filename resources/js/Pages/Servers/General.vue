@@ -49,8 +49,8 @@ import {
   faPlay,
 } from '@fortawesome/free-solid-svg-icons'
 import SettingLink from '@components/SettingLink.vue'
-import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-vue3'
+import editPowerState from '@/api/server/editPowerState'
 
 export default defineComponent({
   name: 'General',
@@ -60,28 +60,28 @@ export default defineComponent({
     SettingLink,
   },
   setup() {
-    const changePowerState = (state: string) => {
-      Inertia.post(
-        route(`servers.show.power.${state}`, usePage().props.value.server.id)
-      )
-    }
+    const server = usePage().props.value.server
 
     const powerOptions = [
       {
         name: 'Start',
         icon: faPlay,
-        callback: () => changePowerState('start'),
+        callback: () => editPowerState(server.id, 'start'),
       },
       {
         name: 'Shutdown',
         icon: faStop,
-        callback: () => changePowerState('shutdown'),
+        callback: () => editPowerState(server.id, 'shutdown'),
       },
-      { name: 'Kill', icon: faBan, callback: () => changePowerState('kill') },
+      {
+        name: 'Kill',
+        icon: faBan,
+        callback: () => editPowerState(server.id, 'kill'),
+      },
       {
         name: 'Restart',
         icon: faUndo,
-        callback: () => changePowerState('restart'),
+        callback: () => editPowerState(server.id, 'restart'),
       },
     ]
 

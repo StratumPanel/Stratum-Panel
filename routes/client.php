@@ -4,6 +4,7 @@ use App\Http\Controllers\Client\Servers\DeletionController;
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
 use App\Http\Controllers\Client\Servers\ServerController;
+use App\Http\Controllers\Client\Servers\StatusController;
 use App\Http\Middleware\AuthenticateServerAccess;
 use Illuminate\Support\Facades\Route;
 
@@ -12,9 +13,13 @@ Route::get('/dashboard', [ServerController::class, 'index'])->name('dashboard');
 
 
 Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServerAccess::class], function () {
+
     Route::get('/', [ServerController::class, 'show'])->name('servers.show');
-    Route::get('/security', [SecurityController::class, 'index'])->name('servers.show.security');
     Route::delete('/', [DeletionController::class, 'destroy'])->name('servers.show.delete');
+
+    Route::get('/security', [SecurityController::class, 'index'])->name('servers.show.security');
+
+    Route::get('/status', [StatusController::class, 'show'])->name('servers.show.status');
 
     Route::group(['prefix' => '/power'], function () {
         Route::post('/start', [PowerController::class, 'start'])->name('servers.show.power.start');

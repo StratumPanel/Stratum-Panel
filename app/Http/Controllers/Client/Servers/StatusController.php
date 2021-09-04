@@ -22,7 +22,7 @@ class StatusController extends Controller
     {
 
     }
-    public function index(Server $server) {
+    public function show(Server $server) {
         return $this->proxmoxService->fetchStatus($server, $server->node());
     }
 }
