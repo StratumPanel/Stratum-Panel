@@ -41991,8 +41991,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SettingContainer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/SettingContainer.vue */ "./resources/js/components/SettingContainer.vue");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _components_SettingLink_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @components/SettingLink.vue */ "./resources/js/components/SettingLink.vue");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _api_server_editPowerState__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/api/server/editPowerState */ "./resources/js/api/server/editPowerState.ts");
 
 
 
@@ -42008,33 +42008,30 @@ __webpack_require__.r(__webpack_exports__);
     SettingLink: _components_SettingLink_vue__WEBPACK_IMPORTED_MODULE_3__.default
   },
   setup: function setup() {
-    var changePowerState = function changePowerState(state) {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route("servers.show.power.".concat(state), (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.value.server.id));
-    };
-
+    var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.value.server;
     var powerOptions = [{
       name: 'Start',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faPlay,
       callback: function callback() {
-        return changePowerState('start');
+        return (0,_api_server_editPowerState__WEBPACK_IMPORTED_MODULE_5__.default)(server.id, 'start');
       }
     }, {
       name: 'Shutdown',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faStop,
       callback: function callback() {
-        return changePowerState('shutdown');
+        return (0,_api_server_editPowerState__WEBPACK_IMPORTED_MODULE_5__.default)(server.id, 'shutdown');
       }
     }, {
       name: 'Kill',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faBan,
       callback: function callback() {
-        return changePowerState('kill');
+        return (0,_api_server_editPowerState__WEBPACK_IMPORTED_MODULE_5__.default)(server.id, 'kill');
       }
     }, {
       name: 'Restart',
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faUndo,
       callback: function callback() {
-        return changePowerState('restart');
+        return (0,_api_server_editPowerState__WEBPACK_IMPORTED_MODULE_5__.default)(server.id, 'restart');
       }
     }];
     return {
@@ -47091,6 +47088,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   })])])])]);
 }
+
+/***/ }),
+
+/***/ "./resources/js/api/server/editPowerState.ts":
+/*!***************************************************!*\
+  !*** ./resources/js/api/server/editPowerState.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (id, state) {
+  return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route("servers.show.power.".concat(state), id));
+});
 
 /***/ }),
 
