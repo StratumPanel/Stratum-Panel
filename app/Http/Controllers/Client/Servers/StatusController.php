@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client\Servers;
 
+use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
 use App\Http\Controllers\Controller;
 use App\Services\Servers\PowerService;
@@ -11,7 +12,7 @@ use App\Services\Servers\StatusService;
  * Class ServerStatusController
  * @package App\Http\Controllers\Client\Servers
  */
-class StatusController extends Controller
+class StatusController extends ApplicationApiController
 {
     /**
      * ServerStatusController constructor.
@@ -23,6 +24,6 @@ class StatusController extends Controller
 
     }
     public function show(Server $server) {
-        return $this->proxmoxService->fetchStatus($server, $server->node());
+        return $this->returnContent($this->proxmoxService->fetchStatus($server, $server->node()));
     }
 }

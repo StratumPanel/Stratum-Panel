@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Client\Servers\DeletionController;
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
 use App\Http\Controllers\Client\Servers\ServerController;
@@ -15,7 +14,6 @@ Route::get('/dashboard', [ServerController::class, 'index'])->name('dashboard');
 Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServerAccess::class], function () {
 
     Route::get('/', [ServerController::class, 'show'])->name('servers.show');
-    Route::delete('/', [DeletionController::class, 'destroy'])->name('servers.show.delete');
 
     Route::get('/security', [SecurityController::class, 'index'])->name('servers.show.security');
 

@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -40,9 +40,16 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const data = ref(props.percent ? `${props.data}%` : props.data)
+    const data = computed(() => {
+      return props.percent ? `${props.data}%` : props.data
+    })
 
-    return {data}
+    const unit = computed(() => {
+      return props.unit
+    })
+    //ref(props.percent ? `${props.data}%` : props.data)
+
+    return {data, unit}
   },
 })
 </script>

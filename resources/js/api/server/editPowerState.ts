@@ -1,7 +1,7 @@
-import { Inertia } from '@inertiajs/inertia'
+import axios from 'axios'
 
-export default (id: string, state: string) => {
-  return Inertia.post(
+export default (id: number, state: string) => {
+  return axios.post(
     route(`servers.show.power.${state}`, id)
   )
 }
