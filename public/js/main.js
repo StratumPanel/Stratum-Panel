@@ -42205,7 +42205,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    var refreshInterval = setInterval(refreshStatus, 1500);
+    var refreshInterval = setInterval(refreshStatus, 2000);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount)(function () {
       clearInterval(refreshInterval);
     });
@@ -46704,7 +46704,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_usage_box, {
     name: "CPU Usage",
-    data: _ctx.serverStatus.cpu,
+    data: _ctx.serverStatus.cpu > 5 ? Math.floor(_ctx.serverStatus.cpu) : _ctx.serverStatus.cpu,
     icon: _ctx.faMicrochip,
     percent: ""
   }, null, 8

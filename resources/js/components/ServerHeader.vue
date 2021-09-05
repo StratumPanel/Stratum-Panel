@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="flex flex-col sm:flex-row sm:space-x-6">
-          <usage-box name="CPU Usage" :data="serverStatus.cpu" :icon="faMicrochip" percent/>
+          <usage-box name="CPU Usage" :data="(serverStatus.cpu > 5 ? Math.floor(serverStatus.cpu) : serverStatus.cpu)" :icon="faMicrochip" percent/>
           <usage-box name="Memory" :data="serverStatus.mem.size" :unit="`/ ${serverStatus.maxmem.size} ${serverStatus.maxmem.unit}`" :icon="faMemory" />
         </div>
       </div>
@@ -92,7 +92,7 @@ export default defineComponent({
       serverStatus.maxmem = formatBytes(data.maxmem)
     })
 
-    const refreshInterval = setInterval(refreshStatus, 1500)
+    const refreshInterval = setInterval(refreshStatus, 2000)
 
     onBeforeUnmount(() => {
       clearInterval(refreshInterval)
