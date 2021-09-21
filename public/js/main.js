@@ -46711,7 +46711,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["data", "icon"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_usage_box, {
     name: "Memory",
-    data: _ctx.serverStatus.mem.size,
+    data: "".concat(_ctx.serverStatus.mem.size, " ").concat(_ctx.serverStatus.mem.unit),
     unit: "/ ".concat(_ctx.serverStatus.maxmem.size, " ").concat(_ctx.serverStatus.maxmem.unit),
     icon: _ctx.faMemory
   }, null, 8

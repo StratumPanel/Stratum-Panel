@@ -26,7 +26,7 @@
         </div>
         <div class="flex flex-col sm:flex-row sm:space-x-6">
           <usage-box name="CPU Usage" :data="(serverStatus.cpu > 5 ? Math.floor(serverStatus.cpu) : serverStatus.cpu)" :icon="faMicrochip" percent/>
-          <usage-box name="Memory" :data="serverStatus.mem.size" :unit="`/ ${serverStatus.maxmem.size} ${serverStatus.maxmem.unit}`" :icon="faMemory" />
+          <usage-box name="Memory" :data="`${serverStatus.mem.size} ${serverStatus.mem.unit}`" :unit="`/ ${serverStatus.maxmem.size} ${serverStatus.maxmem.unit}`" :icon="faMemory" />
         </div>
       </div>
     </div>
