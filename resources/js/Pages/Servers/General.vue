@@ -2,7 +2,7 @@
   <server-layout>
     <template #title> General </template>
 
-    <template #settings="{ server }">
+    <template #main="{ server }">
       <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         <setting-container
           :icon="faBolt"
@@ -20,15 +20,13 @@
         </setting-container>
 
         <setting-container
-          v-for="index in 2"
-          :key="index"
-          :icon="faBolt"
-          title="Power Options"
-          description="Send commands to manage the state of your instance."
+          :icon="faClone"
+          title="Snapshots"
+          description="Manage snapshots on your server."
         >
           <template #actions>
-            <setting-link :href="route('servers.show', server.id)"
-              >Shutdown</setting-link
+            <setting-link :href="route('servers.show.snapshots', server.id)"
+              >View Snapshots</setting-link
             >
           </template>
         </setting-container>
@@ -47,6 +45,7 @@ import {
   faStop,
   faUndo,
   faPlay,
+  faClone,
 } from '@fortawesome/free-solid-svg-icons'
 import SettingLink from '@components/SettingLink.vue'
 import { usePage } from '@inertiajs/inertia-vue3'
@@ -85,7 +84,7 @@ export default defineComponent({
       },
     ]
 
-    return { faBolt, powerOptions }
+    return { faBolt, faClone, powerOptions }
   },
 })
 </script>

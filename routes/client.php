@@ -3,6 +3,7 @@
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
 use App\Http\Controllers\Client\Servers\ServerController;
+use App\Http\Controllers\Client\Servers\SnapshotController;
 use App\Http\Controllers\Client\Servers\StatusController;
 use App\Http\Middleware\AuthenticateServerAccess;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +25,9 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
         Route::post('/restart', [PowerController::class, 'restart'])->name('servers.show.power.restart');
         Route::post('/shutdown', [PowerController::class, 'shutdown'])->name('servers.show.power.shutdown');
         Route::post('/kill', [PowerController::class, 'kill'])->name('servers.show.power.kill');
+    });
+
+    Route::group(['prefix' => '/snapshots'], function() {
+        Route::get('/', [SnapshotController::class, 'index'])->name('servers.show.snapshots');
     });
 });

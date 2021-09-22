@@ -14,8 +14,15 @@ class SnapshotController extends Controller
 
     }
 
-    public function index(Server $server, Request $request) {
+    public function index(Server $server) {
+        return inertia('Servers/Snapshots/Index', [
+            'server' => $server
+        ]);
+    }
+
+    public function createSnapshot(Server $server, Request $request) {
         $this->proxmoxService->doSnapshot($server, $server->node(), ["snapname" => $request->name]);
+
         return $this->returnNoContent();
     }
 
