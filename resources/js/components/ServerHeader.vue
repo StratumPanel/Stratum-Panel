@@ -36,19 +36,11 @@
 <script lang="ts">
 import { defineComponent, reactive, onBeforeUnmount } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faPlay, faClock, faStop, faMicrochip, faMemory } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faMicrochip, faMemory } from '@fortawesome/free-solid-svg-icons'
 import { usePage } from '@inertiajs/inertia-vue3'
 import UsageBox from './UsageBox.vue'
-import getStatus, { formatBytes } from '@/api/server/getStatus'
+import getStatus, { formatBytes, iconState, refreshTime } from '@api/server/getStatus'
 
-
-interface iconState {
-  [index: string]: {
-    backgroundColor: string;
-    textColor: string;
-    icon: any;
-  }
-}
 
 export default defineComponent({
   name: 'ServerHeader',
@@ -60,30 +52,12 @@ export default defineComponent({
     },
   },
   setup() {
-    let serverStatus = reactive({
+    const serverStatus = reactive({
       status: 'querying',
       cpu: 0,
       mem: { size: 0, unit: 'B' },
       maxmem: { size: 0, unit: 'B' },
     })
-
-    const iconState: iconState = {
-      'querying': {
-        backgroundColor: 'bg-gray-200',
-        textColor: 'text-gray-700',
-        icon: faClock,
-      },
-      'stopped': {
-        backgroundColor: 'bg-red-200',
-        textColor: 'text-red-700',
-        icon: faStop,
-      },
-      'running': {
-        backgroundColor: 'bg-green-200',
-        textColor: 'text-green-700',
-        icon: faPlay,
-      }
-    }
 
     const refreshStatus = () => getStatus(usePage().props.value.server.id).then(({ data: { data } }) => {
       serverStatus.status = data.status
@@ -92,7 +66,7 @@ export default defineComponent({
       serverStatus.maxmem = formatBytes(data.maxmem)
     })
 
-    const refreshInterval = setInterval(refreshStatus, 2000)
+    const refreshInterval = setInterval(refreshStatus, refreshTime)
 
     onBeforeUnmount(() => {
       clearInterval(refreshInterval)

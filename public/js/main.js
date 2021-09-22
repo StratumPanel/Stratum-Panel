@@ -42145,7 +42145,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _UsageBox_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UsageBox.vue */ "./resources/js/components/UsageBox.vue");
-/* harmony import */ var _api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/api/server/getStatus */ "./resources/js/api/server/getStatus.ts");
+/* harmony import */ var _api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @api/server/getStatus */ "./resources/js/api/server/getStatus.ts");
 
 
 
@@ -42177,23 +42177,6 @@ __webpack_require__.r(__webpack_exports__);
         unit: 'B'
       }
     });
-    var iconState = {
-      'querying': {
-        backgroundColor: 'bg-gray-200',
-        textColor: 'text-gray-700',
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faClock
-      },
-      'stopped': {
-        backgroundColor: 'bg-red-200',
-        textColor: 'text-red-700',
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faStop
-      },
-      'running': {
-        backgroundColor: 'bg-green-200',
-        textColor: 'text-green-700',
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPlay
-      }
-    };
 
     var refreshStatus = function refreshStatus() {
       return (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.default)((0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.server.id).then(function (_ref) {
@@ -42205,13 +42188,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    var refreshInterval = setInterval(refreshStatus, 2000);
+    var refreshInterval = setInterval(refreshStatus, _api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.refreshTime);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount)(function () {
       clearInterval(refreshInterval);
     });
     return {
       serverStatus: serverStatus,
-      iconState: iconState,
+      iconState: _api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.iconState,
       formatBytes: _api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes,
       faPlay: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faPlay,
       faMicrochip: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faMicrochip,
@@ -42284,8 +42267,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _api_server_getStatus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @api/server/getStatus */ "./resources/js/api/server/getStatus.ts");
+
 
 
 
@@ -42310,9 +42295,39 @@ __webpack_require__.r(__webpack_exports__);
       required: false
     }
   },
-  setup: function setup() {
+  setup: function setup(props) {
+    var serverStatus = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      status: 'querying'
+    });
+    var errorCount = 0;
+
+    var refreshStatus = function refreshStatus() {
+      return (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_3__.default)(props.id).then(function (_ref) {
+        var data = _ref.data.data;
+        serverStatus.status = data.status;
+      })["catch"](function () {
+        errorCount++;
+      });
+    };
+
+    refreshStatus(); // initial fetch
+
+    var refreshInterval = setInterval(function () {
+      if (errorCount > 2) {
+        clearInterval(refreshInterval);
+        serverStatus.status = 'error';
+        return;
+      }
+
+      refreshStatus();
+    }, 5000);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount)(function () {
+      clearInterval(refreshInterval);
+    });
     return {
-      faPlay: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlay
+      serverStatus: serverStatus,
+      iconState: _api_server_getStatus__WEBPACK_IMPORTED_MODULE_3__.iconState,
+      faPlay: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faPlay
     };
   }
 }));
@@ -46816,12 +46831,9 @@ var _hoisted_2 = {
   "class": "flex items-center"
 };
 var _hoisted_3 = {
-  "class": "\r\n            flex\r\n            justify-center\r\n            items-center\r\n            h-10\r\n            w-10\r\n            bg-green-200\r\n            rounded-full\r\n            mr-4\r\n          "
-};
-var _hoisted_4 = {
   "class": "text-gray-700 font-bold text-lg break-words"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   key: 0,
   "class": "text-sm break-words text-gray-600"
 };
@@ -46836,14 +46848,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
-        "class": "ml-1 text-green-700 !w-4 !h-4",
-        icon: _ctx.faPlay
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+        "class": ["flex justify-center items-center h-10 w-10 rounded-full mr-4", _ctx.iconState[_ctx.serverStatus.status].backgroundColor]
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
+        "class": [_ctx.iconState[_ctx.serverStatus.status].textColor, "!w-4 !h-4"],
+        icon: _ctx.iconState[_ctx.serverStatus.status].icon
       }, null, 8
       /* PROPS */
-      , ["icon"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.name), 1
+      , ["class", "icon"])], 2
+      /* CLASS */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.name), 1
       /* TEXT */
-      ), _ctx.description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.description), 1
+      ), _ctx.description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.description), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])];
     }),
@@ -47179,12 +47195,40 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "refreshTime": () => (/* binding */ refreshTime),
+/* harmony export */   "iconState": () => (/* binding */ iconState),
 /* harmony export */   "formatBytes": () => (/* binding */ formatBytes),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 
+
+var refreshTime = 2000; // milliseconds
+
+var iconState = {
+  'querying': {
+    backgroundColor: 'bg-gray-200',
+    textColor: 'text-gray-700',
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClock
+  },
+  'stopped': {
+    backgroundColor: 'bg-red-200',
+    textColor: 'text-red-700',
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faStop
+  },
+  'running': {
+    backgroundColor: 'bg-green-200',
+    textColor: 'text-green-700',
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPlay
+  },
+  'error': {
+    backgroundColor: 'bg-red-200',
+    textColor: 'text-red-700',
+    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faExclamationCircle
+  }
+};
 function formatBytes(bytes) {
   var decimals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
   if (bytes === 0) return {

@@ -15,6 +15,7 @@
     "paths": {
       "@components/*": ["./resources/js/components/*"],
       "@assets/*": ["./resources/assets/*"],
+      "@api/*": ["./resources/js/api/*"],
       "@/*": ["./resources/js/*"]
     }
   },

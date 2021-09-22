@@ -1,8 +1,43 @@
 import axios from 'axios'
+import { faPlay, faClock, faStop, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+
+export const refreshTime: number = 2000 // milliseconds
 
 export interface FormattedBytes {
   size: number;
   unit: string;
+}
+
+export interface iconStateInterface {
+  [index: string]: {
+    backgroundColor: string;
+    textColor: string;
+    icon: any;
+  }
+}
+
+
+export const iconState: iconStateInterface = {
+  'querying': {
+    backgroundColor: 'bg-gray-200',
+    textColor: 'text-gray-700',
+    icon: faClock,
+  },
+  'stopped': {
+    backgroundColor: 'bg-red-200',
+    textColor: 'text-red-700',
+    icon: faStop,
+  },
+  'running': {
+    backgroundColor: 'bg-green-200',
+    textColor: 'text-green-700',
+    icon: faPlay,
+  },
+  'error': {
+    backgroundColor: 'bg-red-200',
+    textColor: 'text-red-700',
+    icon: faExclamationCircle,
+  }
 }
 
 export function formatBytes(bytes: number, decimals = 2): FormattedBytes {
