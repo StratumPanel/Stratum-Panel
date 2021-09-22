@@ -42185,8 +42185,12 @@ __webpack_require__.r(__webpack_exports__);
         serverStatus.cpu = Math.floor(data.cpu * 10000) / 100;
         serverStatus.mem = (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes)(data.mem);
         serverStatus.maxmem = (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes)(data.maxmem);
+      })["catch"](function () {
+        serverStatus.status = 'error';
       });
     };
+
+    refreshStatus(); // initial fetch
 
     var refreshInterval = setInterval(refreshStatus, _api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.refreshTime);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount)(function () {
@@ -46704,7 +46708,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_usage_box = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("usage-box");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-    "class": ["\r\n              h-14\r\n              w-14\r\n              flex\r\n              justify-center\r\n              items-center\r\n              rounded-full\r\n              mr-4\r\n            ", _ctx.iconState[_ctx.serverStatus.status].backgroundColor]
+    "class": ["h-14 w-14 flex justify-center items-center rounded-full mr-4", _ctx.iconState[_ctx.serverStatus.status].backgroundColor]
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
     "class": _ctx.iconState[_ctx.serverStatus.status].textColor,
     icon: _ctx.iconState[_ctx.serverStatus.status].icon,
