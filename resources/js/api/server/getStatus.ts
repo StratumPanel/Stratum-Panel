@@ -34,8 +34,8 @@ export const iconState: iconStateInterface = {
     icon: faPlay,
   },
   'error': {
-    backgroundColor: 'bg-red-200',
-    textColor: 'text-red-700',
+    backgroundColor: 'bg-gray-200',
+    textColor: 'text-gray-700',
     icon: faExclamationCircle,
   }
 }
