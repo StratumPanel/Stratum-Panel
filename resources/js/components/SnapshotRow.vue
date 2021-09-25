@@ -107,7 +107,7 @@ export default defineComponent({
     const creationDate = computed(() => {
       let { month, day } = DateTimeCalculator(props.snapshot.snaptime)
 
-      return `${month}, ${day}`
+      return `${month} ${day}`
     })
     const open = ref(false)
 
