@@ -17,12 +17,20 @@ class SnapshotService extends ProxmoxService
     }
 
     /**
+     * @param string $name
      * @param array $params
      * @return mixed
      */
-    public function doSnapshot($server, $cluster = [], array $params = [])
+    public function doSnapshot(string $name, $server, $cluster = [], array $params = [])
     {
-        return $this->instance($server, $cluster)->post();
+        if ($server instanceof Server) {
+            $vmid = $server->vmid;
+            $cluster = $server->node;
+        } else if (!$server instanceof Server) {
+            $vmid = $server;
+        }
+
+        return $this->instance($server, $cluster)->post(['snapname' => $name]);
     }
 
     /**
