@@ -9,8 +9,15 @@
     </template>
 
     <template #main>
-      <div class="flex flex-col space-y-3">
-        <snapshot-row v-for="snapshot in snapshots" :key="snapshot" :snapshot="snapshot" />
+      <div class="flex justify-end">
+        <button class="btn">Create Snapshot</button>
+      </div>
+      <div class="flex flex-col space-y-3 py-2">
+        <snapshot-row
+          v-for="snapshot in snapshots"
+          :key="snapshot"
+          :snapshot="snapshot"
+        />
       </div>
     </template>
   </server-layout>
@@ -36,7 +43,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-      console.log(props.snapshots)
+    console.log(props.snapshots)
     return {}
   },
 })
