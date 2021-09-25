@@ -19,7 +19,7 @@
         </p>
       </div>
       <template v-if="snapshot.snaptime">
-        <div class="hidden sm:block grid place-items-center">
+        <div class="hidden sm:grid place-items-center">
           <h2 class="text-gray-700 font-bold text-lg break-words">
             {{ creationDate }}
           </h2>
@@ -85,7 +85,7 @@ import { computed, defineComponent, ref } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faArchive, faMapMarkerAlt, faHistory, faTrashAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-import DateTimeCalculator from '@/utilities/DateTimeCalculator'
+import DateTimeCalculator from '@/util/DateTimeCalculator'
 
 export default defineComponent({
   name: 'SnapshotRow',
