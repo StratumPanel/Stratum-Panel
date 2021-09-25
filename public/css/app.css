@@ -1987,13 +1987,13 @@ select {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
-.transition-colors {
-	transition-property: background-color, border-color, color, fill, stroke;
+.transition-opacity {
+	transition-property: opacity;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
-.transition-opacity {
-	transition-property: opacity;
+.transition-colors {
+	transition-property: background-color, border-color, color, fill, stroke;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
@@ -2097,6 +2097,52 @@ select {
 .btn:disabled {
 	opacity: 0.25;
 }
+.dialog-icon {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	height: 3rem;
+	width: 3rem;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	border-radius: 9999px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(254, 226, 226, var(--tw-bg-opacity));
+}
+@media (min-width: 640px) {
+
+	.dialog-icon {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.dialog-icon {
+		height: 2.5rem;
+	}
+
+	.dialog-icon {
+		width: 2.5rem;
+	}
+}
+.dialog-content-container {
+	margin-top: 0.75rem;
+	text-align: center;
+}
+@media (min-width: 640px) {
+
+	.dialog-content-container {
+		margin-top: 0px;
+	}
+
+	.dialog-content-container {
+		margin-left: 1rem;
+	}
+
+	.dialog-content-container {
+		text-align: left;
+	}
+}
 /* Scrollbar style */
 /*
 ::-webkit-scrollbar {
@@ -2187,13 +2233,13 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
-.hover\:bg-gray-200:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
-}
 .hover\:bg-red-700:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
+}
+.hover\:bg-gray-200:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
