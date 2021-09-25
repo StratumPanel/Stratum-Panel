@@ -8,7 +8,11 @@
       </div>
     </template>
 
-    <template #main> </template>
+    <template #main>
+      <div class="flex flex-col space-y-3">
+        <snapshot-row v-for="snapshot in snapshots" :key="snapshot" :name="snapshot.name" :description="snapshot.description" />
+      </div>
+    </template>
   </server-layout>
 </template>
 
@@ -16,14 +20,23 @@
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import GoBackButton from '@components/GoBackButton.vue'
+import SnapshotRow from '@components/SnapshotRow.vue'
 
 export default defineComponent({
   name: 'Index',
   components: {
     ServerLayout,
     GoBackButton,
+    SnapshotRow,
   },
-  setup() {
+  props: {
+    snapshots: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
+      console.log(props.snapshots)
     return {}
   },
 })
