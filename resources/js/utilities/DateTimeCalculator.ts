@@ -22,8 +22,8 @@ export default (timestamp: number) => {
   let month = months[date.getMonth()]
   let day = date.getDate()
   let hours = date.getHours()
-  let minutes = '0' + date.getMinutes()
-  let seconds = '' + date.getSeconds()
+  let minutes = date.getMinutes()
+  let seconds = date.getSeconds()
 
   return {year, month, day, hours, minutes, seconds}
 }

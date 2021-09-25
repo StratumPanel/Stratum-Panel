@@ -10,7 +10,7 @@
 
     <template #main>
       <div class="flex flex-col space-y-3">
-        <snapshot-row v-for="snapshot in snapshots" :key="snapshot" :name="snapshot.name" :description="snapshot.description" />
+        <snapshot-row v-for="snapshot in snapshots" :key="snapshot" :snapshot="snapshot" />
       </div>
     </template>
   </server-layout>
