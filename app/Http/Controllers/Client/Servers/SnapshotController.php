@@ -11,23 +11,27 @@ class SnapshotController extends Controller
 {
     public function __construct(private SnapshotService $snapshotService)
     {
-
     }
 
-    public function index(Server $server) {
+    public function index(Server $server)
+    {
         return inertia('Servers/Snapshots/Index', [
             'server' => $server,
             'snapshots' => array_reverse($this->snapshotService->fetchSnapshots($server)['data']),
         ]);
     }
 
-    public function createSnapshot(Server $server, Request $request) {
-        $this->proxmoxService->doSnapshot($server, $server->node(), ["snapname" => $request->name]);
+    public function createSnapshot(Server $server, Request $request)
+    {
+        $this->snapshotService->doSnapshot($server, $server->node(), ['snapname' => $request->name]);
 
         return $this->returnNoContent();
     }
 
-    public function fetch(Server $server) {
-        return $this->proxmoxService->fetchSnapshots($server, $server->node());
+    public function rollbackSnapshot(Server $server, $snapname)
+    {
+        $this->snapshotService->rollbackSnapshot($server, [], ['snapname' => $snapname]);
+
+        return $this->returnNoContent();
     }
 }
