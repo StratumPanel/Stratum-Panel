@@ -47764,7 +47764,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
-        "class": "\r\n          mt-3\r\n          w-full\r\n          justify-center\r\n          !font-medium\r\n          !bg-white\r\n          !border-gray-300\r\n          !text-gray-700\r\n          hover:!text-gray-500\r\n          focus:!border-blue-300 focus:!ring-blue-200\r\n          active:!text-gray-800 active:!bg-gray-50\r\n          sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm\r\n        ",
+        "class": "\r\n          mt-3\r\n          w-full\r\n          justify-center\r\n          !text-base\r\n          !font-medium\r\n          !bg-white\r\n          !border-gray-300\r\n          !text-gray-700\r\n          hover:!text-gray-500\r\n          focus:!border-blue-300 focus:!ring-blue-200\r\n          active:!text-gray-800 active:!bg-gray-50\r\n          sm:mt-0 sm:ml-3 sm:w-auto sm:!text-sm\r\n        ",
         onClick: _cache[4] || (_cache[4] = function ($event) {
           return _ctx.handleRevert(false);
         })

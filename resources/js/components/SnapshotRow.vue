@@ -99,6 +99,7 @@
           mt-3
           w-full
           justify-center
+          !text-base
           !font-medium
           !bg-white
           !border-gray-300
@@ -106,7 +107,7 @@
           hover:!text-gray-500
           focus:!border-blue-300 focus:!ring-blue-200
           active:!text-gray-800 active:!bg-gray-50
-          sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
+          sm:mt-0 sm:ml-3 sm:w-auto sm:!text-sm
         "
         @click="handleRevert(false)"
       >

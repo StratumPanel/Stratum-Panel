@@ -2077,6 +2077,34 @@ select {
     opacity: 1;
     transform: rotate(3deg) translate(0px, -4px);
 }
+.dialog-icon {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	height: 3rem;
+	width: 3rem;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	border-radius: 9999px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(254, 226, 226, var(--tw-bg-opacity));
+}
+@media (min-width: 640px) {
+
+	.dialog-icon {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.dialog-icon {
+		height: 2.5rem;
+	}
+
+	.dialog-icon {
+		width: 2.5rem;
+	}
+}
 /* Scrollbar style */
 /*
 ::-webkit-scrollbar {
