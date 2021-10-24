@@ -40,41 +40,63 @@
           <font-awesome-icon :icon="faHistory" />
         </button>
 
-        <button @click="showDeleteConfirmation = true" class="p-2 text-gray-600 hover:text-red-800 transition-colors">
+        <button
+          @click="showDeleteConfirmation = true"
+          class="p-2 text-gray-600 hover:text-red-800 transition-colors"
+        >
           <font-awesome-icon :icon="faTrashAlt" />
         </button>
       </template>
     </div>
   </div>
 
-  <confirm-dialog
-    v-model="showRevertConfirmation"
-    :title="`Rollback to ${snapshot.name}?`"
-    description="Rolling back to an older state of the server can result in unintended
-          consequences. Make sure your important files are
-          backed up before rolling back."
-    :action="ServerRevertAction"
-  />
+  <dialog-modal :show="showRevertConfirmation" @close="handleRevert">
+    <template #content>
+      <div class="dialog-icon">
+        <font-awesome-icon
+          :icon="faExclamationTriangle"
+          class="h-6 w-6 text-red-600"
+          aria-hidden="true"
+        />
+      </div>
 
-  <confirm-dialog
-    v-model="showDeleteConfirmation"
-    :title="`Permanently delete  ${snapshot.name}?`"
-    description="Deleting this snapshot will be permanent and unrecoverable. Please make sure to check before deleting a snapshot."
-    :action="DeleteSnapshotAction"
-  />
+      <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+        <DialogTitle
+          as="h3"
+          class="text-lg leading-6 font-medium text-gray-900"
+        >
+          Deactivate account
+        </DialogTitle>
+        <div class="mt-2">
+          <p class="text-sm text-gray-500">
+            Are you sure you want to deactivate your account? All of your data
+            will be permanently removed. This action cannot be undone.
+          </p>
+        </div>
+      </div>
+    </template>
+    <template #footer> </template>
+  </dialog-modal>
+
+  <dialog-modal :show="showDeleteConfirmation" @close="handleDelete">
+    <template #content> </template>
+    <template #footer> </template>
+  </dialog-modal>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, watch, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { DialogTitle } from '@headlessui/vue'
 import {
   faArchive,
   faMapMarkerAlt,
   faHistory,
   faTrashAlt,
+  faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons'
 import DateTimeCalculator from '@/util/DateTimeCalculator'
-import ConfirmDialog from '@components/ConfirmDialog.vue'
+import DialogModal from '@components/DialogModal.vue'
 
 export default defineComponent({
   name: 'SnapshotRow',
@@ -86,7 +108,8 @@ export default defineComponent({
   },
   components: {
     FontAwesomeIcon,
-    ConfirmDialog,
+    DialogModal,
+    DialogTitle,
   },
   setup(props) {
     const creationDate = computed(() => {
@@ -98,8 +121,20 @@ export default defineComponent({
     const showRevertConfirmation = ref(false)
     const showDeleteConfirmation = ref(false)
 
+    const handleRevert = (confirm: Boolean) => {
+      if (!confirm) { // this will only trigger if the user doesn't confirm the actions (e.g. cancel or click out of the modal)
+        console.log(showRevertConfirmation.value)
+        showRevertConfirmation.value = false
+        return
+      }
+    }
 
-    const ServerRevertAction = {
+
+    const handleDelete = (confirm: Boolean) => {
+      alert('successful deletion')
+    }
+
+    /*   const ServerRevertAction = {
       text: 'Rollback',
       classNames: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
       callback: () => alert('revert successful'),
@@ -109,19 +144,21 @@ export default defineComponent({
       text: 'Delete',
       classNames: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
       callback: () => alert('Deletion successful'),
-    }
-
+    } */
 
     return {
       faArchive,
       faMapMarkerAlt,
       faTrashAlt,
       faHistory,
-      ServerRevertAction,
-      DeleteSnapshotAction,
+      /*       ServerRevertAction,
+      DeleteSnapshotAction, */
+      handleRevert,
+      handleDelete,
       creationDate,
       showRevertConfirmation,
       showDeleteConfirmation,
+      faExclamationTriangle,
     }
   },
 })
