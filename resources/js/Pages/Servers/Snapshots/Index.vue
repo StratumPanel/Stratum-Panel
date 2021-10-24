@@ -10,7 +10,7 @@
 
     <template #main>
       <div class="flex justify-end">
-        <button class="btn">Create Snapshot</button>
+        <Button class="tracking-widest uppercase">Create Snapshot</Button>
       </div>
       <div class="flex flex-col space-y-3 py-2">
         <snapshot-row
@@ -28,6 +28,7 @@ import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import GoBackButton from '@components/GoBackButton.vue'
 import SnapshotRow from '@components/SnapshotRow.vue'
+import Button from '@components/Button.vue'
 
 export default defineComponent({
   name: 'Index',
@@ -35,6 +36,7 @@ export default defineComponent({
     ServerLayout,
     GoBackButton,
     SnapshotRow,
+    Button,
   },
   props: {
     snapshots: {

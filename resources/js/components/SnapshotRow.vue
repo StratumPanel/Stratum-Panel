@@ -65,69 +65,53 @@
           as="h3"
           class="text-lg leading-6 font-medium text-gray-900"
         >
-          Deactivate account
+          Rollback to {{ snapshot.name }}?
         </DialogTitle>
         <div class="mt-2">
           <p class="text-sm text-gray-500">
-            Are you sure you want to deactivate your account? All of your data
-            will be permanently removed. This action cannot be undone.
+            Rolling back to an older state of the server can result in
+            unintended consequences. Make sure your important files are backed
+            up before rolling back.
           </p>
         </div>
       </div>
     </template>
     <template #footer>
-      <button
-        type="button"
+      <Button
         class="
           w-full
-          inline-flex
           justify-center
-          rounded-md
-          border border-transparent
-          shadow-sm
-          px-4
-          py-2
-          text-base
-          font-medium
-          text-white
-          focus:outline-none focus:ring-2 focus:ring-offset-2
-          sm:ml-3 sm:w-auto sm:text-sm
-          bg-red-600
-          hover:bg-red-700
-          focus:ring-red-500
+          !text-base
+          !font-medium
+          !text-white
+          focus:!ring-red-300
+          sm:ml-3 sm:w-auto sm:!text-sm
+          !bg-red-600
+          hover:!bg-red-700
         "
         @click="handleRevert(true)"
       >
-        Revert
-      </button>
+        Rollback
+      </Button>
 
-      <button
-        type="button"
+      <Button
         class="
           mt-3
           w-full
-          inline-flex
           justify-center
-          rounded-md
-          border border-gray-300
-          shadow-sm
-          px-4
-          py-2
-          bg-white
-          text-base
-          font-medium
-          text-gray-700
-          hover:bg-gray-50
-          focus:outline-none
-          focus:ring-2
-          focus:ring-offset-2
-          focus:ring-indigo-500
+          !font-medium
+          !bg-white
+          !border-gray-300
+          !text-gray-700
+          hover:!text-gray-500
+          focus:!border-blue-300 focus:!ring-blue-200
+          active:!text-gray-800 active:!bg-gray-50
           sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
         "
         @click="handleRevert(false)"
       >
         Cancel
-      </button>
+      </Button>
     </template>
   </dialog-modal>
 
@@ -150,6 +134,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import DateTimeCalculator from '@/util/DateTimeCalculator'
 import DialogModal from '@components/DialogModal.vue'
+import Button from '@components/Button.vue'
 
 export default defineComponent({
   name: 'SnapshotRow',
@@ -163,6 +148,7 @@ export default defineComponent({
     FontAwesomeIcon,
     DialogModal,
     DialogTitle,
+    Button,
   },
   setup(props) {
     const creationDate = computed(() => {
