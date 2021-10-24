@@ -56,7 +56,7 @@
               sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
             "
           >
-            <div>sdfsdfsdfsdf</div>
+            <slot></slot>
           </div>
         </TransitionChild>
       </div>
