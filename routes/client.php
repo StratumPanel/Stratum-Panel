@@ -29,6 +29,6 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
 
     Route::group(['prefix' => '/snapshots'], function() {
         Route::get('/', [SnapshotController::class, 'index'])->name('servers.show.snapshots');
-        Route::post('/{snapname}/rollback', [SnapshotController::class, 'rollbackSnapshot'])->name('servers.show.snapshots.rollback');
+        Route::post('/rollback', [SnapshotController::class, 'rollbackSnapshot'])->name('servers.show.snapshots.rollback');
     });
 });

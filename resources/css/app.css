@@ -34,18 +34,6 @@
     transform: rotate(3deg) translate(0px, -4px);
 }
 
-.btn {
-    @apply block text-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition
-}
-
-.dialog-icon {
-    @apply mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10
-}
-
-.dialog-content-container {
-    @apply mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left
-}
-
 /* Scrollbar style */
 /*
 ::-webkit-scrollbar {

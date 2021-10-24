@@ -39,8 +39,8 @@ class SnapshotService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function rollbackSnapshot($server, $cluster = [], array $params = [])
+    public function rollbackSnapshot($server, $cluster = [], string $snapname)
     {
-        return $this->instance($server, $cluster)->snapshot()->snapname()->postRollback($params);
+        return $this->instance($server, $cluster)->snapname($snapname)->postRollback();
     }
 }

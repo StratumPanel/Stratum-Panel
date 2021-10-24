@@ -28,9 +28,13 @@ class SnapshotController extends Controller
         return $this->returnNoContent();
     }
 
-    public function rollbackSnapshot(Server $server, $snapname)
+    public function rollbackSnapshot(Server $server, Request $request)
     {
-        $this->snapshotService->rollbackSnapshot($server, [], ['snapname' => $snapname]);
+        $request->validate([
+            'snapname' => 'required|string'
+        ]);
+
+        $this->snapshotService->rollbackSnapshot($server, [], $request->snapname);
 
         return $this->returnNoContent();
     }

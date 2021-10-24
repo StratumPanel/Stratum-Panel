@@ -135,6 +135,8 @@ import {
 import DateTimeCalculator from '@/util/DateTimeCalculator'
 import DialogModal from '@components/DialogModal.vue'
 import Button from '@components/Button.vue'
+import rollbackSnapshot from '@api/server/snapshots/rollbackSnapshot'
+import { usePage } from '@inertiajs/inertia-vue3'
 
 export default defineComponent({
   name: 'SnapshotRow',
@@ -157,6 +159,7 @@ export default defineComponent({
       return `${month} ${day}`
     })
 
+    const server = usePage().props.value.server
     const showRevertConfirmation = ref(false)
     const showDeleteConfirmation = ref(false)
 
@@ -168,7 +171,8 @@ export default defineComponent({
       }
 
       showRevertConfirmation.value = false
-      alert('reverted')
+      rollbackSnapshot(server.id, props.snapshot.name)
+        .then((res) => console.log(res))
     }
 
     const handleDelete = (confirm: Boolean) => {

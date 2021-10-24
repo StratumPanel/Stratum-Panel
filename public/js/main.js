@@ -42642,10 +42642,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
 /* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _util_DateTimeCalculator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/util/DateTimeCalculator */ "./resources/js/util/DateTimeCalculator.ts");
 /* harmony import */ var _components_DialogModal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @components/DialogModal.vue */ "./resources/js/components/DialogModal.vue");
 /* harmony import */ var _components_Button_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @components/Button.vue */ "./resources/js/components/Button.vue");
+/* harmony import */ var _api_server_snapshots_rollbackSnapshot__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @api/server/snapshots/rollbackSnapshot */ "./resources/js/api/server/snapshots/rollbackSnapshot.ts");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
+
 
 
 
@@ -42675,6 +42679,7 @@ __webpack_require__.r(__webpack_exports__);
 
       return "".concat(month, " ").concat(day);
     });
+    var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.value.server;
     var showRevertConfirmation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var showDeleteConfirmation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
 
@@ -42686,7 +42691,9 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       showRevertConfirmation.value = false;
-      alert('reverted');
+      (0,_api_server_snapshots_rollbackSnapshot__WEBPACK_IMPORTED_MODULE_6__.default)(server.id, props.snapshot.name).then(function (res) {
+        return console.log(res);
+      });
     };
 
     var handleDelete = function handleDelete(confirm) {
@@ -42694,16 +42701,16 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     return {
-      faArchive: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faArchive,
-      faMapMarkerAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faMapMarkerAlt,
-      faTrashAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faTrashAlt,
-      faHistory: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faHistory,
+      faArchive: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faArchive,
+      faMapMarkerAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faMapMarkerAlt,
+      faTrashAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faTrashAlt,
+      faHistory: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faHistory,
       handleRevert: handleRevert,
       handleDelete: handleDelete,
       creationDate: creationDate,
       showRevertConfirmation: showRevertConfirmation,
       showDeleteConfirmation: showDeleteConfirmation,
-      faExclamationTriangle: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faExclamationTriangle
+      faExclamationTriangle: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faExclamationTriangle
     };
   }
 }));
@@ -47984,6 +47991,28 @@ function formatBytes(bytes) {
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (id) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default().get(route('servers.show.status', id));
+});
+
+/***/ }),
+
+/***/ "./resources/js/api/server/snapshots/rollbackSnapshot.ts":
+/*!***************************************************************!*\
+  !*** ./resources/js/api/server/snapshots/rollbackSnapshot.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (id, snapName) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().post(route('servers.show.snapshots.rollback', id), {
+    snapname: snapName
+  });
 });
 
 /***/ }),
