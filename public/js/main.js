@@ -42185,12 +42185,8 @@ __webpack_require__.r(__webpack_exports__);
       emit('close', false);
     };
 
-    var vshow = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      return props.show;
-    });
     return {
-      close: close,
-      vshow: vshow
+      close: close
     };
   }
 }));
@@ -42265,9 +42261,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
-    var vshow = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      return props.show;
-    });
 
     var close = function close() {
       emit('close', false);
@@ -42286,8 +42279,7 @@ __webpack_require__.r(__webpack_exports__);
       return document.removeEventListener('keydown', closeOnEscape);
     });
     return {
-      close: close,
-      vshow: vshow
+      close: close
     };
   }
 }));
@@ -42656,36 +42648,24 @@ __webpack_require__.r(__webpack_exports__);
 
     var handleRevert = function handleRevert(confirm) {
       if (!confirm) {
-        // this will only trigger if the user doesn't confirm the actions (e.g. cancel or click out of the modal)
         console.log(showRevertConfirmation.value);
         showRevertConfirmation.value = false;
         return;
       }
+
+      showRevertConfirmation.value = false;
+      alert('reverted');
     };
 
     var handleDelete = function handleDelete(confirm) {
       alert('successful deletion');
     };
-    /*   const ServerRevertAction = {
-      text: 'Rollback',
-      classNames: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
-      callback: () => alert('revert successful'),
-    }
-      const DeleteSnapshotAction = {
-      text: 'Delete',
-      classNames: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
-      callback: () => alert('Deletion successful'),
-    } */
-
 
     return {
       faArchive: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faArchive,
       faMapMarkerAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faMapMarkerAlt,
       faTrashAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faTrashAlt,
       faHistory: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faHistory,
-
-      /*       ServerRevertAction,
-      DeleteSnapshotAction, */
       handleRevert: handleRevert,
       handleDelete: handleDelete,
       creationDate: creationDate,
@@ -46994,7 +46974,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_modal, {
-    show: _ctx.vshow,
+    show: _ctx.show,
     onClose: _ctx.close
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -47079,7 +47059,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_TransitionRoot, {
     as: "template",
-    show: _ctx.vshow
+    show: _ctx.show
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dialog, {
@@ -47693,7 +47673,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), _hoisted_13])];
     }),
     footer: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        type: "button",
+        "class": "\r\n          w-full\r\n          inline-flex\r\n          justify-center\r\n          rounded-md\r\n          border border-transparent\r\n          shadow-sm\r\n          px-4\r\n          py-2\r\n          text-base\r\n          font-medium\r\n          text-white\r\n          focus:outline-none focus:ring-2 focus:ring-offset-2\r\n          sm:ml-3 sm:w-auto sm:text-sm\r\n          bg-red-600\r\n          hover:bg-red-700\r\n          focus:ring-red-500\r\n        ",
+        onClick: _cache[3] || (_cache[3] = function ($event) {
+          return _ctx.handleRevert(true);
+        })
+      }, " Revert "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        type: "button",
+        "class": "\r\n          mt-3\r\n          w-full\r\n          inline-flex\r\n          justify-center\r\n          rounded-md\r\n          border border-gray-300\r\n          shadow-sm\r\n          px-4\r\n          py-2\r\n          bg-white\r\n          text-base\r\n          font-medium\r\n          text-gray-700\r\n          hover:bg-gray-50\r\n          focus:outline-none\r\n          focus:ring-2\r\n          focus:ring-offset-2\r\n          focus:ring-indigo-500\r\n          sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm\r\n        ",
+        onClick: _cache[4] || (_cache[4] = function ($event) {
+          return _ctx.handleRevert(false);
+        })
+      }, " Cancel ")];
     }),
     _: 1
     /* STABLE */

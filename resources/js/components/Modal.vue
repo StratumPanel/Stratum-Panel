@@ -1,5 +1,5 @@
 <template>
-  <TransitionRoot as="template" :show="vshow">
+  <TransitionRoot as="template" :show="show">
     <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="close">
       <div
         class="
@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, onUnmounted, watch } from 'vue'
+import { defineComponent, onMounted, onUnmounted } from 'vue'
 
 import {
   Dialog,
@@ -91,9 +91,6 @@ export default defineComponent({
   },
 
   setup(props, { emit }) {
-    const vshow = computed(() => {
-      return props.show
-    })
 
     const close = () => {
       emit('close', false)
@@ -109,7 +106,7 @@ export default defineComponent({
     onMounted(() => document.addEventListener('keydown', closeOnEscape))
     onUnmounted(() => document.removeEventListener('keydown', closeOnEscape))
 
-    return { close, vshow }
+    return { close }
   },
 })
 </script>

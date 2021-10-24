@@ -75,7 +75,60 @@
         </div>
       </div>
     </template>
-    <template #footer> </template>
+    <template #footer>
+      <button
+        type="button"
+        class="
+          w-full
+          inline-flex
+          justify-center
+          rounded-md
+          border border-transparent
+          shadow-sm
+          px-4
+          py-2
+          text-base
+          font-medium
+          text-white
+          focus:outline-none focus:ring-2 focus:ring-offset-2
+          sm:ml-3 sm:w-auto sm:text-sm
+          bg-red-600
+          hover:bg-red-700
+          focus:ring-red-500
+        "
+        @click="handleRevert(true)"
+      >
+        Revert
+      </button>
+
+      <button
+        type="button"
+        class="
+          mt-3
+          w-full
+          inline-flex
+          justify-center
+          rounded-md
+          border border-gray-300
+          shadow-sm
+          px-4
+          py-2
+          bg-white
+          text-base
+          font-medium
+          text-gray-700
+          hover:bg-gray-50
+          focus:outline-none
+          focus:ring-2
+          focus:ring-offset-2
+          focus:ring-indigo-500
+          sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
+        "
+        @click="handleRevert(false)"
+      >
+        Cancel
+      </button>
+    </template>
   </dialog-modal>
 
   <dialog-modal :show="showDeleteConfirmation" @close="handleDelete">
@@ -85,7 +138,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, watch, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { DialogTitle } from '@headlessui/vue'
 import {
@@ -122,37 +175,25 @@ export default defineComponent({
     const showDeleteConfirmation = ref(false)
 
     const handleRevert = (confirm: Boolean) => {
-      if (!confirm) { // this will only trigger if the user doesn't confirm the actions (e.g. cancel or click out of the modal)
+      if (!confirm) {
         console.log(showRevertConfirmation.value)
         showRevertConfirmation.value = false
         return
       }
-    }
 
+      showRevertConfirmation.value = false
+      alert('reverted')
+    }
 
     const handleDelete = (confirm: Boolean) => {
       alert('successful deletion')
     }
-
-    /*   const ServerRevertAction = {
-      text: 'Rollback',
-      classNames: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
-      callback: () => alert('revert successful'),
-    }
-
-    const DeleteSnapshotAction = {
-      text: 'Delete',
-      classNames: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
-      callback: () => alert('Deletion successful'),
-    } */
 
     return {
       faArchive,
       faMapMarkerAlt,
       faTrashAlt,
       faHistory,
-      /*       ServerRevertAction,
-      DeleteSnapshotAction, */
       handleRevert,
       handleDelete,
       creationDate,

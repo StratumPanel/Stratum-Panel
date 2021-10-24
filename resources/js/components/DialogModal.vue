@@ -1,5 +1,5 @@
 <template>
-  <modal :show="vshow" @close="close">
+  <modal :show="show" @close="close">
     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
       <div class="sm:flex sm:items-start">
         <slot name="content"></slot>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import Modal from '@components/Modal.vue'
 
 export default defineComponent({
@@ -32,11 +32,7 @@ export default defineComponent({
       emit('close', false)
     }
 
-    const vshow = computed(() => {
-      return props.show
-    })
-
-    return { close, vshow }
+    return { close }
   },
 })
 </script>
