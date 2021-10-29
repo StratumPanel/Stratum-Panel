@@ -117,9 +117,70 @@
   </dialog-modal>
 
   <dialog-modal :show="showDeleteConfirmation" @close="handleDelete">
-    <template #content> </template>
-    <template #footer> </template>
+    <template #content>
+      <div class="dialog-icon">
+        <font-awesome-icon
+          :icon="faExclamationTriangle"
+          class="h-6 w-6 text-red-600"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+        <DialogTitle
+          as="h3"
+          class="text-lg leading-6 font-medium text-gray-900"
+        >
+          Permanently delete {{ snapshot.name }}?
+        </DialogTitle>
+        <div class="mt-2">
+          <p class="text-sm text-gray-500">
+            Deleting this snapshot will be permanent and unrecoverable. Please make sure to check before deleting a snapshot.
+          </p>
+        </div>
+      </div>
+    </template>
+    <template #footer>
+      <Button
+        class="
+          w-full
+          justify-center
+          !text-base
+          !font-medium
+          !text-white
+          focus:!ring-red-300
+          sm:ml-3 sm:w-auto sm:!text-sm
+          !bg-red-600
+          hover:!bg-red-700
+        "
+        @click="handleDelete(true)"
+      >
+        Delete
+      </Button>
+
+      <Button
+        class="
+          mt-3
+          w-full
+          justify-center
+          !text-base
+          !font-medium
+          !bg-white
+          !border-gray-300
+          !text-gray-700
+          hover:!text-gray-500
+          focus:!border-blue-300 focus:!ring-blue-200
+          active:!text-gray-800 active:!bg-gray-50
+          sm:mt-0 sm:ml-3 sm:w-auto sm:!text-sm
+        "
+        @click="handleDelete(false)"
+      >
+        Cancel
+      </Button>
+    </template>
   </dialog-modal>
+
+
 </template>
 
 <script lang="ts">
@@ -166,18 +227,23 @@ export default defineComponent({
 
     const handleRevert = (confirm: Boolean) => {
       if (!confirm) {
-        console.log(showRevertConfirmation.value)
         showRevertConfirmation.value = false
         return
       }
 
       showRevertConfirmation.value = false
-      rollbackSnapshot(server.id, props.snapshot.name)
-        .then((res) => console.log(res))
+      rollbackSnapshot(server.id, props.snapshot.name).then((res) =>
+        console.log(res)
+      )
     }
 
     const handleDelete = (confirm: Boolean) => {
-      alert('successful deletion')
+      if (!confirm) {
+        showDeleteConfirmation.value = false
+        return
+      }
+
+      showDeleteConfirmation.value = false
     }
 
     return {

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Client\Servers;
 
+use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
 use App\Services\Servers\SnapshotService;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class SnapshotController extends Controller
+class SnapshotController extends ApplicationApiController
 {
     public function __construct(private SnapshotService $snapshotService)
     {
@@ -23,7 +23,7 @@ class SnapshotController extends Controller
 
     public function createSnapshot(Server $server, Request $request)
     {
-        $this->snapshotService->doSnapshot($server, $server->node(), ['snapname' => $request->name]);
+        $this->snapshotService->doSnapshot($request->name, $server);
 
         return $this->returnNoContent();
     }
