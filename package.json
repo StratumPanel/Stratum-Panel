@@ -31,7 +31,7 @@
         "postcss-import": "^14.0.2",
         "tailwindcss": "^2.2.7",
         "vue": "^3.0.5",
-        "vue-loader": "^16.1.2",
+        "vue-loader": "^16.8.2",
         "webpack-livereload-plugin": "^1.2.0"
     },
     "dependencies": {

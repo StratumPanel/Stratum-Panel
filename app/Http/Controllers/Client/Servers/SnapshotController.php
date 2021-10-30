@@ -34,7 +34,7 @@ class SnapshotController extends ApplicationApiController
             'snapname' => 'required|string'
         ]);
 
-        $this->snapshotService->rollbackSnapshot($server, [], $request->snapname);
+        $this->snapshotService->rollbackSnapshot($server, $request->snapname);
 
         return $this->returnNoContent();
     }
