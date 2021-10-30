@@ -22,6 +22,7 @@
           v-for="snapshot in snapshots"
           :key="snapshot"
           :snapshot="snapshot"
+          :current-snapshot="snapshots[0]"
         />
       </div>
 

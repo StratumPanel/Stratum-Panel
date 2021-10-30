@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100">
+  <div v-if="(!snapshot.running) ? true : ((snapshot.parent === undefined) ? true : false)" class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100">
     <div class="flex items-center">
       <div class="flex justify-center items-center h-10 w-10 rounded-full mr-4">
         <font-awesome-icon
-          :icon="snapshot.running ? faMapMarkerAlt : faArchive"
+          :icon="snapshot.name === currentSnapshot.parent || currentSnapshot.parent === undefined ? faMapMarkerAlt : faArchive"
           class="!w-4 !h-4 text-gray-700"
         />
       </div>
@@ -12,10 +12,9 @@
           {{ snapshot.name }}
         </h2>
         <p
-          v-if="snapshot.description"
           class="text-sm break-words text-gray-600"
         >
-          {{ snapshot.description }}
+          {{ snapshot.name === currentSnapshot.parent ? 'This snapshot is active' : snapshot.description }}
         </p>
       </div>
       <template v-if="snapshot.snaptime">
@@ -207,6 +206,10 @@ export default defineComponent({
       type: Object,
       required: true,
     },
+    currentSnapshot: {
+      type: Object,
+      required: true,
+    }
   },
   components: {
     FontAwesomeIcon,
