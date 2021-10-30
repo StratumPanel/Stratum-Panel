@@ -1665,10 +1665,6 @@ select {
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important;
 }
-.\!bg-blue-100 {
-	--tw-bg-opacity: 1 !important;
-	background-color: rgba(219, 234, 254, var(--tw-bg-opacity)) !important;
-}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
