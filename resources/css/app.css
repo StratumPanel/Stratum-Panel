@@ -2,6 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
+
 /* Make clicks pass-through */
 #nprogress {
     pointer-events: none;

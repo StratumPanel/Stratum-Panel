@@ -47862,7 +47862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   key: 0,
-  "class": "\r\n        fixed\r\n        z-50\r\n        inline-block\r\n        bg-gray-800\r\n        rounded-md\r\n        px-5\r\n        py-3\r\n        bottom-3\r\n        right-3\r\n      "
+  "class": "\r\n        fixed\r\n        z-50\r\n        inline-block\r\n        bg-gray-800\r\n        px-5\r\n        py-3\r\n        w-full\r\n        bottom-0\r\n        md:w-auto\r\n        md:bottom-3\r\n        md:right-3\r\n        md:rounded-md\r\n      "
 };
 var _hoisted_2 = {
   "class": "flex space-x-2 items-center"

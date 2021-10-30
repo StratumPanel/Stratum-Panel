@@ -6,11 +6,14 @@
         z-50
         inline-block
         bg-gray-800
-        rounded-md
         px-5
         py-3
-        bottom-3
-        right-3
+        w-full
+        bottom-0
+        md:w-auto
+        md:bottom-3
+        md:right-3
+        md:rounded-md
       "
     >
       <div class="flex space-x-2 items-center">

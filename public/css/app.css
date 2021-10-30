@@ -1090,11 +1090,8 @@ select {
 .top-0 {
 	top: 0px;
 }
-.bottom-3 {
-	bottom: 0.75rem;
-}
-.right-3 {
-	right: 0.75rem;
+.bottom-0 {
+	bottom: 0px;
 }
 .z-0 {
 	z-index: 0;
@@ -2070,6 +2067,10 @@ select {
 .ease-in {
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
 /* Make clicks pass-through */
 #nprogress {
     pointer-events: none;
@@ -2697,6 +2698,14 @@ select {
 }
 @media (min-width: 768px) {
 
+	.md\:bottom-3 {
+		bottom: 0.75rem;
+	}
+
+	.md\:right-3 {
+		right: 0.75rem;
+	}
+
 	.md\:col-span-2 {
 		grid-column: span 2 / span 2;
 	}
@@ -2723,6 +2732,10 @@ select {
 
 	.md\:hidden {
 		display: none;
+	}
+
+	.md\:w-auto {
+		width: auto;
 	}
 
 	.md\:grid-cols-3 {
