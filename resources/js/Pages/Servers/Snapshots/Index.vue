@@ -154,7 +154,7 @@ export default defineComponent({
         timeout: false,
       })
 
-      /* createSnapshot(server.id, newSnapshotName.value).then(() => {
+      createSnapshot(server.id, newSnapshotName.value).then(() => {
         store.dispatch('alerts/createAlert', {
           message: 'Snapshot created',
           icon: faCheck,
@@ -167,7 +167,7 @@ export default defineComponent({
           message: 'Snapshot failed. Check console',
           icon: faTimes,
         })
-      }) */
+      })
       showCreateSnapshot.value = false
     }
 

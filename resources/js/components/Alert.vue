@@ -1,15 +1,9 @@
 <template>
   <TransitionRoot
     :show="message.length > 0"
-    enter-from="-translate-y-full bottom-0 right-0"
-    enter-to="-translate-y-0 bottom-3 right-3"
-    leave="-translate-y-0 bottom-3 right-3"
-    leave-from="-translate-y-full bottom-0 right-0"
   >
     <div
       class="
-        transform
-        transition
         fixed
         z-50
         inline-block
@@ -17,6 +11,8 @@
         rounded-md
         px-5
         py-3
+        bottom-3
+        right-3
       "
     >
       <div class="flex space-x-2 items-center">

@@ -42723,20 +42723,18 @@ __webpack_require__.r(__webpack_exports__);
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faClock,
         timeout: false
       });
-      /* createSnapshot(server.id, newSnapshotName.value).then(() => {
+      (0,_api_server_snapshots_createSnapshot__WEBPACK_IMPORTED_MODULE_11__.default)(server.id, newSnapshotName.value).then(function () {
         store.dispatch('alerts/createAlert', {
           message: 'Snapshot created',
-          icon: faCheck,
-        })
-      })
-      .catch(err => {
-        console.log(err)
-          store.dispatch('alerts/createAlert', {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faCheck
+        });
+      })["catch"](function (err) {
+        console.log(err);
+        store.dispatch('alerts/createAlert', {
           message: 'Snapshot failed. Check console',
-          icon: faTimes,
-        })
-      }) */
-
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faTimes
+        });
+      });
       showCreateSnapshot.value = false;
     };
 
@@ -47869,7 +47867,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "\r\n        transform\r\n        transition\r\n        fixed\r\n        z-50\r\n        inline-block\r\n        bg-gray-800\r\n        rounded-md\r\n        px-5\r\n        py-3\r\n      "
+  "class": "\r\n        fixed\r\n        z-50\r\n        inline-block\r\n        bg-gray-800\r\n        rounded-md\r\n        px-5\r\n        py-3\r\n        bottom-3\r\n        right-3\r\n      "
 };
 var _hoisted_2 = {
   "class": "flex space-x-2 items-center"
@@ -47883,11 +47881,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_TransitionRoot = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TransitionRoot");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_TransitionRoot, {
-    show: _ctx.message.length > 0,
-    "enter-from": "-translate-y-full bottom-0 right-0",
-    "enter-to": "-translate-y-0 bottom-3 right-3",
-    leave: "-translate-y-0 bottom-3 right-3",
-    "leave-from": "-translate-y-full bottom-0 right-0"
+    show: _ctx.message.length > 0
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_ctx.icon ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_font_awesome_icon, {
