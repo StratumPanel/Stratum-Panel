@@ -42718,9 +42718,25 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      (0,_api_server_snapshots_createSnapshot__WEBPACK_IMPORTED_MODULE_11__.default)(server.id, newSnapshotName.value).then(function (res) {
-        return console.log(res);
+      store.dispatch('alerts/createAlert', {
+        message: 'Creating snapshot...',
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faClock,
+        timeout: false
       });
+      /* createSnapshot(server.id, newSnapshotName.value).then(() => {
+        store.dispatch('alerts/createAlert', {
+          message: 'Snapshot created',
+          icon: faCheck,
+        })
+      })
+      .catch(err => {
+        console.log(err)
+          store.dispatch('alerts/createAlert', {
+          message: 'Snapshot failed. Check console',
+          icon: faTimes,
+        })
+      }) */
+
       showCreateSnapshot.value = false;
     };
 
@@ -42728,8 +42744,7 @@ __webpack_require__.r(__webpack_exports__);
       showCreateSnapshot: showCreateSnapshot,
       newSnapshotName: newSnapshotName,
       handleSnapshot: handleSnapshot,
-      faCopy: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faCopy,
-      faClock: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faClock
+      faCopy: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__.faCopy
     };
   }
 }));
@@ -42793,6 +42808,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
@@ -42808,7 +42825,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    FontAwesomeIcon: _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon
+    FontAwesomeIcon: _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon,
+    TransitionRoot: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.TransitionRoot
   },
   setup: function setup() {}
 }));
@@ -47851,8 +47869,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  key: 0,
-  "class": "fixed z-50 inline-block bg-gray-800 rounded-md px-5 py-3 bottom-3 right-3"
+  "class": "\r\n        transform\r\n        transition\r\n        fixed\r\n        z-50\r\n        inline-block\r\n        bg-gray-800\r\n        rounded-md\r\n        px-5\r\n        py-3\r\n      "
 };
 var _hoisted_2 = {
   "class": "flex space-x-2 items-center"
@@ -47863,15 +47880,32 @@ var _hoisted_3 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_font_awesome_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("font-awesome-icon");
 
-  return _ctx.message.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_ctx.icon ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_font_awesome_icon, {
-    key: 0,
-    icon: _ctx.icon,
-    "class": "text-white"
-  }, null, 8
+  var _component_TransitionRoot = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TransitionRoot");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_TransitionRoot, {
+    show: _ctx.message.length > 0,
+    "enter-from": "-translate-y-full bottom-0 right-0",
+    "enter-to": "-translate-y-0 bottom-3 right-3",
+    leave: "-translate-y-0 bottom-3 right-3",
+    "leave-from": "-translate-y-full bottom-0 right-0"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_ctx.icon ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_font_awesome_icon, {
+        key: 0,
+        icon: _ctx.icon,
+        "class": "text-white"
+      }, null, 8
+      /* PROPS */
+      , ["icon"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.message), 1
+      /* TEXT */
+      )])])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
   /* PROPS */
-  , ["icon"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.message), 1
-  /* TEXT */
-  )])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
+  , ["show"]);
 }
 
 /***/ }),
@@ -49180,7 +49214,7 @@ var alerts = {
   },
   actions: {
     clearAlerts: function clearAlerts(context) {
-      // I hate it
+      // I hate using 'any'
       context.commit('setMessage', '');
       context.commit('setIcon', null);
     },
@@ -49189,7 +49223,16 @@ var alerts = {
         context.dispatch('clearAlerts');
       }
     },
-    createAlert: function createAlert(context, message, icon, timeout) {}
+    createAlert: function createAlert(context, payload) {
+      context.commit('setMessage', payload.message);
+      context.commit('setIcon', payload.icon);
+
+      if (payload.timeout === undefined || payload.timeout) {
+        setTimeout(function () {
+          context.dispatch('clearSpecificAlert', payload.message);
+        }, 5000);
+      }
+    }
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (alerts);

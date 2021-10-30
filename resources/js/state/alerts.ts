@@ -5,6 +5,10 @@ export interface AlertMessage {
     icon: null | FontawesomeObject;
 }
 
+export interface CreateAlertPayload extends AlertMessage {
+    timeout: boolean;
+}
+
 const alerts = {
     namespaced: true,
 
@@ -22,7 +26,7 @@ const alerts = {
         }
     },
     actions: {
-        clearAlerts (context: any) { // I hate it
+        clearAlerts (context: any) { // I hate using 'any'
             context.commit('setMessage', '')
             context.commit('setIcon', null)
         },
@@ -33,8 +37,15 @@ const alerts = {
             }
         },
 
-        createAlert (context: any, message: string, icon: FontawesomeObject, timeout: boolean) {
+        createAlert (context: any, payload: CreateAlertPayload) {
+            context.commit('setMessage', payload.message)
+            context.commit('setIcon', payload.icon)
 
+            if (payload.timeout === undefined || payload.timeout) {
+                setTimeout(() => {
+                    context.dispatch('clearSpecificAlert', payload.message)
+                }, 5000);
+            }
         }
     }
 }

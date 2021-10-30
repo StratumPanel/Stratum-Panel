@@ -1393,6 +1393,14 @@ select {
 	--tw-translate-y: 0px;
 	transform: var(--tw-transform);
 }
+.-translate-y-full {
+	--tw-translate-y: -100%;
+	transform: var(--tw-transform);
+}
+.-translate-y-0 {
+	--tw-translate-y: 0px;
+	transform: var(--tw-transform);
+}
 .scale-95 {
 	--tw-scale-x: .95;
 	--tw-scale-y: .95;

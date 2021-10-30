@@ -102,7 +102,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useStore } from 'vuex'
-import { faCopy, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faCopy, faClock, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import GoBackButton from '@components/GoBackButton.vue'
@@ -148,8 +148,26 @@ export default defineComponent({
         return
       }
 
+      store.dispatch('alerts/createAlert', {
+        message: 'Creating snapshot...',
+        icon: faClock,
+        timeout: false,
+      })
 
-      createSnapshot(server.id, newSnapshotName.value).then(res => console.log(res))
+      /* createSnapshot(server.id, newSnapshotName.value).then(() => {
+        store.dispatch('alerts/createAlert', {
+          message: 'Snapshot created',
+          icon: faCheck,
+        })
+      })
+      .catch(err => {
+        console.log(err)
+
+        store.dispatch('alerts/createAlert', {
+          message: 'Snapshot failed. Check console',
+          icon: faTimes,
+        })
+      }) */
       showCreateSnapshot.value = false
     }
 
@@ -158,7 +176,6 @@ export default defineComponent({
       newSnapshotName,
       handleSnapshot,
       faCopy,
-      faClock,
     }
   },
 })
