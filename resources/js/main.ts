@@ -9,6 +9,7 @@ import {
 } from '@inertiajs/inertia-vue3'
 import NProgress from 'nprogress'
 import { Inertia } from '@inertiajs/inertia'
+import store from '@/state'
 
 const el = document.getElementById('app')
 
@@ -21,6 +22,7 @@ createApp({
 })
   .mixin({ methods: { route } })
   .use(InertiaPlugin)
+  .use(store)
   .mount(el)
 
 Inertia.on('start', () => NProgress.start())

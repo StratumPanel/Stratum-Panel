@@ -222,11 +222,13 @@
         <slot></slot>
       </div>
     </main>
+
   </div>
+  <Alert :icon="icon" :message="message"></Alert>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import {
   Disclosure,
   DisclosureButton,
@@ -239,6 +241,8 @@ import {
 import NavLink from '@components/NavLink.vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 import { Inertia } from '@inertiajs/inertia'
+import Alert from '@components/Alert.vue'
+import { useStore } from 'vuex'
 
 const clientlinks = [{ name: 'Dashboard', route: 'dashboard' }]
 const adminlinks = [
@@ -263,9 +267,11 @@ export default {
     MenuIcon,
     XIcon,
     NavLink,
+    Alert,
   },
   setup() {
     const open = ref(false)
+    const store = useStore()
 
     const logout = () => {
       Inertia.post(route('logout'))
@@ -277,6 +283,8 @@ export default {
       userlinks,
       open,
       logout,
+      message: computed(() => store.state.alerts.message),
+      icon: computed(() => store.state.alerts.icon),
     }
   },
 }

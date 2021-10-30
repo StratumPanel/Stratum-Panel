@@ -1066,6 +1066,9 @@ select {
 	white-space: nowrap;
 	border-width: 0;
 }
+.static {
+	position: static;
+}
 .fixed {
 	position: fixed;
 }
@@ -1074,6 +1077,9 @@ select {
 }
 .relative {
 	position: relative;
+}
+.sticky {
+	position: sticky;
 }
 .inset-0 {
 	top: 0px;
@@ -1089,6 +1095,21 @@ select {
 }
 .top-0 {
 	top: 0px;
+}
+.bottom-0 {
+	bottom: 0px;
+}
+.bottom-5 {
+	bottom: 1.25rem;
+}
+.right-5 {
+	right: 1.25rem;
+}
+.bottom-3 {
+	bottom: 0.75rem;
+}
+.right-3 {
+	right: 0.75rem;
 }
 .z-0 {
 	z-index: 0;
@@ -1477,6 +1498,11 @@ select {
 	margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .divide-y > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-y-reverse: 0;
 	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1684,6 +1710,12 @@ select {
 .p-4 {
 	padding: 1rem;
 }
+.p-3 {
+	padding: 0.75rem;
+}
+.p-5 {
+	padding: 1.25rem;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1739,6 +1771,10 @@ select {
 .py-10 {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
+}
+.px-5 {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
 }
 .pt-6 {
 	padding-top: 1.5rem;
