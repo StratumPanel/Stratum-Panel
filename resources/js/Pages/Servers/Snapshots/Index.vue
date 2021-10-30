@@ -101,7 +101,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { useStore } from 'vuex'
+import { faCopy, faClock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import GoBackButton from '@components/GoBackButton.vue'
@@ -136,6 +137,7 @@ export default defineComponent({
     },
   },
   setup() {
+    const store = useStore()
     const server = usePage().props.value.server
     const showCreateSnapshot = ref(false)
     const newSnapshotName = ref('')
@@ -146,6 +148,7 @@ export default defineComponent({
         return
       }
 
+
       createSnapshot(server.id, newSnapshotName.value).then(res => console.log(res))
       showCreateSnapshot.value = false
     }
@@ -155,6 +158,7 @@ export default defineComponent({
       newSnapshotName,
       handleSnapshot,
       faCopy,
+      faClock,
     }
   },
 })
