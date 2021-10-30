@@ -43,20 +43,23 @@
               Create Snapshot
             </DialogTitle>
             <p class="text-sm mt-2 text-gray-500">
-              A snapshot saves the current state of the server while it's still running.
+              A snapshot saves the current state of the server while it's still
+              running.
             </p>
 
             <div class="mt-4">
-              <Label for="snapshot-name" value="Snapshot Name" />
-              <Input
-                type="text"
-                id="snapshot-name"
-                class="mt-1 block w-full"
-                ref="snapshot-name"
-                v-model="newSnapshotName"
-                autocomplete="snapshot-name"
-              />
-              <InputError class="mt-2" />
+              <form @submit.prevent="handleSnapshot(true)">
+                <Label for="snapshot-name" value="Snapshot Name" />
+                <Input
+                  type="text"
+                  id="snapshot-name"
+                  class="mt-1 block w-full"
+                  ref="snapshot-name"
+                  v-model="newSnapshotName"
+                  autocomplete="snapshot-name"
+                />
+                <InputError class="mt-2" />
+              </form>
             </div>
           </div>
         </template>
@@ -102,7 +105,12 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useStore } from 'vuex'
-import { faCopy, faClock, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCopy,
+  faClock,
+  faCheck,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import GoBackButton from '@components/GoBackButton.vue'
@@ -115,6 +123,7 @@ import InputError from '@components/InputError.vue'
 import Label from '@components/Label.vue'
 import createSnapshot from '@api/server/snapshots/createSnapshot'
 import { usePage } from '@inertiajs/inertia-vue3'
+import { Inertia } from '@inertiajs/inertia'
 
 export default defineComponent({
   name: 'Index',
@@ -145,6 +154,7 @@ export default defineComponent({
     const handleSnapshot = (confirm: Boolean) => {
       if (!confirm) {
         showCreateSnapshot.value = false
+        newSnapshotName.value = ''
         return
       }
 
@@ -154,21 +164,26 @@ export default defineComponent({
         timeout: false,
       })
 
-      createSnapshot(server.id, newSnapshotName.value).then(() => {
-        store.dispatch('alerts/createAlert', {
-          message: 'Snapshot created',
-          icon: faCheck,
-        })
-      })
-      .catch(err => {
-        console.log(err)
+      createSnapshot(server.id, newSnapshotName.value)
+        .then(() => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Snapshot created',
+            icon: faCheck,
+          })
 
-        store.dispatch('alerts/createAlert', {
-          message: 'Snapshot failed. Check console',
-          icon: faTimes,
+          Inertia.reload({ only: ['snapshots'] })
         })
-      })
+        .catch((err) => {
+          console.log(err)
+
+          store.dispatch('alerts/createAlert', {
+            message: 'Snapshot failed. Check console',
+            icon: faTimes,
+          })
+        })
       showCreateSnapshot.value = false
+
+      newSnapshotName.value = ''
     }
 
     return {

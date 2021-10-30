@@ -1,8 +1,6 @@
 <template>
-  <TransitionRoot
-    :show="message.length > 0"
-  >
     <div
+      v-if="message.length > 0"
       class="
         fixed
         z-50
@@ -20,7 +18,6 @@
         <p class="text-white">{{ message }}</p>
       </div>
     </div>
-  </TransitionRoot>
 </template>
 
 <script lang="ts">

@@ -6,7 +6,8 @@ export interface AlertMessage {
 }
 
 export interface CreateAlertPayload extends AlertMessage {
-    timeout: boolean;
+    timeout?: boolean;
+    timeoutDuration?: number;
 }
 
 const alerts = {
@@ -44,7 +45,7 @@ const alerts = {
             if (payload.timeout === undefined || payload.timeout) {
                 setTimeout(() => {
                     context.dispatch('clearSpecificAlert', payload.message)
-                }, 5000);
+                }, (payload.timeoutDuration) ? payload.timeoutDuration : 3000);
             }
         }
     }
