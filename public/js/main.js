@@ -42694,6 +42694,7 @@ __webpack_require__.r(__webpack_exports__);
     var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_12__.usePage)().props.value.server;
     var showCreateSnapshot = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var newSnapshotName = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
+    var validationError = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
 
     var handleSnapshot = function handleSnapshot(confirm) {
       if (!confirm) {
@@ -42726,11 +42727,23 @@ __webpack_require__.r(__webpack_exports__);
       newSnapshotName.value = '';
     };
 
+    var validateName = function validateName() {
+      newSnapshotName.value = newSnapshotName.value.replace(/\s+/g, '-');
+
+      if (newSnapshotName.value.search(/^[a-zA-Z0-9-_]+$/) === -1 && newSnapshotName.value.length > 0) {
+        validationError.value = 'Name can only include alphanumeric characters, dashes, and underscores';
+      } else {
+        validationError.value = '';
+      }
+    };
+
     return {
       showCreateSnapshot: showCreateSnapshot,
       newSnapshotName: newSnapshotName,
       handleSnapshot: handleSnapshot,
-      faCopy: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_15__.faCopy
+      faCopy: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_15__.faCopy,
+      validateName: validateName,
+      validationError: validationError
     };
   }
 }));
@@ -47491,12 +47504,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
               return _ctx.newSnapshotName = $event;
             }),
-            autocomplete: "snapshot-name"
+            autocomplete: "snapshot-name",
+            onInput: _ctx.validateName
           }, null, 8
           /* PROPS */
-          , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputError, {
+          , ["modelValue", "onInput"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputError, {
+            message: _ctx.validationError,
             "class": "mt-2"
-          })], 32
+          }, null, 8
+          /* PROPS */
+          , ["message"])], 32
           /* HYDRATE_EVENTS */
           )])])];
         }),
@@ -49074,7 +49091,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (id, snapName) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default().post(route('servers.show.snapshots.rollback', id), {
-    snapname: snapName
+    name: snapName
   });
 });
 

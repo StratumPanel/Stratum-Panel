@@ -23,6 +23,10 @@ class SnapshotController extends ApplicationApiController
 
     public function createSnapshot(Server $server, Request $request)
     {
+        $request->validate([
+            'name' => 'required|alpha_dash'
+        ]);
+
         $this->snapshotService->doSnapshot($request->name, $server);
 
         return $this->returnNoContent();
@@ -31,10 +35,10 @@ class SnapshotController extends ApplicationApiController
     public function rollbackSnapshot(Server $server, Request $request)
     {
         $request->validate([
-            'snapname' => 'required|string'
+            'name' => 'required|alpha_dash'
         ]);
 
-        $this->snapshotService->rollbackSnapshot($server, $request->snapname);
+        $this->snapshotService->rollbackSnapshot($server, $request->name);
 
         return $this->returnNoContent();
     }

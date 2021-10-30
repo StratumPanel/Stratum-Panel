@@ -58,8 +58,9 @@
                   ref="snapshot-name"
                   v-model="newSnapshotName"
                   autocomplete="snapshot-name"
+                  @input="validateName"
                 />
-                <InputError class="mt-2" />
+                <InputError :message="validationError" class="mt-2" />
               </form>
             </div>
           </div>
@@ -151,6 +152,7 @@ export default defineComponent({
     const server = usePage().props.value.server
     const showCreateSnapshot = ref(false)
     const newSnapshotName = ref('')
+    const validationError = ref('')
 
     const handleSnapshot = (confirm: Boolean) => {
       if (!confirm) {
@@ -187,11 +189,23 @@ export default defineComponent({
       newSnapshotName.value = ''
     }
 
+    const validateName = () => {
+      newSnapshotName.value = newSnapshotName.value.replace(/\s+/g, '-')
+
+      if (newSnapshotName.value.search(/^[a-zA-Z0-9-_]+$/) === -1 && newSnapshotName.value.length > 0) {
+        validationError.value = 'Name can only include alphanumeric characters, dashes, and underscores'
+      } else {
+        validationError.value = ''
+      }
+    }
+
     return {
       showCreateSnapshot,
       newSnapshotName,
       handleSnapshot,
       faCopy,
+      validateName,
+      validationError,
     }
   },
 })
