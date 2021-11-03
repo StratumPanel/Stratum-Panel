@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /storage/debugbar
+/public/css
+/public/js
 /vendor
 /laradock
 .env
