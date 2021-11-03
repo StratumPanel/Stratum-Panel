@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
