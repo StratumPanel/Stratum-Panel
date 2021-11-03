@@ -1,4 +1,4 @@
-<template>
+e<template>
   <div class="bg-gray-100">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <div
@@ -7,11 +7,11 @@
         <div class="flex items-center">
           <div
             class="h-14 w-14 flex justify-center items-center rounded-full mr-4"
-            :class="iconState[serverStatus.status].backgroundColor"
+            :class="iconState[serverStatus.state].backgroundColor"
           >
             <font-awesome-icon
-              :class="iconState[serverStatus.status].textColor"
-              :icon="iconState[serverStatus.status].icon"
+              :class="iconState[serverStatus.state].textColor"
+              :icon="iconState[serverStatus.state].icon"
               size="lg"
             />
           </div>
@@ -50,6 +50,7 @@
 <script lang="ts">
 import { defineComponent, reactive, onBeforeUnmount } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useStore } from 'vuex'
 import {
   faPlay,
   faMicrochip,
@@ -73,8 +74,9 @@ export default defineComponent({
     },
   },
   setup() {
+    const store = useStore()
     const serverStatus = reactive({
-      status: 'querying',
+      state: 'querying',
       cpu: 0,
       mem: { size: 0, unit: 'B' },
       maxmem: { size: 0, unit: 'B' },
@@ -82,14 +84,23 @@ export default defineComponent({
 
     const refreshStatus = () =>
       getStatus(usePage().props.value.server.id)
-        .then(({ data: { data } }) => {
-          serverStatus.status = data.status
-          serverStatus.cpu = Math.floor(data.cpu * 10000) / 100
-          serverStatus.mem = formatBytes(data.mem)
-          serverStatus.maxmem = formatBytes(data.maxmem)
+        .then(({ data: { data: {status, cpu, mem, maxmem } } }) => {
+          serverStatus.state = status
+          serverStatus.cpu = Math.floor(cpu * 10000) / 100
+          serverStatus.mem = formatBytes(mem)
+          serverStatus.maxmem = formatBytes(maxmem)
+
+          store.dispatch('status/setStatus', {
+            status,
+            cpu: Math.floor(cpu * 10000) / 100,
+            mem: formatBytes(mem),
+            maxmem: formatBytes(maxmem),
+          })
         })
         .catch(() => {
-          serverStatus.status = 'error'
+          serverStatus.state = 'error'
+
+          store.commit('status/setState', 'error')
         })
     refreshStatus() // initial fetch
 

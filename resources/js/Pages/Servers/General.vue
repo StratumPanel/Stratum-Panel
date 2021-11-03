@@ -39,6 +39,7 @@
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import SettingContainer from '@components/SettingContainer.vue'
+import { useStore } from 'vuex'
 import {
   faBolt,
   faBan,
@@ -59,6 +60,7 @@ export default defineComponent({
     SettingLink,
   },
   setup() {
+    const store = useStore()
     const server = usePage().props.value.server
 
     const powerOptions = [

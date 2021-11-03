@@ -8,8 +8,10 @@ export interface FormattedBytes {
   unit: string;
 }
 
+export type ServerState = 'querying' | 'stopped' | 'running' | 'error'
+
 export interface iconStateInterface {
-  [index: string]: {
+  [key: string]: {
     backgroundColor: string;
     textColor: string;
     icon: any;
