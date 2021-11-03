@@ -1,7 +1,8 @@
 <template>
   <div class="flex space-x-0.5" v-if="dropdown">
-    <inertia-link
+    <component :is="(href) ? 'inertiaLink' : 'button'"
       :href="href"
+      :clicked="callback"
       class="
         block
         flex-grow
@@ -23,7 +24,7 @@
       "
     >
       <slot></slot>
-    </inertia-link>
+    </component>
     <Menu as="div" class="relative">
       <MenuButton
         class="
@@ -122,7 +123,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
@@ -135,6 +136,7 @@ interface Items {
 
 export default defineComponent({
   name: 'SettingLink',
+  emits: ['clicked'],
   components: {
     FontAwesomeIcon,
     Menu,
@@ -145,7 +147,7 @@ export default defineComponent({
   props: {
     href: {
       type: String,
-      required: true,
+      required: false,
     },
     dropdown: {
       type: Boolean,
@@ -154,8 +156,12 @@ export default defineComponent({
       type: Object,
     },
   },
-  setup() {
-      return { faChevronDown }
+  setup(props, { emit }) {
+    const callback = () => {
+      emit('clicked')
+    }
+
+    return { faChevronDown, callback }
   },
 })
 </script>

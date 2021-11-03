@@ -91,7 +91,7 @@ export default defineComponent({
           serverStatus.maxmem = formatBytes(maxmem)
 
           store.dispatch('status/setStatus', {
-            status,
+            state: status,
             cpu: Math.floor(cpu * 10000) / 100,
             mem: formatBytes(mem),
             maxmem: formatBytes(maxmem),
