@@ -22,11 +22,15 @@ import SettingLink from '@components/SettingLink.vue'
 import SettingContainer from '@components/SettingContainer.vue'
 import editPowerState from '@/api/server/editPowerState'
 import { usePage } from '@inertiajs/inertia-vue3'
-import { faCheck, faBolt,
+import {
+  faCheck,
+  faBolt,
   faBan,
   faStop,
   faUndo,
-  faPlay, } from '@fortawesome/free-solid-svg-icons'
+  faTimes,
+  faPlay,
+} from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   name: 'PowerSetting',
@@ -70,18 +74,26 @@ export default defineComponent({
     }
 
     const handlePowerActions = (action: string) => {
-      console.log('test')
       store.dispatch('alerts/createAlert', {
         message: `Sending ${action} command`,
         timeout: false,
       })
 
-      editPowerState(server.id, action).then(() => {
-        store.dispatch('alerts/createAlert', {
-          message: `Sent ${action} command`,
-          icon: faCheck,
+      editPowerState(server.id, action)
+        .then(() => {
+          store.dispatch('alerts/createAlert', {
+            message: `Sent ${action} command`,
+            icon: faCheck,
+          })
         })
-      })
+        .catch((err) => {
+          console.log(err)
+
+          store.dispatch('alerts/createAlert', {
+            message: 'Command failed. Check console',
+            icon: faTimes,
+          })
+        })
     }
 
     return {

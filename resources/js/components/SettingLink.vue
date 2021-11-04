@@ -2,7 +2,7 @@
   <div class="flex space-x-0.5" v-if="dropdown">
     <component :is="(href) ? 'inertiaLink' : 'button'"
       :href="href"
-      :clicked="callback"
+      @click="callback"
       class="
         block
         flex-grow

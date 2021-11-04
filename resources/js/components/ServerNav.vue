@@ -53,7 +53,7 @@
 import { defineComponent } from 'vue'
 import NavLink from '@components/NavLink.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCog, faShieldAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faShieldAlt, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   name: 'ServerNav',
@@ -71,6 +71,7 @@ export default defineComponent({
     const links = [
       { name: 'General', icon: faCog, route: 'servers.show' },
       { name: 'Security', icon: faShieldAlt, route: 'servers.show.security' },
+      { name: 'Information', icon: faInfoCircle, route: 'servers.show.information' },
     ]
 
     return { links }
