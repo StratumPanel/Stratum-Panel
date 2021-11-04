@@ -21,7 +21,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import ServerHeader from '@components/ServerHeader.vue'
 import ServerNav from '@components/ServerNav.vue'

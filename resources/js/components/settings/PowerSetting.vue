@@ -1,5 +1,5 @@
 <template>
-  <setting-container
+  <setting
     :icon="faBolt"
     title="Power Options"
     description="Send commands to manage the state of your instance."
@@ -12,14 +12,14 @@
         >{{ statusActions[powerState] }}</setting-link
       >
     </template>
-  </setting-container>
+  </setting>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
 import SettingLink from '@components/SettingLink.vue'
-import SettingContainer from '@components/SettingContainer.vue'
+import Setting from '@components/Setting.vue'
 import editPowerState from '@/api/server/editPowerState'
 import { usePage } from '@inertiajs/inertia-vue3'
 import {
@@ -36,7 +36,7 @@ export default defineComponent({
   name: 'PowerSetting',
   components: {
     SettingLink,
-    SettingContainer,
+    Setting,
   },
   setup() {
     const store = useStore()

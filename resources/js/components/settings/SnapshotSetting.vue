@@ -1,5 +1,5 @@
 <template>
-  <setting-container
+  <setting
     :icon="faClone"
     title="Snapshots"
     description="Manage snapshots on your server."
@@ -9,12 +9,12 @@
         >View Snapshots</setting-link
       >
     </template>
-  </setting-container>
+  </setting>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import SettingContainer from '@components/SettingContainer.vue'
+import Setting from '@components/Setting.vue'
 import SettingLink from '@components/SettingLink.vue'
 import { faClone } from '@fortawesome/free-solid-svg-icons'
 import { usePage } from '@inertiajs/inertia-vue3'
@@ -22,7 +22,7 @@ import { usePage } from '@inertiajs/inertia-vue3'
 export default defineComponent({
   name: 'SnapshotSetting',
   components: {
-    SettingContainer,
+    Setting,
     SettingLink,
   },
   setup() {
