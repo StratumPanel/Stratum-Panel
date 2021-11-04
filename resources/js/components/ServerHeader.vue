@@ -48,7 +48,7 @@ e<template>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onBeforeUnmount } from 'vue'
+import { defineComponent, computed, onBeforeUnmount } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useStore } from 'vuex'
 import {
@@ -75,22 +75,20 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const serverStatus = reactive({
-      state: 'querying',
-      cpu: 0,
-      mem: { size: 0, unit: 'B' },
-      maxmem: { size: 0, unit: 'B' },
-    })
+    const server = usePage().props.value.server
+    const serverStatus = computed(() => store.state.serverStatus)
+
+    // check if server status matches the current name of the server the user is viewing
+    // we don't want to give them the status of a different server
+    if (serverStatus.value.id !== server.id) {
+      store.dispatch('serverStatus/clearStatus')
+    }
 
     const refreshStatus = () =>
-      getStatus(usePage().props.value.server.id)
+      getStatus(server.id)
         .then(({ data: { data: {status, cpu, mem, maxmem } } }) => {
-          serverStatus.state = status
-          serverStatus.cpu = Math.floor(cpu * 10000) / 100
-          serverStatus.mem = formatBytes(mem)
-          serverStatus.maxmem = formatBytes(maxmem)
-
-          store.dispatch('status/setStatus', {
+          store.dispatch('serverStatus/setStatus', {
+            id: server.id,
             state: status,
             cpu: Math.floor(cpu * 10000) / 100,
             mem: formatBytes(mem),
@@ -98,10 +96,9 @@ export default defineComponent({
           })
         })
         .catch(() => {
-          serverStatus.state = 'error'
-
-          store.commit('status/setState', 'error')
+          store.commit('serverStatus/setState', 'error')
         })
+
     refreshStatus() // initial fetch
 
     const refreshInterval = setInterval(refreshStatus, refreshTime)

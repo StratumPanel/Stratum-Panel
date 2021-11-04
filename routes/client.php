@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Client\Servers\BackupController;
+use App\Http\Controllers\Client\Servers\InformationController;
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
 use App\Http\Controllers\Client\Servers\ServerController;
@@ -35,6 +35,6 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
     });
 
     Route::group(['prefix' => '/information'], function() {
-        Route::get('/', [BackupController::class, 'index'])->name('servers.show.information');
+        Route::get('/', [InformationController::class, 'index'])->name('servers.show.information');
     });
 });

@@ -41,7 +41,7 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const server = usePage().props.value.server
-    const powerState = computed(() => store.state.status.state)
+    const powerState = computed(() => store.state.serverStatus.state)
 
     const powerOptions = [
       {

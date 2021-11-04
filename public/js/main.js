@@ -43112,39 +43112,32 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup() {
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_5__.useStore)();
-    var serverStatus = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      state: 'querying',
-      cpu: 0,
-      mem: {
-        size: 0,
-        unit: 'B'
-      },
-      maxmem: {
-        size: 0,
-        unit: 'B'
-      }
-    });
+    var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.server;
+    var serverStatus = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return store.state.serverStatus;
+    }); // check if server status matches the current name of the server the user is viewing
+    // we don't want to give them the status of a different server
+
+    if (serverStatus.value.id !== server.id) {
+      store.dispatch('serverStatus/clearStatus');
+    }
 
     var refreshStatus = function refreshStatus() {
-      return (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__["default"])((0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.server.id).then(function (_ref) {
+      return (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__["default"])(server.id).then(function (_ref) {
         var _ref$data$data = _ref.data.data,
             status = _ref$data$data.status,
             cpu = _ref$data$data.cpu,
             mem = _ref$data$data.mem,
             maxmem = _ref$data$data.maxmem;
-        serverStatus.state = status;
-        serverStatus.cpu = Math.floor(cpu * 10000) / 100;
-        serverStatus.mem = (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes)(mem);
-        serverStatus.maxmem = (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes)(maxmem);
-        store.dispatch('status/setStatus', {
+        store.dispatch('serverStatus/setStatus', {
+          id: server.id,
           state: status,
           cpu: Math.floor(cpu * 10000) / 100,
           mem: (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes)(mem),
           maxmem: (0,_api_server_getStatus__WEBPACK_IMPORTED_MODULE_4__.formatBytes)(maxmem)
         });
       })["catch"](function () {
-        serverStatus.state = 'error';
-        store.commit('status/setState', 'error');
+        store.commit('serverStatus/setState', 'error');
       });
     };
 
@@ -43606,7 +43599,7 @@ __webpack_require__.r(__webpack_exports__);
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_5__.useStore)();
     var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.value.server;
     var powerState = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      return store.state.status.state;
+      return store.state.serverStatus.state;
     });
     var powerOptions = [{
       name: 'Start',
@@ -49529,7 +49522,7 @@ __webpack_require__.r(__webpack_exports__);
 var store = (0,vuex__WEBPACK_IMPORTED_MODULE_2__.createStore)({
   modules: {
     alerts: _state_alerts__WEBPACK_IMPORTED_MODULE_0__["default"],
-    status: _state_server_status__WEBPACK_IMPORTED_MODULE_1__["default"]
+    serverStatus: _state_server_status__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
@@ -49553,6 +49546,7 @@ var status = {
   namespaced: true,
   state: function state() {
     return {
+      id: NaN,
       state: 'querying',
       cpu: 0,
       mem: {
@@ -49566,6 +49560,9 @@ var status = {
     };
   },
   mutations: {
+    setId: function setId(state, id) {
+      state.id = id;
+    },
     setState: function setState(state, status) {
       state.state = status; // im sorry for whoever is reading this, it was a COINCIDENCE!!
     },
@@ -49581,10 +49578,24 @@ var status = {
   },
   actions: {
     setStatus: function setStatus(context, payload) {
+      context.commit('setId', payload.id);
       context.commit('setState', payload.state);
       context.commit('setCpu', payload.cpu);
       context.commit('setMem', payload.mem);
       context.commit('setMaxmem', payload.maxmem);
+    },
+    clearStatus: function clearStatus(context) {
+      context.commit('setId', 0);
+      context.commit('setState', 'querying');
+      context.commit('setCpu', 0);
+      context.commit('setMem', {
+        size: 0,
+        unit: 'B'
+      });
+      context.commit('setMaxmem', {
+        size: 0,
+        unit: 'B'
+      });
     }
   }
 };
