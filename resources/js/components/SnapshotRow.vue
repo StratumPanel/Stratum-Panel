@@ -1,5 +1,5 @@
 <template>
-  <div v-if="(!snapshot.running) ? true : ((snapshot.parent === undefined) ? true : false)" class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100">
+  <div v-if="(!snapshot.parent) ? true : ((snapshot.running === undefined) ? true : false)" class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100">
     <div class="flex items-center">
       <div class="flex flex-none justify-center items-center h-10 w-10 rounded-full mr-4">
         <font-awesome-icon
