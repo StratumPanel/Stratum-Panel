@@ -9,6 +9,6 @@ class StatusService extends ProxmoxService
 {
     public function fetchStatus(Server|int $server, $cluster = [])
     {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->status()->getCurrent();
+        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->status()->current();
     }
 }

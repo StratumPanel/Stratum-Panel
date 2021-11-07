@@ -2994,33 +2994,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StratumPanel/proxmox.git",
-                "reference": "c8cea47f71891fdf7006e89dfa1268df3160b66b"
+                "reference": "d677c6f59d8e3fbe9100738bfe8a85331dadd12a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StratumPanel/proxmox/zipball/c8cea47f71891fdf7006e89dfa1268df3160b66b",
-                "reference": "c8cea47f71891fdf7006e89dfa1268df3160b66b",
+                "url": "https://api.github.com/repos/StratumPanel/proxmox/zipball/d677c6f59d8e3fbe9100738bfe8a85331dadd12a",
+                "reference": "d677c6f59d8e3fbe9100738bfe8a85331dadd12a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "*",
                 "lib-curl": "*",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "*",
-                "lib-curl": "*",
-                "php": ">=7.2"
+                "php": "^8.0|7.4"
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Stratum\\Proxmox\\": "src/"
+                    "Stratum\\Proxmox\\": "src/Proxmox/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
             "authors": [
                 {
                     "name": "MrKampf",
@@ -3034,20 +3032,22 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Proxmox VE API for PHP",
+            "description": "Proxmox VE API Client",
             "keywords": [
                 "KVM",
                 "OpenVZ",
                 "Proxmox",
                 "Virtualization",
                 "api",
-                "php"
+                "php",
+                "php 7",
+                "php 8"
             ],
             "support": {
                 "issues": "https://github.com/stratumpanel/proxmox/issues",
                 "source": "https://github.com/stratumpanel/proxmox"
             },
-            "time": "2021-11-07T22:21:53+00:00"
+            "time": "2021-11-07T23:31:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
