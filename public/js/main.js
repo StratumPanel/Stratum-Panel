@@ -48619,7 +48619,7 @@ var _hoisted_5 = {
   "class": "\n              text-sm\n              break-words\n              text-gray-600\n              overflow-ellipsis overflow-hidden\n            "
 };
 var _hoisted_6 = {
-  "class": "hidden sm:flex w-1/6"
+  "class": "hidden sm:flex sm:w-1/3 md:w-1/4 lg:w-1/6"
 };
 var _hoisted_7 = {
   "class": "flex-1 grid place-items-center"
