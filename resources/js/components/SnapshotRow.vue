@@ -1,20 +1,20 @@
 <template>
   <div v-if="(!snapshot.running) ? true : ((snapshot.parent === undefined) ? true : false)" class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100">
     <div class="flex items-center">
-      <div class="flex justify-center items-center h-10 w-10 rounded-full mr-4">
+      <div class="flex flex-none justify-center items-center h-10 w-10 rounded-full mr-4">
         <font-awesome-icon
           :icon="snapshot.name === currentSnapshot.parent || currentSnapshot.parent === undefined ? faMapMarkerAlt : faArchive"
           class="!w-4 !h-4 text-gray-700"
         />
       </div>
-      <div class="flex-grow">
-        <h2 class="text-gray-700 font-bold text-lg break-words">
+      <div class="flex-grow overflow-ellipsis overflow-hidden whitespace-nowrap">
+        <h2 class="text-gray-700 font-bold text-lg overflow-ellipsis overflow-hidden whitespace-nowrap">
           {{ snapshot.name }}
         </h2>
         <p
           class="text-sm break-words text-gray-600"
         >
-          {{ snapshot.name === currentSnapshot.parent ? 'This snapshot is active' : snapshot.description }}
+          {{ snapshot.name === currentSnapshot.parent ? 'Active snapshot' : snapshot.description }}
         </p>
       </div>
       <template v-if="snapshot.snaptime">
