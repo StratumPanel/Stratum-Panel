@@ -167,6 +167,7 @@ export default defineComponent({
         timeout: false,
       })
 
+      showCreateSnapshot.value = false
       createSnapshot(server.id, newSnapshotName.value)
         .then(() => {
           store.dispatch('alerts/createAlert', {
@@ -176,15 +177,12 @@ export default defineComponent({
 
           Inertia.reload({ only: ['snapshots'] })
         })
-        .catch((err) => {
-          console.log(err)
-
+        .catch(() => {
           store.dispatch('alerts/createAlert', {
-            message: 'Snapshot failed. Check console',
+            message: 'Snapshot failed',
             icon: faTimes,
           })
         })
-      showCreateSnapshot.value = false
 
       newSnapshotName.value = ''
     }

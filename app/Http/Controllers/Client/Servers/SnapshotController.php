@@ -21,7 +21,7 @@ class SnapshotController extends ApplicationApiController
         ]);
     }
 
-    public function createSnapshot(Server $server, Request $request)
+    public function create(Server $server, Request $request)
     {
         $request->validate([
             'name' => 'required|alpha_dash'
@@ -32,13 +32,24 @@ class SnapshotController extends ApplicationApiController
         return $this->returnNoContent();
     }
 
-    public function rollbackSnapshot(Server $server, Request $request)
+    public function delete(Server $server, Request $request)
     {
         $request->validate([
             'name' => 'required|alpha_dash'
         ]);
 
-        $this->snapshotService->rollbackSnapshot($server, $request->name);
+        $this->snapshotService->deleteSnapshot($request->name, $server);
+
+        return $this->returnNoContent();
+    }
+
+    public function rollback(Server $server, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|alpha_dash'
+        ]);
+
+        $this->snapshotService->rollbackSnapshot($request->name, $server);
 
         return $this->returnNoContent();
     }

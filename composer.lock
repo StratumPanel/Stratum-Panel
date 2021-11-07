@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89553556532afa3ab533f9f8ae7bd062",
+    "content-hash": "558f1a746aff0039d8770636804fef38",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1995,61 +1995,6 @@
             "time": "2020-12-14T13:15:25+00:00"
         },
         {
-            "name": "mrkampf/proxmox-ve",
-            "version": "0.2.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/MrKampf/proxmoxVE.git",
-                "reference": "46ed77280e48ae0349cd2a91163603a78da7462a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MrKampf/proxmoxVE/zipball/46ed77280e48ae0349cd2a91163603a78da7462a",
-                "reference": "46ed77280e48ae0349cd2a91163603a78da7462a",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "guzzlehttp/guzzle": "*",
-                "lib-curl": "*",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "*",
-                "lib-curl": "*",
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "proxmox": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "MrKampf",
-                    "email": "hello@mrkampf.com",
-                    "homepage": "https://mrkampf.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Proxmox VE API",
-            "keywords": [
-                "KVM",
-                "OpenVZ",
-                "Proxmox",
-                "Virtualization",
-                "api",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/MrKampf/proxmoxVE/issues",
-                "source": "https://github.com/MrKampf/proxmoxVE"
-            },
-            "time": "2021-01-31T00:36:16+00:00"
-        },
-        {
             "name": "nesbot/carbon",
             "version": "2.48.0",
             "source": {
@@ -3042,6 +2987,67 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "stratum/proxmox",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/StratumPanel/proxmox.git",
+                "reference": "c8cea47f71891fdf7006e89dfa1268df3160b66b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/StratumPanel/proxmox/zipball/c8cea47f71891fdf7006e89dfa1268df3160b66b",
+                "reference": "c8cea47f71891fdf7006e89dfa1268df3160b66b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "*",
+                "lib-curl": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "*",
+                "lib-curl": "*",
+                "php": ">=7.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stratum\\Proxmox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "MrKampf",
+                    "email": "hello@mrkampf.com",
+                    "homepage": "https://mrkampf.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Eric Wang",
+                    "homepage": "https://performave.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Proxmox VE API for PHP",
+            "keywords": [
+                "KVM",
+                "OpenVZ",
+                "Proxmox",
+                "Virtualization",
+                "api",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/stratumpanel/proxmox/issues",
+                "source": "https://github.com/stratumpanel/proxmox"
+            },
+            "time": "2021-11-07T22:21:53+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8124,7 +8130,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "stratum/proxmox": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

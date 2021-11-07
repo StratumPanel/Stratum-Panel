@@ -1,20 +1,49 @@
 <template>
-  <div v-if="(!snapshot.parent) ? true : ((snapshot.running === undefined) ? true : false)" class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100">
+  <div
+    v-if="
+      !snapshot.parent ? true : snapshot.running === undefined ? true : false
+    "
+    class="bg-gray-100 p-2 md:p-3 rounded-md w-full border border-gray-100"
+  >
     <div class="flex items-center">
-      <div class="flex flex-none justify-center items-center h-10 w-10 rounded-full mr-4">
+      <div
+        class="
+          flex flex-none
+          justify-center
+          items-center
+          h-10
+          w-10
+          rounded-full
+          mr-4
+        "
+      >
         <font-awesome-icon
-          :icon="snapshot.name === currentSnapshot.parent || currentSnapshot.parent === undefined ? faMapMarkerAlt : faArchive"
+          :icon="
+            snapshot.name === currentSnapshot.parent ||
+            currentSnapshot.parent === undefined
+              ? faMapMarkerAlt
+              : faArchive
+          "
           class="!w-4 !h-4 text-gray-700"
         />
       </div>
       <div class="flex-grow overflow-hidden whitespace-nowrap">
-        <h2 class="text-gray-700 font-bold text-lg overflow-ellipsis overflow-hidden">
+        <h2
+          class="
+            text-gray-700
+            font-bold
+            text-lg
+            overflow-ellipsis overflow-hidden
+          "
+        >
           {{ snapshot.name }}
         </h2>
-        <p
-          class="text-sm break-words text-gray-600"
-        >
-          {{ snapshot.name === currentSnapshot.parent ? 'Active snapshot' : snapshot.description }}
+        <p class="text-sm break-words text-gray-600">
+          {{
+            snapshot.name === currentSnapshot.parent
+              ? 'Active snapshot'
+              : snapshot.description
+          }}
         </p>
       </div>
       <template v-if="snapshot.snaptime">
@@ -134,7 +163,8 @@
         </DialogTitle>
         <div class="mt-2">
           <p class="text-sm text-gray-500">
-            Deleting this snapshot will be permanent and unrecoverable. Please make sure to check before deleting a snapshot.
+            Deleting this snapshot will be permanent and unrecoverable. Please
+            make sure to check before deleting a snapshot.
           </p>
         </div>
       </div>
@@ -178,25 +208,29 @@
       </Button>
     </template>
   </dialog-modal>
-
-
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useStore } from 'vuex'
+import { Inertia } from '@inertiajs/inertia'
 import { DialogTitle } from '@headlessui/vue'
 import {
   faArchive,
   faMapMarkerAlt,
   faHistory,
   faTrashAlt,
+  faClock,
+  faCheck,
+  faTimes,
   faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons'
 import DateTimeCalculator from '@/util/DateTimeCalculator'
 import DialogModal from '@components/DialogModal.vue'
 import Button from '@components/Button.vue'
 import rollbackSnapshot from '@api/server/snapshots/rollbackSnapshot'
+import deleteSnapshot from '@api/server/snapshots/deleteSnapshot'
 import { usePage } from '@inertiajs/inertia-vue3'
 
 export default defineComponent({
@@ -209,7 +243,7 @@ export default defineComponent({
     currentSnapshot: {
       type: Object,
       required: true,
-    }
+    },
   },
   components: {
     FontAwesomeIcon,
@@ -218,6 +252,7 @@ export default defineComponent({
     Button,
   },
   setup(props) {
+    const store = useStore()
     const creationDate = computed(() => {
       let { month, day } = DateTimeCalculator(props.snapshot.snaptime)
 
@@ -234,10 +269,28 @@ export default defineComponent({
         return
       }
 
+      store.dispatch('alerts/createAlert', {
+        message: 'Reverting snapshot...',
+        icon: faClock,
+        timeout: false,
+      })
+
       showRevertConfirmation.value = false
-      rollbackSnapshot(server.id, props.snapshot.name).then((res) =>
-        console.log(res)
-      )
+      rollbackSnapshot(server.id, props.snapshot.name).then(() => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Snapshot reverted',
+            icon: faCheck,
+          })
+
+          setTimeout(() => Inertia.reload({ only: ['snapshots'] }), 1000)
+
+
+      }).catch(() => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Snapshot failed to revert',
+            icon: faTimes,
+          })
+      })
     }
 
     const handleDelete = (confirm: Boolean) => {
@@ -246,7 +299,27 @@ export default defineComponent({
         return
       }
 
+      store.dispatch('alerts/createAlert', {
+        message: 'Deleting snapshot...',
+        icon: faClock,
+        timeout: false,
+      })
+
       showDeleteConfirmation.value = false
+
+      deleteSnapshot(server.id, props.snapshot.name).then(() => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Snapshot deleted',
+            icon: faCheck,
+          })
+
+          Inertia.reload({ only: ['snapshots'] })
+      }).catch(() => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Snapshot failed to delete',
+            icon: faTimes,
+          })
+      })
     }
 
     return {

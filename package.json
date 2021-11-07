@@ -29,7 +29,7 @@
         "lodash": "^4.17.21",
         "postcss": "^8.3.6",
         "postcss-import": "^14.0.2",
-        "tailwindcss": "^2.2.7",
+        "tailwindcss": "^2.2.19",
         "vue": "^3.0.5",
         "vue-loader": "^16.8.2",
         "webpack-livereload-plugin": "^1.2.0"

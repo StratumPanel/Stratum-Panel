@@ -39,7 +39,7 @@ class SnapshotService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function rollbackSnapshot($server, string $snapname, $cluster = [])
+    public function rollbackSnapshot(string $snapname, $server, $cluster = [])
     {
         // return $this->instance($server, $cluster)->snapname($snapname)->postRollback();
         return $this->instance($server, $cluster)->postRollback($snapname);
@@ -49,7 +49,7 @@ class SnapshotService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function deleteSnapshot($server, string $snapname, $cluster = [])
+    public function deleteSnapshot(string $snapname, $server, $cluster = [])
     {
         return $this->instance($server, $cluster)->delete($snapname);
     }
