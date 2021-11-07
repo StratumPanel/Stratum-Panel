@@ -7,8 +7,8 @@
           class="!w-4 !h-4 text-gray-700"
         />
       </div>
-      <div class="flex-grow overflow-ellipsis overflow-hidden whitespace-nowrap">
-        <h2 class="text-gray-700 font-bold text-lg overflow-ellipsis overflow-hidden whitespace-nowrap">
+      <div class="flex-grow overflow-hidden whitespace-nowrap">
+        <h2 class="text-gray-700 font-bold text-lg overflow-ellipsis overflow-hidden">
           {{ snapshot.name }}
         </h2>
         <p

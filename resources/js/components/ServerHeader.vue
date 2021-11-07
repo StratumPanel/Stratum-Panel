@@ -86,7 +86,7 @@ export default defineComponent({
 
     const refreshStatus = () =>
       getStatus(server.id)
-        .then(({ data: { data: {status, cpu, mem, maxmem } } }) => {
+        .then(({ data: { data: {status, cpu, mem, maxmem} } }) => {
           store.dispatch('serverStatus/setStatus', {
             id: server.id,
             state: status,

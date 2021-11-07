@@ -13,7 +13,15 @@
     >
       <div class="flex items-center">
         <div
-          class="flex justify-center items-center h-10 w-10 rounded-full mr-4"
+          class="
+            flex flex-none
+            justify-center
+            items-center
+            h-10
+            w-10
+            rounded-full
+            mr-4
+          "
           :class="iconState[serverStatus.status].backgroundColor"
         >
           <font-awesome-icon
@@ -22,13 +30,46 @@
             class="!w-4 !h-4"
           />
         </div>
-        <div>
-          <h2 class="text-gray-700 font-bold text-lg break-words">
+        <div class="flex-grow overflow-hidden whitespace-nowrap">
+          <h2
+            class="
+              text-gray-700
+              font-bold
+              text-lg
+              break-words
+              overflow-ellipsis overflow-hidden
+            "
+          >
             {{ name }}
           </h2>
-          <p v-if="description" class="text-sm break-words text-gray-600">
+          <p
+            v-if="description"
+            class="
+              text-sm
+              break-words
+              text-gray-600
+              overflow-ellipsis overflow-hidden
+            "
+          >
             {{ description }}
           </p>
+        </div>
+        <div class="hidden sm:flex w-1/6">
+          <div class="flex-1 grid place-items-center">
+            <h2 class="text-gray-700 font-bold text-lg break-words">
+              <font-awesome-icon class="text-gray-600" :icon="faMicrochip" /> {{ serverStatus.cpu }}%
+            </h2>
+            <p class="text-sm break-words text-gray-600">CPU</p>
+          </div>
+          <div class="flex-1 grid place-items-center">
+            <h2 class="text-gray-700 font-bold text-lg break-words">
+              <font-awesome-icon :icon="faMemory" />
+              {{ `${serverStatus.mem.size} ${serverStatus.mem.unit}` }}
+            </h2>
+            <p class="text-sm break-words text-gray-600">
+              of {{ `${serverStatus.maxmem.size} ${serverStatus.maxmem.unit}` }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -39,11 +80,15 @@
 import { defineComponent, onBeforeUnmount, reactive } from 'vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import {
+  faPlay,
+  faMicrochip,
+  faMemory,
+} from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from '@inertiajs/inertia-vue3'
 
-import getStatus, { iconState, refreshTime } from '@api/server/getStatus'
+import getStatus, { iconState, formatBytes } from '@api/server/getStatus'
 
 export default defineComponent({
   name: 'ServerRow',
@@ -68,15 +113,27 @@ export default defineComponent({
   setup(props) {
     const serverStatus = reactive({
       status: 'querying',
+      cpu: 0,
+      mem: { size: 0, unit: 'B' },
+      maxmem: { size: 0, unit: 'B' },
     })
 
     let errorCount = 0
 
     const refreshStatus = () =>
       getStatus(props.id)
-        .then(({ data: { data } }) => {
-          serverStatus.status = data.status
-        })
+        .then(
+          ({
+            data: {
+              data: { status, cpu, mem, maxmem },
+            },
+          }) => {
+            serverStatus.status = status
+            serverStatus.cpu = Math.floor((cpu * 10000) / 100)
+            serverStatus.mem = formatBytes(mem, 0)
+            serverStatus.maxmem = formatBytes(maxmem, 0)
+          }
+        )
         .catch(() => {
           errorCount++
         })
@@ -97,9 +154,7 @@ export default defineComponent({
       clearInterval(refreshInterval)
     })
 
-    return { serverStatus, iconState, faPlay }
+    return { serverStatus, iconState, faPlay, faMicrochip, faMemory }
   },
 })
 </script>
-
-<style scoped></style>
