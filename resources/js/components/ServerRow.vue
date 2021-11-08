@@ -55,13 +55,12 @@
           </p>
         </div>
         <div class="hidden sm:flex sm:w-1/3 md:w-1/4 lg:w-1/6">
-          <div class="flex-1 grid place-items-center">
+          <div class="flex-1 flex flex-col items-center">
             <h2 class="text-gray-700 font-bold text-lg break-words">
               <font-awesome-icon class="text-gray-600" :icon="faMicrochip" /> {{ serverStatus.cpu }}%
             </h2>
-            <p class="text-sm break-words text-gray-600">CPU</p>
           </div>
-          <div class="flex-1 grid place-items-center">
+          <div class="flex-1 flex flex-col items-center">
             <h2 class="text-gray-700 font-bold text-lg break-words">
               <font-awesome-icon :icon="faMemory" />
               {{ `${serverStatus.mem.size} ${serverStatus.mem.unit}` }}
