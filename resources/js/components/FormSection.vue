@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import JetSectionTitle from './SectionTitle.vue'
+    import JetSectionTitle from '@/Jetstream/SectionTitle.vue'
 
     export default {
         emits: ['submitted'],
