@@ -1,10 +1,11 @@
 <template>
   <server-layout>
     <template #title> Server Information </template>
-
     <template #main>
       <div class="grid gap-4 md:grid-cols-2">
-        <template #title> Display Info </template>
+        <form-section>
+          <template #title> Server Information </template>
+        </form-section>
       </div>
     </template>
   </server-layout>

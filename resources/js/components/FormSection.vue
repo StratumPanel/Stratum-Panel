@@ -1,41 +1,58 @@
 <template>
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-        <jet-section-title>
-            <template #title><slot name="title"></slot></template>
-            <template #description><slot name="description"></slot></template>
-        </jet-section-title>
+  <form @submit.prevent="$emit('submitted')">
+    <div
+      class="p-4 bg-white shadow"
+      :class="
+        hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'
+      "
+    >
+      <h3 class="text-lg font-medium text-gray-900">
+        <slot name="title"></slot>
+      </h3>
 
-        <div class="mt-5 md:mt-0 md:col-span-2">
-            <form @submit.prevent="$emit('submitted')">
-                <div class="px-4 py-5 bg-white sm:p-6 shadow"
-                    :class="hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'">
-                    <div class="grid grid-cols-6 gap-6">
-                        <slot name="form"></slot>
-                    </div>
-                </div>
+      <p class="mt-1 text-sm text-gray-600">
+        <slot name="description"></slot>
+      </p>
 
-                <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md" v-if="hasActions">
-                    <slot name="actions"></slot>
-                </div>
-            </form>
-        </div>
+      <div class="grid grid-cols-6 gap-6">
+        <slot name="form"></slot>
+      </div>
     </div>
+
+    <div
+      class="
+        flex
+        items-center
+        justify-end
+        px-4
+        py-3
+        bg-gray-50
+        text-right
+        sm:px-6
+        shadow
+        sm:rounded-bl-md sm:rounded-br-md
+      "
+      v-if="hasActions"
+    >
+      <slot name="actions"></slot>
+    </div>
+  </form>
 </template>
 
 <script>
-    import JetSectionTitle from '@/Jetstream/SectionTitle.vue'
+import JetSectionTitle from '@/Jetstream/SectionTitle.vue'
 
-    export default {
-        emits: ['submitted'],
+export default {
+  emits: ['submitted'],
 
-        components: {
-            JetSectionTitle,
-        },
+  components: {
+    JetSectionTitle,
+  },
 
-        computed: {
-            hasActions() {
-                return !! this.$slots.actions
-            }
-        }
-    }
+  computed: {
+    hasActions() {
+      return !!this.$slots.actions
+    },
+  },
+}
 </script>

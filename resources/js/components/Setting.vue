@@ -1,10 +1,10 @@
 <template>
   <setting-container class="flex flex-col justify-between">
     <div>
-      <div class="h-12 w-12 shadow-sm rounded-full grid place-items-center">
+      <div class="h-12 w-12 shadow-md rounded-full grid place-items-center">
         <font-awesome-icon class="!w-5 !h-5" :icon="icon" />
       </div>
-      <h2 class="pt-4 font-bold">{{ title }}</h2>
+      <h3 class="pt-4 font-bold">{{ title }}</h3>
       <p class="text-sm text-gray-600">{{ description }}</p>
     </div>
 
