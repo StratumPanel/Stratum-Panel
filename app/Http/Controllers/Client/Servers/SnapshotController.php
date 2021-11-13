@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Client\Servers;
 use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
 use App\Services\Servers\SnapshotService;
-use Illuminate\Http\Request;
+use App\Http\Requests\Client\Servers\Snapshots\SnapshotRequest;
 
 class SnapshotController extends ApplicationApiController
 {
@@ -21,34 +21,25 @@ class SnapshotController extends ApplicationApiController
         ]);
     }
 
-    public function create(Server $server, Request $request)
+    public function create(Server $server, SnapshotRequest $request)
     {
-        $request->validate([
-            'name' => 'required|alpha_dash'
-        ]);
-
         $this->snapshotService->doSnapshot($request->name, $server);
 
-        return $this->returnNoContent();
+        return $request->wantsJson()
+            ? $this->returnNoContent()
+            : back()->with('status', 'snapshot-created');
     }
 
-    public function delete(Server $server, Request $request)
+    public function delete(Server $server, SnapshotRequest $request)
     {
-        $request->validate([
-            'name' => 'required|alpha_dash'
-        ]);
 
         $this->snapshotService->deleteSnapshot($request->name, $server);
 
         return $this->returnNoContent();
     }
 
-    public function rollback(Server $server, Request $request)
+    public function rollback(Server $server, SnapshotRequest $request)
     {
-        $request->validate([
-            'name' => 'required|alpha_dash'
-        ]);
-
         $this->snapshotService->rollbackSnapshot($request->name, $server);
 
         return $this->returnNoContent();

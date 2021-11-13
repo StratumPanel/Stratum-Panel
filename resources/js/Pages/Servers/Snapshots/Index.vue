@@ -56,11 +56,11 @@
                   id="snapshot-name"
                   class="mt-1 block w-full"
                   ref="snapshot-name"
-                  v-model="newSnapshotName"
+                  v-model="form.name"
                   autocomplete="snapshot-name"
                   @input="validateName"
                 />
-                <InputError :message="validationError" class="mt-2" />
+                <InputError :message="form.errors.name" class="mt-2" />
               </form>
             </div>
           </div>
@@ -124,7 +124,7 @@ import Input from '@components/Input.vue'
 import InputError from '@components/InputError.vue'
 import Label from '@components/Label.vue'
 import createSnapshot from '@api/server/snapshots/createSnapshot'
-import { usePage } from '@inertiajs/inertia-vue3'
+import { usePage, useForm } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia'
 
 export default defineComponent({
@@ -151,13 +151,15 @@ export default defineComponent({
     const store = useStore()
     const server = usePage().props.value.server
     const showCreateSnapshot = ref(false)
-    const newSnapshotName = ref('')
     const validationError = ref('')
+    const form = useForm({
+      name: '',
+    })
 
     const handleSnapshot = (confirm: Boolean) => {
       if (!confirm) {
         showCreateSnapshot.value = false
-        newSnapshotName.value = ''
+        form.reset()
         return
       }
 
@@ -168,38 +170,45 @@ export default defineComponent({
       })
 
       showCreateSnapshot.value = false
-      createSnapshot(server.id, newSnapshotName.value)
-        .then(() => {
+
+      form.post(route('servers.show.snapshots.create', server.id), {
+        preserveScroll: true,
+        onSuccess: () => {
           store.dispatch('alerts/createAlert', {
             message: 'Snapshot created',
             icon: faCheck,
           })
 
-          Inertia.reload({ only: ['snapshots'] })
-        })
-        .catch(() => {
+          form.reset()
+        },
+        onError: () => {
           store.dispatch('alerts/createAlert', {
             message: 'Snapshot failed',
             icon: faTimes,
           })
-        })
 
-      newSnapshotName.value = ''
+          form.reset()
+        }
+      })
     }
 
     const validateName = () => {
-      newSnapshotName.value = newSnapshotName.value.replace(/\s+/g, '-')
+      form.name = form.name.replace(/\s+/g, '-')
 
-      if (newSnapshotName.value.search(/^[a-zA-Z0-9-_]+$/) === -1 && newSnapshotName.value.length > 0) {
-        validationError.value = 'Name can only include alphanumeric characters, dashes, and underscores'
+      if (
+        form.name.search(/^[a-zA-Z0-9-_]+$/) === -1 &&
+        form.name.length > 0
+      ) {
+        form.errors.name =
+          'Name can only include alphanumeric characters, dashes, and underscores'
       } else {
-        validationError.value = ''
+        form.errors.name = ''
       }
     }
 
     return {
       showCreateSnapshot,
-      newSnapshotName,
+      form,
       handleSnapshot,
       faCopy,
       validateName,

@@ -71,7 +71,7 @@ export default defineComponent({
     const links = [
       { name: 'General', icon: faCog, route: 'servers.show' },
       { name: 'Security', icon: faShieldAlt, route: 'servers.show.security' },
-      { name: 'Information', icon: faInfoCircle, route: 'servers.show.information' },
+      { name: 'Information', icon: faInfoCircle, route: 'servers.show.settings' },
     ]
 
     return { links }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Client\Servers\InformationController;
+use App\Http\Controllers\Client\Servers\SettingsController;
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
 use App\Http\Controllers\Client\Servers\ServerController;
@@ -36,6 +36,7 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
     });
 
     Route::group(['prefix' => '/information'], function() {
-        Route::get('/', [InformationController::class, 'index'])->name('servers.show.information');
+        Route::get('/', [SettingsController::class, 'index'])->name('servers.show.settings');
+        Route::patch('/rename', [SettingsController::class, 'rename'])->name('servers.show.settings.rename');
     });
 });

@@ -6,7 +6,7 @@
         hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'
       "
     >
-      <h3 class="text-lg font-medium text-gray-900">
+      <h3 class="text-lg mb-3 font-medium text-gray-900">
         <slot name="title"></slot>
       </h3>
 
