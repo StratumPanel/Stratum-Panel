@@ -8,6 +8,7 @@
       <setting-link
         @clicked="handlePowerActions(statusActions[powerState])"
         :items="powerOptions"
+        :class="{ 'opacity-25': processing }" :disabled="processing"
         dropdown
         >{{ statusActions[powerState] }}</setting-link
       >
@@ -16,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import SettingLink from '@components/SettingLink.vue'
 import Setting from '@components/Setting.vue'
@@ -42,6 +43,7 @@ export default defineComponent({
     const store = useStore()
     const server = usePage().props.value.server
     const powerState = computed(() => store.state.serverStatus.state)
+    const processing = ref(false)
 
     const powerOptions = [
       {
@@ -78,6 +80,7 @@ export default defineComponent({
         message: `Sending ${action} command`,
         timeout: false,
       })
+      processing.value = true
 
       editPowerState(server.id, action)
         .then(() => {
@@ -85,14 +88,14 @@ export default defineComponent({
             message: `Sent ${action} command`,
             icon: faCheck,
           })
+          processing.value = false
         })
-        .catch((err) => {
-          console.log(err)
-
+        .catch(() => {
           store.dispatch('alerts/createAlert', {
-            message: 'Command failed. Check console',
+            message: 'Command failed.',
             icon: faTimes,
           })
+          processing.value = false
         })
     }
 
@@ -102,6 +105,7 @@ export default defineComponent({
       statusActions,
       powerOptions,
       powerState,
+      processing,
     }
   },
 })

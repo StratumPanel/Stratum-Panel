@@ -34,6 +34,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
+import { useStore } from 'vuex'
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import FormSection from '@components/FormSection.vue'
 import ActionMessage from '@/Jetstream/ActionMessage.vue'
@@ -55,12 +57,31 @@ export default defineComponent({
   },
   setup() {
     const server = usePage().props.value.server
+    const store = useStore()
     const form = useForm({
       name: server.name,
     })
 
     const updateDisplayInfo = () => {
-      form.patch(route('servers.show.settings.rename', server.id))
+      store.dispatch('alerts/createAlert', {
+        message: 'Updating display info...',
+        timeout: false,
+      })
+
+      form.patch(route('servers.show.settings.rename', server.id), {
+        onSuccess: () => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Display info updated',
+            icon: faCheck,
+          })
+        },
+        onError: () => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Failed to update display info',
+            icon: faTimes,
+          })
+        }
+      })
     }
 
     return { form, updateDisplayInfo }

@@ -14,7 +14,7 @@
         class="hidden md:block border-b border-gray-200 pb-3 px-3 md:px-5 mb-3"
       >
         <!-- after:block after:h-[0.5px] after:bottom-0 after:relative after:w-full after:bg-gray-200 -->
-        <p class="font-medium">Server Settings</p>
+        <p class="font-medium">Manage Server</p>
       </div>
       <div class="flex flex-row md:flex-col">
         <nav-link
@@ -53,7 +53,7 @@
 import { defineComponent } from 'vue'
 import NavLink from '@components/NavLink.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCog, faShieldAlt, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faShieldAlt, faTerminal } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   name: 'ServerNav',
@@ -69,9 +69,9 @@ export default defineComponent({
   },
   setup() {
     const links = [
-      { name: 'General', icon: faCog, route: 'servers.show' },
+      { name: 'General', icon: faTerminal, route: 'servers.show' },
       { name: 'Security', icon: faShieldAlt, route: 'servers.show.security' },
-      { name: 'Information', icon: faInfoCircle, route: 'servers.show.settings' },
+      { name: 'Settings', icon: faCog, route: 'servers.show.settings' },
     ]
 
     return { links }

@@ -18,19 +18,19 @@ mix.js('resources/js/main.ts', 'public/js').vue()
     ])
     .webpackConfig(require('./webpack.config'));
 
-    mix.browserSync('stratum.test')
+    // mix.browserSync('stratum.test')
 
-/* mix.browserSync({
-    open: true,
+mix.browserSync({
+    open: false,
     proxy: {
         target: "nginx", // replace with your web server container
         proxyReq: [
             function(proxyReq) {
-                proxyReq.setHeader('HOST', 'stratum.test:3000'); // replace with your site host
+                proxyReq.setHeader('HOST', 'dev.performave.com:3000'); // replace with your site host
             }
         ]
     }
-}) */
+})
 
 
 if (mix.inProduction()) {

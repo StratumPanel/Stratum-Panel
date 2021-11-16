@@ -221,7 +221,6 @@ import {
   faMapMarkerAlt,
   faHistory,
   faTrashAlt,
-  faClock,
   faCheck,
   faTimes,
   faExclamationTriangle,
@@ -271,7 +270,6 @@ export default defineComponent({
 
       store.dispatch('alerts/createAlert', {
         message: 'Reverting snapshot...',
-        icon: faClock,
         timeout: false,
       })
 
@@ -301,7 +299,6 @@ export default defineComponent({
 
       store.dispatch('alerts/createAlert', {
         message: 'Deleting snapshot...',
-        icon: faClock,
         timeout: false,
       })
 

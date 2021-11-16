@@ -1,5 +1,10 @@
 import axios from 'axios'
-import { faPlay, faClock, faStop, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+import {
+  faPlay,
+  faClock,
+  faStop,
+  faExclamationCircle,
+} from '@fortawesome/free-solid-svg-icons'
 
 export const refreshTime: number = 2000 // milliseconds
 
@@ -18,28 +23,27 @@ export interface iconStateInterface {
   }
 }
 
-
 export const iconState: iconStateInterface = {
-  'querying': {
+  querying: {
     backgroundColor: 'bg-gray-200',
     textColor: 'text-gray-700',
     icon: faClock,
   },
-  'stopped': {
+  stopped: {
     backgroundColor: 'bg-red-200',
     textColor: 'text-red-700',
     icon: faStop,
   },
-  'running': {
+  running: {
     backgroundColor: 'bg-green-200',
     textColor: 'text-green-700',
     icon: faPlay,
   },
-  'error': {
+  error: {
     backgroundColor: 'bg-gray-200',
     textColor: 'text-gray-700',
     icon: faExclamationCircle,
-  }
+  },
 }
 
 export function formatBytes(bytes: number, decimals = 2): FormattedBytes {
@@ -58,5 +62,5 @@ export function formatBytes(bytes: number, decimals = 2): FormattedBytes {
 }
 
 export default (id: number) => {
-  return axios.get(route('servers.show.status', id))
+  return axios.get(route('servers.show.status', id), {hideProgress: true})
 }

@@ -10,6 +10,7 @@ import {
 import NProgress from 'nprogress'
 import { Inertia } from '@inertiajs/inertia'
 import store from '@/state'
+import '@/plugins/axios'
 
 const el = document.getElementById('app')
 
