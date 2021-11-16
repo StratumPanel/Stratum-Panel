@@ -40,7 +40,7 @@ class PowerService extends ProxmoxService
      */
     public function kill($server, $cluster = [], array $params = [])
     {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->status()->stop();
+        return $this->instance($server, $cluster)->stop()->post();
     }
 
     /**
