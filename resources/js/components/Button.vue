@@ -2,6 +2,8 @@
   <button
     :type="type"
     class="
+
+              uppercase
       inline-flex
       items-center
       px-4

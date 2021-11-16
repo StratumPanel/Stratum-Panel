@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Client\Servers;
 
 use App\Http\Controllers\ApplicationApiController;
-use App\Http\Requests\Client\Servers\Settings\RenameServerRequest;
+use App\Http\Requests\Client\Servers\Settings\UpdateDisplayInfoRequest;
 use App\Models\Server;
-use Illuminate\Support\Facades\Redirect;
 
 class SettingsController extends ApplicationApiController
 {
@@ -16,9 +15,10 @@ class SettingsController extends ApplicationApiController
         ]);
     }
 
-    public function rename(Server $server, RenameServerRequest $request)
+    public function update(Server $server, UpdateDisplayInfoRequest $request)
     {
         $server->name = $request->name;
+        $server->description = $request->description;
         $server->save();
 
         return $request->wantsJson()

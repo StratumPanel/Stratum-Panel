@@ -4,7 +4,7 @@ namespace App\Http\Requests\Client\Servers\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RenameServerRequest extends FormRequest
+class UpdateDisplayInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class RenameServerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:1|max:191'
+            'name' => 'required|string|min:1|max:191',
+            'description' => 'required|string|min:0|max:200',
         ];
     }
 }

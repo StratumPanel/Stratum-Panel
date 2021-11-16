@@ -68,10 +68,9 @@
         <template #footer>
           <Button
             class="
+              uppercase
               w-full
               justify-center
-              !text-base
-              !font-medium
               sm:ml-3 sm:w-auto sm:!text-sm
             "
             @click="handleSnapshot(true)"
@@ -81,11 +80,10 @@
 
           <Button
             class="
+              uppercase
               mt-3
               w-full
               justify-center
-              !text-base
-              !font-medium
               !bg-white
               !border-gray-300
               !text-gray-700

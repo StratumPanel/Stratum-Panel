@@ -109,8 +109,6 @@
         class="
           w-full
           justify-center
-          !text-base
-          !font-medium
           !text-white
           focus:!ring-red-300
           sm:ml-3 sm:w-auto sm:!text-sm
@@ -127,8 +125,6 @@
           mt-3
           w-full
           justify-center
-          !text-base
-          !font-medium
           !bg-white
           !border-gray-300
           !text-gray-700
@@ -174,8 +170,6 @@
         class="
           w-full
           justify-center
-          !text-base
-          !font-medium
           !text-white
           focus:!ring-red-300
           sm:ml-3 sm:w-auto sm:!text-sm
@@ -192,8 +186,6 @@
           mt-3
           w-full
           justify-center
-          !text-base
-          !font-medium
           !bg-white
           !border-gray-300
           !text-gray-700
