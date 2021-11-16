@@ -50,7 +50,5 @@ class SnapshotController extends ApplicationApiController
         ]);
 
         $this->snapshotService->rollbackSnapshot($request->name, $server);
-
-        return $this->returnNoContent();
     }
 }

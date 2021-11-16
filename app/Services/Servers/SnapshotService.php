@@ -51,6 +51,6 @@ class SnapshotService extends ProxmoxService
      */
     public function deleteSnapshot(string $snapname, $server, $cluster = [])
     {
-        return $this->instance($server, $cluster)->delete($snapname);
+        return $this->instance($server, $cluster)->snapname($snapname)->delete();
     }
 }
