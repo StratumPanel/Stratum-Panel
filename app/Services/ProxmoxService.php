@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use Stratum\Proxmox\pve;
+use Stratum\Proxmox\PVE;
 use App\Models\Server;
 
 /**
@@ -26,14 +26,14 @@ class ProxmoxService
         }
 
         $node = [
-            'hostname' => $cluster->hostname,
-            'username' => $cluster->username,
-            'password' => $cluster->password,
-            'authType' => $cluster->auth_type,
-            'port' => $cluster->port,
+            $cluster->hostname,
+            $cluster->username,
+            $cluster->password,
+            intval($cluster->port),
+            $cluster->auth_type,
         ];
 
-        $proxmox = new pve($node);
+        $proxmox = new PVE(...$node);
 
         return $proxmox->nodes()->node($cluster->cluster);
     }

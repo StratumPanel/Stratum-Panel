@@ -20,9 +20,7 @@ class PowerController extends ApplicationApiController
     }
 
     public function start(Server $server) {
-        $this->powerService->start($server);
-
-        return $this->returnNoContent();
+        return $this->returnContent($this->powerService->start($server));
     }
 
     public function kill(Server $server) {

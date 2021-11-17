@@ -41,7 +41,5 @@ class SnapshotController extends ApplicationApiController
     public function rollback(Server $server, SnapshotRequest $request)
     {
         $this->snapshotService->rollbackSnapshot($request->name, $server);
-
-        return $this->returnNoContent();
     }
 }
