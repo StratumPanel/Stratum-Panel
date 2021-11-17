@@ -13,7 +13,7 @@ html, body, #app {
 }
 
 #nprogress .bar {
-    background: #29d;
+    @apply bg-indigo-400;
 
     position: fixed;
     z-index: 1031;
@@ -40,7 +40,7 @@ html, body, #app {
 }
 
 .dialog-icon {
-    @apply mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10
+    @apply mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10;
 }
 
 /* Scrollbar style */
