@@ -3523,12 +3523,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StratumPanel/proxmox.git",
-                "reference": "d677c6f59d8e3fbe9100738bfe8a85331dadd12a"
+                "reference": "14b33dabe5b3fc9a2e8cedb944c5e4834bb400f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StratumPanel/proxmox/zipball/d677c6f59d8e3fbe9100738bfe8a85331dadd12a",
-                "reference": "d677c6f59d8e3fbe9100738bfe8a85331dadd12a",
+                "url": "https://api.github.com/repos/StratumPanel/proxmox/zipball/14b33dabe5b3fc9a2e8cedb944c5e4834bb400f1",
+                "reference": "14b33dabe5b3fc9a2e8cedb944c5e4834bb400f1",
                 "shasum": ""
             },
             "require": {
@@ -3540,8 +3540,8 @@
             "default-branch": true,
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Stratum\\Proxmox\\": "src/Proxmox/"
+                "psr-0": {
+                    "Proxmox": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3554,6 +3554,12 @@
                     "email": "hello@mrkampf.com",
                     "homepage": "https://mrkampf.com",
                     "role": "Developer"
+                },
+                {
+                    "name": "GitCom",
+                    "email": "info@gitcom.cloud",
+                    "homepage": "https://www.gitcom.cloud",
+                    "role": "Developer / Hosting"
                 },
                 {
                     "name": "Eric Wang",
@@ -3576,7 +3582,7 @@
                 "issues": "https://github.com/stratumpanel/proxmox/issues",
                 "source": "https://github.com/stratumpanel/proxmox"
             },
-            "time": "2021-11-07T23:31:16+00:00"
+            "time": "2021-11-17T01:20:07+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

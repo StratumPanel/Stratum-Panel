@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use Stratum\Proxmox\PVE;
+use Proxmox\PVE;
 use App\Models\Server;
 
 /**

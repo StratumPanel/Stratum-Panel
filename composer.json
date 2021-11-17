@@ -12,7 +12,7 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "stratum/proxmox": "0.4.0",
+        "stratum/proxmox": "dev-master",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
