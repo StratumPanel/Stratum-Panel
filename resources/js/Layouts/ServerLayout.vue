@@ -8,7 +8,7 @@
       <server-nav class="col-span-1" :server="server" />
 
       <div class="col-span-3 inset-0 border border-gray-200 rounded-md py-3">
-        <div :class="[ !keeptitle ? 'hidden md:block' : '']" class="border-b border-gray-200 pb-3 px-3 md:px-5 mb-3">
+        <div class="border-b border-gray-200 pb-3 px-3 md:px-5 mb-3">
           <p class="font-medium"><slot name="title"></slot></p>
         </div>
 
