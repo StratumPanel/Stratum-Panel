@@ -10,6 +10,7 @@
         :key="server.id"
         :id="server.id"
         :name="server.name"
+        :description="server.description"
       />
     </div>
   </app-layout>

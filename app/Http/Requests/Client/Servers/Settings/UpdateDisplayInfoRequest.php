@@ -24,7 +24,7 @@ class UpdateDisplayInfoRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:1|max:191',
+            'name' => 'required|string|min:1|max:50',
             'description' => 'required|string|min:0|max:200',
         ];
     }

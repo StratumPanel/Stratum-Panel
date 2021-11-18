@@ -17,6 +17,18 @@
               />
               <InputError :message="form.errors.name" class="mt-2" />
             </div>
+            <div class="col-span-6">
+              <Label for="description" value="Description" />
+              <Input
+                id="description"
+                type="text"
+                class="mt-1 block w-full"
+                v-model="form.description"
+                autocomplete="description"
+                textarea
+              />
+              <InputError :message="form.errors.description" class="mt-2" />
+            </div>
           </template>
           <template #actions>
             <ActionMessage :on="form.recentlySuccessful" class="mr-3">
@@ -60,6 +72,7 @@ export default defineComponent({
     const store = useStore()
     const form = useForm({
       name: server.name,
+      description: server.description,
     })
 
     const updateDisplayInfo = () => {
@@ -68,7 +81,7 @@ export default defineComponent({
         timeout: false,
       })
 
-      form.patch(route('servers.show.settings.rename', server.id), {
+      form.put(route('servers.show.settings.update', server.id), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
             message: 'Display info updated',

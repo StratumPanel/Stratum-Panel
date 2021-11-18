@@ -1,5 +1,5 @@
 <template>
-  <input
+  <component :is="textarea ? 'textarea' : 'input'"
     class="
       border-gray-300
       focus:border-indigo-300
@@ -19,7 +19,16 @@
 
 <script>
 export default {
-  props: ['modelValue'],
+  props: {
+    modelValue: {
+      type: String,
+      required: false
+    },
+    textarea: {
+      type: Boolean,
+      required: false
+    }
+  },
 
   emits: ['update:modelValue'],
 

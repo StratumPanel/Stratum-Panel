@@ -35,8 +35,8 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
         Route::post('/create', [SnapshotController::class, 'create'])->name('servers.show.snapshots.create');
     });
 
-    Route::group(['prefix' => '/information'], function() {
+    Route::group(['prefix' => '/settings'], function() {
         Route::get('/', [SettingsController::class, 'index'])->name('servers.show.settings');
-        Route::patch('/rename', [SettingsController::class, 'rename'])->name('servers.show.settings.rename');
+        Route::put('/', [SettingsController::class, 'update'])->name('servers.show.settings.update');
     });
 });
