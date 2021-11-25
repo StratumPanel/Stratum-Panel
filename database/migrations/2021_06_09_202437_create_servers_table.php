@@ -18,6 +18,7 @@ class CreateServersTable extends Migration
             $table->string('name');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('node_id')->constrained()->onDelete('cascade');
+            $table->boolean('cloud-init');
             $table->unsignedBigInteger('vmid');
             $table->timestamps();
         });
