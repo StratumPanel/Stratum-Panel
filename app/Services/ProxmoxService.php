@@ -30,7 +30,7 @@ class ProxmoxService
             $cluster->username,
             $cluster->password,
             intval($cluster->port),
-            $cluster->auth_type,
+            $cluster->auth_type
         ];
 
         $proxmox = new PVE(...$node);
