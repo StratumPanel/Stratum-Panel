@@ -7,8 +7,13 @@ use App\Services\ProxmoxService;
 
 class StatusService extends ProxmoxService
 {
-    public function fetchStatus(Server|int $server, $cluster = [])
+    private function instance(Server|int $server, $cluster)
     {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->status()->current()->get();
+        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid);
+    }
+
+    public function fetchStatus($server, $cluster = [], array $params = [])
+    {
+        return $this->instance($server, $cluster)->status()->current()->get();
     }
 }
