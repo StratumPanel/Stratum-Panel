@@ -15,12 +15,11 @@ class CreateDisksTable extends Migration
     {
         Schema::create('disks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignId('node_id')->constrained()->onDelete('cascade');
-            $table->string('disk_name');
-            $table->string('disk_type');
-            $table->bigInteger('disk_total');
-            $table->bigInteger('disk_used');
+            $table->string('name');
+            $table->string('type');
+            $table->bigInteger('total');
+            $table->bigInteger('used');
             $table->timestamps();
         });
     }
