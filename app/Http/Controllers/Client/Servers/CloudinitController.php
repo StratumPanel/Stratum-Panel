@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Client\Servers;
 use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
 use App\Services\Servers\CloudinitService;
-use App\Services\Servers\SnapshotService;
-use Illuminate\Contracts\Filesystem\Cloud;
 use Illuminate\Http\Request;
 
 class CloudinitController extends ApplicationApiController
