@@ -16,8 +16,8 @@ class CreateISOImagesTable extends Migration
         Schema::create('iso_images', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("iso_name");
-            $table->string("http_url");
+            $table->string("name");
+            $table->string("link");
         });
     }
 
