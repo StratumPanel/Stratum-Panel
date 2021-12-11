@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\Servers\CloudinitController;
 use App\Http\Controllers\Client\Servers\SettingsController;
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
@@ -17,7 +18,11 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
 
     Route::get('/', [ServerController::class, 'show'])->name('servers.show');
 
-    Route::get('/security', [SecurityController::class, 'index'])->name('servers.show.security');
+    Route::group(['prefix' => '/security'], function () {
+        Route::get('/', [SecurityController::class, 'index'])->name('servers.show.security');
+        Route::put('/password', [CloudinitController::class, 'updatePassword'])->name('servers.show.security.password.update');
+
+    });
 
     Route::get('/status', [StatusController::class, 'show'])->name('servers.show.status');
 

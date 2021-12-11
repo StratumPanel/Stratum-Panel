@@ -6,6 +6,7 @@ use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
 use App\Services\Servers\CloudinitService;
 use Illuminate\Http\Request;
+use App\Http\Requests\Client\Servers\Security\UpdatePasswordRequest;
 
 class CloudinitController extends ApplicationApiController
 {
@@ -13,18 +14,16 @@ class CloudinitController extends ApplicationApiController
     {
     }
 
-    public function changePassword(Server $server, Request $request)
+    public function updatePassword(Server $server, UpdatePasswordRequest $request)
     {
-        $request->validate([
-            'password' => 'required|alpha_dash'
-        ]);
+        $this->cloudinitService->changePassword($request->password, $request->type, $server);
 
-        $this->cloudinitService->changePassword($request->password, $server);
-
-        return $this->returnNoContent();
+        return $request->wantsJson()
+            ? $this->returnNoContent()
+            : back()->with('status', 'password-updated');
     }
 
-    public function changeBIOS(Server $server, Request $request)
+    public function updateBIOS(Server $server, Request $request)
     {
         $request->validate([
             'type' => 'required|alpha_dash'
@@ -35,7 +34,7 @@ class CloudinitController extends ApplicationApiController
         return $this->returnNoContent();
     }
 
-    public function changeHostname(Server $server, Request $request)
+    public function updateHostname(Server $server, Request $request)
     {
         $request->validate([
             'hostname' => 'required|alpha_dash'
@@ -44,7 +43,7 @@ class CloudinitController extends ApplicationApiController
         $this->changeHostname($request->hostname, $server);
     }
 
-    public function changeNameserver(Server $server, Request $request)
+    public function updateNameserver(Server $server, Request $request)
     {
         $request->validate([
             'nameserver' => 'required|ipv4'
