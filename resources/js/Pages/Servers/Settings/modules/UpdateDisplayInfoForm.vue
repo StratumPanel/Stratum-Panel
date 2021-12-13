@@ -1,29 +1,30 @@
 <template>
   <form-section @submitted="handle">
-    <template #root>
-      <overlay v-if="!server.cloud_init_enabled" center><h1>Cloudinit is not enabled</h1></overlay>
-    </template>
-    <template #title>SSH Information</template>
+    <template #title> Display Info </template>
     <template #form>
       <div class="col-span-6">
-        <Label for="password" value="Password" />
+        <Label for="name" value="Name" />
         <Input
-          id="password"
-          type="password"
+          id="name"
+          type="text"
           class="mt-1 block w-full"
-          v-model="form.password"
-          autocomplete="password"
+          v-model="form.name"
+          autocomplete="name"
         />
-        <InputError :message="form.errors.password" class="mt-2" /></div
-    >
-
-      <div class="col-span-6 space-y-2">
-        <Label value="Authentication type" />
-        <Radio id="key-type" name="auth-type" value="key" v-model="form.type">Key file</Radio>
-        <Radio id="password-type" name="auth-type" value="password" v-model="form.type">Password</Radio>
-        <InputError :message="form.errors.type" class="mt-2" />
+        <InputError :message="form.errors.name" class="mt-2" />
       </div>
-
+      <div class="col-span-6">
+        <Label for="description" value="Description" />
+        <Input
+          id="description"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.description"
+          autocomplete="description"
+          textarea
+        />
+        <InputError :message="form.errors.description" class="mt-2" />
+      </div>
     </template>
     <template #actions>
       <ActionMessage :on="form.recentlySuccessful" class="mr-3">
@@ -42,61 +43,57 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useStore } from 'vuex'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
+import { useStore } from 'vuex'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
-import Overlay from '@components/Overlay.vue'
 import FormSection from '@components/FormSection.vue'
+import ActionMessage from '@/Jetstream/ActionMessage.vue'
 import Label from '@components/Label.vue'
 import Input from '@components/Input.vue'
 import InputError from '@components/InputError.vue'
-import ActionMessage from '@/Jetstream/ActionMessage.vue'
 import Button from '@components/Button.vue'
-import Radio from '@components/Radio.vue'
 
 export default defineComponent({
-  name: 'UpdatePasswordForm',
+  name: 'UpdateDisplayInfoForm',
   components: {
     FormSection,
     Label,
     Input,
     InputError,
-    ActionMessage,
     Button,
-    Radio,
-    Overlay,
+    ActionMessage,
   },
   setup() {
     const server = usePage().props.value.server
     const store = useStore()
     const form = useForm({
-      type: 'key',
-      password: '',
+      name: server.name,
+      description: server.description,
     })
 
     const handle = () => {
       store.dispatch('alerts/createAlert', {
-        message: 'Updating password...',
+        message: 'Updating display info...',
         timeout: false,
       })
 
-      form.put(route('servers.show.security.password.update', server.id), {
+      form.put(route('servers.show.settings.update', server.id), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
-            message: 'Password updated',
+            message: 'Display info updated',
             icon: faCheck,
           })
         },
         onError: () => {
           store.dispatch('alerts/createAlert', {
-            message: 'Failed to update password',
+            message: 'Failed to update display info',
             icon: faTimes,
           })
-        },
+        }
       })
     }
 
-    return { handle, form, server }
+    return { form, handle }
   },
 })
 </script>

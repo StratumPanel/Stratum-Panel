@@ -31,7 +31,9 @@ class CloudinitController extends ApplicationApiController
 
         $this->cloudinitService->changeBIOS($request->type, $server);
 
-        return $this->returnNoContent();
+        return $request->wantsJson()
+            ? $this->returnNoContent()
+            : back()->with('status', 'bios-updated');
     }
 
     public function updateHostname(Server $server, Request $request)
@@ -41,6 +43,10 @@ class CloudinitController extends ApplicationApiController
         ]);
 
         $this->changeHostname($request->hostname, $server);
+
+        return $request->wantsJson()
+            ? $this->returnNoContent()
+            : back()->with('status', 'hostname-updated');
     }
 
     public function updateNameserver(Server $server, Request $request)
@@ -49,6 +55,10 @@ class CloudinitController extends ApplicationApiController
             'nameserver' => 'required|ipv4'
         ]);
 
-        $this->changeHostname($request->nameserver, $server);
+        $this->changeNameserver($request->nameserver, $server);
+
+        return $request->wantsJson()
+            ? $this->returnNoContent()
+            : back()->with('status', 'nameserver-updated');
     }
 }

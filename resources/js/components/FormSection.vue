@@ -1,5 +1,6 @@
 <template>
-  <form @submit.prevent="$emit('submitted')">
+  <form class="relative" @submit.prevent="$emit('submitted')">
+    <slot name="root"></slot>
     <div
       class="p-4 bg-white shadow"
       :class="

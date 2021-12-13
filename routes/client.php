@@ -8,6 +8,7 @@ use App\Http\Controllers\Client\Servers\ServerController;
 use App\Http\Controllers\Client\Servers\SnapshotController;
 use App\Http\Controllers\Client\Servers\StatusController;
 use App\Http\Middleware\AuthenticateServerAccess;
+use App\Http\Middleware\VerifyCloudinitEnabled;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +21,7 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
 
     Route::group(['prefix' => '/security'], function () {
         Route::get('/', [SecurityController::class, 'index'])->name('servers.show.security');
-        Route::put('/password', [CloudinitController::class, 'updatePassword'])->name('servers.show.security.password.update');
+        Route::put('/password', [CloudinitController::class, 'updatePassword'])->middleware(VerifyCloudinitEnabled::class)->name('servers.show.security.password.update');
 
     });
 

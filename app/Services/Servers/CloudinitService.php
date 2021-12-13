@@ -24,7 +24,7 @@ class CloudinitService extends ProxmoxService
     public function changePassword(string $password, string $type, $server, $cluster = [])
     {
         switch ($type) {
-            case "ssh_key":
+            case "key":
                 return $this->instance($server, $cluster)->post(['sshkeys' => $password]);
             case "password":
                 return $this->instance($server, $cluster)->post(['cipassword' => $password]);

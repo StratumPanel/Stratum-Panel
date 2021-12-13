@@ -10,7 +10,7 @@ class SettingsController extends ApplicationApiController
 {
     public function index(Server $server)
     {
-        return inertia('Servers/Settings', [
+        return inertia('Servers/Settings/Index', [
             'server' => $server,
         ]);
     }
