@@ -12,6 +12,7 @@ class SettingsController extends ApplicationApiController
     {
         return inertia('Servers/Settings/Index', [
             'server' => $server,
+            'bios_type' => 'ovmf',
         ]);
     }
 

@@ -1,8 +1,8 @@
 <template>
-  <form class="relative" @submit.prevent="$emit('submitted')">
+  <form class="flex flex-col relative" @submit.prevent="$emit('submitted')">
     <slot name="root"></slot>
     <div
-      class="p-4 bg-white shadow"
+      class="p-4 bg-white shadow flex-grow"
       :class="
         hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'
       "
@@ -23,6 +23,7 @@
     <div
       class="
         flex
+        flex-grow-0
         items-center
         justify-end
         p-4

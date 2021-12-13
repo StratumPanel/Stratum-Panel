@@ -23,7 +23,7 @@ class CloudinitController extends ApplicationApiController
             : back()->with('status', 'password-updated');
     }
 
-    public function updateBIOS(Server $server, Request $request)
+    public function updateBios(Server $server, Request $request)
     {
         $request->validate([
             'type' => 'required|alpha_dash'

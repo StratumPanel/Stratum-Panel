@@ -21,7 +21,10 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
 
     Route::group(['prefix' => '/security'], function () {
         Route::get('/', [SecurityController::class, 'index'])->name('servers.show.security');
-        Route::put('/password', [CloudinitController::class, 'updatePassword'])->middleware(VerifyCloudinitEnabled::class)->name('servers.show.security.password.update');
+
+        Route::middleware([VerifyCloudinitEnabled::class])->group(function () {
+            Route::put('/password', [CloudinitController::class, 'updatePassword'])->name('servers.show.security.password.update');
+        });
 
     });
 
@@ -43,6 +46,11 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
 
     Route::group(['prefix' => '/settings'], function() {
         Route::get('/', [SettingsController::class, 'index'])->name('servers.show.settings');
-        Route::put('/', [SettingsController::class, 'update'])->name('servers.show.settings.update');
+        Route::put('/display', [SettingsController::class, 'update'])->name('servers.show.settings.display.update');
+
+
+        Route::middleware([VerifyCloudinitEnabled::class])->group(function () {
+            Route::put('/bios', [CloudinitController::class, 'updateBios'])->name('servers.show.settings.bios.update');
+        });
     });
 });

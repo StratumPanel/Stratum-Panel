@@ -77,7 +77,7 @@ export default defineComponent({
         timeout: false,
       })
 
-      form.put(route('servers.show.settings.update', server.id), {
+      form.put(route('servers.show.settings.display.update', server.id), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
             message: 'Display info updated',
