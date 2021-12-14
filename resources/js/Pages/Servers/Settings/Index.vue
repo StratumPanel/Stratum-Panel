@@ -3,8 +3,9 @@
     <template #title> Server Information </template>
     <template #main>
       <div class="grid gap-4 md:grid-cols-2">
-          <update-display-info-form />
-          <update-bios-config-form />
+          <display-info-form />
+          <bios-config-form />
+          <network-config-form />
       </div>
     </template>
   </server-layout>
@@ -14,15 +15,17 @@
 
 import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
-import UpdateDisplayInfoForm from './modules/UpdateDisplayInfoForm.vue'
-import UpdateBiosConfigForm from './modules/UpdateBiosConfigForm.vue'
+import DisplayInfoForm from './modules/DisplayInfoForm.vue'
+import BiosConfigForm from './modules/BiosConfigForm.vue'
+import NetworkConfigForm from './modules/NetworkConfigForm.vue'
 
 export default defineComponent({
   name: 'Index',
   components: {
     ServerLayout,
-    UpdateDisplayInfoForm,
-    UpdateBiosConfigForm,
+    DisplayInfoForm,
+    BiosConfigForm,
+    NetworkConfigForm,
   },
   setup () {},
 })

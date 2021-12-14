@@ -1,29 +1,44 @@
 <template>
   <form-section @submitted="handle">
-    <template #title> Display Info </template>
+    <template #root>
+      <overlay v-if="!server.cloud_init_enabled" center
+        ><p>Cloudinit is not enabled</p></overlay
+      >
+    </template>
+    <template #title>Network Configuration</template>
     <template #form>
       <div class="col-span-6">
-        <Label for="name" value="Name" />
+        <Label for="hostname" value="Hostname" />
         <Input
-          id="name"
+          id="hostname"
           type="text"
           class="mt-1 block w-full"
-          v-model="form.name"
-          autocomplete="name"
+          v-model="form.hostname"
+          autocomplete="hostname"
         />
-        <InputError :message="form.errors.name" class="mt-2" />
+        <InputError :message="form.errors.hostname" class="mt-2" />
       </div>
       <div class="col-span-6">
-        <Label for="description" value="Description" />
+        <Label for="nameserver_1" value="Nameserver 1" />
         <Input
-          id="description"
+          id="nameserver_1"
           type="text"
           class="mt-1 block w-full"
-          v-model="form.description"
-          autocomplete="description"
-          textarea
+          v-model="form.nameserver_1"
+          autocomplete="nameserver_1"
         />
-        <InputError :message="form.errors.description" class="mt-2" />
+        <InputError :message="form.errors.nameserver_1" class="mt-2" />
+      </div>
+      <div class="col-span-6">
+        <Label for="nameserver_2" value="Nameserver 2" />
+        <Input
+          id="nameserver_2"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.nameserver_2"
+          autocomplete="nameserver_2"
+        />
+        <InputError :message="form.errors.nameserver_2" class="mt-2" />
       </div>
     </template>
     <template #actions>
@@ -52,9 +67,10 @@ import Label from '@components/Label.vue'
 import Input from '@components/Input.vue'
 import InputError from '@components/InputError.vue'
 import Button from '@components/Button.vue'
+import Overlay from '@components/Overlay.vue'
 
 export default defineComponent({
-  name: 'UpdateDisplayInfoForm',
+  name: 'NetworkConfigForm',
   components: {
     FormSection,
     Label,
@@ -62,38 +78,40 @@ export default defineComponent({
     InputError,
     Button,
     ActionMessage,
+    Overlay,
   },
   setup() {
     const server = usePage().props.value.server
     const store = useStore()
     const form = useForm({
-      name: server.name,
-      description: server.description,
+      hostname: 'example.performave.com',
+      nameserver_1: '', // TODO: make this look cleaner (refactor?)
+      nameserver_2: '', // looks really ugly
     })
 
     const handle = () => {
       store.dispatch('alerts/createAlert', {
-        message: 'Updating display info...',
+        message: 'Updating Network Config...',
         timeout: false,
       })
 
-      form.put(route('servers.show.settings.display.update', server.id), {
+      form.put(route('servers.show.settings.network.update', server.id), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
-            message: 'Display info updated',
+            message: 'Network config updated',
             icon: faCheck,
           })
         },
         onError: () => {
           store.dispatch('alerts/createAlert', {
-            message: 'Failed to update display info',
+            message: 'Failed to update network config',
             icon: faTimes,
           })
         }
       })
     }
 
-    return { form, handle }
+    return {server, form, handle}
   },
 })
 </script>

@@ -1,7 +1,7 @@
 <template>
   <form-section @submitted="handle">
     <template #root>
-      <overlay v-if="!server.cloud_init_enabled" center><h1>Cloudinit is not enabled</h1></overlay>
+      <overlay v-if="!server.cloud_init_enabled" center><p>Cloudinit is not enabled</p></overlay>
     </template>
     <template #title>SSH Information</template>
     <template #form>
@@ -55,7 +55,7 @@ import Button from '@components/Button.vue'
 import Radio from '@components/Radio.vue'
 
 export default defineComponent({
-  name: 'UpdatePasswordForm',
+  name: 'PasswordForm',
   components: {
     FormSection,
     Label,

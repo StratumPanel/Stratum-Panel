@@ -1,16 +1,29 @@
 <template>
   <form-section @submitted="handle">
-    <template #root>
-      <overlay v-if="!props.server.cloud_init_enabled" center><h1>Cloudinit is not enabled</h1></overlay>
-    </template>
-    <template #title> BIOS Configuration </template>
+    <template #title> Display Info </template>
     <template #form>
-
-      <div class="col-span-6 space-y-2">
-        <Label value="BIOS Type" />
-        <Radio id="ovmf-type" name="bios-type" value="ovmf" v-model="form.type">OVMF</Radio>
-        <Radio id="seabios-type" name="bios-type" value="seabios" v-model="form.type">SeaBIOS</Radio>
-        <InputError :message="form.errors.type" class="mt-2" />
+      <div class="col-span-6">
+        <Label for="name" value="Name" />
+        <Input
+          id="name"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.name"
+          autocomplete="name"
+        />
+        <InputError :message="form.errors.name" class="mt-2" />
+      </div>
+      <div class="col-span-6">
+        <Label for="description" value="Description" />
+        <Input
+          id="description"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.description"
+          autocomplete="description"
+          textarea
+        />
+        <InputError :message="form.errors.description" class="mt-2" />
       </div>
     </template>
     <template #actions>
@@ -39,11 +52,9 @@ import Label from '@components/Label.vue'
 import Input from '@components/Input.vue'
 import InputError from '@components/InputError.vue'
 import Button from '@components/Button.vue'
-import Radio from '@components/Radio.vue'
-import Overlay from '@components/Overlay.vue'
 
 export default defineComponent({
-  name: 'UpdateBiosConfigForm',
+  name: 'DisplayInfoForm',
   components: {
     FormSection,
     Label,
@@ -51,39 +62,38 @@ export default defineComponent({
     InputError,
     Button,
     ActionMessage,
-    Radio,
-    Overlay,
   },
   setup() {
-    const props = usePage().props.value
+    const server = usePage().props.value.server
     const store = useStore()
     const form = useForm({
-      type: props.bios_type,
+      name: server.name,
+      description: server.description,
     })
 
     const handle = () => {
       store.dispatch('alerts/createAlert', {
-        message: 'Updating BIOS info...',
+        message: 'Updating display info...',
         timeout: false,
       })
 
-      form.put(route('servers.show.settings.bios.update', props.server.id), {
+      form.put(route('servers.show.settings.display.update', server.id), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
-            message: 'BIOS info updated',
+            message: 'Display info updated',
             icon: faCheck,
           })
         },
         onError: () => {
           store.dispatch('alerts/createAlert', {
-            message: 'Failed to update BIOS info',
+            message: 'Failed to update display info',
             icon: faTimes,
           })
         }
       })
     }
 
-    return { form, handle, props }
+    return { form, handle }
   },
 })
 </script>

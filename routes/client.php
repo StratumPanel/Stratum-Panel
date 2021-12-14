@@ -51,6 +51,7 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
 
         Route::middleware([VerifyCloudinitEnabled::class])->group(function () {
             Route::put('/bios', [CloudinitController::class, 'updateBios'])->name('servers.show.settings.bios.update');
+            Route::put('/network', [CloudinitController::class, 'updateNetworkConfig'])->name('servers.show.settings.network.update');
         });
     });
 });

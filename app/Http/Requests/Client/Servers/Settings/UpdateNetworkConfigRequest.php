@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Client\Servers\Settings;
 
+use App\Rules\Network\Hostname;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDisplayInfoRequest extends FormRequest
+class UpdateNetworkConfigRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +25,9 @@ class UpdateDisplayInfoRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:1|max:50',
-            'description' => 'min:0|max:200',
+            'hostname' => ['required', new Hostname, 'ipv4'],
+            'nameserver_1' => ['string', 'nullable'],
+            'nameserver_2' => ['string', 'nullable'],
         ];
     }
 }

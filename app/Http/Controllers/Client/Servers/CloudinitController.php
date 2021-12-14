@@ -7,6 +7,7 @@ use App\Models\Server;
 use App\Services\Servers\CloudinitService;
 use Illuminate\Http\Request;
 use App\Http\Requests\Client\Servers\Security\UpdatePasswordRequest;
+use App\Http\Requests\Client\Servers\Settings\UpdateNetworkConfigRequest;
 
 class CloudinitController extends ApplicationApiController
 {
@@ -34,6 +35,16 @@ class CloudinitController extends ApplicationApiController
         return $request->wantsJson()
             ? $this->returnNoContent()
             : back()->with('status', 'bios-updated');
+    }
+
+    public function updateNetworkConfig(Server $server, UpdateNetworkConfigRequest $request)
+    {
+        $this->cloudinitService->changeHostname($request->hostname, $server);
+        $this->cloudinitService->changeNameserver($request->nameserver_1 .','. $request->nameserver_2, $server);
+
+        return $request->wantsJson()
+            ? $this->returnNoContent()
+            : back()->with('status', 'network-config-updated');
     }
 
     public function updateHostname(Server $server, Request $request)

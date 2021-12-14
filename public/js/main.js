@@ -42611,7 +42611,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _Layouts_ServerLayout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/ServerLayout.vue */ "./resources/js/Layouts/ServerLayout.vue");
-/* harmony import */ var _modules_UpdatePasswordForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/UpdatePasswordForm.vue */ "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue");
+/* harmony import */ var _modules_PasswordForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/PasswordForm.vue */ "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue");
 
 
 
@@ -42619,17 +42619,17 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Index',
   components: {
     ServerLayout: _Layouts_ServerLayout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    UpdatePasswordForm: _modules_UpdatePasswordForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    PasswordForm: _modules_PasswordForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   setup: function setup() {}
 }));
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=script&lang=ts":
-/*!********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=script&lang=ts ***!
-  \********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=script&lang=ts":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=script&lang=ts ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42662,7 +42662,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  name: 'UpdatePasswordForm',
+  name: 'PasswordForm',
   components: {
     FormSection: _components_FormSection_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Label: _components_Label_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -42725,8 +42725,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _Layouts_ServerLayout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/ServerLayout.vue */ "./resources/js/Layouts/ServerLayout.vue");
-/* harmony import */ var _modules_UpdateDisplayInfoForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/UpdateDisplayInfoForm.vue */ "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue");
-/* harmony import */ var _modules_UpdateBiosConfigForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/UpdateBiosConfigForm.vue */ "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue");
+/* harmony import */ var _modules_DisplayInfoForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/DisplayInfoForm.vue */ "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue");
+/* harmony import */ var _modules_BiosConfigForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/BiosConfigForm.vue */ "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue");
+/* harmony import */ var _modules_NetworkConfigForm_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/NetworkConfigForm.vue */ "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue");
+
 
 
 
@@ -42735,18 +42737,19 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Index',
   components: {
     ServerLayout: _Layouts_ServerLayout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    UpdateDisplayInfoForm: _modules_UpdateDisplayInfoForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    UpdateBiosConfigForm: _modules_UpdateBiosConfigForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    DisplayInfoForm: _modules_DisplayInfoForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    BiosConfigForm: _modules_BiosConfigForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    NetworkConfigForm: _modules_NetworkConfigForm_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   setup: function setup() {}
 }));
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=script&lang=ts":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=script&lang=ts ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=script&lang=ts":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=script&lang=ts ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42779,7 +42782,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  name: 'UpdateBiosConfigForm',
+  name: 'BiosConfigForm',
   components: {
     FormSection: _components_FormSection_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Label: _components_Label_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -42828,10 +42831,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=script&lang=ts":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=script&lang=ts ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=script&lang=ts":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=script&lang=ts ***!
+  \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42860,7 +42863,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  name: 'UpdateDisplayInfoForm',
+  name: 'DisplayInfoForm',
   components: {
     FormSection: _components_FormSection_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Label: _components_Label_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -42899,6 +42902,92 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     return {
+      form: form,
+      handle: handle
+    };
+  }
+}));
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=script&lang=ts":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=script&lang=ts ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _components_FormSection_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/FormSection.vue */ "./resources/js/components/FormSection.vue");
+/* harmony import */ var _Jetstream_ActionMessage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/ActionMessage.vue */ "./resources/js/Jetstream/ActionMessage.vue");
+/* harmony import */ var _components_Label_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @components/Label.vue */ "./resources/js/components/Label.vue");
+/* harmony import */ var _components_Input_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @components/Input.vue */ "./resources/js/components/Input.vue");
+/* harmony import */ var _components_InputError_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @components/InputError.vue */ "./resources/js/components/InputError.vue");
+/* harmony import */ var _components_Button_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @components/Button.vue */ "./resources/js/components/Button.vue");
+/* harmony import */ var _components_Overlay_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @components/Overlay.vue */ "./resources/js/components/Overlay.vue");
+
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+  name: 'NetworkConfigForm',
+  components: {
+    FormSection: _components_FormSection_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Label: _components_Label_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Input: _components_Input_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    InputError: _components_InputError_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Button: _components_Button_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    ActionMessage: _Jetstream_ActionMessage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Overlay: _components_Overlay_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+  },
+  setup: function setup() {
+    var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.value.server;
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_9__.useStore)();
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+      hostname: 'example.performave.com',
+      nameserver_1: '',
+      // TODO: make this look cleaner (refactor?)
+      nameserver_2: '' // looks really ugly
+
+    });
+
+    var handle = function handle() {
+      store.dispatch('alerts/createAlert', {
+        message: 'Updating Network Config...',
+        timeout: false
+      });
+      form.put(route('servers.show.settings.network.update', server.id), {
+        onSuccess: function onSuccess() {
+          store.dispatch('alerts/createAlert', {
+            message: 'Network config updated',
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faCheck
+          });
+        },
+        onError: function onError() {
+          store.dispatch('alerts/createAlert', {
+            message: 'Failed to update network config',
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faTimes
+          });
+        }
+      });
+    };
+
+    return {
+      server: server,
       form: form,
       handle: handle
     };
@@ -47960,7 +48049,7 @@ var _hoisted_2 = {
   "class": "grid gap-4 md:grid-cols-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_update_password_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("update-password-form");
+  var _component_password_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("password-form");
 
   var _component_server_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("server-layout");
 
@@ -47969,7 +48058,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     main: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_update_password_form)])];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_password_form)])];
     }),
     _: 1
     /* STABLE */
@@ -47979,10 +48068,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -47993,7 +48082,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, "Cloudinit is not enabled", -1
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Cloudinit is not enabled", -1
 /* HOISTED */
 );
 
@@ -48172,9 +48261,11 @@ var _hoisted_2 = {
   "class": "grid gap-4 md:grid-cols-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_update_display_info_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("update-display-info-form");
+  var _component_display_info_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("display-info-form");
 
-  var _component_update_bios_config_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("update-bios-config-form");
+  var _component_bios_config_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("bios-config-form");
+
+  var _component_network_config_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("network-config-form");
 
   var _component_server_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("server-layout");
 
@@ -48183,7 +48274,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     main: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_update_display_info_form), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_update_bios_config_form)])];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_display_info_form), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_bios_config_form), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_network_config_form)])];
     }),
     _: 1
     /* STABLE */
@@ -48193,10 +48284,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -48207,7 +48298,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, "Cloudinit is not enabled", -1
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Cloudinit is not enabled", -1
 /* HOISTED */
 );
 
@@ -48342,10 +48433,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -48451,6 +48542,173 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_5];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["class", "disabled"])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["onSubmitted"]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Cloudinit is not enabled", -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Network Configuration");
+
+var _hoisted_3 = {
+  "class": "col-span-6"
+};
+var _hoisted_4 = {
+  "class": "col-span-6"
+};
+var _hoisted_5 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Saved. ");
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_overlay = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("overlay");
+
+  var _component_Label = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Label");
+
+  var _component_Input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Input");
+
+  var _component_InputError = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("InputError");
+
+  var _component_ActionMessage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ActionMessage");
+
+  var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
+
+  var _component_form_section = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-section");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_form_section, {
+    onSubmitted: _ctx.handle
+  }, {
+    root: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [!_ctx.server.cloud_init_enabled ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_overlay, {
+        key: 0,
+        center: ""
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_1];
+        }),
+        _: 1
+        /* STABLE */
+
+      })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_2];
+    }),
+    form: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Label, {
+        "for": "hostname",
+        value: "Hostname"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Input, {
+        id: "hostname",
+        type: "text",
+        "class": "mt-1 block w-full",
+        modelValue: _ctx.form.hostname,
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return _ctx.form.hostname = $event;
+        }),
+        autocomplete: "hostname"
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputError, {
+        message: _ctx.form.errors.hostname,
+        "class": "mt-2"
+      }, null, 8
+      /* PROPS */
+      , ["message"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Label, {
+        "for": "nameserver_1",
+        value: "Nameserver 1"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Input, {
+        id: "nameserver_1",
+        type: "text",
+        "class": "mt-1 block w-full",
+        modelValue: _ctx.form.nameserver_1,
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+          return _ctx.form.nameserver_1 = $event;
+        }),
+        autocomplete: "nameserver_1"
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputError, {
+        message: _ctx.form.errors.nameserver_1,
+        "class": "mt-2"
+      }, null, 8
+      /* PROPS */
+      , ["message"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Label, {
+        "for": "nameserver_2",
+        value: "Nameserver 2"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Input, {
+        id: "nameserver_2",
+        type: "text",
+        "class": "mt-1 block w-full",
+        modelValue: _ctx.form.nameserver_2,
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+          return _ctx.form.nameserver_2 = $event;
+        }),
+        autocomplete: "nameserver_2"
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputError, {
+        message: _ctx.form.errors.nameserver_2,
+        "class": "mt-2"
+      }, null, 8
+      /* PROPS */
+      , ["message"])])];
+    }),
+    actions: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ActionMessage, {
+        on: _ctx.form.recentlySuccessful,
+        "class": "mr-3"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_6];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["on"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+        "class": ["uppercase", {
+          'opacity-25': _ctx.form.processing
+        }],
+        disabled: _ctx.form.processing
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_7];
         }),
         _: 1
         /* STABLE */
@@ -73572,10 +73830,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue":
-/*!****************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue ***!
-  \****************************************************************************/
+/***/ "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Security/modules/PasswordForm.vue ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -73583,15 +73841,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _UpdatePasswordForm_vue_vue_type_template_id_1294c507_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true */ "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true");
-/* harmony import */ var _UpdatePasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdatePasswordForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var _PasswordForm_vue_vue_type_template_id_3eea0b5e_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true */ "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true");
+/* harmony import */ var _PasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PasswordForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=script&lang=ts");
 /* harmony import */ var C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_UpdatePasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_UpdatePasswordForm_vue_vue_type_template_id_1294c507_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PasswordForm_vue_vue_type_template_id_3eea0b5e_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Security/modules/PasswordForm.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -73628,10 +73886,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue":
-/*!******************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue ***!
-  \******************************************************************************/
+/***/ "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue ***!
+  \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -73639,15 +73897,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _UpdateBiosConfigForm_vue_vue_type_template_id_578f9114_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true */ "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true");
-/* harmony import */ var _UpdateBiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateBiosConfigForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var _BiosConfigForm_vue_vue_type_template_id_8f3e3466_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true */ "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true");
+/* harmony import */ var _BiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BiosConfigForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=script&lang=ts");
 /* harmony import */ var C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_UpdateBiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_UpdateBiosConfigForm_vue_vue_type_template_id_578f9114_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_BiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_BiosConfigForm_vue_vue_type_template_id_8f3e3466_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -73656,10 +73914,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue ***!
-  \*******************************************************************************/
+/***/ "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue ***!
+  \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -73667,15 +73925,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _UpdateDisplayInfoForm_vue_vue_type_template_id_584bb782_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true */ "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true");
-/* harmony import */ var _UpdateDisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateDisplayInfoForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var _DisplayInfoForm_vue_vue_type_template_id_74c740c8_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true */ "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true");
+/* harmony import */ var _DisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DisplayInfoForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=script&lang=ts");
 /* harmony import */ var C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_UpdateDisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_UpdateDisplayInfoForm_vue_vue_type_template_id_584bb782_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DisplayInfoForm_vue_vue_type_template_id_74c740c8_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NetworkConfigForm_vue_vue_type_template_id_4a019f70_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true */ "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true");
+/* harmony import */ var _NetworkConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NetworkConfigForm.vue?vue&type=script&lang=ts */ "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_Users_Eric_Wang_Documents_GitHub_Stratum_Panel_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_NetworkConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_NetworkConfigForm_vue_vue_type_template_id_4a019f70_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -75042,18 +75328,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=script&lang=ts":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=script&lang=ts ***!
-  \****************************************************************************************************/
+/***/ "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=script&lang=ts":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=script&lang=ts ***!
+  \**********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdatePasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdatePasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./UpdatePasswordForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=script&lang=ts");
  
 
 /***/ }),
@@ -75074,34 +75360,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=script&lang=ts":
-/*!******************************************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=script&lang=ts ***!
-  \******************************************************************************************************/
+/***/ "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=script&lang=ts":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=script&lang=ts ***!
+  \************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateBiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateBiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./UpdateBiosConfigForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BiosConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BiosConfigForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=script&lang=ts");
  
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=script&lang=ts":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=script&lang=ts ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=script&lang=ts":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=script&lang=ts ***!
+  \*************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateDisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateDisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./UpdateDisplayInfoForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=script&lang=ts");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DisplayInfoForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DisplayInfoForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=script&lang=ts");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=script&lang=ts":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=script&lang=ts ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NetworkConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NetworkConfigForm_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NetworkConfigForm.vue?vue&type=script&lang=ts */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=script&lang=ts");
  
 
 /***/ }),
@@ -76194,18 +76496,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true":
-/*!******************************************************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true ***!
-  \******************************************************************************************************************/
+/***/ "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true ***!
+  \************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdatePasswordForm_vue_vue_type_template_id_1294c507_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordForm_vue_vue_type_template_id_3eea0b5e_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdatePasswordForm_vue_vue_type_template_id_1294c507_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue?vue&type=template&id=1294c507&ts=true");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordForm_vue_vue_type_template_id_3eea0b5e_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Security/modules/PasswordForm.vue?vue&type=template&id=3eea0b5e&ts=true");
 
 
 /***/ }),
@@ -76226,34 +76528,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true":
-/*!********************************************************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true ***!
-  \********************************************************************************************************************/
+/***/ "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true ***!
+  \**************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateBiosConfigForm_vue_vue_type_template_id_578f9114_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BiosConfigForm_vue_vue_type_template_id_8f3e3466_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateBiosConfigForm_vue_vue_type_template_id_578f9114_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue?vue&type=template&id=578f9114&ts=true");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BiosConfigForm_vue_vue_type_template_id_8f3e3466_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue?vue&type=template&id=8f3e3466&ts=true");
 
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true":
-/*!*********************************************************************************************************************!*\
-  !*** ./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true ***!
-  \*********************************************************************************************************************/
+/***/ "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true ***!
+  \***************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateDisplayInfoForm_vue_vue_type_template_id_584bb782_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DisplayInfoForm_vue_vue_type_template_id_74c740c8_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_UpdateDisplayInfoForm_vue_vue_type_template_id_584bb782_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue?vue&type=template&id=584bb782&ts=true");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DisplayInfoForm_vue_vue_type_template_id_74c740c8_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue?vue&type=template&id=74c740c8&ts=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true ***!
+  \*****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NetworkConfigForm_vue_vue_type_template_id_4a019f70_ts_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NetworkConfigForm_vue_vue_type_template_id_4a019f70_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue?vue&type=template&id=4a019f70&ts=true");
 
 
 /***/ }),
@@ -78449,14 +78767,16 @@ var map = {
 	"./Servers/General.vue": "./resources/js/Pages/Servers/General.vue",
 	"./Servers/Security/Index": "./resources/js/Pages/Servers/Security/Index.vue",
 	"./Servers/Security/Index.vue": "./resources/js/Pages/Servers/Security/Index.vue",
-	"./Servers/Security/modules/UpdatePasswordForm": "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue",
-	"./Servers/Security/modules/UpdatePasswordForm.vue": "./resources/js/Pages/Servers/Security/modules/UpdatePasswordForm.vue",
+	"./Servers/Security/modules/PasswordForm": "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue",
+	"./Servers/Security/modules/PasswordForm.vue": "./resources/js/Pages/Servers/Security/modules/PasswordForm.vue",
 	"./Servers/Settings/Index": "./resources/js/Pages/Servers/Settings/Index.vue",
 	"./Servers/Settings/Index.vue": "./resources/js/Pages/Servers/Settings/Index.vue",
-	"./Servers/Settings/modules/UpdateBiosConfigForm": "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue",
-	"./Servers/Settings/modules/UpdateBiosConfigForm.vue": "./resources/js/Pages/Servers/Settings/modules/UpdateBiosConfigForm.vue",
-	"./Servers/Settings/modules/UpdateDisplayInfoForm": "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue",
-	"./Servers/Settings/modules/UpdateDisplayInfoForm.vue": "./resources/js/Pages/Servers/Settings/modules/UpdateDisplayInfoForm.vue",
+	"./Servers/Settings/modules/BiosConfigForm": "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue",
+	"./Servers/Settings/modules/BiosConfigForm.vue": "./resources/js/Pages/Servers/Settings/modules/BiosConfigForm.vue",
+	"./Servers/Settings/modules/DisplayInfoForm": "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue",
+	"./Servers/Settings/modules/DisplayInfoForm.vue": "./resources/js/Pages/Servers/Settings/modules/DisplayInfoForm.vue",
+	"./Servers/Settings/modules/NetworkConfigForm": "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue",
+	"./Servers/Settings/modules/NetworkConfigForm.vue": "./resources/js/Pages/Servers/Settings/modules/NetworkConfigForm.vue",
 	"./Servers/Snapshots/Index": "./resources/js/Pages/Servers/Snapshots/Index.vue",
 	"./Servers/Snapshots/Index.vue": "./resources/js/Pages/Servers/Snapshots/Index.vue",
 	"./TermsOfService": "./resources/js/Pages/TermsOfService.vue",

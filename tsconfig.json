@@ -19,5 +19,5 @@
       "@/*": ["./resources/js/*"]
     }
   },
-  "include": ["resources/**/*.ts", "resources/**/*.d.ts", "resources/**/*.tsx", "resources/**/*.vue", "resources/js/components/NavLink.vue", "resources/js/Layouts/OldAppLayout.vue"]
+  "include": ["resources/**/*.ts", "resources/**/*.d.ts", "resources/**/*.tsx", "resources/**/*.vue"]
 }
