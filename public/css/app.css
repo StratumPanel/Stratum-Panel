@@ -1694,6 +1694,9 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(238, 242, 255, var(--tw-bg-opacity));
 }
+.bg-white\/80 {
+	background-color: rgba(255, 255, 255, 0.8);
+}
 .bg-transparent {
 	background-color: transparent;
 }
@@ -1712,18 +1715,6 @@ select {
 .\!bg-gray-100 {
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity)) !important;
-}
-.bg-white\/30 {
-	background-color: rgba(255, 255, 255, 0.3);
-}
-.bg-white\/50 {
-	background-color: rgba(255, 255, 255, 0.5);
-}
-.bg-white\/70 {
-	background-color: rgba(255, 255, 255, 0.7);
-}
-.bg-white\/80 {
-	background-color: rgba(255, 255, 255, 0.8);
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -2068,14 +2059,6 @@ select {
 }
 .ring-opacity-5 {
 	--tw-ring-opacity: 0.05;
-}
-.blur {
-	--tw-blur: blur(8px);
-	filter: var(--tw-filter);
-}
-.blur-sm {
-	--tw-blur: blur(4px);
-	filter: var(--tw-filter);
 }
 .filter {
 	filter: var(--tw-filter);
