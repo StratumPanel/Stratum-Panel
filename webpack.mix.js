@@ -18,9 +18,9 @@ mix.js('resources/js/main.ts', 'public/js').vue()
     ])
     .webpackConfig(require('./webpack.config'));
 
-    //mix.browserSync('stratum.test')
+    mix.browserSync('stratum.test')
 
-mix.browserSync({
+/* mix.browserSync({
     open: false,
     proxy: {
         target: "nginx", // replace with your web server container
@@ -30,7 +30,7 @@ mix.browserSync({
             }
         ]
     }
-})
+}) */
 
 
 if (mix.inProduction()) {

@@ -18,27 +18,17 @@
         />
         <InputError :message="form.errors.hostname" class="mt-2" />
       </div>
-      <div class="col-span-6">
-        <Label for="nameserver_1" value="Nameserver 1" />
+
+      <div v-for="(v, i) in nameservers.store" :key="v" class="col-span-6">
+        <Label :for="`nameserver-${i}`" :value="`Nameserver ${i}`" />
         <Input
-          id="nameserver_1"
+          :id="`nameserver-${i}`"
           type="text"
           class="mt-1 block w-full"
-          v-model="form.nameserver_1"
-          autocomplete="nameserver_1"
+          v-model="v.address"
+          :autocomplete="`nameserver-${i}`"
         />
-        <InputError :message="form.errors.nameserver_1" class="mt-2" />
-      </div>
-      <div class="col-span-6">
-        <Label for="nameserver_2" value="Nameserver 2" />
-        <Input
-          id="nameserver_2"
-          type="text"
-          class="mt-1 block w-full"
-          v-model="form.nameserver_2"
-          autocomplete="nameserver_2"
-        />
-        <InputError :message="form.errors.nameserver_2" class="mt-2" />
+        <InputError :message="form.errors.nameservers" class="mt-2" />
       </div>
     </template>
     <template #actions>
@@ -57,7 +47,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, computed } from 'vue'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
 import { useStore } from 'vuex'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -83,10 +73,25 @@ export default defineComponent({
   setup() {
     const server = usePage().props.value.server
     const store = useStore()
+    const nameservers = {
+      store: reactive({
+        1: { address: '' },
+        2: { address: '' },
+      }),
+      output: computed(() => {
+        let output: string[] = []
+
+        Object.values(nameservers.store).forEach((val) => {
+          output.push(val.address)
+        })
+
+        return output
+      })
+    }
+
     const form = useForm({
       hostname: 'example.performave.com',
-      nameserver_1: '', // TODO: make this look cleaner (refactor?)
-      nameserver_2: '', // looks really ugly
+      nameservers: nameservers.output,
     })
 
     const handle = () => {
@@ -107,11 +112,11 @@ export default defineComponent({
             message: 'Failed to update network config',
             icon: faTimes,
           })
-        }
+        },
       })
     }
 
-    return {server, form, handle}
+    return { server, form, handle, nameservers }
   },
 })
 </script>
