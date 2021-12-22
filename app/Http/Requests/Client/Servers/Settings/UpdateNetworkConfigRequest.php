@@ -27,7 +27,7 @@ class UpdateNetworkConfigRequest extends FormRequest
         return [
             'hostname' => ['required', new Hostname],
             'nameservers' => ['array', 'nullable'],
-            'nameservers.*' => ['string', 'nullable'],
+            'nameservers.*' => ['string', new Hostname, 'nullable'],
         ];
     }
 }

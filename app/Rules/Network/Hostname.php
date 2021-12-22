@@ -25,7 +25,12 @@ class Hostname implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match("/^(?!\-)(?:[a-zA-Z\d\-]{0,62}[a-zA-Z\d]\.){1,126}(?!\d+)[a-zA-Z\d]{1,63}$/", $value);
+        if (strlen($value) === 0)
+        {
+            return true;
+        }
+
+        return preg_match("/^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$/", $value);
     }
 
     /**
@@ -35,6 +40,6 @@ class Hostname implements Rule
      */
     public function message()
     {
-        return ':attribute can only contain letters, numbers, and periods.';
+        return ':attribute can only contain letters, dashes, numbers, and periods.';
     }
 }

@@ -48678,7 +48678,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8
         /* PROPS */
         , ["id", "modelValue", "onUpdate:modelValue", "autocomplete"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputError, {
-          message: _ctx.form.errors.nameservers,
+          message: _ctx.form.errors["nameservers.".concat(i - 1)],
           "class": "mt-2"
         }, null, 8
         /* PROPS */

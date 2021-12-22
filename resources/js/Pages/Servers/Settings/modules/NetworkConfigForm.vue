@@ -28,7 +28,7 @@
           v-model="v.address"
           :autocomplete="`nameserver-${i}`"
         />
-        <InputError :message="form.errors.nameservers" class="mt-2" />
+        <InputError :message="form.errors[`nameservers.${i-1}`]" class="mt-2" />
       </div>
     </template>
     <template #actions>
