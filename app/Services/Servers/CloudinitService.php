@@ -4,6 +4,7 @@ namespace App\Services\Servers;
 
 use App\Models\Server;
 use App\Services\ProxmoxService;
+use App\Enums\Servers\Cloudinit\AuthenticationType;
 
 /**
  * Class SnapshotService
@@ -21,14 +22,9 @@ class CloudinitService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function changePassword(string $password, string $type, $server, $cluster = [])
+    public function changePassword(string $password, AuthenticationType $type, $server, $cluster = [])
     {
-        switch ($type) {
-            case "key":
-                return $this->instance($server, $cluster)->post(['sshkeys' => $password]);
-            case "password":
-                return $this->instance($server, $cluster)->post(['cipassword' => $password]);
-        }
+        return $this->instance($server, $cluster)->post([$type->value => $password]);
     }
 
     /**

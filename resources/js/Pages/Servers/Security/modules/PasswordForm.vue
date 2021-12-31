@@ -19,8 +19,8 @@
 
       <div class="col-span-6 space-y-2">
         <Label value="Authentication type" />
-        <Radio id="key-type" name="auth-type" value="key" v-model="form.type">Key file</Radio>
-        <Radio id="password-type" name="auth-type" value="password" v-model="form.type">Password</Radio>
+        <Radio id="key-type" name="auth-type" value="sshkeys" v-model="form.type">Key file</Radio>
+        <Radio id="password-type" name="auth-type" value="cipassword" v-model="form.type">Password</Radio>
         <InputError :message="form.errors.type" class="mt-2" />
       </div>
 
@@ -70,7 +70,7 @@ export default defineComponent({
     const server = usePage().props.value.server
     const store = useStore()
     const form = useForm({
-      type: 'key',
+      type: 'sshkeys',
       password: '',
     })
 

@@ -8,6 +8,7 @@ use App\Services\Servers\CloudinitService;
 use Illuminate\Http\Request;
 use App\Http\Requests\Client\Servers\Security\UpdatePasswordRequest;
 use App\Http\Requests\Client\Servers\Settings\UpdateNetworkConfigRequest;
+use App\Enums\Servers\Cloudinit\AuthenticationType;
 
 class CloudinitController extends ApplicationApiController
 {
@@ -17,7 +18,7 @@ class CloudinitController extends ApplicationApiController
 
     public function updatePassword(Server $server, UpdatePasswordRequest $request)
     {
-        $this->cloudinitService->changePassword($request->password, $request->type, $server);
+        $this->cloudinitService->changePassword($request->password, AuthenticationType::from($request->type), $server);
 
         return $request->wantsJson()
             ? $this->returnNoContent()

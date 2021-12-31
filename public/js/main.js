@@ -42677,7 +42677,7 @@ __webpack_require__.r(__webpack_exports__);
     var server = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.value.server;
     var store = (0,vuex__WEBPACK_IMPORTED_MODULE_10__.useStore)();
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm)({
-      type: 'key',
+      type: 'sshkeys',
       password: ''
     });
 
@@ -48179,7 +48179,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Radio, {
         id: "key-type",
         name: "auth-type",
-        value: "key",
+        value: "sshkeys",
         modelValue: _ctx.form.type,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return _ctx.form.type = $event;
@@ -48196,7 +48196,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Radio, {
         id: "password-type",
         name: "auth-type",
-        value: "password",
+        value: "cipassword",
         modelValue: _ctx.form.type,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return _ctx.form.type = $event;

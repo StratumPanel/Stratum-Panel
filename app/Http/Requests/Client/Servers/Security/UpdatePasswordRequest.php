@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Client\Servers\Security;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
+use App\Enums\Servers\Cloudinit\AuthenticationType;
 
 class UpdatePasswordRequest extends FormRequest
 {
@@ -24,8 +26,8 @@ class UpdatePasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required',
-            'password' => 'required|max:255|min:10',
+            'type' => [new Enum(AuthenticationType::class), 'required'],
+            'password' => ['required', 'max:255', 'min:10'],
         ];
     }
 }
