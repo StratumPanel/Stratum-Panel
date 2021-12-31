@@ -5,6 +5,7 @@ namespace App\Services\Servers;
 use App\Models\Server;
 use App\Services\ProxmoxService;
 use App\Enums\Servers\Cloudinit\AuthenticationType;
+use App\Enums\Servers\Cloudinit\BiosType;
 
 /**
  * Class SnapshotService
@@ -28,19 +29,14 @@ class CloudinitService extends ProxmoxService
     }
 
     /**
-     * @param string $type
+     * @param BiosType $type
      * @param array $params
      * @return mixed
      */
     // Generally needed for Windows VM's with over 2TB disk, still WIP since I still need to add EFI disk
-    public function changeBIOS(string $type, $server, $cluster = [])
+    public function changeBIOS(BiosType $type, $server, $cluster = [])
     {
-        switch ($type) {
-            case "ovmf":
-                return $this->instance($server, $cluster)->post(['bios' => "ovmf"]);
-            case "seabios":
-                return $this->instance($server, $cluster)->post(['bios' => "seabios"]);
-        }
+        return $this->instance($server, $cluster)->post(['bios' => $type->value]);
     }
 
     /**
