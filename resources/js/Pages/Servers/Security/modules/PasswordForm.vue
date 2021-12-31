@@ -1,7 +1,9 @@
 <template>
   <form-section @submitted="handle">
     <template #root>
-      <overlay v-if="!server.cloud_init_enabled" center><p>Cloudinit is not enabled</p></overlay>
+      <overlay v-if="!server.cloud_init_enabled" center
+        ><p>Cloudinit is not enabled</p></overlay
+      >
     </template>
     <template #title>SSH Information</template>
     <template #form>
@@ -14,16 +16,39 @@
           v-model="form.password"
           autocomplete="password"
         />
-        <InputError :message="form.errors.password" class="mt-2" /></div
-    >
+        <InputError :message="form.errors.password" class="mt-2" />
+      </div>
+
+      <div class="col-span-6">
+        <Label for="password-confirmation" value="Confirm Password" />
+        <Input
+          id="password-confirmation"
+          type="password"
+          class="mt-1 block w-full"
+          v-model="form.password_confirmation"
+          autocomplete="password"
+        />
+        <InputError :message="form.errors.password_confirmation" class="mt-2" />
+      </div>
 
       <div class="col-span-6 space-y-2">
         <Label value="Authentication type" />
-        <Radio id="key-type" name="auth-type" value="sshkeys" v-model="form.type">Key file</Radio>
-        <Radio id="password-type" name="auth-type" value="cipassword" v-model="form.type">Password</Radio>
+        <Radio
+          id="key-type"
+          name="auth-type"
+          value="sshkeys"
+          v-model="form.type"
+          >Key file</Radio
+        >
+        <Radio
+          id="password-type"
+          name="auth-type"
+          value="cipassword"
+          v-model="form.type"
+          >Password</Radio
+        >
         <InputError :message="form.errors.type" class="mt-2" />
       </div>
-
     </template>
     <template #actions>
       <ActionMessage :on="form.recentlySuccessful" class="mr-3">
@@ -72,6 +97,7 @@ export default defineComponent({
     const form = useForm({
       type: 'sshkeys',
       password: '',
+      password_confirmation: '',
     })
 
     const handle = () => {
