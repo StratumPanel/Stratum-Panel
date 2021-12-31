@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Client\Servers\CloudinitController;
+use App\Http\Controllers\Client\Servers\PerformanceController;
 use App\Http\Controllers\Client\Servers\SettingsController;
 use App\Http\Controllers\Client\Servers\PowerController;
 use App\Http\Controllers\Client\Servers\SecurityController;
@@ -38,7 +39,7 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
     });
 
     Route::group(['prefix' => '/snapshots'], function() {
-        Route::get('/', [SnapshotController::class, 'index'])->name('servers.show.snapshots');
+        Route::get('/', [SnapshotController::class, 'index'])->name('servers.show.snapshots.index');
         Route::post('/rollback', [SnapshotController::class, 'rollback'])->name('servers.show.snapshots.rollback');
         Route::post('/delete', [SnapshotController::class, 'delete'])->name('servers.show.snapshots.delete');
         Route::post('/create', [SnapshotController::class, 'create'])->name('servers.show.snapshots.create');
@@ -54,4 +55,6 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
             Route::put('/network', [CloudinitController::class, 'updateNetworkConfig'])->name('servers.show.settings.network.update');
         });
     });
+
+    Route::get('/performance', [PerformanceController::class, 'index'])->name('servers.show.performance.index');
 });

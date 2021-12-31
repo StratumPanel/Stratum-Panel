@@ -5,7 +5,7 @@
     description="Manage snapshots on your server."
   >
     <template #actions>
-      <setting-link :href="route('servers.show.snapshots', server.id)"
+      <setting-link :href="route('servers.show.snapshots.index', server.id)"
         >View Snapshots</setting-link
       >
     </template>
