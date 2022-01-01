@@ -3,6 +3,8 @@
     <thead class="bg-gray-50">
       <tr>
         <th
+          v-for="header in headers"
+          :key="header.text"
           scope="col"
           class="
             px-6
@@ -14,15 +16,17 @@
             tracking-wider
           "
         >
-          Name
-        </th>
-        <th scope="col" class="relative px-6 py-3">
-          <span class="sr-only">Actions</span>
+          {{ header.text }}
         </th>
       </tr>
     </thead>
+
     <tbody class="bg-white divide-y divide-gray-200">
-        <slot name="rows"></slot>
+      <tr v-for="item in items" :key="item.name">
+        <td v-for="header in headers" :key="header.value" class="px-6 py-4 whitespace-nowrap text-gray-500">
+          <slot :item="item" :name="header.value">{{ item[header.value] }}</slot>
+        </td>
+      </tr>
     </tbody>
   </table>
 </template>
@@ -33,9 +37,13 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Table',
   props: {
-    columns: {
+    headers: {
       type: Array,
       required: true,
+    },
+    items: {
+      type: Array,
+      required: false,
     },
   },
   setup() {},
