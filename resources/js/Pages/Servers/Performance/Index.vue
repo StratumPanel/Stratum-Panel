@@ -3,11 +3,14 @@
     <template #title> Performance </template>
 
     <template #main>
-      <div class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 gap-6">
+      <div
+        class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 gap-6"
+      >
         <Card class="p-7 md:p-3 lg:p-5">
           <h3 class="text-lg font-medium">CPU Usage</h3>
           <canvas
             class="mt-3"
+            ref="cpuRef"
             id="cpu_chart"
             aria-label="Server CPU Usage Graph"
             role="img"
@@ -18,6 +21,7 @@
           <h3 class="text-lg font-medium">Memory Usage</h3>
           <canvas
             class="mt-3"
+            ref="memoryRef"
             id="memory_chart"
             aria-label="Server Memory Usage Graph"
             role="img"
@@ -29,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, onMounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import Chart, { ChartConfiguration } from 'chart.js'
 import merge from 'deepmerge'
@@ -109,10 +113,13 @@ export default defineComponent({
   setup() {
     const store = useStore()
 
-    setTimeout(() => {
+    const cpuRef = ref()
+    const memoryRef = ref()
+
+    onMounted(() => {
       const cpuGraph = ref(
         new Chart(
-          document.getElementById('cpu_chart'),
+          cpuRef.value.getContext('2d'),
 
           chartDefaults({
             callback: (value) => `${value}%  `,
@@ -123,10 +130,10 @@ export default defineComponent({
 
       const memoryGraph = ref(
         new Chart(
-          document.getElementById('memory_chart'),
+          memoryRef.value.getContext('2d'),
 
           chartDefaults({
-            callback: (value) => `${value}Mb  `,
+            callback: (value) => `${value} Mb  `,
             suggestedMax: bytesToMegabytes(
               store.state.serverStatus.memUnparsed.maxmem
             ),
@@ -148,7 +155,9 @@ export default defineComponent({
 
         memoryGraph.value.update({ lazy: true })
       })
-    }, 500)
+    })
+
+    return { cpuRef, memoryRef }
   },
 })
 </script>
