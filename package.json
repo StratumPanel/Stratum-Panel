@@ -42,7 +42,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.0-4",
         "@headlessui/vue": "^1.2.0",
         "@heroicons/vue": "^1.0.1",
-        "chart.js": "^2.8.0",
+        "chart.js": "^2.9.4",
         "deepmerge": "^4.2.2",
         "nprogress": "^0.2.0",
         "ts-loader": "^9.2.5",
