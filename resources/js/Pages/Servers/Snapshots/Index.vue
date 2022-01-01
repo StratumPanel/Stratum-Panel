@@ -66,34 +66,11 @@
           </div>
         </template>
         <template #footer>
-          <Button
-            class="
-              uppercase
-              w-full
-              justify-center
-              sm:ml-3 sm:w-auto sm:!text-sm
-            "
-            @click="handleSnapshot(true)"
-          >
+          <Button class="primary-dialog-btn" @click="handleSnapshot(true)">
             Create
           </Button>
 
-          <Button
-            class="
-              uppercase
-              mt-3
-              w-full
-              justify-center
-              !bg-white
-              !border-gray-300
-              !text-gray-700
-              hover:!text-gray-500
-              focus:!border-blue-300 focus:!ring-blue-200
-              active:!text-gray-800 active:!bg-gray-50
-              sm:mt-0 sm:ml-3 sm:w-auto sm:!text-sm
-            "
-            @click="handleSnapshot(false)"
-          >
+          <Button class="secondary-dialog-btn" @click="handleSnapshot(false)">
             Cancel
           </Button>
         </template>
@@ -186,17 +163,14 @@ export default defineComponent({
           })
 
           form.reset()
-        }
+        },
       })
     }
 
     const validateName = () => {
       form.name = form.name.replace(/\s+/g, '-')
 
-      if (
-        form.name.search(/^[a-zA-Z0-9-_]+$/) === -1 &&
-        form.name.length > 0
-      ) {
+      if (form.name.search(/^[a-zA-Z0-9-_]+$/) === -1 && form.name.length > 0) {
         form.errors.name =
           'Name can only include alphanumeric characters, dashes, and underscores'
       } else {
