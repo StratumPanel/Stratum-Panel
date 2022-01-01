@@ -93,6 +93,10 @@ export default defineComponent({
             cpu: Math.floor(cpu * 10000) / 100,
             mem: formatBytes(mem),
             maxmem: formatBytes(maxmem),
+            memUnparsed: {
+              mem: mem,
+              maxmem: maxmem,
+            }
           })
         })
         .catch(() => {

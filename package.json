@@ -15,6 +15,7 @@
         "@inertiajs/inertia-vue3": "^0.3.14",
         "@tailwindcss/forms": "^0.3.2",
         "@tailwindcss/typography": "^0.4.1",
+        "@types/chart.js": "^2.9.35",
         "@types/nprogress": "^0.2.0",
         "@typescript-eslint/eslint-plugin": "^4.4.0",
         "@typescript-eslint/parser": "^4.4.0",
@@ -41,6 +42,8 @@
         "@fortawesome/vue-fontawesome": "^3.0.0-4",
         "@headlessui/vue": "^1.2.0",
         "@heroicons/vue": "^1.0.1",
+        "chart.js": "^2.8.0",
+        "deepmerge": "^4.2.2",
         "nprogress": "^0.2.0",
         "ts-loader": "^9.2.5",
         "vuex": "^4.0.2"

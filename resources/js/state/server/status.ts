@@ -6,6 +6,12 @@ export interface ServerStatus {
     cpu: number;
     mem: FormattedBytes;
     maxmem: FormattedBytes;
+    memUnparsed: MemUnparsed;
+}
+
+export interface MemUnparsed {
+    mem: number;
+    maxmem: number;
 }
 
 const status = {
@@ -17,6 +23,10 @@ const status = {
         cpu: 0,
         mem: { size: 0, unit: 'B' },
         maxmem: { size: 0, unit: 'B' },
+        memUnparsed: {
+            mem: 0,
+            maxmem: 0,
+        },
     }),
 
     mutations: {
@@ -38,6 +48,10 @@ const status = {
 
         setMaxmem (state: ServerStatus, Maxmem: FormattedBytes) {
             state.maxmem = Maxmem
+        },
+
+        setMemUnparsed (state: ServerStatus, MemUnparsed: MemUnparsed) {
+            state.memUnparsed = MemUnparsed
         }
     },
 
@@ -48,6 +62,7 @@ const status = {
             context.commit('setCpu', payload.cpu)
             context.commit('setMem', payload.mem)
             context.commit('setMaxmem', payload.maxmem)
+            context.commit('setMemUnparsed', payload.memUnparsed)
         },
 
         clearStatus (context: any) {

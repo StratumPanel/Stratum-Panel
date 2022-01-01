@@ -53,7 +53,7 @@
 import { defineComponent } from 'vue'
 import NavLink from '@components/NavLink.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCog, faShieldAlt, faTerminal } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faShieldAlt, faTerminal, faChartArea } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   name: 'ServerNav',
@@ -70,6 +70,7 @@ export default defineComponent({
   setup() {
     const links = [
       { name: 'General', icon: faTerminal, route: 'servers.show' },
+      { name: 'Performance', icon: faChartArea, route: 'servers.show.performance.index' },
       { name: 'Security', icon: faShieldAlt, route: 'servers.show.security' },
       { name: 'Settings', icon: faCog, route: 'servers.show.settings' },
     ]

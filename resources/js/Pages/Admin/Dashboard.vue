@@ -38,8 +38,14 @@ import { faSyncAlt, faHeartbeat, faStopwatch, faLayerGroup } from '@fortawesome/
 export default defineComponent({
   name: 'Dashboard',
   props: {
-    server_count: Number,
-    version: String,
+    server_count: {
+      type: String,
+      required: true,
+    },
+    version: {
+      type: String,
+      required: true,
+    },
   },
   components: { AppLayout, CardStatistic },
   setup() {
