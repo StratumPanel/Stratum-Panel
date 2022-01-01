@@ -9,6 +9,8 @@ Route::get('/', [BaseController::class, 'index'])->name('admin.index');
 
 Route::group(['prefix' => '/nodes'], function() {
     Route::get('/', [NodeController::class, 'index'])->name('admin.nodes.index');
+
+    Route::get('/health', [NodeController::class, 'showHealth'])->name('admin.nodes.health.show');
 });
 
 Route::group(['prefix' => '/servers'], function() {

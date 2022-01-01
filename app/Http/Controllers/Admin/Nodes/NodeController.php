@@ -11,4 +11,9 @@ class NodeController extends Controller
     {
         return inertia('Admin/Nodes/Index');
     }
+
+    public function showHealth()
+    {
+        return inertia('Admin/Nodes/Health');
+    }
 }
