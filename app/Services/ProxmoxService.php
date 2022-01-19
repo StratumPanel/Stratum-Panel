@@ -45,19 +45,17 @@ abstract class ProxmoxService
 
     public function instance()
     {
-        return $this->proxmox()->qemu()->vmid($this->server->vmid);
+        return $this->proxmox()->nodes()->node($this->node->cluster)->qemu()->vmid($this->server->vmid);
     }
 
-    /**
-     * Proxmox initializer
-     *
-     * @param Server|int $server
-     * @param mixed $cluster
-     */
-    public function proxmox()
+    public function mainInstance()
     {
         Assert::isInstanceOf($this->node, Node::class);
+        return $this->proxmox();
+    }
 
+    public function proxmox()
+    {
         $node = [
             $this->node->hostname,
             $this->node->username,
@@ -68,6 +66,6 @@ abstract class ProxmoxService
 
         $proxmox = new PVE(...$node);
 
-        return $proxmox->nodes()->node($this->node->cluster);
+        return $proxmox;
     }
 }

@@ -13,6 +13,12 @@ use App\Enums\Servers\Cloudinit\BiosType;
  */
 class CloudinitService extends ProxmoxService
 {
+
+    public function fetchConfig()
+    {
+        return $this->instance()->config()->get();
+    }
+    
     /**
      * @param string $password
      * @param array $params

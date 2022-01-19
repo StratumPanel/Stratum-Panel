@@ -19,6 +19,8 @@ class CreateServersTable extends Migration
             $table->text('description')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('node_id')->constrained()->onDelete('cascade');
+            $table->string('vnc_username')->nullable();
+            $table->string('vnc_password')->nullable();
             $table->boolean('cloud_init_enabled');
             $table->unsignedBigInteger('vmid');
             $table->timestamps();

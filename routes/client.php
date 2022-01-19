@@ -30,6 +30,7 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
     });
 
     Route::get('/status', [StatusController::class, 'show'])->name('servers.show.status');
+    Route::get('/config', [CloudinitController::class, 'fetchConfig'])->name('servers.show.config');
 
     Route::group(['prefix' => '/power'], function () {
         Route::post('/start', [PowerController::class, 'start'])->name('servers.show.power.start');
