@@ -13,19 +13,14 @@ use App\Enums\Servers\Cloudinit\BiosType;
  */
 class CloudinitService extends ProxmoxService
 {
-    private function instance(Server|int $server, $cluster)
-    {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->config();
-    }
-
     /**
      * @param string $password
      * @param array $params
      * @return mixed
      */
-    public function changePassword(string $password, AuthenticationType $type, $server, $cluster = [])
+    public function changePassword(string $password, AuthenticationType $type)
     {
-        return $this->instance($server, $cluster)->post([$type->value => $password]);
+        return $this->instance()->config()->post([$type->value => $password]);
     }
 
     /**
@@ -34,9 +29,9 @@ class CloudinitService extends ProxmoxService
      * @return mixed
      */
     // Generally needed for Windows VM's with over 2TB disk, still WIP since I still need to add EFI disk
-    public function changeBIOS(BiosType $type, $server, $cluster = [])
+    public function changeBIOS(BiosType $type)
     {
-        return $this->instance($server, $cluster)->post(['bios' => $type->value]);
+        return $this->instance()->config()->post(['bios' => $type->value]);
     }
 
     /**
@@ -44,9 +39,9 @@ class CloudinitService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function changeHostname(string $hostname, $server, $cluster = [])
+    public function changeHostname(string $hostname)
     {
-        return $this->instance($server, $cluster)->post(['seachdomain' => $hostname]);
+        return $this->instance()->config()->post(['seachdomain' => $hostname]);
     }
 
     /**
@@ -54,9 +49,9 @@ class CloudinitService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function changeNameserver(string $nameserver, $server, $cluster = [])
+    public function changeNameserver(string $nameserver)
     {
-        return $this->instance($server, $cluster)->post(['nameserver' => $nameserver]);
+        return $this->instance()->config()->post(['nameserver' => $nameserver]);
     }
 
 

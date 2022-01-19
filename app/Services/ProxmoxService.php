@@ -3,38 +3,71 @@
 namespace App\Services;
 
 use Proxmox\PVE;
+use App\Models\Node;
 use App\Models\Server;
+use Webmozart\Assert\Assert;
 
 /**
  * ProxmoxService class
  */
-class ProxmoxService
+abstract class ProxmoxService
 {
+    protected $server;
+
+    protected $node;
+
+
+    /**
+     * Set the server model this request is stemming from.
+     *
+     * @return $this
+     */
+    public function setServer(Server $server)
+    {
+        $this->server = $server;
+
+        $this->setNode($this->server->node);
+
+        return $this;
+    }
+
+    /**
+     * Set the node model this request is stemming from.
+     *
+     * @return $this
+     */
+    public function setNode(Node $node)
+    {
+        $this->node = $node;
+
+        return $this;
+    }
+
+    public function instance()
+    {
+        return $this->proxmox()->qemu()->vmid($this->server->vmid);
+    }
+
     /**
      * Proxmox initializer
      *
      * @param Server|int $server
      * @param mixed $cluster
      */
-    public function proxmox(Server|int $server, $cluster)
+    public function proxmox()
     {
-        if ($server instanceof Server) {
-            $vmid = $server->vmid;
-            $cluster = $server->node;
-        } else if (!$server instanceof Server) {
-            $vmid = $server;
-        }
+        Assert::isInstanceOf($this->node, Node::class);
 
         $node = [
-            $cluster->hostname,
-            $cluster->username,
-            $cluster->password,
-            intval($cluster->port),
-            $cluster->auth_type
+            $this->node->hostname,
+            $this->node->username,
+            $this->node->password,
+            intval($this->node->port),
+            $this->node->auth_type
         ];
 
         $proxmox = new PVE(...$node);
 
-        return $proxmox->nodes()->node($cluster->cluster);
+        return $proxmox->nodes()->node($this->node->cluster);
     }
 }

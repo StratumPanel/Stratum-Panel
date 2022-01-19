@@ -7,8 +7,6 @@ use App\Models\Server;
 use App\Services\Servers\CloudinitService;
 use App\Services\Servers\SnapshotService;
 use App\Http\Requests\Client\Servers\Snapshots\SnapshotRequest;
-use Illuminate\Contracts\Filesystem\Cloud;
-use Illuminate\Http\Request;
 
 class SnapshotController extends ApplicationApiController
 {
@@ -20,13 +18,13 @@ class SnapshotController extends ApplicationApiController
     {
         return inertia('Servers/Snapshots/Index', [
             'server' => $server,
-            'snapshots' => array_reverse($this->snapshotService->fetchSnapshots($server)['data']),
+            'snapshots' => array_reverse($this->snapshotService->setServer($server)->fetchSnapshots()['data']),
         ]);
     }
 
     public function create(Server $server, SnapshotRequest $request)
     {
-        $this->snapshotService->doSnapshot($request->name, $server);
+        $this->snapshotService->setServer($server)->doSnapshot($request->name);
 
         return $request->wantsJson()
             ? $this->returnNoContent()
@@ -36,13 +34,15 @@ class SnapshotController extends ApplicationApiController
     public function delete(Server $server, SnapshotRequest $request)
     {
 
-        $this->snapshotService->deleteSnapshot($request->name, $server);
+        $this->snapshotService->setServer($server)->deleteSnapshot($request->name);
 
         return $this->returnNoContent();
     }
 
     public function rollback(Server $server, SnapshotRequest $request)
     {
-        $this->snapshotService->rollbackSnapshot($request->name, $server);
+        $this->snapshotService->setServer($server)->rollbackSnapshot($request->name);
+
+        return $this->returnNoContent();
     }
 }

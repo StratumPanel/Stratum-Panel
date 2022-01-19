@@ -11,13 +11,8 @@ use App\Services\ProxmoxService;
  */
 class TemplateService extends ProxmoxService
 {
-    private function instance(Server|int $server, $cluster)
+    public function createTemplate(array $params = [])
     {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid);
-    }
-
-    public function createTemplate($server, $cluster = [], array $params = [])
-    {
-        return $this->instance($server, $cluster)->postTemplate($params);
+        return $this->instance()->postTemplate($params);
     }
 }

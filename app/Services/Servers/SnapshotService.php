@@ -2,7 +2,6 @@
 
 namespace App\Services\Servers;
 
-use App\Models\Server;
 use App\Services\ProxmoxService;
 
 /**
@@ -11,46 +10,41 @@ use App\Services\ProxmoxService;
  */
 class SnapshotService extends ProxmoxService
 {
-    private function instance(Server|int $server, $cluster)
-    {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->snapshot();
-    }
-
     /**
      * @param string $name
      * @param array $params
      * @return mixed
      */
-    public function doSnapshot(string $name, $server, $cluster = [])
+    public function doSnapshot(string $name)
     {
-        return $this->instance($server, $cluster)->post(['snapname' => $name]);
+        return $this->instance()->snapshot()->post(['snapname' => $name]);
     }
 
     /**
      * @param array $params
      * @return mixed
      */
-    public function fetchSnapshots($server, $cluster = [])
+    public function fetchSnapshots()
     {
-        return $this->instance($server, $cluster)->get();
+        return $this->instance()->snapshot()->get();
     }
 
     /**
      * @param array $params
      * @return mixed
      */
-    public function rollbackSnapshot(string $snapname, $server, $cluster = [])
+    public function rollbackSnapshot(string $snapname)
     {
         // return $this->instance($server, $cluster)->snapname($snapname)->postRollback();
-        return $this->instance($server, $cluster)->snapname($snapname)->rollback()->post();
+        return $this->instance()->snapshot()->snapname($snapname)->rollback()->post();
     }
 
     /**
      * @param array $params
      * @return mixed
      */
-    public function deleteSnapshot(string $snapname, $server, $cluster = [])
+    public function deleteSnapshot(string $snapname)
     {
-        return $this->instance($server, $cluster)->snapname($snapname)->delete();
+        return $this->instance()->snapshot()->snapname($snapname)->delete();
     }
 }

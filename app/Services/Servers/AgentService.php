@@ -11,9 +11,14 @@ use App\Services\ProxmoxService;
  */
 class AgentService extends ProxmoxService
 {
-    private function instance(Server|int $server, $cluster)
+    /**
+     * @param string $command
+     * @param array $params
+     * @return mixed
+     */
+    public function executeCommand(string $command)
     {
-        return $this->proxmox($server, $cluster)->qemu()->vmid($server->vmid)->agent();
+        return $this->instance()->agent()->exec($command);
     }
 
     /**
@@ -21,18 +26,8 @@ class AgentService extends ProxmoxService
      * @param array $params
      * @return mixed
      */
-    public function executeCommand(string $command, string $type, $server, $cluster = [])
+    public function getOSInfo()
     {
-        return $this->instance($server, $cluster)->exec($command);
-    }
-
-    /**
-     * @param string $command
-     * @param array $params
-     * @return mixed
-     */
-    public function getOSInfo($server, $cluster = [], array $params = [])
-    {
-        return $this->instance($server, $cluster)->getOsinfo();
+        return $this->instance()->agent()->getOsinfo();
     }
 }

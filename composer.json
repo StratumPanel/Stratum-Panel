@@ -13,7 +13,8 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "mrkampf/proxmox-ve": "^0.4.1",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^1.0",
+        "webmozart/assert": "^1.10"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -61,7 +61,7 @@ import {
 
 import { Link } from '@inertiajs/inertia-vue3'
 
-import getStatus, { iconState, formatBytes } from '@api/server/getStatus'
+import getStatus, { refreshTime, iconState, formatBytes } from '@api/server/getStatus'
 
 export default defineComponent({
   name: 'ServerRow',
@@ -100,7 +100,7 @@ export default defineComponent({
         return
       }
 
-      refreshStatus()
+      setTimeout(refreshStatus, refreshTime)
     }
 
     const refreshStatus = () =>
