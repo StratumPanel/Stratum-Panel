@@ -1,8 +1,15 @@
 import axios from 'axios'
 import NProgress from 'nprogress'
 
+export interface AxiosConfig {
+  hideProgress?: boolean;
+  [key: string]: any;
+}
+
+//axios.defaults.timeout = 2000
+
 axios.interceptors.request.use(
-  (config) => {
+  (config: AxiosConfig) => {
     if (!config.hideProgress) {
         NProgress.start()
     }

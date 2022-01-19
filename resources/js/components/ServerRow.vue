@@ -1,27 +1,11 @@
 <template>
   <Link :href="route('servers.show', { server: id })">
     <div
-      class="
-        bg-gray-100
-        p-2
-        md:p-3
-        rounded-md
-        w-full
-        hover:border-gray-300
-        border border-gray-100
-      "
+      class="bg-gray-100 p-2 md:p-3 rounded-md w-full hover:border-gray-300 border border-gray-100"
     >
       <div class="flex items-center">
         <div
-          class="
-            flex flex-none
-            justify-center
-            items-center
-            h-10
-            w-10
-            rounded-full
-            mr-4
-          "
+          class="flex flex-none justify-center items-center h-10 w-10 rounded-full mr-4"
           :class="iconState[serverStatus.status].backgroundColor"
         >
           <font-awesome-icon
@@ -32,33 +16,22 @@
         </div>
         <div class="flex-grow overflow-hidden whitespace-nowrap">
           <h2
-            class="
-              text-gray-700
-              font-bold
-              text-lg
-              break-words
-              overflow-ellipsis overflow-hidden
-            "
+            class="text-gray-700 font-bold text-lg break-words overflow-ellipsis overflow-hidden"
           >
             {{ name }}
           </h2>
           <p
             v-if="description"
-            class="
-              text-sm
-              break-words
-              whitespace-nowrap
-              overflow-ellipsis overflow-hidden
-              text-gray-600
-            "
+            class="text-sm break-words whitespace-nowrap overflow-ellipsis overflow-hidden text-gray-600"
           >
             {{ description }}
           </p>
         </div>
-        <div class="hidden  flex-none sm:flex sm:w-1/3 md:w-1/4 lg:w-1/6">
+        <div class="hidden flex-none sm:flex sm:w-1/3 md:w-1/4 lg:w-1/6">
           <div class="flex-1 flex flex-col items-center">
             <h2 class="text-gray-700 font-bold text-lg break-words">
-              <font-awesome-icon class="text-gray-600" :icon="faMicrochip" /> {{ serverStatus.cpu }}%
+              <font-awesome-icon class="text-gray-600" :icon="faMicrochip" />
+              {{ serverStatus.cpu }}%
             </h2>
           </div>
           <div class="flex-1 flex flex-col items-center">
@@ -119,6 +92,16 @@ export default defineComponent({
     })
 
     let errorCount = 0
+    let stillRefreshingStatus = true
+
+    const handleRecursiveRefresh = () => {
+      if (errorCount > 2) {
+        serverStatus.status = 'error'
+        return
+      }
+
+      refreshStatus()
+    }
 
     const refreshStatus = () =>
       getStatus(props.id)
@@ -132,26 +115,20 @@ export default defineComponent({
             serverStatus.cpu = Math.floor((cpu * 10000) / 100)
             serverStatus.mem = formatBytes(mem, 0)
             serverStatus.maxmem = formatBytes(maxmem, 0)
+
+            if (stillRefreshingStatus) handleRecursiveRefresh()
           }
         )
         .catch(() => {
           errorCount++
+
+          if (stillRefreshingStatus) handleRecursiveRefresh()
         })
 
     refreshStatus() // initial fetch
 
-    const refreshInterval = setInterval(() => {
-      if (errorCount > 2) {
-        clearInterval(refreshInterval)
-        serverStatus.status = 'error'
-        return
-      }
-
-      refreshStatus()
-    }, 5000)
-
     onBeforeUnmount(() => {
-      clearInterval(refreshInterval)
+      stillRefreshingStatus = false
     })
 
     return { serverStatus, iconState, faPlay, faMicrochip, faMemory }

@@ -51,6 +51,7 @@
 import { defineComponent, computed, onBeforeUnmount } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useStore } from 'vuex'
+import { Inertia } from '@inertiajs/inertia'
 import {
   faPlay,
   faMicrochip,
@@ -77,6 +78,7 @@ export default defineComponent({
     const store = useStore()
     const server = usePage().props.value.server
     const serverStatus = computed(() => store.state.serverStatus)
+    let stillRefreshingStatus = true
 
     // check if server status matches the current name of the server the user is viewing
     // we don't want to give them the status of a different server
@@ -86,29 +88,37 @@ export default defineComponent({
 
     const refreshStatus = () =>
       getStatus(server.id)
-        .then(({ data: { data: {status, cpu, mem, maxmem} } }) => {
-          store.dispatch('serverStatus/setStatus', {
-            id: server.id,
-            state: status,
-            cpu: Math.floor(cpu * 10000) / 100,
-            mem: formatBytes(mem),
-            maxmem: formatBytes(maxmem),
-            memUnparsed: {
-              mem: mem,
-              maxmem: maxmem,
-            }
-          })
-        })
+        .then(
+          ({
+            data: {
+              data: { status, cpu, mem, maxmem },
+            },
+          }) => {
+            store.dispatch('serverStatus/setStatus', {
+              id: server.id,
+              state: status,
+              cpu: Math.floor(cpu * 10000) / 100,
+              mem: formatBytes(mem),
+              maxmem: formatBytes(maxmem),
+              memUnparsed: {
+                mem: mem,
+                maxmem: maxmem,
+              },
+            })
+
+            if (stillRefreshingStatus) setTimeout(refreshStatus, refreshTime)
+          }
+        )
         .catch(() => {
           store.commit('serverStatus/setState', 'error')
+
+          if (stillRefreshingStatus) setTimeout(refreshStatus, refreshTime)
         })
 
     refreshStatus() // initial fetch
 
-    const refreshInterval = setInterval(refreshStatus, refreshTime)
-
     onBeforeUnmount(() => {
-      clearInterval(refreshInterval)
+      stillRefreshingStatus = false
     })
 
     return {
