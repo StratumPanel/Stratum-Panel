@@ -1293,6 +1293,12 @@ select {
 .\!h-3 {
 	height: 0.75rem !important;
 }
+.\!h-32 {
+	height: 8rem !important;
+}
+.\!h-16 {
+	height: 4rem !important;
+}
 .min-h-screen {
 	min-height: 100vh;
 }
@@ -1355,6 +1361,12 @@ select {
 }
 .w-3 {
 	width: 0.75rem;
+}
+.\!w-32 {
+	width: 8rem !important;
+}
+.\!w-16 {
+	width: 4rem !important;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -2030,6 +2042,10 @@ select {
 .\!text-gray-700 {
 	--tw-text-opacity: 1 !important;
 	color: rgba(55, 65, 81, var(--tw-text-opacity)) !important;
+}
+.text-indigo-400 {
+	--tw-text-opacity: 1;
+	color: rgba(129, 140, 248, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
