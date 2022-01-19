@@ -41,7 +41,11 @@
             </p>
 
             <div class="mt-4">
-              <form class="flex flex-col space-y-6" @submit.prevent="createNode(true)">
+              <form
+                class="flex flex-col space-y-6"
+                @keyup.enter="createNode(true)"
+                @submit.prevent="createNode(true)"
+              >
                 <div>
                   <Label for="node-display-name" value="Display Name" />
                   <Input
@@ -135,6 +139,8 @@
 import { defineComponent, ref } from 'vue'
 import { faServer } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useStore } from 'vuex'
+import { faClock, faTimes, faCheck } from '@fortawesome/free-solid-svg-icons'
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import nestedLinks from './nestedLinks'
 import Table from '@components/Table.vue'
@@ -168,6 +174,7 @@ export default defineComponent({
     FontAwesomeIcon,
   },
   setup() {
+    const store = useStore()
     const headers = [
       {
         text: 'Node',
@@ -199,6 +206,32 @@ export default defineComponent({
         form.reset()
         return
       }
+
+      store.dispatch('alerts/createAlert', {
+        message: 'Creating Node...',
+        icon: faClock,
+        timeout: false,
+      })
+
+      form.post(route('admin.nodes.store'), {
+        preserveScroll: true,
+        onSuccess: () => {
+          store.dispatch('alerts/createAlert', {
+            message: 'Node created',
+            icon: faCheck,
+          })
+
+          showCreateNode.value = false
+
+          form.reset()
+        },
+        onError: () => {
+          store.dispatch('alerts/createAlert', {
+            message: "Couldn't create node",
+            icon: faTimes,
+          })
+        },
+      })
     }
 
     return { nestedLinks, headers, showCreateNode, createNode, faServer, form }
