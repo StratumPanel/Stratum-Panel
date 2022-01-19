@@ -4,6 +4,7 @@ namespace App\Http\Requests\Client\Servers\Settings;
 
 use App\Rules\Network\Hostname;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\network\Domain;
 
 class UpdateNetworkConfigRequest extends FormRequest
 {
@@ -27,7 +28,7 @@ class UpdateNetworkConfigRequest extends FormRequest
         return [
             'hostname' => ['required', new Hostname],
             'nameservers' => ['array', 'nullable'],
-            'nameservers.*' => ['string', new Hostname, 'nullable'],
+            'nameservers.*' => ['string', new Domain, 'nullable'],
         ];
     }
 }
