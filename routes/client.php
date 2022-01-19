@@ -13,7 +13,7 @@ use App\Http\Middleware\VerifyCloudinitEnabled;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/dashboard', [ServerController::class, 'index'])->name('dashboard');
+Route::get('/', [ServerController::class, 'index'])->name('dashboard');
 
 
 Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServerAccess::class], function () {

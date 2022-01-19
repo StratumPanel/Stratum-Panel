@@ -18,15 +18,6 @@ use App\Http\Controllers\Client\Servers\StatusController;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
 Route::get('/api/status/{server}', [StatusController::class, 'index'])->name('status'); // For some reason this wasn't working in api.php, will look into it later
 Route::post('/api/snapshot/{server}/take', [SnapshotController::class, 'index'])->name('snapshot');
 Route::get('/api/snapshot/{server}/fetch', [SnapshotController::class, 'fetch'])->name('fetchsnapshots');
