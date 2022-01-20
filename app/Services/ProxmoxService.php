@@ -50,12 +50,13 @@ abstract class ProxmoxService
 
     public function mainInstance()
     {
-        Assert::isInstanceOf($this->node, Node::class);
         return $this->proxmox();
     }
 
     public function proxmox()
     {
+        Assert::isInstanceOf($this->node, Node::class);
+
         $node = [
             $this->node->hostname,
             $this->node->username,

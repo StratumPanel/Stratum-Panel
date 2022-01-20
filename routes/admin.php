@@ -11,7 +11,12 @@ Route::group(['prefix' => '/nodes'], function() {
     Route::get('/', [NodeController::class, 'index'])->name('admin.nodes.index');
     Route::post('/', [NodeController::class, 'store'])->name('admin.nodes.store');
 
-    Route::get('/health', [NodeController::class, 'showHealth'])->name('admin.nodes.health.show');
+    Route::group(['prefix' => '/health'], function() {
+        Route::get('/', [NodeController::class, 'showHealth'])->name('admin.nodes.health.show');
+
+        Route::post('/tests', [NodeController::class, 'runTests'])->name('admin.nodes.health.test');
+    });
+
 });
 
 Route::group(['prefix' => '/servers'], function() {

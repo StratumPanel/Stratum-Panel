@@ -1,78 +1,59 @@
 import { ServerState, FormattedBytes } from '@api/server/getStatus'
 
 export interface ServerStatus {
-    id: number;
-    state: ServerState;
-    cpu: number;
-    mem: FormattedBytes;
-    maxmem: FormattedBytes;
-    memUnparsed: MemUnparsed;
+  id: number;
+  state: ServerState;
+  cpu: number;
+  mem: FormattedBytes;
+  maxmem: FormattedBytes;
+  memUnparsed: MemUnparsed;
 }
 
 export interface MemUnparsed {
-    mem: number;
-    maxmem: number;
+  mem: number;
+  maxmem: number;
 }
 
 const status = {
-    namespaced: true,
+  namespaced: true,
 
-    state: () => ({
+  state: () => ({
+    id: NaN,
+    state: 'querying',
+    cpu: 0,
+    mem: { size: 0, unit: 'B' },
+    maxmem: { size: 0, unit: 'B' },
+    memUnparsed: {
+      mem: 0,
+      maxmem: 0,
+    },
+  }),
+
+  mutations: {
+    setStatus(state: ServerStatus, payload: ServerStatus) {
+      Object.assign(state, payload)
+    },
+  },
+
+  actions: {
+    setStatus(context: any, payload: ServerStatus) {
+      context.commit('setStatus', payload)
+    },
+
+    clearStatus(context: any) {
+      context.commit('setStatus', {
         id: NaN,
         state: 'querying',
         cpu: 0,
         mem: { size: 0, unit: 'B' },
         maxmem: { size: 0, unit: 'B' },
         memUnparsed: {
-            mem: 0,
-            maxmem: 0,
+          mem: 0,
+          maxmem: 0,
         },
-    }),
-
-    mutations: {
-        setId(state: ServerStatus, id: number) {
-            state.id = id
-        },
-
-        setState (state: ServerStatus, status: ServerState) {
-            state.state = status // im sorry for whoever is reading this, it was a COINCIDENCE!!
-        },
-
-        setCpu (state: ServerStatus, Cpu: number) {
-            state.cpu = Cpu
-        },
-
-        setMem (state: ServerStatus, Mem: FormattedBytes) {
-            state.mem = Mem
-        },
-
-        setMaxmem (state: ServerStatus, Maxmem: FormattedBytes) {
-            state.maxmem = Maxmem
-        },
-
-        setMemUnparsed (state: ServerStatus, MemUnparsed: MemUnparsed) {
-            state.memUnparsed = MemUnparsed
-        }
+      })
     },
-
-    actions: {
-        setStatus (context: any, payload: ServerStatus) {
-            context.commit('setId', payload.id)
-            context.commit('setState', payload.state)
-            context.commit('setCpu', payload.cpu)
-            context.commit('setMem', payload.mem)
-            context.commit('setMaxmem', payload.maxmem)
-            context.commit('setMemUnparsed', payload.memUnparsed)
-        },
-
-        clearStatus (context: any) {
-            context.commit('setId', 0)
-            context.commit('setState', 'querying')
-            context.commit('setCpu', 0)
-            context.commit('setMem', { size: 0, unit: 'B' })
-            context.commit('setMaxmem', { size: 0, unit: 'B' })
-        }
-    }
+  },
 }
 
 export default status
