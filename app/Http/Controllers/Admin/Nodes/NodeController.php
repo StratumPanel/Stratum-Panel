@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Admin\Nodes;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Nodes\StoreNodeRequest;
-use App\Services\Helpers\NodeHealthService;
+use App\Services\Nodes\Health\HealthService;
 use App\Models\Node;
+use App\Services\Nodes\Health\ResultsService;
 use Illuminate\Support\Facades\DB;
 
 class NodeController extends Controller
 {
-    public function __construct(private NodeHealthService $nodeHealthService)
+    public function __construct(private HealthService $nodeHealthService, private ResultsService $healthResultsService)
     {
 
     }
@@ -33,7 +34,9 @@ class NodeController extends Controller
 
     public function showHealth()
     {
-        return inertia('Admin/Nodes/Health');
+        return inertia('Admin/Nodes/Health', [
+            'nodes' => $this->healthResultsService->getDetails(),
+        ]);
     }
 
     public function runTests()

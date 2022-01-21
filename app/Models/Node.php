@@ -10,7 +10,7 @@ class Node extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'hostname', 'username', 'password', 'port', 'auth_type'
+        'name', 'hostname', 'username', 'password', 'port', 'auth_type', 'latency', 'last_pinged'
     ];
 
     public function servers()
