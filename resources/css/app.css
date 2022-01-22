@@ -66,6 +66,10 @@ body,
     sm:mt-0 sm:ml-3 sm:w-auto sm:!text-sm;
 }
 
+.badge {
+  @apply py-1 px-3 border rounded-full
+}
+
 /* Scrollbar style */
 /*
 ::-webkit-scrollbar {

@@ -1230,6 +1230,12 @@ select {
 .ml-8 {
 	margin-left: 2rem;
 }
+.mr-1\.5 {
+	margin-right: 0.375rem;
+}
+.mr-1 {
+	margin-right: 0.25rem;
+}
 .block {
 	display: block;
 }
@@ -1295,6 +1301,9 @@ select {
 }
 .\!h-16 {
 	height: 4rem !important;
+}
+.\!h-2 {
+	height: 0.5rem !important;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1362,6 +1371,9 @@ select {
 .\!w-16 {
 	width: 4rem !important;
 }
+.\!w-2 {
+	width: 0.5rem !important;
+}
 .min-w-0 {
 	min-width: 0px;
 }
@@ -1419,6 +1431,10 @@ select {
 	--tw-translate-y: 3.5rem;
 	transform: var(--tw-transform);
 }
+.-rotate-90 {
+	--tw-rotate: -90deg;
+	transform: var(--tw-transform);
+}
 .scale-95 {
 	--tw-scale-x: .95;
 	--tw-scale-y: .95;
@@ -1452,6 +1468,9 @@ select {
 }
 .grid-cols-2 {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .grid-rows-2 {
 	grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -1539,6 +1558,21 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .divide-y > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-y-reverse: 0;
@@ -1917,6 +1951,10 @@ select {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
+.text-4xl {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+}
 .font-medium {
 	font-weight: 500;
 }
@@ -2279,6 +2317,14 @@ body,
 		font-size: 0.875rem !important;
 		line-height: 1.25rem !important;
 	}
+}
+.badge {
+	border-radius: 9999px;
+	border-width: 1px;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
 }
 /* Scrollbar style */
 /*

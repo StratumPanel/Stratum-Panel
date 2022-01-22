@@ -8,6 +8,7 @@
       items-center
       px-4
       py-2
+      tracking-widest
       bg-gray-800
       border border-transparent
       rounded-md
