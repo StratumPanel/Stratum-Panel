@@ -10,6 +10,8 @@ Route::get('/', [BaseController::class, 'index'])->name('admin.index');
 Route::group(['prefix' => '/nodes'], function() {
     Route::get('/', [NodeController::class, 'index'])->name('admin.nodes.index');
     Route::post('/', [NodeController::class, 'store'])->name('admin.nodes.store');
+    Route::put('/{node}', [NodeController::class, 'update'])->name('admin.nodes.update');
+    Route::delete('/{node}', [NodeController::class, 'destroy'])->name('admin.nodes.destroy');
 
     Route::group(['prefix' => '/health'], function() {
         Route::get('/', [NodeController::class, 'showHealth'])->name('admin.nodes.health.show');

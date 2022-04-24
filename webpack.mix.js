@@ -11,14 +11,26 @@ const mix = require('laravel-mix');
  |
  */
 
+/*  mix.options({
+    hmrOptions: {
+        host: "web",
+        port: 8080
+    }
+}) */
+
 mix.js('resources/js/main.ts', 'public/js').vue()
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-    ])
+    ]).options({
+        hmrOptions: {
+            host: "localhost",
+            port: 4206
+        }
+    })
     .webpackConfig(require('./webpack.config'));
 
-    mix.browserSync('stratum.test')
+/*  mix.browserSync('stratum.test') */
 
 /* mix.browserSync({
     open: false,
