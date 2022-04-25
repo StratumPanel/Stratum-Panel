@@ -7,6 +7,8 @@
         <power-setting />
 
         <snapshot-setting />
+
+        <security-setting />
       </div>
     </template>
   </server-layout>
@@ -17,6 +19,7 @@ import { defineComponent } from 'vue'
 import ServerLayout from '@/Layouts/ServerLayout.vue'
 import PowerSetting from '@components/settings/PowerSetting.vue'
 import SnapshotSetting from '@components/settings/SnapshotSetting.vue'
+import SecuritySetting from '@components/settings/SecuritySetting.vue'
 
 export default defineComponent({
   name: 'General',
@@ -24,6 +27,7 @@ export default defineComponent({
     ServerLayout,
     PowerSetting,
     SnapshotSetting,
+    SecuritySetting,
   },
   setup() {
   },
