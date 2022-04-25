@@ -19,7 +19,7 @@ class CloudinitController extends ApplicationApiController
 
     public function fetchConfig(Server $server)
     {
-        $this->returnContent($this->cloudinitService->setServer($server)->fetchConfig());
+        return $this->returnContent($this->cloudinitService->setServer($server)->fetchConfig());
     }
 
     public function updatePassword(Server $server, UpdatePasswordRequest $request)

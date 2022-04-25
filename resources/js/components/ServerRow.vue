@@ -28,21 +28,24 @@
           </p>
         </div>
         <div class="hidden flex-none sm:flex sm:w-1/3 md:w-1/4 lg:w-1/6">
-          <div class="flex-1 flex flex-col items-center">
-            <h2 class="text-gray-700 font-bold text-lg break-words">
-              <font-awesome-icon class="text-gray-600" :icon="faMicrochip" />
-              {{ serverStatus.cpu }}%
-            </h2>
-          </div>
-          <div class="flex-1 flex flex-col items-center">
-            <h2 class="text-gray-700 font-bold text-lg break-words">
-              <font-awesome-icon :icon="faMemory" />
-              {{ `${serverStatus.mem.size} ${serverStatus.mem.unit}` }}
-            </h2>
-            <p class="text-sm break-words text-gray-600">
-              of {{ `${serverStatus.maxmem.size} ${serverStatus.maxmem.unit}` }}
-            </p>
-          </div>
+          <template v-if="serverStatus.maxmem.size > 0">
+            <div class="flex-1 flex flex-col items-center">
+              <h2 class="text-gray-700 font-bold text-lg break-words">
+                <font-awesome-icon class="text-gray-600" :icon="faMicrochip" />
+                {{ serverStatus.cpu }}%
+              </h2>
+            </div>
+            <div class="flex-1 flex flex-col items-center">
+              <h2 class="text-gray-700 font-bold text-lg break-words">
+                <font-awesome-icon :icon="faMemory" />
+                {{ `${serverStatus.mem.size} ${serverStatus.mem.unit}` }}
+              </h2>
+              <p class="text-sm break-words text-gray-600">
+                of
+                {{ `${serverStatus.maxmem.size} ${serverStatus.maxmem.unit}` }}
+              </p>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -61,7 +64,11 @@ import {
 
 import { Link } from '@inertiajs/inertia-vue3'
 
-import getStatus, { refreshTime, iconState, formatBytes } from '@api/server/getStatus'
+import getStatus, {
+  refreshTime,
+  iconState,
+  formatBytes,
+} from '@api/server/getStatus'
 
 export default defineComponent({
   name: 'ServerRow',

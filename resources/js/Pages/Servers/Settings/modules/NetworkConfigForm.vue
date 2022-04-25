@@ -89,6 +89,12 @@ export default defineComponent({
       })
     }
 
+    let parsedNameservers = usePage().props.value.config.nameserver.split(',')
+    for (let i = 0, length = parsedNameservers.length; i < length; i++)
+    {
+      nameservers.store[i + 1].address = parsedNameservers[i]
+    }
+
     const form = useForm({
       hostname: 'example.performave.com',
       nameservers: nameservers.output,

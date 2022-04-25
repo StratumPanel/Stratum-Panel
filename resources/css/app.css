@@ -9,6 +9,10 @@ body,
   width: 100%;
 }
 
+body {
+  @apply overflow-scroll
+}
+
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;

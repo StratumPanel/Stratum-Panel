@@ -58,7 +58,7 @@ export default defineComponent({
     const props = usePage().props.value
     const store = useStore()
     const form = useForm({
-      type: props.bios_type,
+      type: props.config.bios,
     })
 
     const handle = () => {
