@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+
+    output: {
+        publicPath: 'http://localhost:4206/',
+    },
     resolve: {
         extensions: ['.js', '.vue', '.ts', '.tsx'],
         alias: {

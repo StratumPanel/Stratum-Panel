@@ -10,7 +10,7 @@
         >
       </div>
 
-      <Card class="mt-2">
+      <Card class="mt-2 overflow-x-hidden">
         <Table :headers="headers" :items="nodes">
           <template v-slot:hostname="{ item }">
             {{ `${item.hostname}:${item.port}` }}

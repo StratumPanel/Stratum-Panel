@@ -4,7 +4,7 @@ namespace App\Http\Requests\Client\Servers\Settings;
 
 use App\Rules\Network\Hostname;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Rules\network\Domain;
+use App\Rules\Network\Domain;
 
 class UpdateNetworkConfigRequest extends FormRequest
 {

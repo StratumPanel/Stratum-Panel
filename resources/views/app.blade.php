@@ -12,11 +12,22 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @production
+            <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @endproduction
+        @env('local')
+            <link rel="stylesheet" href="http://localhost:4206/css/app.css">
+        @endenv
+
 
         <!-- Scripts -->
         @routes
-        <script src="{{ mix('js/main.js') }}" defer></script>
+        @production
+            <script src="{{ mix('js/main.js') }}" defer></script>
+        @endproduction
+        @env('local')
+            <script src="http://localhost:4206/js/main.js" defer></script>
+        @endenv
     </head>
     <body class="font-sans antialiased">
         @inertia
