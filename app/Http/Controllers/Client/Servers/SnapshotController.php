@@ -26,9 +26,7 @@ class SnapshotController extends ApplicationApiController
     {
         $this->snapshotService->setServer($server)->doSnapshot($request->name);
 
-        return $request->wantsJson()
-            ? $this->returnNoContent()
-            : back()->with('status', 'snapshot-created');
+        return $this->returnInertiaResponse($request, 'snapshot-created');
     }
 
     public function delete(Server $server, SnapshotRequest $request)

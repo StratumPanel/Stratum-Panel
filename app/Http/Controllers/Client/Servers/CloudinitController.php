@@ -26,18 +26,14 @@ class CloudinitController extends ApplicationApiController
     {
         $this->cloudinitService->setServer($server)->changePassword($request->password, AuthenticationType::from($request->type));
 
-        return $request->wantsJson()
-            ? $this->returnNoContent()
-            : back()->with('status', 'password-updated');
+        return $this->returnInertiaResponse($request, 'password-updated');
     }
 
     public function updateBios(Server $server, UpdateBiosTypeRequest $request)
     {
         $this->cloudinitService->setServer($server)->changeBIOS(BiosType::from($request->type));
 
-        return $request->wantsJson()
-            ? $this->returnNoContent()
-            : back()->with('status', 'bios-updated');
+        return $this->returnInertiaResponse($request, 'bios-updated');
     }
 
     public function updateNetworkConfig(Server $server, UpdateNetworkConfigRequest $request)
@@ -45,8 +41,6 @@ class CloudinitController extends ApplicationApiController
         $this->cloudinitService->setServer($server)->changeHostname($request->hostname);
         $this->cloudinitService->setServer($server)->changeNameserver(implode(',', $request->nameservers));
 
-        return $request->wantsJson()
-            ? $this->returnNoContent()
-            : back()->with('status', 'network-config-updated');
+        return $this->returnInertiaResponse($request, 'network-config-updated');
     }
 }
