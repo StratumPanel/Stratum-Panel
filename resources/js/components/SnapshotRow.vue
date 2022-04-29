@@ -217,12 +217,13 @@ import {
   faTimes,
   faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons'
-import DateTimeCalculator from '@/util/DateTimeCalculator'
+import dateTimeCalculator from '@/util/dateTimeCalculator'
 import DialogModal from '@components/DialogModal.vue'
 import Button from '@components/Button.vue'
 import rollbackSnapshot from '@api/server/snapshots/rollbackSnapshot'
 import deleteSnapshot from '@api/server/snapshots/deleteSnapshot'
 import { usePage } from '@inertiajs/inertia-vue3'
+import ServerInterface from '@/util/serverInterface'
 
 export default defineComponent({
   name: 'SnapshotRow',
@@ -245,12 +246,12 @@ export default defineComponent({
   setup(props) {
     const store = useStore()
     const creationDate = computed(() => {
-      let { month, day } = DateTimeCalculator(props.snapshot.snaptime)
+      let { month, day } = dateTimeCalculator(props.snapshot.snaptime)
 
       return `${month} ${day}`
     })
 
-    const server = usePage().props.value.server
+    const server: ServerInterface = (usePage().props.value.server as ServerInterface)
     const showRevertConfirmation = ref(false)
     const showDeleteConfirmation = ref(false)
 

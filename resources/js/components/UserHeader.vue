@@ -11,18 +11,13 @@
         </div>
         <div>
           <h2 class="text-lg font-bold text-gray-700">{{ $page.props.user.name }}</h2>
-          <inertia-link class="font-normal text-sm text-gray-600" href="/user/profile">Manage Account</inertia-link>
+          <Link class="font-normal text-sm text-gray-600" href="/user/profile">Manage Account</Link>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'UserHeader',
-  setup() {},
-})
+<script setup lang="ts">
+import { Link } from '@inertiajs/inertia-vue3'
 </script>

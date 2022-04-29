@@ -78,6 +78,7 @@ import InputError from '@components/InputError.vue'
 import ActionMessage from '@/Jetstream/ActionMessage.vue'
 import Button from '@components/Button.vue'
 import Radio from '@components/Radio.vue'
+import ServerInterface from '@/util/serverInterface'
 
 export default defineComponent({
   name: 'PasswordForm',
@@ -92,7 +93,7 @@ export default defineComponent({
     Overlay,
   },
   setup() {
-    const server = usePage().props.value.server
+    const server: ServerInterface = usePage().props.value.server as ServerInterface
     const store = useStore()
     const form = useForm({
       type: 'sshkeys',

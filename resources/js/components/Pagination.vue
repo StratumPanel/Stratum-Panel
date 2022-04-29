@@ -37,8 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import { PaginationReturns } from '@/util/paginationTypes';
 
-const props = defineProps<PaginationReturns>()
+interface Props extends PaginationReturns {}
+
+const props = defineProps<Props>()
 </script>

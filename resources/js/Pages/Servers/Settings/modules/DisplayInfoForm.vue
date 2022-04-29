@@ -52,6 +52,7 @@ import Label from '@components/Label.vue'
 import Input from '@components/Input.vue'
 import InputError from '@components/InputError.vue'
 import Button from '@components/Button.vue'
+import ServerInterface from '@/util/serverInterface'
 
 export default defineComponent({
   name: 'DisplayInfoForm',
@@ -64,7 +65,8 @@ export default defineComponent({
     ActionMessage,
   },
   setup() {
-    const server = usePage().props.value.server
+    const server: ServerInterface = (usePage().props.value.server as ServerInterface)
+    const serverId = (server as { id: number }).id
     const store = useStore()
     const form = useForm({
       name: server.name,
@@ -77,7 +79,7 @@ export default defineComponent({
         timeout: false,
       })
 
-      form.put(route('servers.show.settings.display.update', server.id), {
+      form.put(route('servers.show.settings.display.update', serverId), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
             message: 'Display info updated',

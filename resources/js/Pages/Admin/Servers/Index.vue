@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import AppLayout from '@/Layouts/AppLayout.vue'
-import { defineProps } from 'vue'
 import Pagination from '@components/Pagination.vue'
 import { PaginationReturns } from '@/util/paginationTypes'
 

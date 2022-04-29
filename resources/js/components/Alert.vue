@@ -38,6 +38,11 @@ import { defineComponent, watch, reactive, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { TransitionRoot } from '@headlessui/vue'
 
+interface CachedInterface {
+  icon?: Record<string, any>
+  message: string
+}
+
 export default defineComponent({
   name: 'Alert',
   props: {
@@ -55,8 +60,8 @@ export default defineComponent({
     TransitionRoot,
   },
   setup(props) {
-    const cached = reactive({
-      icon: null,
+    const cached = reactive<CachedInterface>({
+      icon: undefined,
       message: '',
     })
 

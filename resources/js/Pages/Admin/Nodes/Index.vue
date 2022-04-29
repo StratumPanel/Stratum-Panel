@@ -12,11 +12,30 @@
 
       <Card class="mt-2 overflow-x-hidden">
         <Table :headers="headers" :items="nodes">
-          <template v-slot:hostname="{ item }">
+          <template
+            v-slot:hostname="{ item }: { item: {
+            hostname: string
+            port: number
+          }}"
+          >
             {{ `${item.hostname}:${item.port}` }}
           </template>
 
-          <template v-slot:actions="{ item }">
+          <template
+            v-slot:actions="{
+              item,
+            }: {
+              item: {
+                id: number,
+                name: string,
+                cluster: string,
+                hostname: string,
+                port: string,
+                username: string,
+                password: string,
+              },
+            }"
+          >
             <div class="flex space-x-1">
               <icon-button :icon="faPencilAlt" @click="setNodeAndOpen(item)" />
               <icon-button :icon="faTrash" @click="deleteNodeAction(item.id)" />

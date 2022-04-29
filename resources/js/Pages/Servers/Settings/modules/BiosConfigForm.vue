@@ -1,15 +1,24 @@
 <template>
   <form-section @submitted="handle">
     <template #root>
-      <overlay v-if="!props.server.cloud_init_enabled" center><p>Cloudinit is not enabled</p></overlay>
+      <overlay v-if="!props.server.cloud_init_enabled" center
+        ><p>Cloudinit is not enabled</p></overlay
+      >
     </template>
     <template #title> BIOS Configuration </template>
     <template #form>
-
       <div class="col-span-6 space-y-2">
         <Label value="BIOS Type" />
-        <Radio id="ovmf-type" name="bios-type" value="ovmf" v-model="form.type">OVMF</Radio>
-        <Radio id="seabios-type" name="bios-type" value="seabios" v-model="form.type">SeaBIOS</Radio>
+        <Radio id="ovmf-type" name="bios-type" value="ovmf" v-model="form.type"
+          >OVMF</Radio
+        >
+        <Radio
+          id="seabios-type"
+          name="bios-type"
+          value="seabios"
+          v-model="form.type"
+          >SeaBIOS</Radio
+        >
         <InputError :message="form.errors.type" class="mt-2" />
       </div>
     </template>
@@ -56,9 +65,10 @@ export default defineComponent({
   },
   setup() {
     const props = usePage().props.value
+    const serverId = (props.server as { id: number }).id
     const store = useStore()
     const form = useForm({
-      type: props.config.bios,
+      type: (props as { config: { bios: string } }).config.bios,
     })
 
     const handle = () => {
@@ -67,7 +77,7 @@ export default defineComponent({
         timeout: false,
       })
 
-      form.put(route('servers.show.settings.bios.update', props.server.id), {
+      form.put(route('servers.show.settings.bios.update', serverId), {
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {
             message: 'BIOS info updated',
@@ -79,7 +89,7 @@ export default defineComponent({
             message: 'Failed to update BIOS info',
             icon: faTimes,
           })
-        }
+        },
       })
     }
 

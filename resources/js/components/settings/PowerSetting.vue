@@ -32,6 +32,7 @@ import {
   faTimes,
   faPlay,
 } from '@fortawesome/free-solid-svg-icons'
+import ServerInterface from '@/util/serverInterface'
 
 export default defineComponent({
   name: 'PowerSetting',
@@ -41,7 +42,7 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const server = usePage().props.value.server
+    const server: ServerInterface = (usePage().props.value.server as ServerInterface)
     const powerState = computed(() => store.state.serverStatus.state)
     const processing = ref(false)
 

@@ -97,7 +97,7 @@ export default defineComponent({
     }
 
 
-    const closeOnEscape = (e) => {
+    const closeOnEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && props.show) {
         close()
       }

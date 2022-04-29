@@ -2,7 +2,7 @@
   <server-layout>
     <template #title> General </template>
 
-    <template #main="{ server }">
+    <template #main>
       <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         <power-setting />
 

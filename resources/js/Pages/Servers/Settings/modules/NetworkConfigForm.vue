@@ -58,6 +58,12 @@ import Input from '@components/Input.vue'
 import InputError from '@components/InputError.vue'
 import Button from '@components/Button.vue'
 import Overlay from '@components/Overlay.vue'
+import ServerInterface from '@/util/serverInterface'
+
+
+interface NameserverInterface {
+  [index: number]: { address: string }
+}
 
 export default defineComponent({
   name: 'NetworkConfigForm',
@@ -71,10 +77,10 @@ export default defineComponent({
     Overlay,
   },
   setup() {
-    const server = usePage().props.value.server
+    const server: ServerInterface = (usePage().props.value.server as ServerInterface)
     const store = useStore()
     const nameservers = {
-      store: reactive({
+      store: reactive<NameserverInterface>({
         1: { address: '' },
         2: { address: '' },
       }),
@@ -89,7 +95,7 @@ export default defineComponent({
       })
     }
 
-    let parsedNameservers = usePage().props.value.config.nameserver.split(',')
+    let parsedNameservers = (usePage().props.value as {config: {nameserver: string}}).config.nameserver.split(',')
     for (let i = 0, length = parsedNameservers.length; i < length; i++)
     {
       nameservers.store[i + 1].address = parsedNameservers[i]

@@ -142,16 +142,16 @@ export default defineComponent({
       )
 
       watch(store.state.serverStatus, (currentValue) => {
-        let cpuData = cpuGraph.value.data.datasets[0].data
-        cpuData.push(currentValue.cpu)
-        cpuData.shift()
+        let cpuData = (cpuGraph.value as {data: { datasets: { data: number[]}[]}}).data.datasets[0].data
+        cpuData?.push(currentValue.cpu)
+        cpuData?.shift()
 
         cpuGraph.value.update({ lazy: true })
 
-        let memoryData = memoryGraph.value.data.datasets[0].data
+        let memoryData = (memoryGraph.value as {data: { datasets: { data: number[]}[]}}).data.datasets[0].data
 
-        memoryData.push(bytesToMegabytes(currentValue.memUnparsed.mem))
-        memoryData.shift()
+        memoryData?.push(bytesToMegabytes(currentValue.memUnparsed.mem))
+        memoryData?.shift()
 
         memoryGraph.value.update({ lazy: true })
       })

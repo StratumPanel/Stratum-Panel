@@ -77,17 +77,18 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const server = usePage().props.value.server
+    const serverId = (server as {id: number}).id
     const serverStatus = computed(() => store.state.serverStatus)
     let stillRefreshingStatus = true
 
     // check if server status matches the current name of the server the user is viewing
     // we don't want to give them the status of a different server
-    if (serverStatus.value.id !== server.id) {
+    if (serverStatus.value.id !== serverId) {
       store.dispatch('serverStatus/clearStatus')
     }
 
     const refreshStatus = () =>
-      getStatus(server.id)
+      getStatus(serverId)
         .then(
           ({
             data: {
@@ -95,7 +96,7 @@ export default defineComponent({
             },
           }) => {
             store.dispatch('serverStatus/setStatus', {
-              id: server.id,
+              id: serverId,
               state: status,
               cpu: Math.floor(cpu * 10000) / 100,
               mem: formatBytes(mem),

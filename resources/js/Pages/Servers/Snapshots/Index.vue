@@ -118,13 +118,13 @@ export default defineComponent({
   },
   props: {
     snapshots: {
-      type: Object,
       required: true,
     },
   },
   setup() {
     const store = useStore()
     const server = usePage().props.value.server
+    const serverId = (server as {id: number}).id
     const showCreateSnapshot = ref(false)
     const validationError = ref('')
     const form = useForm({
@@ -146,7 +146,7 @@ export default defineComponent({
 
       showCreateSnapshot.value = false
 
-      form.post(route('servers.show.snapshots.create', server.id), {
+      form.post(route('servers.show.snapshots.create', serverId), {
         preserveScroll: true,
         onSuccess: () => {
           store.dispatch('alerts/createAlert', {

@@ -4,7 +4,9 @@
       <server-header :server="server" />
     </template>
 
-    <div class="flex flex-col space-y-6 md:grid md:!space-y-0 md:gap-6 md:grid-cols-4">
+    <div
+      class="flex flex-col space-y-6 md:grid md:!space-y-0 md:gap-6 md:grid-cols-4"
+    >
       <server-nav class="col-span-1" :server="server" />
 
       <div class="col-span-3 inset-0 border border-gray-200 rounded-md py-3">
@@ -20,25 +22,14 @@
   </app-layout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import AppLayout from '@/Layouts/AppLayout.vue'
+import ServerInterface from '@/util/serverInterface'
 import ServerHeader from '@components/ServerHeader.vue'
 import ServerNav from '@components/ServerNav.vue'
-export default {
-  name: 'ServerLayout',
-  components: { AppLayout, ServerHeader, ServerNav },
-  props: {
-    server: {
-      type: Object,
-      required: true,
-    },
-    keeptitle: {
-      type: Boolean,
-      required: false,
-    }
-  },
-  setup() {},
-}
+import { usePage } from '@inertiajs/inertia-vue3'
+
+const server: ServerInterface = usePage().props.value.server as ServerInterface
 </script>
 
 <style scoped>

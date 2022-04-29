@@ -62,5 +62,6 @@ export function formatBytes(bytes: number, decimals = 2): FormattedBytes {
 }
 
 export default (id: number) => {
+  // @ts-ignore
   return axios.get(route('servers.show.status', id), {hideProgress: true})
 }

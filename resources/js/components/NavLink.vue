@@ -1,11 +1,10 @@
 <template>
-    <inertia-link :href="href" :class="classes">
+    <Link :href="href" :class="classes">
       <slot></slot>
-    </inertia-link>
+    </Link>
 </template>
 
-<script>
-export default {
-  props: [ 'href', 'classes'],
-}
+<script setup lang="ts">
+import { Link } from '@inertiajs/inertia-vue3'
+const { href, classes } = defineProps(['href', 'classes'])
 </script>

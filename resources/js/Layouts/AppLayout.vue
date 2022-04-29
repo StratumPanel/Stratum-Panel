@@ -39,19 +39,7 @@
               <Menu as="div" class="ml-3 relative">
                 <div>
                   <MenuButton
-                    class="
-                      max-w-xs
-                      bg-gray-800
-                      rounded-full
-                      flex
-                      items-center
-                      text-sm
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-offset-2
-                      focus:ring-offset-gray-800
-                      focus:ring-white
-                    "
+                    class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                   >
                     <span class="sr-only">Open user menu</span>
                     <img
@@ -70,25 +58,13 @@
                   leave-to-class="transform opacity-0 scale-95"
                 >
                   <MenuItems
-                    class="
-                      origin-top-right
-                      absolute
-                      right-0
-                      mt-2
-                      w-48
-                      rounded-md
-                      shadow-lg
-                      py-1
-                      bg-white
-                      ring-1 ring-black ring-opacity-5
-                      focus:outline-none
-                    "
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
                     <MenuItem v-slot="{ active }">
                       <nav-link
                         :href="route('profile.show')"
                         :class="[
-                          active ? 'bg-gray-100' : '',
+                          active ? 'bg-gray-100' : 'hover:bg-gray-100',
                           'block px-4 py-2 text-sm text-gray-700',
                         ]"
                         >Profile</nav-link
@@ -106,7 +82,7 @@
                             : route('admin.index')
                         "
                         :class="[
-                          active ? 'bg-gray-100' : '',
+                          active ? 'bg-gray-100' : 'hover:bg-gray-100',
                           'block px-4 py-2 text-sm text-gray-700',
                         ]"
                         >{{
@@ -121,17 +97,7 @@
 
                     <button
                       @click="logout"
-                      class="
-                        block
-                        w-full
-                        text-left
-                        focus:ring-0 focus:outline-none
-                        block
-                        px-4
-                        py-2
-                        text-sm text-gray-700
-                        hover:bg-gray-100
-                      "
+                      class="block w-full text-left focus:ring-0 focus:outline-none px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Log Out
                     </button>
@@ -143,21 +109,7 @@
           <div class="-mr-2 flex md:hidden">
             <!-- Mobile menu button -->
             <DisclosureButton
-              class="
-                bg-gray-800
-                inline-flex
-                items-center
-                justify-center
-                p-2
-                rounded-md
-                text-gray-400
-                hover:text-white hover:bg-gray-700
-                focus:outline-none
-                focus:ring-2
-                focus:ring-offset-2
-                focus:ring-offset-gray-800
-                focus:ring-white
-              "
+              class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               <span class="sr-only">Open main menu</span>
               <MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
@@ -201,16 +153,7 @@
 
           <nav-link
             @click="logout"
-            class="
-              block
-              px-3
-              py-2
-              rounded-md
-              text-base
-              font-medium
-              text-gray-300
-              hover:bg-gray-700 hover:text-white
-            "
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >Log Out</nav-link
           >
         </div>
@@ -222,7 +165,6 @@
         <slot></slot>
       </div>
     </main>
-
   </div>
   <Alert :icon="icon" :message="message"></Alert>
 </template>
