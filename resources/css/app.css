@@ -10,7 +10,7 @@ body,
 }
 
 body {
-  @apply overflow-y-scroll
+  @apply !overflow-y-scroll
 }
 
 /* Make clicks pass-through */
