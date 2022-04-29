@@ -18,9 +18,9 @@ export interface Link {
   active: boolean
 }
 
-export interface PaginationReturns {
+export interface PaginationReturns<Item> {
   current_page: number
-  data: Server[]
+  data: Item[]
   first_page_url: string | null
   from: number
   last_page: number
