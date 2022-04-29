@@ -348,6 +348,10 @@ export default defineComponent({
         value: 'hostname',
       },
       {
+        text: 'Latency (ms)',
+        value: 'latency',
+      },
+      {
         text: 'Actions',
         value: 'actions',
       },
