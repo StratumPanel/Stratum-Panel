@@ -16,6 +16,8 @@
       "@components/*": ["./resources/js/components/*"],
       "@assets/*": ["./resources/assets/*"],
       "@api/*": ["./resources/js/api/*"],
+      "@layouts/*": ["./resources/js/Layouts/*"],
+      "@pages/*": ["./resources/js/Pages/*"],
       "@/*": ["./resources/js/*"]
     }
   },

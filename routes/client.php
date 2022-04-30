@@ -26,7 +26,6 @@ Route::group(['prefix' => '/servers/{server}', 'middleware' => AuthenticateServe
         Route::middleware([VerifyCloudinitEnabled::class])->group(function () {
             Route::put('/password', [CloudinitController::class, 'updatePassword'])->name('servers.show.security.password.update');
         });
-
     });
 
     Route::get('/status', [StatusController::class, 'show'])->name('servers.show.status');

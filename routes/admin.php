@@ -5,22 +5,16 @@ use App\Http\Controllers\Admin\Nodes\NodeController;
 use App\Http\Controllers\Admin\Servers\ServerController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BaseController::class, 'index'])->name('admin.index');
+Route::name('admin.')->group(function () {
+    Route::get('/', [BaseController::class, 'index'])->name('index');
 
-Route::group(['prefix' => '/nodes'], function() {
-    Route::get('/', [NodeController::class, 'index'])->name('admin.nodes.index');
-    Route::post('/', [NodeController::class, 'store'])->name('admin.nodes.store');
-    Route::put('/{node}', [NodeController::class, 'update'])->name('admin.nodes.update');
-    Route::delete('/{node}', [NodeController::class, 'destroy'])->name('admin.nodes.destroy');
+    Route::name('nodes.')->prefix('nodes/health')->group(function () {
+        Route::get('/', [NodeController::class, 'showHealth'])->name('health.show');
 
-    Route::group(['prefix' => '/health'], function() {
-        Route::get('/', [NodeController::class, 'showHealth'])->name('admin.nodes.health.show');
-
-        Route::post('/tests', [NodeController::class, 'runTests'])->name('admin.nodes.health.test');
+        Route::post('/tests', [NodeController::class, 'runTests'])->name('health.test');
     });
 
-});
+    Route::resource('nodes', NodeController::class);
 
-Route::group(['prefix' => '/servers'], function() {
-    Route::get('/', [ServerController::class, 'index'])->name('admin.servers.index');
+    Route::resource('servers', ServerController::class);
 });

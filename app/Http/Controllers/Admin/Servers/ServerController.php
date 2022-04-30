@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Admin\Servers;
 
 use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
+use App\Services\Servers\CloudinitService;
 use Illuminate\Http\Request;
 
 class ServerController extends ApplicationApiController
 {
+    public function __construct(private CloudinitService $cloudinitService)
+    {
+    }
     public function index()
     {
         return inertia('Admin/Servers/Index', [
@@ -22,6 +26,14 @@ class ServerController extends ApplicationApiController
                     'user_name' => $item->owner->name,
                 ];
             })
+        ]);
+    }
+
+    public function edit(Server $server)
+    {
+        return inertia('Admin/Servers/Edit', [
+            'server' => $server,
+            'config' => $this->cloudinitService->setServer($server)->fetchConfig()['data'],
         ]);
     }
 }

@@ -21,7 +21,7 @@ class NodeController extends ApplicationApiController
     public function index()
     {
         return inertia('Admin/Nodes/Index', [
-            'nodes' => DB::table('nodes')->select('id', 'name', 'cluster', 'hostname', 'latency', 'port')->get()->toArray(),
+            'nodes' => DB::table('nodes')->select('id', 'name', 'cluster', 'hostname', 'latency', 'port')->paginate(20),
         ]);
     }
 

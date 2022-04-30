@@ -11,7 +11,7 @@
       </div>
 
       <Card class="mt-2 overflow-x-hidden">
-        <Table :headers="headers" :items="nodes">
+        <Table :headers="headers" :items="nodes.data">
           <template
             v-slot:hostname="{ item }: { item: {
             hostname: string
@@ -43,6 +43,10 @@
           </template>
         </Table>
       </Card>
+
+      <div class="flex mt-8 justify-end">
+        <Pagination v-bind="nodes" />
+      </div>
 
       <dialog-modal :show="showCreateNode" @close="createNode">
         <template #content>
@@ -310,6 +314,7 @@ import { usePage, useForm } from '@inertiajs/inertia-vue3'
 import IconButton from '@components/IconButton.vue'
 import deleteNode from '@api/node/deleteNode'
 import { Inertia } from '@inertiajs/inertia'
+import Pagination from '@components/Pagination.vue'
 
 export default defineComponent({
   name: 'Index',
@@ -330,6 +335,7 @@ export default defineComponent({
     InputError,
     Label,
     FontAwesomeIcon,
+    Pagination,
     IconButton,
   },
   setup() {
@@ -352,7 +358,7 @@ export default defineComponent({
         value: 'latency',
       },
       {
-        text: 'Actions',
+        text: '',
         value: 'actions',
       },
     ]
