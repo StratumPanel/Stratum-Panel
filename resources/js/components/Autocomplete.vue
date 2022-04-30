@@ -1,5 +1,5 @@
 <template>
-  <Combobox v-model="modelValue">
+  <Combobox v-model="selected">
     <div class="relative mt-1">
       <div class="border-gray-300 rounded-md shadow-sm border">
         <ComboboxInput
@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, Ref } from 'vue'
 import {
   Combobox,
   ComboboxInput,
@@ -76,37 +76,25 @@ import {
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
 
-const { filterItems } = defineProps({
-    modelValue: {
-        required: true,
-    },
-    items: {
-        type: Array,
-        required: true,
-    },
-    displayValue: {
-        type: Function,
-        required: true,
-    },
-    filterItems: {
-        type: Function,
-        required: true,
-    },
-})
+const emits = defineEmits(['update:modelValue'])
 
-const people = [
-  { id: 1, name: 'Wade Cooper' },
-  { id: 2, name: 'Arlene Mccoy' },
-  { id: 3, name: 'Devon Webb' },
-  { id: 4, name: 'Tom Cook' },
-  { id: 5, name: 'Tanya Fox' },
-  { id: 6, name: 'Hellen Schmidt' },
-]
+const { modelValue, filterItems } = defineProps<{
+  modelValue: Array<any> | string,
+  items: Array<any>,
+  displayValue: Function,
+  filterItems: Function
+}>()
+
+const selected = ref<string | Array<any>>()
+selected.value = modelValue
+
+watch(() => selected.value, (current) => {
+  emits('update:modelValue', current)
+})
 
 const query = ref('')
 
 const filteredItems = ref([])
-
 filteredItems.value = filterItems(query.value)
 
 watch(() => query.value, (current) => {

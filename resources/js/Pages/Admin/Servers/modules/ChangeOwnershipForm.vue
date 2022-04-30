@@ -3,7 +3,13 @@
     <template #title>Change Ownership</template>
     <template #form>
       <div class="col-span-6">
-        <Autocomplete v-model="selected" :items="people" :filter-items="(query) => filterItems(query)" :display-value="(person) => person.name" />
+        <Label value="User"></Label>
+        <Autocomplete
+          v-model="selected"
+          :items="people"
+          :filter-items="(query) => filterItems(query)"
+          :display-value="(person) => person.name"
+        />
       </div>
     </template>
     <template #actions>
@@ -22,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -31,6 +37,7 @@ import ActionMessage from '@/Jetstream/ActionMessage.vue'
 import Button from '@components/Button.vue'
 import ServerInterface from '@/util/serverInterface'
 import Autocomplete from '@components/Autocomplete.vue'
+import Label from '@components/Label.vue'
 
 const server: ServerInterface = usePage().props.value.server as ServerInterface
 const store = useStore()
@@ -50,7 +57,6 @@ const filterItems = (query: string) =>
           .includes(query.toLowerCase().replace(/\s+/g, ''))
       )
 
-
 const people = [
   { id: 1, name: 'Penis Cooper' },
   { id: 2, name: 'Arlene Mccoy' },
@@ -61,6 +67,8 @@ const people = [
 ]
 
 const selected = ref(people[0])
+
+watch(() => selected.value, (current) => alert(current.name))
 
 const handle = () => {
   store.dispatch('alerts/createAlert', {
