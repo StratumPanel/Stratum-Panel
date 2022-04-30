@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\Nodes\NodeController;
 use App\Http\Controllers\Admin\Servers\ServerController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 Route::name('admin.')->group(function () {
     Route::get('/', [BaseController::class, 'index'])->name('index');
@@ -17,4 +19,8 @@ Route::name('admin.')->group(function () {
     Route::resource('nodes', NodeController::class);
 
     Route::resource('servers', ServerController::class);
+
+    Route::get('/users/search', function (Request $request) {
+        return User::search($request->search)->get();
+    })->name('users.search');
 });
