@@ -7,6 +7,7 @@
       <bios-config-form />
       <network-config-form />
       <password-form />
+      <change-ownership-form />
     </div>
   </app-layout>
 </template>
@@ -18,6 +19,7 @@ import DisplayInfoForm from '@pages/Servers/Settings/modules/DisplayInfoForm.vue
 import BiosConfigForm from '@pages/Servers/Settings/modules/BiosConfigForm.vue'
 import NetworkConfigForm from '@pages/Servers/Settings/modules/NetworkConfigForm.vue'
 import PasswordForm from '@pages/Servers/Security/modules/PasswordForm.vue'
+import ChangeOwnershipForm from '@pages/Admin/Servers/modules/ChangeOwnershipForm.vue'
 
 const { server } = defineProps<{
   server: Server
