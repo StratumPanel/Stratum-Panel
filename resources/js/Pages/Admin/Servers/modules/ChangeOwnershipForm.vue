@@ -6,9 +6,9 @@
         <Label value="User"></Label>
         <Autocomplete
           v-model="selected"
-          :items="people"
-          :filter-items="(query) => filterItems(query)"
-          :display-value="(person) => person.name"
+          :items="users"
+          :filter-items="(query: string) => filterItems(query)"
+          :display-value="(user: {name: string}) => user?.name"
         />
       </div>
     </template>
@@ -28,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'
@@ -38,57 +39,48 @@ import Button from '@components/Button.vue'
 import ServerInterface from '@/util/serverInterface'
 import Autocomplete from '@components/Autocomplete.vue'
 import Label from '@components/Label.vue'
+import getAllUsers, { User } from '@api/user/getAllUsers'
+import { AxiosResponse } from 'axios'
+import searchUsers from '@api/user/searchUsers'
+import { sendPending, sendError, sendSuccess } from '@/util/sendAlert'
+import getUser from '@api/user/getUser'
 
 const server: ServerInterface = usePage().props.value.server as ServerInterface
 const store = useStore()
 const form = useForm({
-  type: 'sshkeys',
-  password: '',
-  password_confirmation: '',
+  user_id: 0,
+})
+form.user_id = server.user_id
+
+const users = ref<User[]>([])
+
+const selected = ref<User>()
+
+const filterItems = async (query: string) => {
+  let results = await searchUsers(query)
+
+  return Object.values(await results.data)
+}
+
+watch(
+  () => selected.value,
+  (current) => console.log(current?.name)
+)
+
+getAllUsers().then(({ data }: AxiosResponse<User[]>) => {
+  users.value = Object.values(data)
 })
 
-const filterItems = (query: string) =>
-  query === ''
-    ? people
-    : people.filter((person) =>
-        person.name
-          .toLowerCase()
-          .replace(/\s+/g, '')
-          .includes(query.toLowerCase().replace(/\s+/g, ''))
-      )
-
-const people = [
-  { id: 1, name: 'Penis Cooper' },
-  { id: 2, name: 'Arlene Mccoy' },
-  { id: 3, name: 'Devon Webb' },
-  { id: 4, name: 'Tom Cook' },
-  { id: 5, name: 'Tanya Fox' },
-  { id: 6, name: 'Hellen Schmidt' },
-]
-
-const selected = ref(people[0])
-
-watch(() => selected.value, (current) => alert(current.name))
+getUser(server.user_id).then(({ data }: AxiosResponse<User>) => {
+  selected.value = data
+})
 
 const handle = () => {
-  store.dispatch('alerts/createAlert', {
-    message: 'Updating password...',
-    timeout: false,
-  })
+  sendPending('Updating password...')
 
   form.put(route('servers.show.security.password.update', server.id), {
-    onSuccess: () => {
-      store.dispatch('alerts/createAlert', {
-        message: 'Password updated',
-        icon: faCheck,
-      })
-    },
-    onError: () => {
-      store.dispatch('alerts/createAlert', {
-        message: 'Failed to update password',
-        icon: faTimes,
-      })
-    },
+    onSuccess: () => sendSuccess('Password updated'),
+    onError: () => sendError('Failed to update password'),
   })
 }
 </script>

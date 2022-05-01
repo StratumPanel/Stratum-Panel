@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\Nodes\NodeController;
 use App\Http\Controllers\Admin\Servers\ServerController;
+use App\Http\Controllers\Admin\Users\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +21,11 @@ Route::name('admin.')->group(function () {
 
     Route::resource('servers', ServerController::class);
 
-    Route::get('/users/search', function (Request $request) {
-        return User::search($request->search)->get();
-    })->name('users.search');
+    Route::prefix('users')->group(function() {
+        Route::get('/search', function (Request $request) {
+            return User::search($request->search)->get();
+        })->name('users.search');
+    });
+
+    Route::resource('users', UserController::class);
 });

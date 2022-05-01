@@ -5,7 +5,8 @@
         <ComboboxInput
           class="w-full border-none py-2 pl-3 pr-10 rounded-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:outline-none focus:ring-opacity-50"
           :displayValue="(item) => displayValue(item)"
-          @change="query = $event.target.value"
+          @change="search($event)"
+          autocomplete="off"
         />
         <ComboboxButton
           class="absolute inset-y-0 right-0 flex items-center pr-2"
@@ -32,7 +33,7 @@
           <ComboboxOption
             v-for="item in filteredItems"
             as="template"
-            :key="item"
+            :key="item.id"
             :value="item"
             v-slot="{ selected, active }"
           >
@@ -78,26 +79,34 @@ import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
 
 const emits = defineEmits(['update:modelValue'])
 
-const { modelValue, filterItems } = defineProps<{
+const props = defineProps<{
   modelValue: Array<any> | string,
-  items: Array<any>,
+  items: any[],
   displayValue: Function,
   filterItems: Function
 }>()
 
+const query = ref('')
+
 const selected = ref<string | Array<any>>()
-selected.value = modelValue
+watch(() => props.modelValue, (current) => {
+  selected.value = current
+})
+selected.value = props.modelValue
 
 watch(() => selected.value, (current) => {
   emits('update:modelValue', current)
 })
 
-const query = ref('')
-
-const filteredItems = ref([])
-filteredItems.value = filterItems(query.value)
-
-watch(() => query.value, (current) => {
-    filteredItems.value = filterItems(current)
+const filteredItems = ref<any[]>([])
+watch(() => props.items, (current) => {
+  filteredItems.value = current
 })
+filteredItems.value = props.items
+
+const search = async (event: Event) => {
+  query.value = (event.target as HTMLInputElement).value
+  let filtered = await props.filterItems((event.target as HTMLInputElement).value)
+  filteredItems.value = filtered
+}
 </script>
