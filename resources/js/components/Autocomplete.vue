@@ -88,7 +88,7 @@ const props = defineProps<{
 
 const query = ref('')
 
-const selected = ref<string | Array<any>>()
+const selected = ref<string | Array<any>>('')
 watch(() => props.modelValue, (current) => {
   selected.value = current
 })

@@ -7,8 +7,8 @@
         <Autocomplete
           v-model="selected"
           :items="users"
-          :filter-items="(query: string) => filterItems(query)"
-          :display-value="(user: {name: string}) => user?.name"
+          :filter-items="(query: any) => filterItems(query)"
+          :display-value="(user: any) => user?.name"
         />
       </div>
     </template>
@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 // @ts-ignore
+
 import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { usePage, useForm } from '@inertiajs/inertia-vue3'

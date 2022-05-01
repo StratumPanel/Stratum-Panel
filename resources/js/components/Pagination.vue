@@ -10,18 +10,18 @@
       </li>
       <template v-for="link in parsedLinks">
         <li v-if="link.label != current_page">
-          <a
-            href="#"
+          <Link
+            :href="link.url"
             class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-            >{{ link.label }}</a
+            >{{ link.label }}</Link
           >
         </li>
         <li v-else-if="link.label == current_page">
-          <a
-            href="#"
+          <Link
+            :href="link.url"
             aria-current="page"
             class="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700"
-            >{{ link.label }}</a
+            >{{ link.label }}</Link
           >
         </li>
       </template>
@@ -42,7 +42,4 @@ const { links } = defineProps(['current_page', 'data', 'first_page_url', 'from',
 
 let parsedLinks = [...links]
 parsedLinks = parsedLinks.filter(({ label }: { label: string }) => !label.includes('Previous') && !label.includes('Next'))
-
-// @ts-ignore
-//console.log({test: props.current_page})
 </script>
