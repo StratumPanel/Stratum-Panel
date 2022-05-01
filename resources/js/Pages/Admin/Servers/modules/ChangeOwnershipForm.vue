@@ -64,7 +64,7 @@ const filterItems = async (query: string) => {
 
 watch(
   () => selected.value,
-  (current) => console.log(current?.name)
+  (current) => form.user_id = current!.id
 )
 
 getAllUsers().then(({ data }: AxiosResponse<User[]>) => {
@@ -76,11 +76,11 @@ getUser(server.user_id).then(({ data }: AxiosResponse<User>) => {
 })
 
 const handle = () => {
-  sendPending('Updating password...')
+  sendPending('Updating owner...')
 
-  form.put(route('servers.show.security.password.update', server.id), {
-    onSuccess: () => sendSuccess('Password updated'),
-    onError: () => sendError('Failed to update password'),
+  form.put(route('admin.servers.update-owner', server.id), {
+    onSuccess: () => sendSuccess('Owner updated'),
+    onError: () => sendError('Failed to update owner'),
   })
 }
 </script>

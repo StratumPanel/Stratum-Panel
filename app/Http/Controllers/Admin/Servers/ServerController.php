@@ -6,6 +6,7 @@ use App\Http\Controllers\ApplicationApiController;
 use App\Models\Server;
 use App\Services\Servers\CloudinitService;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\Servers\UpdateOwnerRequest;
 
 class ServerController extends ApplicationApiController
 {
@@ -35,5 +36,12 @@ class ServerController extends ApplicationApiController
             'server' => $server,
             'config' => $this->cloudinitService->setServer($server)->fetchConfig()['data'],
         ]);
+    }
+
+    public function updateOwner(UpdateOwnerRequest $request, Server $server)
+    {
+        $server->update($request->validated());
+
+        return $this->returnInertiaResponse($request, 'owner-updated');
     }
 }

@@ -19,12 +19,15 @@ Route::name('admin.')->group(function () {
 
     Route::resource('nodes', NodeController::class);
 
+
+    Route::prefix('servers')->put('/{server}/update-owner', [ServerController::class, 'updateOwner'])->name('servers.update-owner');
     Route::resource('servers', ServerController::class);
 
     Route::prefix('users')->group(function() {
         Route::get('/search', function (Request $request) {
             return User::search($request->search)->get();
         })->name('users.search');
+
     });
 
     Route::resource('users', UserController::class);
