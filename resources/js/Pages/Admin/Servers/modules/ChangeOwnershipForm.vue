@@ -7,8 +7,8 @@
         <Autocomplete
           v-model="selected"
           :items="users"
-          :filter-items="(query: any) => filterItems(query)"
-          :display-value="(user: any) => user?.name"
+          :filter-items="filterItems"
+          :display-value="getDisplayName"
         />
       </div>
     </template>
@@ -84,4 +84,6 @@ const handle = () => {
     onError: () => sendError('Failed to update owner'),
   })
 }
+
+const getDisplayName = (user: User) => user?.name
 </script>
