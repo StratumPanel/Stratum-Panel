@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import AppLayout from '@/Layouts/AppLayout.vue'
 import ServerInterface from '@/util/serverInterface'
 import ServerHeader from '@components/ServerHeader.vue'

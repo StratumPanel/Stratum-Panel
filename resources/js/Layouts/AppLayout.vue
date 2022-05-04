@@ -61,13 +61,13 @@
                     class="origin-top-right z-50 absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
                     <MenuItem v-slot="{ active }">
-                      <nav-link
+                      <Link
                         :href="route('profile.show')"
                         :class="[
                           active ? 'bg-gray-100' : 'hover:bg-gray-100',
                           'block px-4 py-2 text-sm text-gray-700',
                         ]"
-                        >Profile</nav-link
+                        >Profile</Link
                       >
                     </MenuItem>
 
@@ -75,7 +75,7 @@
                       v-if="$page.props.user.root_admin"
                       v-slot="{ active }"
                     >
-                      <nav-link
+                      <Link
                         :href="
                           route().current('admin.*')
                             ? route('dashboard')
@@ -89,7 +89,7 @@
                           route().current('admin.*')
                             ? 'Client Panel'
                             : 'Admin Panel'
-                        }}</nav-link
+                        }}</Link
                       >
                     </MenuItem>
 
@@ -183,6 +183,7 @@ import {
 import NavLink from '@components/NavLink.vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 import { Inertia } from '@inertiajs/inertia'
+import { Link } from '@inertiajs/inertia-vue3'
 import Alert from '@components/Alert.vue'
 import { useStore } from 'vuex'
 
@@ -218,6 +219,7 @@ export default {
     XIcon,
     NavLink,
     Alert,
+    Link,
   },
   setup() {
     const open = ref(false)
