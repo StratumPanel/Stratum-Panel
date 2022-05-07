@@ -17,6 +17,7 @@ class CreateTemplatesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string("name");
+            $table->string("proxmox_id");
             $table->string("link");
         });
     }
