@@ -1,5 +1,5 @@
 <template>
-  <Combobox v-model="selected">
+  <Combobox :key="rerenderSignal" v-model="selectedItem">
     <div class="relative mt-1">
       <div class="border-gray-300 rounded-md shadow-sm border">
         <ComboboxInput
@@ -55,7 +55,7 @@
                 class="absolute inset-y-0 left-0 flex items-center pl-3"
                 :class="{ 'text-white': active, 'text-gray-600': !active }"
               >
-                <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                <font-awesome-icon :icon="faCheck" class="!h-4 !w-4" aria-hidden="true" />
               </span>
             </li>
           </ComboboxOption>
@@ -76,37 +76,56 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const emits = defineEmits(['update:modelValue'])
 
 const props = defineProps<{
-  modelValue: Array<any> | string,
-  items: any[],
-  displayValue: Function,
+  modelValue: Array<any> | string
+  items: any[]
+  displayValue: Function
   filterItems: Function
 }>()
 
 const query = ref('')
+const rerenderSignal = ref(0)
 
-const selected = ref<string | Array<any>>('')
-watch(() => props.modelValue, (current) => {
-  selected.value = current
-})
-selected.value = props.modelValue
+const selectedItem = ref<string | Array<any>>('')
+watch(
+  () => props.modelValue,
+  (current) => {
+    rerenderSignal.value = rerenderSignal.value + 1
+    selectedItem.value = current
+  }
+)
+selectedItem.value = props.modelValue
 
-watch(() => selected.value, (current) => {
-  emits('update:modelValue', current)
-})
+watch(
+  () => selectedItem.value,
+  (current) => {
+    emits('update:modelValue', current)
+  }
+)
 
 const filteredItems = ref<any[]>([])
-watch(() => props.items, (current) => {
-  filteredItems.value = current
-})
+watch(
+  () => props.items,
+  (current) => {
+    filteredItems.value = current
+  }
+)
 filteredItems.value = props.items
 
 const search = async (event: Event) => {
   query.value = (event.target as HTMLInputElement).value
-  let filtered = await props.filterItems((event.target as HTMLInputElement).value)
+  let filtered = await props.filterItems(
+    (event.target as HTMLInputElement).value
+  )
   filteredItems.value = filtered
+}
+
+const log = (...args: any) => {
+  console.log(...args)
 }
 </script>
