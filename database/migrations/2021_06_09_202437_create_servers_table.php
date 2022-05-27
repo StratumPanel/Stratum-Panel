@@ -17,11 +17,12 @@ class CreateServersTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('node_id')->constrained()->onDelete('cascade');
             $table->string('vnc_username')->nullable();
             $table->string('vnc_password')->nullable();
-            $table->boolean('cloud_init_enabled');
+            $table->boolean('cloud_init_enabled')->default(true);
+            $table->boolean('is_os_template')->default(false);
             $table->unsignedBigInteger('vmid');
             $table->timestamps();
         });

@@ -18,7 +18,8 @@ use App\Http\Controllers\Client\Servers\StatusController;
 |
 */
 
-Route::get('/api/status/{server}', [StatusController::class, 'index'])->name('status'); // For some reason this wasn't working in api.php, will look into it later
+Route::get('/api/status/{server}', [StatusController::class, 'show'])->name('status'); // For some reason this wasn't working in api.php, will look into it later
 Route::post('/api/snapshot/{server}/take', [SnapshotController::class, 'index'])->name('snapshot');
 Route::get('/api/snapshot/{server}/fetch', [SnapshotController::class, 'fetch'])->name('fetchsnapshots');
 Route::get('/api/templates/{server}/create', [TemplateController::class, 'createTemplateFromVM'])->name('createtemplates');
+Route::get('/api/create/{server}', [\App\Http\Controllers\Admin\Servers\CreationController::class, 'create'])->name('createtempla2asdtes');

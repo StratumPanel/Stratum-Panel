@@ -22,6 +22,7 @@ class CreateNodesTable extends Migration
             $table->string('password');
             $table->integer('port');
             $table->string('auth_type');
+            //$table->foreignId('group_id')->constrained()->onDelete('cascade');
             $table->integer('latency')->nullable();
             $table->timestamp('last_pinged')->nullable();
             $table->timestamps();
