@@ -33,6 +33,9 @@ const status = {
     setStatus(state: ServerStatus, payload: ServerStatus) {
       Object.assign(state, payload)
     },
+    setState(state: ServerStatus, payload: ServerState) {
+      state.state = payload
+    }
   },
 
   actions: {
