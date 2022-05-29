@@ -14,8 +14,9 @@ class UserController extends ApplicationApiController
         {
             return $this->returnContent(User::all());
         } else {
-            // not done
-            return $this->returnNoContent();
+            return inertia('Admin/Users/Index', [
+                'users' => User::select('id', 'name', 'email', 'root_admin')->paginate(20)
+            ]);
         }
     }
 
@@ -25,8 +26,14 @@ class UserController extends ApplicationApiController
         {
             return $this->returnContent($user);
         } else {
-            // not done
-            return $this->returnNoContent();
+            return inertia('Admin/Users/Show', [
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'root_admin' => $user->root_admin,
+                ]
+            ]);
         }
     }
 }

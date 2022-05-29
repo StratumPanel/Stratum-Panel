@@ -201,6 +201,10 @@ const adminlinks = [
     name: 'Servers',
     route: 'admin.servers.index',
   },
+  {
+    name: 'Users',
+    route: 'admin.users.index',
+  },
 ]
 
 const userlinks = [{ name: 'Profile', route: 'profile.show' }]

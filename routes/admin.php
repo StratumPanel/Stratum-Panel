@@ -27,7 +27,6 @@ Route::name('admin.')->group(function () {
         Route::get('/search', function (Request $request) {
             return User::search($request->search)->get();
         })->name('users.search');
-
     });
 
     Route::resource('users', UserController::class);
